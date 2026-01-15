@@ -1,0 +1,9 @@
+*.ps1
+*.tex
+*.aux
+*.log
+*.fls
+*.fdb_latexmk
+*.synctex.gz
+*.toc
+*.md
