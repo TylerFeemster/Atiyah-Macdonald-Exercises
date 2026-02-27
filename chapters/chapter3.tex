@@ -1,0 +1,917 @@
+\section{Rings and Modules of Fractions (Complete)}
+
+\subsection{Exercise}\label{3.1}
+
+\begin{proof}
+By Proposition 3.14, since $S$ is multiplicatively closed and $M$ is finitely generated,
+$$S^{-1}\Ann(M) = \Ann(S^{-1}M).$$
+Thus, if $S^{-1}M = 0$, then $\Ann(S^{-1}M) = S^{-1}A$, so $S^{-1}\Ann(M) = S^{-1}A$. But $1 = 1/1 \in S^{-1}A$, so there is some $a \in \Ann(M)$ and $s \in S$
+such that $a/s = 1/1$. In other words, there is some $t \in S$ such that $t(a-s)=0$ or $st = at$. Since $a \in \Ann(M)$, $st = at \in \Ann(M)$. But $s,t \in S$, so $st \in S$,
+hence $S \cap \Ann(M)$ is non-empty.
+
+Conversely, suppose there is some $s \in S$ such that $sM = 0$. Let $m/t$ be an arbitrary element of $S^{-1}M$, where $m \in M$ and $t \in S$. Consider the element $0 = 0/s$. We have that
+$sm - 0t = 0 - 0 = 0$, so $m/t \equiv 0$ and thus $S^{-1}M = 0$.
+\end{proof}
+
+\subsection{Exercise}\label{3.2}
+
+\begin{proof}
+The Jacobson radical of $S^{-1}A$ is the intersection of maximal ideals of $S^{-1}A$. Thus, if we can show that $S^{-1}\mathfrak{a}$ is in an arbitrary maximal ideal, we will have shown that it 
+lies in the Jacobson radical. By Proposition 3.11(iv), since maximal ideals are prime, any maximal ideal of $S^{-1}A$
+is of the form $S^{-1}\mathfrak{p}$ for some prime ideal $\mathfrak{p}$ of $A$ that does not meet $S = (1 + \mathfrak{a})$, i.e. $(1 + \mathfrak{a}) \cap \mathfrak{p} = \emptyset$. By assumption,
+$S^{-1}\mathfrak{p}$ is maximal, either $S^{-1}\mathfrak{p} + S^{-1}\mathfrak{a} = (1)$ or $S^{-1}\mathfrak{p} + S^{-1}\mathfrak{a} = S^{-1}\mathfrak{p}$ (and hence $S^{-1}\mathfrak{a} \subset S^{-1}\mathfrak{p}$).
+In the former case, we have by Proposition 3.11(v),
+$$(1) = S^{-1}\mathfrak{p} + S^{-1}\mathfrak{a} = S^{-1}(\mathfrak{p} + \mathfrak{a}).$$
+This means we can write $1/1 \equiv (p + x)/(1 + y)$, where $p \in \mathfrak{p}$, $x,y \in \mathfrak{a}$. Then, there is some $z \in \mathfrak{a}$ such that
+\begin{align*}
+0 &= (1+z)((p+x) - (1+y)) \\
+0 &= (1+z)(p+x) - (1+y)(1+z) \\
+0 &= p + x + pz + xz - 1 - yz - y - z \\
+p &= 1 + (yz + y + z - xz - pz - x).
+\end{align*}
+Since $yz + y + z - xz - pz - x \in \mathfrak{a}$ and $p \in \mathfrak{p}$, we contradict $(1 + \mathfrak{a}) \cap \mathfrak{p} = \emptyset$. Thus, as desired, we have $S^{-1}\mathfrak{a} \subset S^{-1}\mathfrak{p}$, so
+$S^{-1}\mathfrak{a}$ is contained in the Jacobson radical of $S^{-1}A$.
+\end{proof}
+
+Let $M$ be a finitely generated $A$-module, and let $\mathfrak{a}$ be an ideal of $A$ such that $\mathfrak{a}M = M$. Then, there exists $x \equiv 1\mod\mathfrak{a}$ such that $xM = 0$.
+
+\begin{proof}
+Let $S = 1 + \mathfrak{a}$. Then, by assumption,
+$$S^{-1}M = S^{-1}(\mathfrak{a}M) = S^{-1}(\mathfrak{a})S^{-1}(M).$$
+By our previous proof, $S^{-1}\mathfrak{a}$ lies in the Jacobson radical of $S^{-1}A$. Further, note that by Proposition 3.5, $S^{-1}M \cong S^{-1}A \otimes_A M$, so since $M$ is finitely generated
+as an $A$-module, $S^{-1}M$ is finitely generated as a $S^{-1}A$-module (map generators $m \mapsto 1 \otimes m$). Thus, we have everything we need to invoke Nakayama's lemma: $S^{-1}M = 0$. By Exercise \ref{3.1},
+there is some $x \in S = 1+\mathfrak{a}$ such that $xM = 0$.
+\end{proof}
+
+\subsection{Exercise}\label{3.3}
+
+\begin{proof}
+To show that $(ST)^{-1}A \cong U^{-1}(S^{-1}A)$, we show that $U^{-1}(S^{-1}A)$ satisfies the universal property for the multiplicatively closed set $ST$. We invoke the
+universal property a few times, which is Proposition 3.1.
+
+Consider
+$$A \xlongrightarrow{j} S^{-1}A \xlongrightarrow{k} U^{-1}(S^{-1}A),$$
+letting $g = k \circ j$. For any $s \in S$, $j(s)$ is a unit in $S^{-1}A$, so $g(s) = k(j(s))$ is a unit. For $t \in T$,
+$j(t) \in U$ by the definition of $U$, so $k(j(t))$ is a unit. Thus, $g(st) = g(s)g(t)$ is a product of units and thus a unit for any $st \in ST$.
+
+Suppose we have a map $f : A \to B$ such that $f(ST) \subset B^{\times}$. Since $S \subset ST$, $f(S) \subset B^{\times}$. By the universal property of $S^{-1}A$,
+there is a unique map $h : S^{-1}A \to B$ such that $h \circ j = f$. Every element of $U$ has the form $j(t)$ for some $t \in T$, but $h(j(t)) = f(t)$. Since $T \subset ST$,
+$f(t)$ is a unit. In particular, $h(U) \subset B^{\times}$. By the universal property of $U^{-1}(S^{-1}A)$, there is a unique map $\overline{h}:U^{-1}(S^{-1}A) \to B$ such that
+$\overline{h} \circ k = h$. Combining these, $f = h \circ j = \overline{h} \circ (k \circ j) = \overline{h} \circ g$. Because $\overline{h}$ is unique, $U^{-1}(S^{-1}A)$ satisfies
+the defining universal property of $(ST)^{-1}A$, so the two rings are uniquely isomorphic.
+\end{proof}
+
+\subsection{Exercise}\label{3.4}
+
+\begin{proof}
+Since $f : A \to B$ is a ring homomorphism, and $S$ is a multiplicatively closed set, $T = f(S)$ is a multiplicatively closed set of $B$. Note that $B$ has a canonical $A$-module
+structure via $f$. On the one hand, we have the ring construction $T^{-1}B$, but on the other hand, we have the $S^{-1}A$-module construction $S^{-1}B$. Define a map
+$$\psi : S^{-1}B \to T^{-1}B, \quad (b,s) \mapsto b/f(s).$$
+Since every element of $T$ has the form $f(s)$, this is clearly a surjective map. Further, suppose $(b,s), (b',s') \in S^{-1}B$ are indentical in the image: $b/f(s) \equiv b'/f(s')$. Then, there is $f(s'') \in f(S)$
+such that $f(s'')(f(s')b - f(s)b') = 0$ in $B$. But this immediately implies $(b,s) \equiv (b',s')$ in $S^{-1}B$ since $S$ acts on $B$ via $f$. Thus, $\psi$ is injective, so $\psi$ is bijective.
+
+Since $B$ is an $A$-module, $S^{-1}B$ is automatically an $S^{-1}A$-module. For an arbitrary element $a/s \in S^{-1}A$ and $(b,s') \in S^{-1}B$. The action is defined by $(a/s)(b,s') = (f(a)b, ss')$.
+Likewise, since $f : A \to B$ and the natural map $B \to T^{-1}B$ are ring homomorphisms, we have a ring homomorphism $A \to T^{-1}B$ that sends $S$ to units since $T = f(S)$. Thus, we have a ring homomorphism
+$S^{-1}A \to T^{-1}B$ that endows $T^{-1}B$ with an $S^{-1}A$-module structure. For an arbitrary, $b/f(s') \in T^{-1}B$ and $a/s \in S^{-1}A$, the action is defined by $(a/s)(b/f(s')) = f(a)b/f(ss')$. Thus, for
+an arbitrary $a/s \in S^{-1}A$ and $(b,s') \in S^{-1}B$, we have
+$$\psi((a/s)(b,s')) = \psi((f(a)b,ss')) = f(a)b/f(ss') = (a/s)(b/f(s')) = (a/s)\psi((b,s')),$$
+so $\psi$ commutes with the $S^{-1}A$-action. For the sake of completion, we also have additivity:
+$$\psi((b,s) + (b',s')) = \psi((f(s')b,ss') + (f(s)b',ss')) = \psi((f(s')b + f(s)b', ss'))$$ 
+$$= (f(s')b + f(s)b')/f(ss') = b/f(s) + b'/f(s') = \psi((b,s)) + \psi((b',s')).$$
+Thus, $\psi : S^{-1}B \to T^{-1}B$ is a $S^{-1}A$-module isomorphism.
+\end{proof}
+
+\subsection{Exercise}\label{3.5}
+
+\begin{proof}
+Consider the nilradical $\mathfrak{N}$ of $A$, which has a natural $A$-module structure. By Corollary 3.12, for any multiplicatively closed set, $S^{-1}\mathfrak{N}$ is the
+nilradical of $S^{-1}A$. Consider the special case of localization as the prime ideals. Then, $\mathfrak{N}_{\mathfrak{p}}$ is the nilradical of $A_\mathfrak{p}$. If for all
+prime ideals $\mathfrak{p}$, the only nilpotent elements are $0$, then $\mathfrak{N}_{\mathfrak{p}} = 0$ for all $\mathfrak{p}$. By Proposition 3.8, $\mathfrak{N} = 0$, so there
+are no nilpotent elements of $A$.
+\end{proof}
+
+Consider the ring $A = \Z/6\Z$, which is not an integral domain. It has prime ideals $(2)$ and $(3)$. Localizing at $(2)$, $S = \{1,3,5\}$. Since
+$3 \in S$ and $2 \cdot 3 = 0$, $\frac{2}{1} = \frac{3\cdot 2}{3} = 0$. Thus, $0,2,4$ map to zero under $A \to A_{(2)}$. But then, $1=3=5$, so 
+$A_{(2)} = \Z/2\Z$. Similarly, $A_{(3)} = \Z/3\Z$. Thus, $A_\mathfrak{p}$ is an integral domain for all prime ideals $\mathfrak{p}$, but $A$ is not
+an integral domain, so being an integral domain is not a ``local property''.
+
+\subsection{Exercise}\label{3.6}
+
+\begin{proof}
+The multiplicatively closed subsets of $A$ not containing $0$ have a partial order under set inclusion; call this set $\Sigma$. Let $\mathcal{T}$ be a chain of $\Sigma$. 
+Define $U = \bigcup_{S \in \mathcal{T}} S$. Clearly, $U$ contains $1$. It's also multiplicatively closed since $x,y \in U$ implies $x \in S$ and $y \in S'$ for some $S,S' in \mathcal{T}$. Since 
+$\mathcal{T}$ is a chain, $S \subset S'$ or $S' \subset S$. Either way, the product is in $S \cup S'$, so $U$ is multiplicatively closed. Since $0 \not\in S$ for any $S \in \Sigma$, $0 \not\in U$,
+so $U \in \Sigma$, serving as a clear upper bound for $\mathcal{T}$. By Zorn's lemma, $\Sigma$ has maximal elements.
+
+Now, we aim to show that $S \in \Sigma$ is maximal if and only if $A - S$ is a minimal prime ideal of $A$. 
+
+Suppose $S \in \Sigma$ is maximal. We can localize to $S^{-1}A$. Since $0 \not\in S$, $S^{-1}A$ is not the zero ring, so $S^{-1}A$ has a maximal ideal $\mathfrak{m}$. Suppose $a/s \in S^{-1}A - \mathfrak{m}$.
+If $a/s$ is not a unit, then $a \not\in S$, so consider the multiplicatively closed set $\{a^n\}_{n\ge 0}S$. Since $S$ is maximal in $\Sigma$, we must have that $\{a^n\}_{n\ge 0}S$ contains $0$, so 
+$a^n t = 0$ for some $t \in S$. Then, $(a/s)^n = a^n/s^n \equiv 0/t = 0$, so $a/s$ is in the nilradical. But, $\mathfrak{m}$ is the Jacobson radical (since we're in a local ring), which contains the nilradical, 
+so we have a contradiction. Thus, $a/s$ is a unit. By Proposition 1.6, $S^{-1}A$ is a local ring with maximal ideal $\mathfrak{m}$.
+
+By Proposition 3.11(iv), the prime ideals of $S^{-1}A$ are in one-to-one correspondence with the prime ideals of $A$ not meeting $A$, via $\mathfrak{p} \leftrightarrow S^{-1}\mathfrak{p}$. Thus, there is exactly
+one prime ideal $\mathfrak{p}$ of $A$ such that $S^{-1}\mathfrak{p} = \mathfrak{m}$. Further, $\mathfrak{p} \cap S = \emptyset$, so $S \subset A - \mathfrak{p}$. Suppose $x,y \in A - \mathfrak{p}$, then $x,y \not\in \mathfrak{p}$,
+so since $\mathfrak{p}$ is prime, $xy \not\in \mathfrak{p}$, so $xy \in A - \mathfrak{p}$. Thus, $A - \mathfrak{p} \in \Sigma$ since it contains $1$ but not $0$ as is multiplicatively closed. Thus, $S = A - \mathfrak{p}$
+so that $\mathfrak{p} = A - S$.
+
+If there is some prime ideal $\mathfrak{q}$ such that $\mathfrak{q} \subset \mathfrak{p}$, then $\mathfrak{q} \cap S = \emptyset$, so there is another prime ideal of $S^{-1}A$ by Proposition 3.11(iv). This
+violates the fact that $S^{-1}A$ is a local ring. Thus, if $S \in \Sigma$ is maximal, $A - S$ is a minimal prime ideal.
+
+Conversely, suppose $A - S$ is a minimal prime ideal. Then, if $x,y \not\in A - S$, $xy \not\in A - S$, so $S$ is multiplicatively closed. Further, $1 \in S$ and $0 \not\in S$, so $S \in \Sigma$. Thus, there is a maximal
+$T \in \Sigma$ such that $S \subset T$. By the other direction, $A - T$ is a minimal prime ideal. Since $A - T \subset A - S$ and $A-S$ is a minimal prime ideal, we must have equality, so $S$ is maximal.
+\end{proof}
+
+\subsection{Exercise}\label{3.7}
+
+\begin{proof}[(i) Proof.]
+Let $S$ be saturated. If $0 \in S$, then for any $x \in A$, $x \cdot 0 = 0 \in S$, so $x \in S$ and thus $A - S = \emptyset$, which is an empty union of prime ideals. Thus, we can commit to the case
+where $0 \not\in S$. Let $a \in A - S$. Then for any $b \in A$, $ab \not\in S$ since $S$ is saturated. Thus, $aA \cap S = \emptyset$, so $(a) \subset A - S$. Let $\Sigma$ be the set of ideals containing $(a)$ 
+disjoint from $S$. We've shown this set is non-empty; further, it is ordered by inclusion. Any chain of $\Sigma$ has an upper bound by taking the union over the chain; the union clearly contains $(a)$, is disjoint
+from $S$, and it satisfies the properties of ideals since any pair of elements of the union exist together in some ideal in the chain. By Zorn's lemma, $\Sigma$ contains maximal elements, so let $\mathfrak{p}$ be 
+a maximal element of $\Sigma$; note that this implies $\mathfrak{p}$ contains $(a)$, is disjoint from $S$, and is an ideal. Suppose $xy \in \mathfrak{p}$. Since $(x) + \mathfrak{p}$ and $(y) + \mathfrak{p}$ are ideals
+containing $\mathfrak{a}$ and $\mathfrak{p}$, the maximality of $\mathfrak{p}$ in $\Sigma$ implies that either $x$ or $y$ is in $\mathfrak{p}$ or that both $(x) + \mathfrak{p}$ and $(y) + \mathfrak{p}$ intersect $S$.
+In the second case, since $(x) + \mathfrak{p}$ and $(y) + \mathfrak{p}$ intersect $S$ and $S$ is multiplicatively closed, their product must intersect $S$. However, their product is $(xy) + \mathfrak{p} = \mathfrak{p}$, 
+which does not intersect $S$, giving us a contradiction. Thus, the first case must hold, wherein either $x$ or $y$ lies in $\mathfrak{p}$, showing that $\mathfrak{p}$ is a prime ideal containing $a$; let's call it
+$\mathfrak{p}_a$. Thus, $A - S \subset \bigcup_{a \in A-S}\mathfrak{p}_a$ since every $a \in A-S$ is accounted for on the right-hand side, but further, since $\mathfrak{p}_a$ is disjoint from $S$ for all $a \in A-S$, we have
+$\bigcup_{a \in A-S}\mathfrak{p}_a \subset A - S$, giving us the desired equality.
+
+Conversely, suppose $A - S$ is a union of prime ideals. Since $S$ is multiplicatively closed, $x,y \in S \implies xy \in S$. To show the other direction, suppose one of $x$ or $y$ is not in $S$; without loss of generality,
+suppose $x \in A-S$. Then, $x \in \mathfrak{p}$ for some prime ideal, so $xy \in \mathfrak{p} \subset A - S$. Thus, $x,y \in S \iff xy \in S$.
+\end{proof}
+
+\begin{proof}[(ii) Proof.]
+If $T$ is any saturated multiplicatively closed set containing $S$, then $A - T \subset A - S$. By (i), $A - T$ is a union of prime ideals, so these prime ideals must be disjoint from $S$ since $A - T \subset A - S$.
+Now, let $U = \bigcup_{\mathfrak{p} : \mathfrak{p} \cap S = \emptyset}\mathfrak{p}$. Then, 
+$$A - U = \bigcap_{\mathfrak{p} : \mathfrak{p} \cap S = \emptyset}(A - \mathfrak{p}).$$
+As the intersection of multiplicatively closed sets, $A-U$ is a multiplicatively closed set $\overline{S}$. Further, since $A - \overline{S}$ is a union of prime ideals, it is saturated by (i). Since $A - T$ is a union 
+of prime ideals disjoint from $S$, $A - T \subset U = A - \overline{S}$, so $\overline{S} \subset T$ for any multiplicatively closed saturated set $T$ containing $S$. Finally, since $A - \overline{S} = U \subset A - S$, 
+$S \subset \overline{S}$, so $\overline{S}$ is the unique, smallest multiplicatively closed saturated subset containing $S$.
+\end{proof}
+
+\begin{remark}
+$\overline{S}$ is called the ``saturation'' of $S$.
+\end{remark}
+
+Let $S = 1 + \mathfrak{a}$, where $\mathfrak{a}$ is an ideal of $A$. By (ii), 
+$$\overline{S} = A - \bigcup_{\mathfrak{p} : \mathfrak{p} \cap S = \emptyset} \mathfrak{p}.$$
+Let $\mathfrak{p}$ be such that $\mathfrak{p} \cap S \neq \emptyset$, i.e. there is some $p \in \mathfrak{p}$, $a \in \mathfrak{a}$, such that $p = 1 + a$. Thus, $p - a = 1$ so that $\mathfrak{a} + \mathfrak{p} = (1)$. Thus,
+$\mathfrak{a}$ and $\mathfrak{p}$ are coprime ideals. Conversely, if $\mathfrak{a} + \mathfrak{p} = (1)$, then $\mathfrak{p} \cap (1 + \mathfrak{a}) \neq \emptyset$. In particular, $\mathfrak{p} \cap S = \emptyset$ if and only
+if $\mathfrak{a}$ and $\mathfrak{p}$ are not coprime. But this happens exactly when $\mathfrak{a} + \mathfrak{p}$ are contained in a common maximal ideal $\mathfrak{m}$, meaning $\mathfrak{p}$ is contained in some $\mathfrak{m}$
+containing $\mathfrak{a}$. Thus, 
+$$\bigcup_{\mathfrak{p} : \mathfrak{p} \cap S = \emptyset} \mathfrak{p} = \bigcup_{\mathfrak{p} : \mathfrak{p} + \mathfrak{a} \neq (1)} \mathfrak{p} = \bigcup_{\mathfrak{m} : \mathfrak{a} \subset \mathfrak{m}} \mathfrak{m}
+= \bigcup_{\mathfrak{m} \in V(\mathfrak{a})\cap\Max(A)}\mathfrak{m} = \bigcup_{\mathfrak{p} \in V(\mathfrak{a})}\mathfrak{p},$$
+so
+$$\overline{S} = A - \bigcup_{\mathfrak{p} \in V(\mathfrak{a})}\mathfrak{p}.$$
+
+\subsection{Exercise}\label{3.8}
+
+\begin{proof}
+(i) $\iff$ (ii). Suppose the ring homomorphism $\phi : S^{-1}A \to T^{-1}A$ is a bijection. Since $S \subset T$, $ST = T$. By Exercise \ref{3.3}, we have a ring isomorphism $\psi : T^{-1}A \to U^{-1}(S^{-1}A)$, 
+where $U = \{t/1\}_{t \in T} \subset S^{-1}A$. Thus, we have a ring isomorphism $\psi \circ \phi : S^{-1}A \to U^{-1}(S^{-1}A)$. In particular, the set $U$ must already be units in $S^{-1}A$, i.e.
+$t/1 \in S^{-1}A$ is a unit for all $t \in T$. Conversely, if $t/1 \in S^{-1}A$ is a unit for all $t \in T$, then the ring homomorphism $\psi \circ \phi : S^{-1}A \to U^{-1}(S^{-1}A)$ is a bijection, so $\phi$ is
+a bijection.
+
+(ii) $\iff$ (iii). For any $t \in T$, $t/1$ is a unit in $S^{-1}A$, so there is some $a \in A, s \in S$ such that $(t/1)(a/s) = (ta/s) \equiv 1$. This means there is some $s' \in S$ such that
+$s'(ta - s) = 0$, i.e. $s'at = ss' \in S$. Thus, letting $x = s'a \in A$, we have $xt \in S$. Conversely, if $t \in T$ and there is some $x \in A$ such that $xt \in S$, then there is some $s \in S$ such that
+$xt = s$. Then, $xt - s = 0$ so that $(t/1)(x/s) = (tx/s) \equiv 1$, so $t/1$ is a unit.
+
+(iii) $\implies$ (iv). For all $t \in T$, there exists $x \in A$ such that $xt \in S$. If $\mathfrak{p}$ is a prime ideal of $A$ disjoint from $S$, then if there is some $t \in T \cap \mathfrak{p}$,
+$xt \in S$ so that $S \cap \mathfrak{p}$ is nonempty, contradicting disjointness. Since $S \subset T$, the converse is also true; i.e. a prime is disjoint from $S$ if and only if it is disjoint from $T$. By Exercise \ref{3.7},
+$T \subset \overline{T} = \overline{S}$.
+
+(iv) $\implies$ (v). Suppose $T \subset \overline{S}$. Then, $\overline{T} \subset \overline{S}$ since $\overline{S}$ is a saturated, multiplicatively closed set containing $T$ and $\overline{T}$ is the minimal such set. Conversely,
+$S \subset T$, so $\overline{S} \subset \overline{T}$, so $\overline{S} = \overline{T}$. Thus, every prime ideal meeting $T$ meets $S$ via Exercise \ref{3.7}.
+
+(v) $\implies$ (iii). Suppose every prime ideal meeting $T$ meets $S$. Suppose to the contrary that there is some $t \in T$ such that $t/1 \in S^{-1}A$ is not a unit. Then, $(t/1)$ is a non-trivial ideal of $S^{-1}$
+and is thus contained in some maximal ideal of $S^{-1}A$. By Proposition 3.11(iii), this prime ideal has the form $S^{-1}\mathfrak{p}$, where $\mathfrak{p}$ is a prime ideal of $A$ not meeting $S$; by assumption, it does
+not meet $T$ either, so $t \not\in \mathfrak{p}$. Since $t/1 \in S^{-1}\mathfrak{p}$, there is some $p \in \mathfrak{p}$ and $s,s' \in S$ such that $t/1 \equiv p/s$ or $s'(ts - p) = 0$. Thus, $s'ts = ps'$. Since $S \subset T$,
+$s'ts \in T$, and since $\mathfrak{p}$ is an ideal, $ps' \in \mathfrak{p}$, so $T \cap \mathfrak{p} \neq \emptyset$, a contradiction. Thus, $t/1$ must be a unit in $S^{-1}A$ for all $t \in T$.
+
+This concludes the proof that all five statements are equivalent.
+\end{proof}
+
+\subsection{Exercise}\label{3.9}
+
+\begin{proof}
+Consider the set $S_0$ of all non-zero-divisors in $A$. If $xy$ is a zero divisor, then there is some nonzero $z$ such that $xyz = 0$. If $yz = 0$, then $y$ is a zero
+divisor, and if $yz \neq 0$, then $x$ is a zero divisor since $x(yz) = 0$. Thus, $x,y \in S_0$ implies that $xy \in S_0$. Further $1 \in S_0$, so $S_0$ is a multiplicatively closed set.
+If $x$ or $y$ is a zero divisor (with the element $z \neq 0$), then $xyz = 0$, so $xy$ is a zero divisor. Thus, if $xy \in S_0$, both $x$ and $y$ must be in $S_0$. Thus, $S_0$ is saturated. 
+Interestingly, in light of Exercise \ref{3.7}, the set of zero-divisors $(A - S_0)$ is the union of prime ideals, which we proved in Exercise \ref{1.14}.
+
+Now, we show that every minimal prime ideal of $A$ is contained in $D = A - S_0$, the set of zero-divisors of $A$. Let $\mathfrak{p}$ be a minimal prime. Then, $A - \mathfrak{p}$ is a multiplicative set. By 
+Exercise \ref{3.6}, $A - \mathfrak{p}$ is a maximal element of $\Sigma$, the set of multiplicative sets not containing zero. Then, $S_0(A - \mathfrak{p})$ is another multiplicative set. Further, if it contains
+$0$, then there is some $x \in S_0$ and $y \in A - \mathfrak{p}$ such that $xy = 0$. Since $x$ is not a zero divisor, we have $y = 0$, but $0 \in \mathfrak{p}$, contradicting the fact that $y \in A - \mathfrak{p}$.
+Thus, $S_0(A - \mathfrak{p}) \in \Sigma$. However, $A - \mathfrak{p} \subset S_0(A - \mathfrak{p})$, so since $A - \mathfrak{p}$ is maximal in $\Sigma$, $S_0(A - \mathfrak{p}) = A - \mathfrak{p}$. Since $1 \in A - \mathfrak{p}$,
+this implies $S_0 = A - D \subset A - \mathfrak{p}$. Thus, $\mathfrak{p} \subset D$, as desired.
+\end{proof}
+
+\begin{remark}
+The ring $S_0^{-1}A$ is the ``total ring of fractions'' of $A$.
+\end{remark}
+
+\begin{proof}[(i) Proof.]
+Consider the natural homomorphism $A \to S_0^{-1}A$ defined by $a \mapsto a/1$. If $a/1 \equiv a'/1$, then there is some $s \in S_0$ such that $s(a - a') = 0$. Since $s$ is a non-zero-divisor, $a = a'$,
+so the homomorphism is injective. Suppose $S$ properly contains $S_0$ so that $S$ contains a zero divisor $z$. Thus, there is some non-zero $x \in A$ such that $xz = 0$. Then, in $S^{-1}A$, $x/1 \equiv 0/1$ since
+$z(x - 0) = 0$. In particular, $A \to S^{-1}A$ is not injective. Thus, $S_0$ is the largest multiplicatively closed set such that the homomorphism $A \to S_0^{-1}A$ is injective.
+\end{proof}
+
+\begin{proof}[(ii) Proof.]
+Suppose $a/s \in S_0^{-1}A$ is not a zero-divisor of $S_0^{-1}A$ for $a \in A$ and $s \in S_0$. If $a \in A$ is a zero divisor, there is some non-zero $b \in A$ such that $ab = 0$. Thus,
+$$(a/s)(b/1) = (ab)/s = 0/s = 0,$$
+so $b/1 \equiv 0$ since $a/s$ is not a zero-divisor. By (i), $A \to S_0^{-1}A$ is injective, so $b/1 = 0$ implies $b = 0$, giving us a contradiction. Thus, $a$ is not a zero divisor of $A$, so $a \in S_0$.
+Then, $s/a \in S_0^{-1}A$; because $(a/s)(s/a) = 1$, $a/s$ is a unit. Thus, every element of $S_0^{-1}A$ is either a unit or a zero divisor.
+\end{proof}
+
+\begin{proof}[(iii) Proof.]
+Suppose $A$ is a ring such that all non-zero-divisors are units. Then, $S_0$ is the set of units of $A$. By (i), we have an injective ring homomorphism $\phi : A \to S_0^{-1}A$. Let $a/s$ be an
+arbitrary element of $S_0^{-1}A$. Then, since $s \in S_0$ is a unit, there is some $s' \in A$ such that $ss' = 1$. Thus, $a/s \equiv (as')/(ss') = (as')/1$, so $\phi$ is surjective. Thus, $\phi$
+is a ring isomorphism.
+\end{proof}
+
+\subsection{Exercise}\label{3.10}
+
+\begin{proof}[(i) Proof.]
+Suppose $A$ is absolutely flat and $S$ is any multiplicative subset of $A$. Let $N$ be a $S^{-1}A$-module. Under the canonical map $f : A \to S^{-1}A$, $N$ is an $A$-module $N_A$. We wish to show that
+$N$ is isomorphic to $S^{-1}N_A$ as $S^{-1}A$-modules. We define the map $\phi : N \to S^{-1}N_A$ by $n \mapsto (n, 1)$. Since $N$ is an $S^{-1}A$-module, an arbitrary element $(n,s) \in S^{-1}N_A$ has the
+form $(n,s) \equiv ((1/s)n, 1)$, so $\phi$ is surjective. If $(n,1) \equiv (n',1)$, there is some $t \in S$ such that $t(n - n') = 0$, so $tn = tn'$ in $N$. But, $N$ is
+a $S^{-1}A$-module, so we have
+$$n = (1/t)tn = (1/t)tn' = n',$$
+showing that $\phi$ is injective. Thus, $\phi$ is bijective. It's an $S^{-1}A$-module homomorphism since $\phi(n + n') = (n + n', 1) = (n, 1) + (n', 1) = \phi(n) + \phi(n')$ and for $a/s \in S^{-1}A$, we have
+$$\phi((a/s)n) = ((a/s)n, 1) = (an, s) = (a/s)(n,1) = (a/s)\phi(n).$$
+Thus, for any $S^{-1}A$-module $M$, we have $M \cong S^{-1}M_A$ as $S^{-1}A$-modules.
+
+Now, let 
+$$0 \to M' \to M$$
+be an exact sequence of $S^{-1}A$-modules. Then,
+$$0 \to M_A' \to M_A$$
+is an exact sequence of $A$-modules. Since $N_A$ is a flat $A$-module,
+$$0 \to M_A' \otimes_A N_A \to M_A \otimes_A N_A$$
+is an exact sequence of $A$-modules. Since localization preserves exactness,
+$$0 \to S^{-1}(M_A' \otimes_A N_A) \to S^{-1}(M_A \otimes_A N_A)$$
+is an exact sequence of $S^{-1}A$-modules. We have an exact sequence of $S^{-1}A$-modules
+$$0 \to S^{-1}M_A' \otimes_{S^{-1}A} S^{-1} N_A \to S^{-1}M_A \otimes_{S^{-1}A} S^{-1} N_A$$
+by Proposition 3.7. Using the result of the last paragraph, we have that
+$$0 \to M' \otimes_{S^{-1}A} N \to M \otimes_{S^{-1}A} N$$
+is exact, so $N$ is a flat $S^{-1}A$-module. Thus, $S^{-1}A$ is absolutely flat.
+\end{proof}
+
+\begin{proof}[(ii) Proof.]
+If $A$ is absolutely flat, then $A_{\mathfrak{m}}$ is absolutely flat by (i). Thus, every principal ideal of $A_{\mathfrak{m}}$ is idempotent by Exercise \ref{2.27}. Let $x \in A_{\mathfrak{m}}$ be non-zero. Then,
+$(x) = (x^2)$, so $x = ax^2$. Thus, $ax = (ax)^2$, so $ax$ is an idempotent. Since $A_{\mathfrak{m}}$ is a local ring, Exercise \ref{1.12} guarantees that the only idempotents are $0$ and $1$. If $ax = 0$, then
+$x = ax^2 = 0$, so $ax = 1$. In particular, every non-zero element of $A_{\mathfrak{m}}$ is a unit, so $A_{\mathfrak{m}}$ is a field.
+
+Conversely, suppose $A_{\mathfrak{m}}$ is a field for all maximal ideals $\mathfrak{m}$ of $A$. Then, the only ideals are $(0)$ and $(1)$, so all principal ideals are idempotent. By Exercise \ref{2.27}, 
+$A_{\mathfrak{m}}$ is absolutely flat. Let $N$ be an $A$-module, and let $j : M \to M'$ be an injection of $A$-modules. We have an $A$-module homomorphism
+$$\phi = j \otimes 1 : M \otimes_A N \to M' \otimes_A N.$$
+Localizing, we have
+$$\phi_{\mathfrak{m}} : (M \otimes_A N)_{\mathfrak{m}} \to (M' \otimes_A N)_{\mathfrak{m}},$$
+which by canonical isomorphism is just
+$$\phi_{\mathfrak{m}} : M_{\mathfrak{m}} \otimes_{A_{\mathfrak{m}}} N_{\mathfrak{m}} \to M_{\mathfrak{m}}' \otimes_{A_{\mathfrak{m}}} N_{\mathfrak{m}}.$$
+By Proposition 3.9, since $j : M \to M'$ is an injection, $j_{\mathfrak{m}} : M_{\mathfrak{m}} \to M_{\mathfrak{m}}'$ is injective. Since $A_{\mathfrak{m}}$ is absolutely flat,
+$N_{\mathfrak{m}}$ is a flat $A_{\mathfrak{m}}$-module, so $\phi_{\mathfrak{m}}$ is injective for all $\mathfrak{m}$. By Proposition 3.9, $\phi$ is injective, so $N$ is a flat $A$-module. Therefore,
+$A$ is absolutely flat.
+\end{proof}
+
+\subsection{Exercise}\label{3.11}
+
+\begin{proof}
+(i) $\implies$ (ii). Let $A' = A/\mathfrak{N}$ be absolutely flat, and let $\mathfrak{p} \in \Spec A'$. By Exercise \ref{3.10}, $A_{\mathfrak{p}}'$ is absolutely flat. 
+Further, it is a local ring. By Exercise \ref{2.28}, $A_{\mathfrak{p}}'$ is a field, so the only prime ideal of $A_{\mathfrak{p}}'$ is $0$. By Corollary 3.13, the prime ideals of $A_{\mathfrak{p}}'$
+are in one-to-one correspondence with the prime ideals contained in $\mathfrak{p}$. Thus, the only prime ideal that any $\mathfrak{p}$ contains is itself. In particular, if $\mathfrak{m}$ is a maximal 
+ideal such that $\mathfrak{p} \subset \mathfrak{m}$, then since $\mathfrak{m}$ is prime, $\mathfrak{m} = \mathfrak{p}$. Thus, all prime ideals are maximal. Since $A' \to A/\mathfrak{N}$ is a surjective 
+ring homomorphism inducing a one-to-one order preserving map of ideals (in light of Proposition 1.1), all prime ideals of $A$ are maximal.
+
+(ii) $\implies$ (i). Consider $A' = A/\mathfrak{N}$. In light of Proposition 1.1, $A \to A/\mathfrak{N} = A'$ is a one-to-one order-preserving map of ideals. Thus, $A'$ has no nilpotent elements, and
+all prime ideals are maximal. The prime ideals of the local ring $A_{\mathfrak{m}}'$ are in one-to-one correspondence with the prime ideals $\mathfrak{p}$ contained in $\mathfrak{m}$ (Corollary 3.13). 
+But since all prime ideals are maximal, the only prime ideal of the local ring is $0$, so $A_{\mathfrak{m}}'$ is a field. By Exercise \ref{3.10}, $A'$ is absolutely flat.
+
+(ii) $\iff$ (iii). By Exercise \ref{1.18}, $\{x\}$ is closed if and only if $\mathfrak{p}_x$ is maximal. Thus, $\Spec A$ is $T_1$ if and only if all prime ideals are maximal.
+
+(iv) $\implies$ (iii). Any topology that is Hausdorff ($T_2$) is $T_1$.
+
+(i) $\implies$ (iv). We assume now that $A' = A/\mathfrak{N}$ is absolutely flat. Choose distinct $\mathfrak{p},\mathfrak{q} \in \Spec(A')$. We've already shown above that all prime ideals of $A'$ are maximal.
+Thus, $\mathfrak{p} + \mathfrak{q} = (1)$ since they are distinct maximal ideals. Thus, there is some $x \in \mathfrak{p}$ and $y \in \mathfrak{q}$ such that $(x) + (y) = (1)$. Since $(x)$ and $(y)$ are finitely
+generated ideals, by Exercise \ref{2.27}, we have idempotents $e$ and $f$ such that $(e) = (x)$, $(f) = (y)$, so $(e,f) = (1)$. Let $g = f(1-e)$. Then, $g^2 = f^2(1-e)^2 = f(1-e) = g$ and $eg = f(e-e^2) = 0$. 
+Further, $f = g + ef$, so $f \in (g,e)$ so that $(1) = (e,f) \subset (g,e)$, so $(g,e) = (1)$. In particular, since $y \not\in (e)$, $y \in (g)$ since $eg = 0$. Thus, $(y) = (e)$ since $(e) + (y) = (1)$.
+
+Since $y \not\in (e)$, $\mathfrak{q} \not\in V(e)$. Similarly, since $x \not\in (g)$ (otherwise $(1) = (e,g) = (x,g) = (g)$), $\mathfrak{p} \not\in V(g)$. In particular, $\mathfrak{p} \in X_g$ and $\mathfrak{q} \in X_e$.
+By Exercise \ref{1.17}, $X_e \cap X_g = X_{eg} = X_0 = \emptyset$, so $\mathfrak{p}$ and $\mathfrak{q}$ are separable by disjoint open sets; thus, $\Spec A'$ is Hausdorff. By Exercise \ref{1.21}, $\Spec A$ and $\Spec A'$
+are homeomorphic, so $\Spec A$ is Hausdorff.
+
+This concludes the proof of the equivalency of the four statements.
+\end{proof}
+
+\begin{proof}
+Suppose the ring $A$ satisfies the equivalent statements above. Since $\Spec A$ is always quasi-compact in light of Exercise \ref{1.17}, then since $\Spec A$ is Hausdorff here, it is also compact.
+
+In the final part of the previous proof, for $\mathfrak{p},\mathfrak{q} \in \Spec A$ distinct, we found basic open sets $X_g$ and $X_e$ that are disjoint. Further, since $(g,e) = (1)$ and $ge = 0$, for any
+maximal ideal $\mathfrak{m}$, we have $((g) + \mathfrak{m})((e) + \mathfrak{m}) = (ge) + \mathfrak{m} = \mathfrak{m}$. Since $\mathfrak{m}$ is maximal, $(e) + \mathfrak{m}$ is either $(1)$ or $\mathfrak{m}$. 
+The is true for $g$ in place of $e$, as well. However, they cannot both be $(1)$ since the product would be $(1)$. Thus, one of $(e)$ and $(g)$ is contained by $\mathfrak{m}$. However, both cannot be in $\mathfrak{m}$
+either since $(e) + (g) = (1)$. Thus, since all prime ideals are maximal here, $V(e)^c = V(g)$ so that $X_e = X_g^c$. In particular, any two distinct points of $\Spec A$ can be separated by a closed-and-open set, so 
+$\Spec A$ is totally disconnected.
+\end{proof}
+
+\subsection{Exercise}\label{3.12}
+
+\begin{proof}
+Let $T(M)$ denote the set of torsion elements of $M$. If $x,y \in T(M)$, then there is some $a_x,a_y \in A$ (non-zero) such that $a_x x = 0$ and $a_y y = 0$. Let $a,b \in A$. Since
+$A$ is an integral domain, $a_x a_y \neq 0$. We have
+$$a_xa_y(ax + by) = aa_y(a_x x) + ba_x(a_y y) = 0,$$
+so $a x + b y \in T(M)$ whenever $x,y \in T(M)$. Thus, $T(M)$ is an $A$-submodule of $M$.
+\end{proof}
+
+\begin{proof}[(i) Proof.]
+Suppose $m + T(M)$ is a torsion element of $M/T(M)$. Then, there is some non-zero $a \in A$ such that $a m = x$, where $x \in T(M)$. Let $a_x \in A$ be a non-zero annihilator of $x$.
+Then, $a a_x \neq 0$ since $A$ is an integral domain, so $0 = a (a_x x) = (a_x a) m$, so $m \in T(M)$. Thus, $M / T(M)$ is torsion-free.
+\end{proof}
+
+\begin{proof}[(ii) Proof.]
+Suppose $f : M \to N$ is an $A$-module homomorphism. Let $x \in T(M)$, and let $a_x \in A$ be a non-zero annihilator of $x$. Then, $a_x f(x) = f(a_x x) = f(0) = 0$,
+so $f(T(M)) \subset T(N)$.
+\end{proof}
+
+\begin{proof}[(iii) Proof.]
+Suppose we have an exact sequence of $A$-modules
+$$0 \to M' \xlongrightarrow{f} M \xlongrightarrow{g} M''.$$
+By (ii), the sequence
+$$0 \to T(M') \xlongrightarrow{f} T(M) \xlongrightarrow{g} T(M'')$$
+is well-defined. Further, since $T(M')$ is a submodule of $M'$, the restriction of $f$ to $T(M')$ maintains its injectivity, so the sequence is exact at $T(M')$. Likewise, since 
+$\im f \subset \ker g$ in the original sequence, this clearly holds for the restriction to $T(M)$. Now, suppose $x \in T(M)$ satisfies $g(x) = 0$. Then, by exactness of the original
+sequence, there is some $x' \in M'$ such that $f(x') = x$. Since $x \in T(M)$, there is some non-zero $a_x \in A$ annihilating $x$. Thus,
+$$0 = a_x x = a_x f(x') = f(a_x x'),$$
+so by the injectivity of $f$, $a_x x' = 0$, showing that $x' \in T(M')$. Thus, $\ker g \subset \im f$ so that we have equality. In particular, the sequence is exact at $T(M)$ so that, finally,
+the sequence is exact.
+\end{proof}
+
+\begin{proof}[(iv) Proof.]
+$K$, the field of fractions of $A$, has the obvious $A$-module structure. Since $A$ is an integral domain, $K = S^{-1}A$ with $S = A - \{0\}$. $T^{-1}A$, as $T$ ranges over finitely generated
+multiplicatively closed subsets of $A$ (excluding $0$), forms a directed system, as there is the natural homomorphism $T_i^{-1}A \to T_j^{-1}A$ whenever $T_i \subset T_j$ ($a/t \mapsto a/t$). 
+If $T_i \subset T_j \subset T_k$, we have
+$$T_i^{-1}A \xlongrightarrow{\phi_{ij}} T_j^{-1}A \xlongrightarrow{\phi_{jk}} T_k^{-1}A.$$
+By Exercise \ref{3.3}, we have a natural isomorphism $T_k^{-1}A \cong \phi_{ik}(T_k)^{-1}A$ sending $a/s \mapsto (a/s)/1$. The composition of these natural maps achieves the same result so that
+$\phi_{ik} = \phi_{jk}\circ\phi_{ij}$. Thus, the maps of the $\{(T_i^{-1}A,\phi_{ij})\}$ satisfy the necessary compatibility requirements, as well as being injective.
+
+Since $A$ is an integral domain, $\iota_i : A \to T_i^{-1}A$ is injective by Exercise \ref{3.9}, and so is $\iota : A \to S^{-1}A$. By the same compatibility requirements just mentioned, we have
+a map $\phi_i : T_i^{-1}A \to S^{-1}A$ that satisfies $\iota = \phi_i \circ \iota_i$ for all $i$. Now, we wish to show that $K = \varinjlim T_i^{-1}A$. Let $N$ be an $A$-module such that for all $i \in I$,
+we have a map $\alpha_i : T_i^{-1}A \to N$ that is an $A$-module homomorphism. Further, they must satisfy $\alpha_i = \alpha_j \circ \phi_{ij}$ whenever $i \le j$. Now, we define $\alpha : S^{-1}A \to N$.
+If $a/s \in S^{-1}A$, then $T = \{s^n\}_{n \ge 0}$ is a finitely generated multiplicatively closed set not containing zero, so this is in our directed system; let's write $T_s = T$. We define 
+$\alpha(a/s) = \alpha_s(\phi_s(a/s))$. Note that if $s \in T_i$ for any $i \in I$, then since $T_i$ is multiplicatively closed, $T_s \subset T_i$, so we have $\alpha_s = \alpha_i \circ \phi_{si}$ 
+by definition; then, $\alpha_s(a/s) = \alpha_i(\phi_{si}(a/s)) = \alpha_i(a/s)$. In particular, our map $\alpha$ is well-defined. Finally, suppose $a/s \in T_i^{-1}A$; then, $\alpha_i(a/s) = \alpha_s(a/s)
+= \alpha(\phi_i(a/s))$. Thus, $K$ satisfies the universal property for direct limits, so by Exercise \ref{2.16}, $K = \varinjlim T_i^{-1}A$.
+
+By definition, any $T_i$ in the directed system is generated by finitely many elements $x_1,\ldots,x_n \in A$. We show now that $T_i^{-1}A \cong T^{-1}A$, where $T = \{\xi^n\}$ and $\xi = x_1\cdots x_n$.
+Clearly, $T \subset T_i$, so we have an injection $T^{-1}A \to T_i^{-1}A$. Note that $T_i^{-1}A$ is generated as an $A$-algebra by $\frac{1}{x_1},\ldots,\frac{1}{x_n}$, and $T^{-1}A$ by $\frac{1}{\xi}$.
+However, $\frac{1}{x_i} = \frac{x_1 \cdots \hat x_i \cdots x_n}{\xi}$, so we have a ring isomorphism.
+
+Let $M_i' = \ker (M \to T_i^{-1}A \otimes_A M)$ defined by $x \mapsto 1 \otimes x$. Then, we have an exact sequence
+$$0 \to M_i' \to M \to T_i^{-1}A \otimes_A M.$$
+Since direct limits commute with exact sequences (Exercise \ref{2.19}) and since, by Exercise \ref{2.20}, 
+$$\varinjlim(T_i \otimes_A M) = \varinjlim(T_i) \otimes_A M = K \otimes_A M,$$
+we have an exact sequence
+$$0 \to M' \to M \to K \otimes_A M,$$
+where $M' = \ker(M \to K \otimes_A M)$ and also $M' = \varinjlim \ker(M_i' \to T_i^{-1}A \otimes_A M)$. Thus, if $x \in M'$, then by Exercise \ref{2.15}, there is some $i \in I$ such that 
+$x \in M_i'$. The converse is also clearly true since the maps $M_i' \to M'$ are $A$-module homomorphisms.
+
+By definition, any $T_i$ in the directed system is generated by finitely many elements $x_1,\ldots,x_n \in A$. We show now that $T_i^{-1}A \cong T^{-1}A$, where $T = \{\xi^n\}$ and $\xi = x_1\cdots x_n$.
+Clearly, $T \subset T_i$, so we have an injection $T^{-1}A \to T_i^{-1}A$. Note that $T_i^{-1}A$ is generated as an $A$-algebra by $\frac{1}{x_1},\ldots,\frac{1}{x_n}$, and $T^{-1}A$ by $\frac{1}{\xi}$.
+However, $\frac{1}{x_i} = \frac{x_1 \cdots \hat x_i \cdots x_n}{\xi}$, so we have a ring isomorphism. 
+
+If $x \in M'$, then $x \in \ker(M \to T^{-1}A \otimes_A M)$ for some $T = \{\xi^n\}$. Note that by Proposition 3.5, $T^{-1}A \otimes_A M \cong T^{-1}M$ under $a \otimes x \mapsto ax$. Thus,
+$x \in \ker(M \to \{\xi^n\}^{-1}M)$, so $(0,1) \equiv (x,1)$. Thus, for some $n$, $\xi^n x = 0$, so $x \in T(M)$. Conversely, if $x \in T(M)$, then there is some non-zero $\xi \in A$ such that
+$\xi x = 0$. Then, in $\{\xi^n\}^{-1}A \otimes_A M$, we have $1 \otimes x = \frac{\xi}{\xi} \otimes x = \frac{1}{\xi} \otimes (\xi x) = 0$, so $x \in M_i'$ and thus $x \in M'$.
+\end{proof}
+
+\subsection{Exercise}\label{3.13}
+
+\begin{proof}
+We showed in Exercise \ref{3.12} that
+$$0 \to T(M) \to M \to K \otimes_A M$$
+is exact. Localization preserves exact sequences, so
+$$0 \to S^{-1}(TM) \to S^{-1}M \to S^{-1}(K \otimes_A M)$$
+is exact. Further, $S^{-1}(K \otimes_A M) = S^{-1}K \otimes_{S^{-1}A} S^{-1}M$ by Proposition 3.7. However, $S^{-1}K = K$ since all elements of $S$ are already units in $K$. Thus,
+our exact sequence is now
+$$0 \to S^{-1}(TM) \to S^{-1}M \to K \otimes_{S^{-1}A} S^{-1}M.$$
+Note that $S^{-1}A$ and $A$ share the same field of fractions $K$, so by Exercise \ref{3.12},
+$$0 \to T(S^{-1}M) \to S^{-1}M \to K \otimes_{S^{-1}A} S^{-1}M$$
+is exact. Since $T(S^{-1}M)$ and $S^{-1}(TM)$ are both exactly the kernel of $S^{-1}M \to K \otimes_{S^{-1}A} S^{-1}M$, they are isomorphic as $S^{-1}A$-modules.
+\end{proof}
+
+\begin{proof}
+(i) $\implies$ (ii). If $M$ is torsion-free, then $T(M) = 0$, so $T(S^{-1}M) = S^{-1}(T(M)) = 0$ by the previous proof. Thus, $M_{\mathfrak{p}}$ is torsion-free for all prime ideals $\mathfrak{p}$.
+
+(ii) $\implies$ (iii). Trivial. All maximal ideals are prime.
+
+(iii) $\implies$ (i). Suppose $M_{\mathfrak{m}}$ is torsion-free for all maximal ideals $\mathfrak{m}$. For any maximal ideal $\mathfrak{m}$, we have by assumption and the previous result that
+$$0 = T(M_{\mathfrak{m}}) = T((A - \mathfrak{m})^{-1}M) = (A - \mathfrak{m})^{-1}T(M) = T(M)_{\mathfrak{m}}.$$
+Since $T(M)_{\mathfrak{m}} = 0$ for all maximal ideals, we have by Proposition 3.8 that $T(M) = 0$.
+\end{proof}
+
+\begin{remark}
+In particular, ``torsion-free'' is a local property.
+\end{remark}
+
+\subsection{Exercise}\label{3.14}
+
+\begin{proof}
+The quotient $M/\mathfrak{a}M$ is an $A/\mathfrak{a}$-module, and the maximal ideals of $A/\mathfrak{a}$ are precisely the maximal ideals containing $\mathfrak{a}$. By assumption, for any of these 
+maximal ideals $\mathfrak{m}$, $M_{\mathfrak{m}} = 0$. Since localization commutes with quotients, we have $(M/\mathfrak{a}M)_{\mathfrak{m}} = M_{\mathfrak{m}}/(\mathfrak{a}M)_{\mathfrak{m}} = 0$.
+Since $(M/\mathfrak{a}M)_{\mathfrak{m}} = 0$ for all maximal ideals such that $\mathfrak{a} \subset \mathfrak{m}$, we invoke Proposition 3.8 to conclude that $M/\mathfrak{a}M = 0$; hence, $M = \mathfrak{a}M$.
+\end{proof}
+
+\subsection{Exercise}\label{3.15}
+
+\begin{proof}
+Let $x_1,\ldots,x_n$ be a generating set of the $A$-module $F = A^n$. Let $e_1,\ldots,e_n$ be the canonical basis ($e_i$ is the unit of the $i$th direct summand). Define 
+$\phi : F \to F$ by $\phi(x_i) = e_i$, extending $A$-linearly so that $\phi$ is an $A$-module homomorphism. Since $\{e_i\}$ is a basis, $\phi$ is surjective. In light of Proposition 3.9,
+to show that $\phi$ is injective, it is enough to show that $\phi_{\mathfrak{m}} : F_{\mathfrak{m}} \to F_{\mathfrak{m}}$ is injective for each maximal ideal of $A$. 
+Note that $F_{\mathfrak{m}} = A_{\mathfrak{m}}^n$. Since $\phi_{\mathfrak{m}}$ is surjective, if $N$ is the kernel of $\phi_{\mathfrak{m}}$, then
+$$0 \to N \to A_{\mathfrak{m}}^n \xlongrightarrow{\phi_{\mathfrak{m}}} A_{\mathfrak{m}}^n \to 0$$
+is exact. Tensoring with $k = A/\mathfrak{m}$, we obtain the exact sequence
+$$0 \to k \otimes_{A_{\mathfrak{m}}} N \to (k \otimes_{A_{\mathfrak{m}}} A_{\mathfrak{m}})^n \xlongrightarrow{\phi_{\mathfrak{m}}} (k \otimes_{A_{\mathfrak{m}}} A_{\mathfrak{m}})^n \to 0,$$
+noting that since $A_{\mathfrak{m}}^n$ is a flat $A_{\mathfrak{m}}$-module, $\Tor_1^{A_{\mathfrak{m}}}(k,A_{\mathfrak{m}}^n) = 0$ by Exercise \ref{2.24}. But under natural isomorphism,
+we have $k \cong k \otimes_{A_{\mathfrak{m}}} A_{\mathfrak{m}}$, so we have the short exact sequence
+$$0 \to k \otimes N \to k^n \to k^n \to 0.$$
+Since $k^n \to k^n$ is a surjective endomorphism of $k$-vector spaces, it is an isomorphism, so $k \otimes N = 0$.
+
+Note that $k \otimes N = (A_{\mathfrak{m}}/\mathfrak{m})\otimes_{A_{\mathfrak{m}}} N = N/\mathfrak{m}N$ by Exercise \ref{2.2}. Thus,
+$N/\mathfrak{m}N = 0$ so that $N = \mathfrak{m}N$. Since $A_{\mathfrak{m}}$ is a local ring, $\mathfrak{m}$ is the Jacobson radical. By Exercise \ref{2.12}, $N$ is finitely generated, 
+so we can invoke Nakayama's lemma to conclude that $N = 0$. In particular, $\phi_{\mathfrak{m}}$ is injective for all maximal ideals $\mathfrak{m}$, so $\phi$ is injective by Proposition 3.9.
+Thus, $\phi$ is an isomorphism, and $x_1,\ldots,x_n$ is a basis.
+
+In particular, suppose we can generate the $A$-module $A^n$ by elements $x_1,\ldots,x_j$, where $j < n$. We can define $x_i = 0$ for $j < i \le n$ to obtain a set of $n$ elements that generate $A^n$.
+By our result, $\{x_i\}_{i=1}^n$ is a basis, but since $x_n = 0$, this is a clear contradiction. Thus, every set of generators must contain at least $n$ elements.
+\end{proof}
+
+\subsection{Exercise}\label{3.16}
+
+\begin{proof}
+(i) $\implies$ (ii). If $\mathfrak{a}^{ec} = \mathfrak{a}$ for all ideals $\mathfrak{a}$ of $A$, then certainly, $\mathfrak{p}^{ec} = \mathfrak{p}$ for any $\mathfrak{p} \in \Spec(A)$. By
+Proposition 3.16, every $\mathfrak{p}$ is the contraction of some $\mathfrak{q} \in \Spec(B)$. Thus, $\Spec(B) \to \Spec(A)$ is surjective.
+
+(ii) $\implies$ (iii). Since $\Spec(B) \to \Spec(A)$ is surjective, any maximal ideal $\mathfrak{m}$ satisfies $\mathfrak{m} = \mathfrak{q}^c$ for some $\mathfrak{q} \in \Spec(B)$. By Proposition 1.17(i),
+$\mathfrak{m}^e = \mathfrak{q}^{ce} \subset \mathfrak{q}$, so $\mathfrak{m}^e \neq (1)$ for any $\mathfrak{m} \in \Max(A)$.
+
+(iii) $\implies$ (iv). Let $M$ be a non-zero $A$-module, and let $x \in M$ be a non-zero element. Let $M' = Ax$. Since $M' \to M$ is injective, and $B$ is a flat $A$-algebra,
+$M_B' \to M_B$ is injective. Thus, to show $M_B \neq 0$, it is sufficient to show that $M_B' \neq 0$. The map $\phi : A \to Ax$ is clearly surjective, so since $\ker \phi$ is an ideal
+$\mathfrak{a}$ of $A$, we have $M' = Ax \cong A/\mathfrak{a}$ as an $A$-module. Hence,
+$$M_B' = B \otimes_A M' \cong B \otimes_A (A/\mathfrak{a}) \cong B / \mathfrak{a}B = B / \mathfrak{a}^e.$$
+Since $\mathfrak{a}$ is not $(1)$ ($1 \mapsto x \neq 0$), there is some maximal ideal $\mathfrak{m}$ such that $\mathfrak{a} \subset \mathfrak{m}$. By our assumption, $\mathfrak{a}^e \subset \mathfrak{m}^e \neq (1)$,
+so $\mathfrak{a}^e$ is a proper ideal of $B$, implying that $M_B' \cong B/\mathfrak{a}^e \neq 0$.
+
+(iv) $\implies$ (v). Let $M'$ be the kernel of $M \to M_B$. As $B$ is flat over $A$,
+$$0 \to M_B' \to M_B \to (M_B)_B$$
+is exact. Since $M_B$ is a $B$-module, by Exercise \ref{2.13}, $M_B \to (M_B)_B$ is injective. Thus, $M_B' = 0$. By assumption, $M' = 0$, so $M \to M_B$ ($m \mapsto 1\otimes m$) is injective.
+
+(v) $\implies$ (i). If $\mathfrak{a}$ is any ideal of $A$, consider the $A$-module $A/\mathfrak{a}$. Then, by assumption,
+$$A/\mathfrak{a} \to B \otimes_A A/\mathfrak{a} \cong B/\mathfrak{a}B \cong B/\mathfrak{a}^e$$
+is injective. Thus, $f(a) \in \mathfrak{a}^e \iff a \in \mathfrak{a}$, so $\mathfrak{a} = \mathfrak{a}^{ec}$.
+\end{proof}
+
+\begin{remark}
+$B$ is said to be ``faithfully flat'' over $A$.
+\end{remark}
+
+\subsection{Exercise}\label{3.17}
+
+\begin{proof}
+Let 
+$$0 \to M' \to M \to M'' \to 0$$
+be an exact sequence of $A$-modules. Then, since $C$ is flat over $A$,
+$$0 \to C \otimes_A M' \to C \otimes_A M \to C \otimes_A M'' \to 0$$
+is also exact. For any $A$-module $N$, we have $C \otimes_A N = C \otimes_B (B \otimes_A N)$. Thus, the above exact sequence can be written as
+$$0 \to C \otimes_B M_B' \to C \otimes_B M_B \to C \otimes_B M_B'' \to 0.$$
+By the right-exactness of tensors, we already have the exact sequence
+$$M_B' \to M_B \to M_B'' \to 0.$$
+Since $C$ is faithfully flat over $B$, $M_B' \to C \otimes_B M_B'$ and $M_B \to C \otimes_B M_B$ are injective. But the map
+$C \otimes_B M_B' \to C \otimes_B M_B$ is also injective (see above). Consider the canonical commutative diagram:
+\begin{center}
+\begin{tikzcd}
+M_B' \arrow[r, "\phi"] \arrow[d, "\iota'"] & M_B \arrow[d, "\iota"] \\
+C \otimes_B M_B' \arrow[r, "\phi'"]          & C \otimes_B M_B
+\end{tikzcd}
+\end{center}
+Since $\phi'$ and $\iota'$ are injective, $\phi' \circ \iota' = \iota \circ \phi$ is injective. Thus, $\phi$ is injective, so the sequence
+$$0 \to M_B' \to M_B \to M_B'' \to 0$$
+is exact. Finally, $B$ is flat over $A$.
+\end{proof}
+
+\subsection{Exercise}\label{3.18}
+
+\begin{proof}
+By Proposition 3.10, $B_{\mathfrak{p}}$ is flat over $A_{\mathfrak{p}}$. Since $\mathfrak{p} = \mathfrak{q}^c$, $\mathfrak{p}^{ec} = \mathfrak{q}^{cec} = \mathfrak{q}^c = \mathfrak{p}$. Then, by Exercise \ref{3.4},
+$$B_{\mathfrak{p}} = (A - \mathfrak{p})^{-1}B = f(A - \mathfrak{p})^{-1}B.$$
+Since $\mathfrak{p} = f^{-1}(\mathfrak{q})$, $f(A - \mathfrak{p}) \subset B - \mathfrak{q}$; if $b = f(x)$, where $x \not\in \mathfrak{p}$, then if $b \in \mathfrak{q}$, $x \in f^{-1}(\mathfrak{q})$, a contradiction.
+Thus, $B_{\mathfrak{q}} = (B-\mathfrak{q})^{-1}B_{\mathfrak{p}}$. By Corollary 3.6, $B_{\mathfrak{q}}$ is flat over $B_{\mathfrak{p}}$. Since $B_{\mathfrak{p}}$ is a flat $A_{\mathfrak{p}}$-algebra, and $B_{\mathfrak{q}}$
+is flat over $B_{\mathfrak{p}}$, we have by Exercise \ref{2.8} that $B_{\mathfrak{q}}$ is flat over $A_{\mathfrak{p}}$.
+
+Note that $A_{\mathfrak{p}}$ is a local ring with maximal ideal $S^{-1}\mathfrak{p}$. The map $f : A \to B$ becomes a map $A \to B \to B_{\mathfrak{q}}$. Since $f(A-\mathfrak{p}) \subset B-\mathfrak{q}$, it factors through
+a map (also called $f$) $f : A_{\mathfrak{p}} \to B_{\mathfrak{q}}$. Note that $\mathfrak{p}^e \neq (1)$ since $\mathfrak{p}^{ec} = \mathfrak{p}$, so it does not map to $(1)$ in $B_{\mathfrak{q}}$. Since $\mathfrak{p}$ maps
+to $S^{-1}\mathfrak{p}$ in $A_{\mathfrak{p}}$, the unique maximal ideal, we have $(S^{-1}\mathfrak{p})^e \neq (1)$. Thus, we have satisfied condition 3 of Exercise \ref{3.16}, so $f : A_{\mathfrak{p}} \to B_{\mathfrak{q}}$
+is faithfully flat and $f^* : \Spec(B_{\mathfrak{q}}) \to \Spec(A_{\mathfrak{p}})$ is surjective.
+\end{proof}
+
+\subsection{Exercise}\label{3.19}
+
+\begin{proof}[(i) Proof.]
+$M \neq 0 \iff \Supp(M) \neq \emptyset$ follows immediately from Proposition 3.8.
+\end{proof}
+
+\begin{proof}[(ii) Proof.]
+Consider the short exact sequence of $A$-modules
+$$0 \to \mathfrak{a}A \to A \to A/\mathfrak{a} \to 0.$$
+Localization is exact, so for any prime ideal $\mathfrak{p}$,
+$$0 \to \mathfrak{a}^eA_{\mathfrak{p}} \to A_{\mathfrak{p}} \to (A/\mathfrak{a})_{\mathfrak{p}} \to 0$$
+is exact. From the exact sequence, it is clear that $(A/\mathfrak{a})_{\mathfrak{p}} = 0$ if and only if $\mathfrak{a}^e = (1)$. But $\mathfrak{a}^e = (1)$ if and only if 
+$(A - \mathfrak{p}) \cap \mathfrak{a} \neq \emptyset$ by Proposition 3.11. In particular, $\mathfrak{a}^e \neq (1)$ if and only if $\mathfrak{a} \subset \mathfrak{p}$. Thus, 
+$V(\mathfrak{a}) = \Supp(A/\mathfrak{a})$, as desired.
+\end{proof}
+
+\begin{proof}[(iii) Proof.]
+Suppose we have an exact sequence of $A$-modules
+$$0 \to M' \to M \to M'' \to 0.$$
+Localization is exact, so if $\mathfrak{p}$ is a prime ideal, we have
+$$0 \to M_{\mathfrak{p}}' \to M_{\mathfrak{p}} \to M_{\mathfrak{p}}'' \to 0.$$
+If $M_{\mathfrak{p}} = 0$, then clearly $M_{\mathfrak{p}}' = 0$ and $M_{\mathfrak{p}}'' = 0$. Conversely, if $M_{\mathfrak{p}}' = 0$ and $M_{\mathfrak{p}}'' = 0$,
+$M_{\mathfrak{p}} = 0$. Thus, $\Supp(M)^c = \Supp(M')^c \cap \Supp(M'')^c$ so that $\Supp(M) = \Supp(M') \cup \Supp(M'')$.
+\end{proof}
+
+\begin{proof}[(iv) Proof.]
+If $M = \sum M_i$, then for any prime ideal $\mathfrak{p}$, we have $M_{\mathfrak{p}} = \sum (M_i)_{\mathfrak{p}}$ (Proposition 3.11(v)). Thus, $M_{\mathfrak{p}} = 0$ if and only if all $(M_i)_{\mathfrak{p}} = 0$.
+Hence, $\Supp(M)^c = \bigcap\Supp(M_i)^c$.
+\end{proof}
+
+\begin{proof}[(v) Proof.]
+If $M$ is finitely generated, is generated by elements $x_1,\ldots,x_n$. Let $M_i = Ax_i$ so that $M = \sum M_i$. Note that $A \to Ax_i \cong M$ is surjective and the kernel is the ideal $\Ann(M_i)$. Thus,
+$M_i \cong A/\Ann(M_i)$. Thus, $M = \sum A/\Ann(M_i)$. By (iv), (ii), Exercise \ref{1.15}, and the intra-text Exercise 2.2,
+$$\Supp(M) = \bigcup_i \Supp(A/\Ann(M_i)) = \bigcup_i V(\Ann(M_i))$$ 
+$$= V\left(\bigcap_i \Ann(M_i)\right) = V\left(\Ann\left(\sum_i M_i\right)\right) = V(\Ann(M)).$$
+In particular, $\Supp(M)$ is a closed subset of $\Spec(A)$.
+\end{proof}
+
+\begin{proof}[(vi) Proof.]
+For any prime ideal $\mathfrak{p}$, we have
+$$(M \otimes_A N)_{\mathfrak{p}} = M_{\mathfrak{p}} \otimes_{A_{\mathfrak{p}}} N_{\mathfrak{p}}$$
+by Proposition 3.7. Clearly if $M_{\mathfrak{p}} = 0$ or $N_{\mathfrak{p}} = 0$, then the tensor product is $0$. $M$ and $N$ are finitely generated, so $M_{\mathfrak{p}}$ and $N_{\mathfrak{p}}$ are
+finitely generated. Further, since $A_\mathfrak{p}$ is a local ring, $M_{\mathfrak{p}} \otimes_{A_{\mathfrak{p}}} N_{\mathfrak{p}} = 0$ implies $M_{\mathfrak{p}} = 0$ or $N_{\mathfrak{p}} = 0$
+by Exercise \ref{2.3}. Thus, $\Supp(M \otimes_A N) = \Supp(M) \cap \Supp(N)$.
+\end{proof}
+
+\begin{proof}[(vii) Proof.]
+Note that $M/\mathfrak{a}M \cong (A/\mathfrak{a}) \otimes_A M$. Since $M$ is finitely generated as an $A$-module and $A/\mathfrak{a}$ is also, we have by (vi), (ii), (v), and Exercise \ref{1.15} that
+$$\Supp(M/\mathfrak{a}M) = \Supp(A/\mathfrak{a}) \cap \Supp(M) = V(\mathfrak{a}) \cap V(\Ann(M)) = V(\mathfrak{a} + \Ann(M)),$$
+as desired.
+\end{proof}
+
+\begin{proof}[(viii) Proof.]
+If $\mathfrak{q}$ is a prime ideal of $B$ and $\mathfrak{p} = \mathfrak{q}^c$, then by Proposition 3.5,
+$$(B \otimes_A M)_{\mathfrak{q}} \cong B_{\mathfrak{q}} \otimes_A M \cong (B_{\mathfrak{q}} \otimes_{A_{\mathfrak{p}}} A_{\mathfrak{p}}) \otimes_A M
+\cong B_{\mathfrak{q}} \otimes_{A_{\mathfrak{p}}} (A_{\mathfrak{p}} \otimes_A M) \cong B_{\mathfrak{q}} \otimes_{A_{\mathfrak{p}}} M_{\mathfrak{p}}.$$
+If $M_{\mathfrak{p}} = 0$, then clearly, $(B \otimes_A M)_{\mathfrak{q}} = 0$. Thus, $\Supp(B \otimes_A M) \subset f^{*-1}(\Supp(M))$.
+
+Conversely, suppose $0 = (B \otimes_A M)_{\mathfrak{q}} = B_{\mathfrak{q}} \otimes_{A_{\mathfrak{p}}} M_{\mathfrak{p}}$. Since $M$ is finitely generated, $M_{\mathfrak{p}}$ is finitely generated
+by elements $x_1,\ldots,x_n$. Thus, $(1/1) \otimes x_i = 0$ in $B_{\mathfrak{q}} \otimes_{A_{\mathfrak{p}}} M_{\mathfrak{p}}$. By Corollary 2.13, there is a finitely generated $A_{\mathfrak{p}}$-submodule 
+$N_i \subset B_{\mathfrak{q}}$ such that $(1/1) \otimes x_i = 0$. Thus, $N = \sum_i N \subset B_{\mathfrak{q}}$ is also finitely generated, and $(1/1) \otimes x = 0$ in $N \otimes_{A_{\mathfrak{p}}} M_{\mathfrak{p}}$
+for all $x \in M_{\mathfrak{p}}$ so that $N \otimes_{A_{\mathfrak{p}}} M_{\mathfrak{p}} = 0$. Since both tensor factors are finitely generated and $A_{\mathfrak{p}}$ is a local ring, we have by Exercise \ref{2.3} that
+$N = 0$ or $M_{\mathfrak{p}} = 0$. But, $1/1 \in N \subset B_{\mathfrak{q}}$, so $N \neq 0$ and $M_{\mathfrak{p}} = 0$. Hence, $\Supp(B \otimes_A M) = f^{*-1}(\Supp(M))$.
+\end{proof}
+
+\subsection{Exercise}\label{3.20}
+
+Consider $f^* : \Spec(B) \to \Spec(A)$. 
+\begin{proof}[(i) Proof.]
+$f^*$ is surjective $\iff$ for every $\mathfrak{p} \in \Spec(A)$, there is some $\mathfrak{q} \in \Spec(B)$ such
+that $\mathfrak{p} = f^*(\mathfrak{q}) = f^{-1}(\mathfrak{q}) = \mathfrak{q}^c$.
+\end{proof}
+
+\begin{proof}[(ii) Proof.]
+Suppose every $\mathfrak{q} \in \Spec(B)$ is of the form $\mathfrak{a}^e$. Suppose now that $f^*(\mathfrak{q}_x) = f^*(\mathfrak{q}_y)$ so that $\mathfrak{q}_x^c = \mathfrak{q}_y^c$. Then,
+since $\mathfrak{q}_x =\mathfrak{a}_x^e$ and $\mathfrak{q}_y =\mathfrak{a}_y^e$, we have $\mathfrak{a}_x^{ec} = \mathfrak{a}_y^{ec}$. Extending again, we have by Proposition 1.17,
+$$\mathfrak{q}_x = \mathfrak{a}_x^e = \mathfrak{a}_x^{ece} = \mathfrak{a}_y^{ece} = \mathfrak{a}_y^e = \mathfrak{q}_y,$$
+so $f^*$ is injective.
+\end{proof}
+
+We show now that the converse is false. For a ring $A$, we have $A[y] \cong A[x]/(x^2)$, where $y^2 = 0$. Then, $(y)^2 = 0$, so $(y)$ is in the nilradical of $A[y]$. Thus, every prime ideal of 
+$A[y]$ contains $(y)$. We have the ring homomorphism $f : A[y] \to A$ that sends $a + by \mapsto a$; this is inherited from the natural augmentation map $A[x] \to A$. For any prime ideal $\mathfrak{p} \in A$,
+we have $f^{-1}(\mathfrak{p}) = \mathfrak{p}A + (y)$. Thus, $f^* : \Spec(A) \to \Spec(A[y])$ is clearly injective. For any ideal $\mathfrak{a}$ of $A$, $\mathfrak{a}^e = \mathfrak{a}A + \mathfrak{a}y$, which
+does not include $y$ unless $\mathfrak{a} = A$. However, each prime $\mathfrak{p}A + (y)$ of $A[y]$ does contain $y$. Thus, $f^*$ injective does not imply that all prime ideals of $\Spec(B)$ are extended ideals.
+
+\subsection{Exercise}\label{3.21}
+
+\begin{proof}[(i) Proof.]
+The canonical homomorphism $\phi : S^{-1}A \to A$ gives way to the map $\phi^* : \Spec(S^{-1}A) \to \Spec(A)$. To show that $\phi^*$ is a homeomorphism of $\Spec(S^{-1}A)$ onto its
+image, we have to show that $\phi^*$ is bijective and bicontinuous. We showed in Exercise \ref{1.21} that $\phi^*$ is continuous in general, and $\phi^*$ is obviously surjective onto its image.
+So, we just have to show that $\phi^*$ is injective and that it is a closed map. 
+
+By Proposition 3.11, the prime ideals of $S^{-1}A$ are in one-to-one correspondence with the prime ideals of $A$ which don't meet $S$. In particular, $\phi^*$ is injective and thus bijective
+onto its image. Writing $X = \Spec(A)$, we denote this image by $\phi^*(\Spec(S^{-1}A)) = S^{-1}X$.
+
+To show that the map $\phi^*$ is closed, we invoke Proposition 3.11, which gives the aforementioned bijection via contraction and extension. In particular, for primes $\mathfrak{p} \in A - S$, 
+$\mathfrak{p}^{ec} = \mathfrak{p}$. Thus, any closed set of $\Spec(S^{-1}A)$ has the form $V(\mathfrak{a}^e)$, where $\mathfrak{a}$ is an ideal of $A$. But if $\mathfrak{a} \subset \mathfrak{p} \subset A - S$,
+then $\mathfrak{a}^e \subset \mathfrak{p}^e \neq (1)$ so that $\mathfrak{a} \subset \mathfrak{a}^{ec} \subset \mathfrak{p}^{ec} = \mathfrak{p}$. Thus, $\phi^*(V(\mathfrak{a}^e)) = V(\mathfrak{a}) \cap S^{-1}X$.
+Thus, $\phi^*$ is a closed map and thus a homeomorphism, as desired.
+
+In particular, consider the case of $A_f = \{f^n\}^{-1}A$. By Proposition 3.11 again, the prime ideals of $A_f$ are in one-to-one correspondence with the prime 
+ideals of $A$ which don't meet $\{f^n\}$. Thus, $\phi^*(\Spec(A_f)) = \{\mathfrak{p} \in \Spec(A) : \{f^n\} \cap \mathfrak{p} = \emptyset\}$. If $\mathfrak{p} \cap \{f^n\} \neq \emptyset$, then there is some
+smallest $n$ such that $f^n \in \mathfrak{p}$. However, if $n>1$, then $f^n = f \cdot f^{n-1} \in \mathfrak{p}$, so either $f$ or $f^{n-1}$ is in the prime ideal, contradicting minimality. Furthermore,
+$1 \not\in \mathfrak{p}$ since $\mathfrak{p}$ cannot be the whole ring. Thus, $\mathfrak{p} \not\in \phi^*(A_f) \iff f \in \mathfrak{p}$. In particular, $\phi^*(\Spec(A_f)) = V((f))^c = X_f$, the basic open set
+of $\Spec(A)$.
+\end{proof}
+
+\begin{proof}[(ii) Proof.]
+For a ring homomorphism $f : A \to B$, we have a homomorphism $S^{-1}f : S^{-1}A \to S^{-1}B$. By (i), we've shown that there is a canonical image $\Spec(S^{-1}A) \to S^{-1}\Spec(A) \subset \Spec(A)$. So, we 
+have a square
+\begin{center}
+\begin{tikzcd}
+\Spec(S^{-1}B) \arrow[r, "(S^{-1}f)^*"] \arrow[d, "\phi_B^*"] & \Spec(S^{-1}A) \arrow[d, "\phi_A^*"] \\
+\Spec(B) \arrow[r, "f^*"]          & \Spec(A)
+\end{tikzcd}
+\end{center}
+The goal is to show that $\phi_A^* \circ (S^{-1}f)^* = \phi_B^* \circ f^*$. In light of Exercise \ref{1.21}, it is sufficient to show that $(S^{-1}f) \circ \phi_A = \phi_B \circ f$, i.e. that we have
+the commutative diagram
+\begin{center}
+\begin{tikzcd}
+A \arrow[r, "f"] \arrow[d, "\phi_A"] & B \arrow[d, "\phi_B"] \\
+S^{-1}A \arrow[r, "S^{-1}f"]          & S^{-1}B
+\end{tikzcd}
+\end{center}
+So, taking $a \in A$, $(\phi_B \circ f)(a) = \phi_B(f(a)) = f(a)/1$ and $((S^{-1}f)\circ \phi_A)(a) = (S^{-1}f)(a/1) = f(a)/1$, so indeed, commutativity holds. Identifying $\Spec(S^{-1}B)$ 
+with $S^{-1}\Spec(B)$ and $\Spec(S^{-1}A)$ with $S^{-1}\Spec(A)$, we see that $(S^{-1}f)^* = f^*\mid_{S^{-1}\Spec(B)}$. Thus, $(S^{-1}f)^* : \Spec(S^{-1}B) \to \Spec(S^{-1}A)$
+is a homeomorphism by (i), so we have $S^{-1}\Spec(B) = f^{*-1}(S^{-1}\Spec(A))$.
+\end{proof}
+
+\begin{proof}[(iii) Proof.]
+As before, we will start with a diagram:
+\begin{center}
+\begin{tikzcd}
+A \arrow[r, "f"] \arrow[d, "\pi_A"] & B \arrow[d, "\pi_B"] \\
+A/\mathfrak{a} \arrow[r, "\overline{f}"]          & B/\mathfrak{a}^e
+\end{tikzcd}
+\end{center}
+If $a \in A$, then we have $(\pi_B \circ f)(a) = \pi_B(f(a)) = f(a) + \mathfrak{a}^e$ and $(\overline{f} \circ \pi_A)(a) = \overline{f}(a + \mathfrak{a}) = f(a) + \mathfrak{a}^e$, so the diagram
+commutes. Thus, we have a commutative diagram (Exercise \ref{1.21})
+\begin{center}
+\begin{tikzcd}
+\Spec(B/\mathfrak{a}^e) \arrow[r, "\overline{f}^*"] \arrow[d, "\pi_B^*"] & \Spec(A/\mathfrak{a}) \arrow[d, "\pi_A^*"] \\
+\Spec(B) \arrow[r, "f^*"]          & \Spec(A)
+\end{tikzcd}
+\end{center}
+Now, if $\mathfrak{q} \in V(\mathfrak{a}^e)$, then $\mathfrak{a}^{ec} \subset \mathfrak{q}^c = f^*(\mathfrak{q})$, so $f^*(V(\mathfrak{a}^e))\subset V(\mathfrak{a})$. Since the images of $\pi_B^*$
+and $\pi_A^*$ are exactly $V(\mathfrak{a}^e)$ and $V(\mathfrak{a})$, and since $f^*(V(\mathfrak{a}^e))\subset V(\mathfrak{a})$, it's clear from the diagram that $\overline{f}^*$ is just the restriction
+of $f^*$ to $V(\mathfrak{a}^e)$.
+\end{proof}
+
+\begin{proof}[(iv) Proof.]
+By the commutative diagrams of (ii) and (iii), we have
+\begin{center}
+\begin{tikzcd}
+\Spec(B_{\mathfrak{p}}/\mathfrak{p}B_{\mathfrak{p}}) \arrow[r] \arrow[d, "(f_{\mathfrak{p}})^*"] & \Spec(B_{\mathfrak{p}}) \arrow[r] \arrow[d, "(f_{\mathfrak{p}})^*"] &  \Spec(B) \arrow[d, "f^*"]\\
+\Spec(A_{\mathfrak{p}}/\mathfrak{p}A_{\mathfrak{p}}) \arrow[r] & \Spec(A_{\mathfrak{p}}) \arrow[r] &  \Spec(A).
+\end{tikzcd}
+\end{center}
+Note that $k(\mathfrak{p}) = A_{\mathfrak{p}}/\mathfrak{p}A_{\mathfrak{p}}$ is a field, so $\Spec(A_{\mathfrak{p}}/\mathfrak{p}A_{\mathfrak{p}}) = \{0\}$. By definition,
+$\Spec(A_{\mathfrak{p}}/\mathfrak{p}A_{\mathfrak{p}})$ is in one-to-one correspondence with the primes in $\Spec(A_{\mathfrak{p}})$ containing $\mathfrak{p}A_{\mathfrak{p}}$,
+which is itself in one-to-one correspondence with primes in $\Spec(A)$ that both contain $\mathfrak{p}$ and are contained in $\mathfrak{p}$ (so that they do not meet $S = A-\mathfrak{p}$). This is clearly
+$\{\mathfrak{p}\}$. Thus, $\Spec(B_{\mathfrak{p}}/\mathfrak{p}B_{\mathfrak{p}}) = f^{*-1}(\mathfrak{p})$, as desired.
+
+We also have, letting $U = A/\mathfrak{p} - \{0\}$,
+$$k(\mathfrak{p}) \otimes_A B = (A_{\mathfrak{p}}/\mathfrak{p}A_{\mathfrak{p}}) \otimes_A B \cong (A/\mathfrak{p})_{\mathfrak{p}} \otimes_A B \cong U^{-1}(A/\mathfrak{p}) \otimes_A B$$
+$$\cong U^{-1}(A/\mathfrak{p}) \otimes_A A/\mathfrak{p} \otimes_{A/\mathfrak{p}} B \cong U^{-1}(A/\mathfrak{p}) \otimes_{A/\mathfrak{p}} B/\mathfrak{p}B \cong U^{-1}(B/\mathfrak{p}B)
+\cong B_{\mathfrak{p}}/\mathfrak{p}B_{\mathfrak{p}}$$
+so that $f^{*-1}(\mathfrak{p})$ is homeomorphic to $\Spec(B_{\mathfrak{p}}/\mathfrak{p}B_{\mathfrak{p}}) = \Spec(k(\mathfrak{p}) \otimes_A B)$.
+\end{proof}
+
+\begin{remark}
+$f^{*-1}(\mathfrak{p}) = \Spec(k(\mathfrak{p}) \otimes_A B)$ is called the ``fiber'' of $f^*$ over $\mathfrak{p}$.
+\end{remark}
+
+\subsection{Exercise}\label{3.22}
+
+\begin{proof}
+First, we show that the intersection of all open sets containing $\mathfrak{p}$ is equivalent to the intersection of all basic open sets containing $\mathfrak{p}$. Any open set $U$ containing $\mathfrak{p}$ 
+is the union of basic open sets, as they form a basis for the topology. Thus, there is $X_f \subset U$ that contains $\mathfrak{p}$ so that $f \in A - \mathfrak{p}$. However, $X_f$ is also an open set 
+containing $\mathfrak{p}$, so the intersection of open sets containing $\mathfrak{p}$ is contained in $X_f$. So, we can replace $U$ with $X_f$ without changing the resulting intersection.
+
+Then, it is sufficient to show that the canonical image of $\Spec(A_{\mathfrak{p}})$ in $\Spec(A)$ is the intersection of all $X_f$ containing $\mathfrak{p}$. For any $f \in A - \mathfrak{p}$, we have a 
+canonical composition $A \to A_f \to A_{\mathfrak{p}}$. By Exercise \ref{3.3}, this map is exactly the canonical map $A \to A_{\mathfrak{p}}$. The map $\Spec(A_{\mathfrak{p}}) \to \Spec(A)$ then
+factors through $\Spec(A_f)$. By Exercise \ref{3.21}, the image of $\Spec(A_f)$ in $\Spec(A)$ is $X_f$. Thus, $\Spec(A_{\mathfrak{p}}) \subset X_f$ for any $f \not\in \mathfrak{p}$ so that
+$$\Spec(A_{\mathfrak{p}}) \subset \bigcap_{f \not\in \mathfrak{p}} X_f.$$
+
+To show the converse, we can take complements and show that $\Spec(A_{\mathfrak{p}})^c \subset \bigcup_{f \not\in \mathfrak{p}}V(f)$. By Proposition 3.11, the prime ideals of $A_{\mathfrak{p}}$
+are precisely the prime ideals of $A$ that don't meet $A-\mathfrak{p}$. Thus, $\Spec(A_{\mathfrak{p}})^c$ is the set of prime ideals of $A$ that meet $A - \mathfrak{p}$, i.e. the prime ideals
+$\mathfrak{q}$ such that $(A - \mathfrak{p})\cap\mathfrak{q} \neq \emptyset$. For every such prime ideal $\mathfrak{q}$, there is an element $a_{\mathfrak{q}} \in A$ such that $a_{\mathfrak{q}} \in \mathfrak{q}$
+and $a_{\mathfrak{q}} \in A - \mathfrak{p}$, or equivalently, $a_{\mathfrak{q}} \not\in \mathfrak{p}$. So $\mathfrak{q} \in V(a_{\mathfrak{q}})$. In particular,
+$$\Spec(A_{\mathfrak{p}})^c \subset \bigcup_{\mathfrak{q} \in \Spec(A_{\mathfrak{p}})^c}V(a_{\mathfrak{q}}) \subset \bigcup_{f \not\in \mathfrak{p}}V(f)$$
+so that, finally, $\Spec(A_{\mathfrak{p}}) = \bigcap_{f \not\in \mathfrak{p}}X_f$.
+\end{proof}
+
+\subsection{Exercise}\label{3.23}
+
+\begin{proof}[(i) Proof.]
+Suppose $X_f = X_g$. By Exercise \ref{1.17}, $r((f)) = r((g))$ so that $f^n \in (g)$ and $g^m \in (f)$. Thus, the image of $f$ is a unit in $A_g$ and
+the image of $g$ is a unit in $A_f$. Thus, if $S$ is the multiplicatively closed set generated by $f$ and $g$, both $A_f$ and $A_g$ satisfy the universal
+property of localization for $S^{-1}A$, so there is a canonical isomorphism of rings $A_f \cong A_g$. In particular, $A(U) := A_f$ depends only on $U$.
+\end{proof}
+
+\begin{proof}[(ii) Proof.]
+Suppose $U' \subset U$, where $U' = X_g$ for some $g \in A$ and $U = X_f$ for some $f \in A$. By (i), this choice is inconsequential. By Exercise \ref{1.17},
+$X_g = X_f \cap X_g = X_{fg}$, so $r((fg)) = r((g))$. Since $r((g)) = r((fg)) \subset r((f))$, there is some $u\in A$ and $n > 0$ such
+that $g^n = uf$. Then, we have a ring homomorphism $\rho : A_f \to A_g$ defined by $a/f^m \mapsto au^m/g^{mn}$. Consider the canonical homomorphism $\psi_g : A \to A_g$.
+Since $uf = g^n$, $\psi_g(f)$ is a unit. Thus, by the universal property of localization (Proposition 3.1), there is a unique ring homomorphism $h : A_f \to A_g$ such that 
+$\psi_g = h \circ \psi_f$. But $h$ is just $\rho$ since $\psi_g(a/1) = a/1$ and $\rho(\psi_f(a/1)) = \rho(a/1) = a/1$. So, $\rho$ is canonical.
+
+In (i), we showed that $A(U)$ and $A(U')$ depend only on $U$ and $U'$. Thus, if $A \to A_f \to A_g$ is such a choice, we have $\psi_g = \rho\circ\psi_f$.
+\end{proof}
+
+\begin{proof}[(iii) Proof.]
+By (ii), if we let $X_f$ represent $U$, then $\psi_f = \id_{A_f}\circ\psi_f$. Since $\rho$ is the unique homomorphism that satisfies $\psi_f = \rho\circ\psi_f$ by (ii), $\rho = \id_{A_f}$.
+\end{proof}
+
+\begin{proof}[(iv) Proof.]
+If $U'' \subset U' \subset U$ are basic open sets, we have canonical maps $\psi_V : A \to A(V)$ that commute with restriction, by (ii). In particular, we have $\psi_{U'} = \rho_{UU'}\circ\psi_{U}$,
+$\psi_{U''} = \rho_{U'U''}\circ\psi_{U'}$, and $\psi_{U''} = \rho_{UU''}\circ\psi_{U}$. Thus, we can write: $\rho_{UU''} \circ \psi_{U} = \psi_{U''} = \rho_{U'U''}\circ\psi_{U'} = (\rho_{U'U''}\circ\rho_{UU'})\circ\psi_{U}$.
+Since $\rho_{UU''}$ is the unique homomorphism satisfying the property $\psi_{U''} = \rho_{UU''} \circ \psi_{U}$, we must have $\rho_{UU''} =  \rho_{U'U''}\circ\rho_{UU'}$,
+as desired.
+\end{proof}
+
+\begin{proof}[(v) Proof.]
+We show that $A_{\mathfrak{p}}$ is the direct limit $\varinjlim A(U)$, where $U$ ranges over those basis open sets $X_f$ such that $f \not\in \mathfrak{p}$ ($U$ ranges over neighborhoods of
+$\mathfrak{p}$). The directed system is formed by restrictions, i.e. if $U' \subset U$, then $\rho_{UU'} : A(U) \to A(U')$ defines the homomorphisms. These maps are compatible by (ii) and (iii), so $\varinjlim A(U)$ is well-defined.
+
+For every basic open set $X_f$, $\{f^n\} \subset A-\mathfrak{p}$, so there is a canonical map $\beta_U : A(U)(=A_f)\to A_{\mathfrak{p}}$ that commutes with the canonical maps $A \to A_f$ and $A \to A_{\mathfrak{p}}$.
+By Exercise \ref{2.21}, we have a ring homomorphism $\psi: \varinjlim A(U) \to A_{\mathfrak{p}}$. For any $a \in \varinjlim A(U)$, there is some $U$ and $a_U \in A(U)$ such that $\alpha_U(a_U) = a$. Then,
+$\psi(a) = \beta_U(a_U)$. 
+
+To show this is an isomorphism, we need to show injectivity and surjectivity. If $\psi(a) = 0$, then there is some $U$ and $a_U \in A(U)$ such that $\alpha_U(a_U) = a$ and $\beta_U(a_U) = 0$. Since
+$\beta_U$ commutes with the canonical maps $\phi_U : A \to A(U)$ and $\phi : A \to A_{\mathfrak{p}}$, there is some $b \in \ker(A \to A_f)$ such that $\phi_U(b) = a_U$. 
+In particular, there is some $f \in A - \mathfrak{p}$ such that $f b = 0$. But then, if $U = X_g$, then $U' = U \cap X_f = X_{fg}$ (Exercise \ref{1.17}) is a subset of both $X_f$ and $U$. Thus, the restriction maps give us
+a commutative square with $A \to A(U) \to A(X_{fg})$ and $A \to A(X_f) \to A(X_{fg})$ as the two paths. Since $A \to A(X_f)$ maps $b$ to $0$, $b$ is zero in the image $A(X_{fg})$. Thus, $a = \alpha_U(a_U) = \alpha_{X_{fg}}(0) = 0$, 
+so injectivity holds. 
+
+Further, any element of $A_{\mathfrak{p}}$ has the form $a/f$, where $f \in A-\mathfrak{p}$. Then, $a/f$ is the image of $a/f$ in $A_f \to A_{\mathfrak{p}}$. Thus, $\psi(\beta_{X_f}(a/f)) = a/f$, so surjectivity holds 
+and thus $A_{\mathfrak{p}} \cong \varinjlim A(U)$.
+\end{proof}
+
+\begin{remark}
+The assignment of the ring $A(U)$ to each basic open set $U$ of $X$, and the restriction homomorphisms $\rho$, satisfying (iii) and (iv), constitutes a ``presheaf of rings'' on the basis of open sets $\{X_f\}_{f \in A}$. (v)
+says that the ``stalk'' of this presheaf at $x (=\mathfrak{p}) \in X$ is the local ring $A_{\mathfrak{p}}$.
+\end{remark}
+
+\subsection{Exercise}\label{3.24}
+
+\begin{proof}
+Let $\{X_{f_i}\}_{i \in I}$ be a covering of $X$ by basic open sets. For each $i \in I$, suppose there is an assignment $i \mapsto s_i \in A(X_{f_i})$ such that, for each
+pair $i,j \in I$, the restrictions of $s_i$ and $s_j$ to $A(X_{f_i} \cap X_{f_j}) = A(X_{f_if_j})$ (Exercise \ref{1.17}) are identical.
+
+By Exercise \ref{1.17}, we have a finite subcover $\{X_{g_i}\}_{i=1}^n$. For each, we can write $s_i = a_i/g_i^{m_i} \equiv a_i g_i^n/g_i^{m_i + n}$. In particular, since there are finitely many $g_i$, 
+we can use a common exponent to obtain $s_i = a_i / g_i^M$ for all $i$. For any $i,j$, we are given that in $A_{g_i g_j}$, we have
+$$\frac{a_i}{g_i^M} = \frac{a_j}{g_j^M}.$$
+Thus, there is some $m$ such that
+$$(g_i g_j)^m(a_i g_j^M - a_j g_i^M) = 0$$
+so that $a_i' g_j^{m+M} = a_j' g_i^{m+M}$ in $A$. Since there are finitely many $g_i$, we can adjust coefficients to find a common denominator $N$ such that
+$a_i g_j^N = a_j g_i^N$ for all $i,j$ and such that $s_i \equiv a_i/g_i^N$.
+
+Since $X$ is covered by $\{X_{g_i}\}$, we know that $(g_1,\ldots,g_n) = (1)$. Otherwise, there is a maximal ideal that contains it, but then $\bigcup X_{g_i}$ would
+not contain this maximal ideal. In particular, for every maximal ideal, there is some $g_i$ not contained in it so that $g_i^N$ is not contained in it either. Thus,
+$(g_1^N,\ldots,g_n^N) = (1)$, as well. We can find $h_i \in A$ such that $\sum_i h_i g_i^N = 1$. Let $s = \sum h_i a_i$. Then,
+$$s g_j^N = \sum h_i (a_i g_j^N) = \sum h_i a_j g_i^N = a_j \sum h_i g_i^N = a_j.$$
+Thus, under the canonical map $s \mapsto s/1$ in any $A(X_{g_i})$, we have $s/1 = s g_i^N / g_i^N = a_i / g_i^N = s_i$, giving us our desired global section.
+
+Let's show uniqueness. Let $s,s'$ both satisfy the desired properties, then $s - s' \mapsto 0$ in each $A(X_{g_i})$. Then, $g_i^{m_i}(s - s') = 0$ for some $m_i$.
+Thus, there is some common $M$ such that $g_i^M(s - s') = 0$ for all $i$. As before, $(g_1^M,\ldots,g_n^M) = (1)$, so we can choose $k_i$ such that $1 = \sum k_i g_i^M$. Then,
+$$s - s' = \sum k_i g_i^M(s-s') = \sum k_i \cdot 0 = 0,$$
+as desired.
+
+Let $X_f$ be any other basic open set. Then, $\{X_f \cap X_{g_i}\} = \{X_{fg_i}\}$ cover $X_f$. Using the global section $s$ for the finite covering and transivity of 
+restriction (Exercise \ref{3.23}), we have 
+$$\rho_{X_f,X_{fg_i}}(s_f) = \rho_{X_{g_i}, X_{fg_i}}(s_i) = \rho_{X,X_{fg_i}}(s).$$
+Adding $X_f$ to our collection $\{X_{g_i}\}$, we can invoke the uniqueness already shown to see that $s_f = \rho_{X,X_f}(s)$. Hence, the global section $s$ exists and is unique.
+\end{proof}
+
+\subsection{Exercise}\label{3.25}
+
+\begin{proof}
+If $\mathfrak{p} \in X$ and $k = k(\mathfrak{p})$ is its residue field, then by Exercise \ref{3.21},
+$$h^{*-1}(\mathfrak{p}) \cong \Spec((B \otimes_A C) \otimes_A k) \cong \Spec((B \otimes_A k) \otimes_k (C \otimes_A k)).$$
+Thus, $\mathfrak{p} \in h^*(T)$ if and only if $(B \otimes_A k) \otimes_k (C \otimes_A k) \neq 0$. Since the tensor factors are vector spaces,
+$(B \otimes_A k) \otimes_k (C \otimes_A k) \neq 0$ if and only if $(B \otimes_A k) \neq 0$ and $(C \otimes_A k) \neq 0$. By Exercise \ref{3.21} again, this
+happens exactly when $\mathfrak{p} \in f^*(Y)$ and $\mathfrak{p} \in g^*(Z)$. Therefore, $\mathfrak{p} \in h^*(T)$ if and only if $\mathfrak{p} \in f^*(Y) \cap g^*(Z)$, 
+so $h^*(T) = f^*(Y) \cap g^*(Z)$.
+\end{proof}
+
+\subsection{Exercise}\label{3.26}
+
+\begin{proof}
+Let $\mathfrak{p} \in \Spec(A)$, and $k := k(\mathfrak{p})$. Then,
+$$B \otimes_A k \cong (\varinjlim B_{\alpha}) \otimes_A k \cong \varinjlim (B_{\alpha} \otimes_A k)$$
+by Exercise \ref{2.20}. Thus, $\mathfrak{p} \in f^*(\Spec(B))$ if and only if $B \otimes_A k \neq 0$ (Exercise \ref{3.21}) if and only if $\varinjlim (B_{\alpha} \otimes_A k) \neq 0$.
+
+Suppose $B_{\alpha} \otimes_A k = 0$ for some $\alpha$. Then, $f_{\alpha} = 0$ so that for any $\beta \ge \alpha$, $f_{\beta} = g_{\alpha\beta} \circ f_{\alpha} = 0$. Thus, $B \otimes_A k = 0$ since the maps
+are ring homomorphisms, implying that $0=1$ in $B \otimes_A k$. Conversely, since $(B_{\alpha} \otimes_A k)$ is a direct limit of rings and thus a ring by Exercise \ref{2.21}, we also have by Exercise \ref{2.21}, 
+that $B \otimes_A k = 0$ implies that $B_{\alpha} \otimes_A k = 0$ for some $\alpha$. Thus, $\varinjlim (B_{\alpha} \otimes_A k) \neq 0$ if and only if $B_{\alpha} \otimes_A k \neq 0$ for all $\alpha$. But this
+happens, by Exercise \ref{3.21}, if and only if $\mathfrak{p} \in f_{\alpha}^*(\Spec(B_{\alpha}))$ for all $\alpha$. Connecting the chain, we have $f^*(\Spec(B)) = \bigcap_{\alpha} f_{\alpha}^*(\Spec(B_{\alpha}))$.
+\end{proof}
+
+\subsection{Exercise}\label{3.27}
+
+\begin{proof}[(i) Proof.]
+By Exercise \ref{2.23}, the tensor product is the direct limit of tensor products over finite subsets of $\{B_{\alpha}\}$
+with the ordering given by inclusion. If $\{I\}_{I \in \Lambda}$ are the finite subsets of indices, then by Exercise \ref{3.26},
+we have
+$$f^*(\Spec(B)) = \bigcap_{I \in \Lambda}f_I^*\left(\Spec\left(\bigotimes_{\alpha \in I}B_{\alpha}\right)\right),$$
+where $f_I : A \to \bigotimes_{\alpha \in I}B_{\alpha}$ is just $\bigotimes_{\alpha \in I}f_{\alpha}$.
+By Exercise \ref{2.25} and a basic inductive argument, we have that for any $I \in \Lambda$,
+$$f_I^*\left(\Spec\left(\bigotimes_{\alpha \in I}B_{\alpha}\right)\right) = \bigcap_{\alpha \in I}f_{\alpha}^*(\Spec(B_{\alpha})).$$
+Putting both together, we have $f^*(\Spec(B)) = \bigcap_{\alpha}f_{\alpha}^*(\Spec(B_{\alpha}))$, as desired.
+\end{proof}
+
+\begin{proof}[(ii) Proof.]
+By Exercise \ref{1.22}, we know that $\Spec(B) \cong \bigsqcup_{\alpha} \Spec(B_{\alpha})$. The map $f = (f_{\alpha})$ respects this
+decomposition so that $f^*(\Spec(B)) = \bigcup_{\alpha} f_{\alpha}^*(\Spec(B_{\alpha}))$.
+\end{proof}
+
+\begin{proof}[(iii) Proof.]
+Note that the ring homomorphism $f : A \to 0$ induces $f^*(\Spec(0)) = \emptyset$. Further, $\id : A \to A$ induces
+a map $\id^*(\Spec(A)) = \Spec(A)$. Along with the results of (i) and (ii), we see that subsets of $\Spec(A)$ of the form
+$f^*(\Spec(B))$ for a ring homomorphism $f : A \to B$ satisfy the properties for closed sets of a topology.
+
+Every closed set of the Zariski topology is of the form $V(\mathfrak{a})$ for some ideal $\mathfrak{a}$. By Exercise \ref{3.19},
+we know that the natural ring homomorphism $\pi : A \to A/\mathfrak{a}$ satisfies $V(\mathfrak{a}) = \pi^*(\Spec(A/\mathfrak{a}))$.
+Thus, every closed set of the Zariski topology is closed in this topology, so this topology is finer.
+\end{proof}
+
+\begin{remark}
+We refer to this topology as the ``constructible topology'' on $\Spec(A)$.
+\end{remark}
+
+\begin{proof}[(iv) Proof.]
+Showing that $X_C$ is quasi-compact means showing that any open covering has a finite subcovering. Equivalently, we can show that any family of closed sets having empty intersection has
+a closed subfamily with empty intersection.
+
+Let $\{f_{\alpha}^*(\Spec(B_{\alpha}))\}$ be a closed family such that $\bigcap_{\alpha}f_{\alpha}^*(\Spec(B_{\alpha})) = \emptyset$. Then, if $B$ is the tensor product of $(B_{\alpha})$,
+by (i), we have
+$$f^*(\Spec(B)) = \bigcap_{\alpha}f_{\alpha}^*(\Spec(B_{\alpha})) = \emptyset,$$
+Hence, $\Spec(B)$ is empty and $B = 0$. Since $B = \varinjlim_{I} \bigotimes_{\alpha \in I}B_{\alpha}$,
+we must have $\bigotimes_{\alpha \in I}B_{\alpha} = 0$ for some $I$ since this is a direct limit of $A$-algebras (Exercise \ref{2.21}). By (i) again, we have
+$$\emptyset = f_I^*\left(\Spec\left(\bigotimes_{\alpha \in I}B_{\alpha}\right)\right) = \bigcap_{\alpha \in I}f_\alpha^*(\Spec(B_{\alpha})),$$
+so $X_C$ is quasi-compact.
+\end{proof}
+
+\subsection{Exercise}\label{3.28}
+
+\begin{proof}[(i) Proof.]
+Since $X_C$ has a finer topology than the Zariski topology on $X = \Spec(A)$ (Exercise \ref{3.27}), $X_g$ is open in $X_C$ since it is open in the Zariski topology. Conversely, consider the
+canonical map $f : A \to A_g$. By Proposition 3.11, the primes of $A_g$ are in one-to-one correspondence with the primes of $A$ that do not meet $\{g^n\}$. If $\mathfrak{p} \in \Spec(A)$ intersects
+$\{g^n\}$, then it must contain $g$ (otherwise, choose $n > 1$ minimal such that $g^n \in \mathfrak{p}$, then invoke primality on $g^n = g \cdot g^{n-1}$). Thus, $\mathfrak{p} \in f^*(\Spec(A_g))$ if
+and only if $g \not\in \mathfrak{p}$. Thus, $f^*(\Spec(A_g)) = V(g)^c = X_g$, so $X_g$ is also closed.
+\end{proof}
+
+\begin{remark}
+We've shown that for any $f \in A$, $\Spec(A)$ with the constructible topology is the disjoint union of $\Spec(A/(f))$ and $\Spec(A_f)$.
+\end{remark}
+
+\begin{proof}[(ii) Proof.]
+Let $C'$ be the coarsest topology on $X = \Spec(A)$ such that each $X_g$ for $g \in A$ is both open and closed. Let $\mathfrak{p}$ and $\mathfrak{q}$ be distinct
+primes in $X$. Since they are not equal, we can assume that one contains an element that the other does not. Without loss of generality, suppose $f \in \mathfrak{p}$
+and $f \not\in \mathfrak{q}$. Then, $\mathfrak{q} \in X_f$ and $\mathfrak{p} \in X_f^c$. Since these are disjoint open sets, $X_{C'}$ is Hausdorff.
+\end{proof}
+
+\begin{proof}[(iii) Proof.]
+Consider the identity map $\id : X_C \to X_{C'}$; clearly, this is a bijection. Since $X_{C'}$ is the coarsest topology such that $X_f$ is open and closed
+for all $f \in A$ by (ii), and since $X_C$ satisfies this property by (i), $X_C$ is finer than $X_{C'}$. Therefore, any open set of $X_{C'}$ is open in $X_C$, 
+so $\id$ is continuous.
+
+For the converse, note that $X_C$ is compact, as it is both Hausdorff (from (ii) and (i)) and quasi-compact (Exercise \ref{3.27}). Now, 
+let $K$ be an arbitrary closed set of $X_C$. As $K$ is closed and $X_C$ is compact, $K$ is compact. Since $\id$
+is continuous, $\id(K)$ is compact. As a compact subset of a Hausdorff space (from (ii)), $\id(K)$ is closed. Therefore, $\id$ is a closed mapping and 
+finally a homeomorphism.
+\end{proof}
+
+\begin{proof}[(iv) Proof.]
+By (i) and (ii), $X_C$ is Hausdorff. Further, $X_C$ is quasi-compact by Exercise \ref{3.27}, so $X_C$ is compact. To show that $X_C$ is totally disconnected, let $S$ be some subset of $X_C$.
+Suppose we have distinct elements $\mathfrak{p}, \mathfrak{q} \in S$. We showed in (i) that there exists some $f \in A$ such that $\mathfrak{p} \in X_f$ and $\mathfrak{q} \in X_f^c$ 
+(switching $\mathfrak{p}$ and $\mathfrak{q}$ if necessary). Since both $X_f$ and $X_f^c$ are open by (i), $S\cap X_f$ and $S \cap X_f^c$ are open (in the subspace topology), disjoint, non-empty,
+and their union gives $S$. Thus, any subset with more than one element is disconnected, as desired.
+\end{proof}
+
+\subsection{Exercise}\label{3.29}
+
+\begin{proof}
+By Exercise \ref{3.28}, $\Spec(A)_C$ is generated as a topology by letting the sets of the form $X_g$ and $V(g)$ for all $g \in A$ be open. By Exercise \ref{1.21}, $f^{*-1}(X_g) = Y_{f(g)}$ and $f^{*-1}(V(g)) = V(f(g))$. In particular,
+these generating open sets are mapped under $f^{*-1}$ to the generating open sets of $\Spec(B)_C$. Thus, $f^*$ is continuous.
+
+Now, note that an arbitrary closed set of $\Spec(B)_C$ has the form $h^*(\Spec(R))$ for some ring homeomorphism $h : B \to R$. Note that $(h \circ f) : A \to R$ is also a ring homomorphism, so $(h \circ f)^*(\Spec(R))$
+is closed in $\Spec(A)_C$. By Exercise \ref{1.21}, $f^*(h^*(\Spec(R))) = (h \circ f)^*(\Spec(R))$, so $f^*$ is a closed mapping.
+\end{proof}
+
+\subsection{Exercise}\label{3.30}
+
+\begin{proof}
+If the Zariski topology and constructible topology are equivalent on $\Spec(A)$, then since $\Spec(A)_C$ is Hausdorff (Exercise \ref{3.28}), $\Spec(A)$ must be Hausdorff in the Zariski topology, 
+so by Exercise \ref{3.11}, $A/\mathfrak{N}$ is absolutely flat.
+
+Conversely, if $A/\mathfrak{N}$ is absolutely flat, then by Exercise \ref{3.11}, $\Spec(A)$ is Hausdorff and compact in the Zariski topology. The identity mapping
+$\id : \Spec(A)_C \to \Spec(A)$ is bijective and continuous since $\Spec(A)_C$ is finer than $\Spec(A)$ by Exercise \ref{3.27}. Now, let $K$ be a closed set of $\Spec(A)_C$. 
+Because $K$ is closed and $\Spec(A)_C$ is compact (Exericse \ref{3.28}), $K$ is compact. Then, since $\id$ is continuous, $\id(K)$ is also compact. This implies that 
+$\id(K)$ is closed since $\Spec(A)$ is Hausdorff. Finally, $\id$ is a homeomorphism, as desired.
+\end{proof}

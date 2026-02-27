@@ -1,0 +1,637 @@
+\section{Primary Decomposition (In Progress)}
+
+\subsection{Exercise - Complete}\label{4.1}
+
+\begin{proof}
+Since $\mathfrak{a}$ is decomposable, we have by Proposition 4.6 that the minimal elements in the set of all prime ideals containing $\mathfrak{a}$, or equivalently the minimal prime ideals of $A/\mathfrak{a}$ (Proposition 1.1),
+are exactly the minimal prime ideals belonging to $\mathfrak{a}$. Again, since $\mathfrak{a}$ is decomposable, there are only finitely many prime ideals belonging to $\mathfrak{a}$, so $A/\mathfrak{a}$
+has finitely many minimal prime ideals. By Exercise \ref{1.20}, the irreducible components of $\Spec(A/\mathfrak{a})$ are the closed sets $V(\mathfrak{p})$, where $\mathfrak{p}$ is a minimal prime of $A/\mathfrak{a}$.
+Therefore, $\Spec(A/\mathfrak{a})$ has finitely many irreducible components.
+\end{proof}
+
+\subsection{Exercise - Complete}\label{4.2}
+
+\begin{proof}
+Since $\mathfrak{a} = r(\mathfrak{a})$, $\mathfrak{a}$ is the intersection of the prime ideals containing $\mathfrak{a}$. By Proposition 4.6, each prime containing $\mathfrak{a}$ contains a minimal prime also containing 
+$\mathfrak{a}$. Then, replacing the intersection with the intersection over only minimal primes yields the same intersection. Since $\mathfrak{a}$ is decomposable, we invoke Exercise \ref{4.1} to see that there are finitely 
+many such primes, so the intersection of minimal prime ideals containing $\mathfrak{a}$ is a primary decomposition. Since $r(\mathfrak{p}_i) = \mathfrak{p}_i$ for all primes, the primes belonging to $\mathfrak{a}$ must 
+all be minimal, so $\mathfrak{a}$ has no embedded prime ideals.
+\end{proof}
+
+\subsection{Exercise - Complete}\label{4.3}
+
+\begin{proof}
+Let $\mathfrak{q}$ be primary so that, by Proposition 4.1, $r(\mathfrak{q})$ is prime. Now, suppose $x \in r(\mathfrak{q})$ so that $x^n \in \mathfrak{q}$ for some $n > 0$. Since $A$
+is absolutely flat, we know by Exercise \ref{2.27} that $(x) = (x^n)$, so $x \in (x^n) \subset \mathfrak{q}$. Therefore, $\mathfrak{q} = r(\mathfrak{q})$ so that $\mathfrak{q}$ is a prime ideal. 
+By Exercise \ref{3.11}, every prime ideal of $A$ is maximal. Hence, $\mathfrak{q}$ is maximal.
+\end{proof}
+
+\subsection{Exercise - Complete}\label{4.4}
+
+If $I$ is an ideal properly containing $(2,t)$ in $\Z[t]$, then it has an element $f \not\in (2,t)$. But $f = a + g$, where $a \in \Z$ and $g(0) = 0$. Then, $g \in (2,t)$, so
+$a \in I$. By assumption, $a \not\in (2)$ (otherwise $f = a + g \in (2,t)$). Thus, $a = 2n + 1$, where $n \in \Z$. But, $2n \in (2,t) \subset I$, so $a - 2n = 1 \in I$ and thus $I=(1)$.
+In particular, $(2,t)$ is maximal.
+
+Note that $(2,t)^2 = (4,2t,t^2) \subset (4,t)$, so $(2,t) \subset r((4,t))$. Since $r((4,t))$ is an ideal and $(2,t)$ is maximal, $r((4,t))$ is either $(1)$ or $(2,t)$. However, 
+$r(\mathfrak{a}) = (1) \iff \mathfrak{a} = 1$ by the intra-text Exercise 1.13, so since $(4,t) \neq (1)$, $r((4,t)) = (2,t)$. Thus, $(4,t)$ is $(2,t)$-primary by Proposition 4.2.
+
+However, we showed that $(4,2t,t^2) = (2,t)^2 \subset (4,t) \subset (2,t)$. Since $t \in (4,t) - (4,2t,t^2)$ and $2 \in (2,t) - (4,t)$, the inclusions are proper. Thus, $(4,t)$ is primary
+with respect to a maximal ideal, and yet, is not a power of the maximal ideal.
+
+\subsection{Exercise - Complete}\label{4.5}
+
+$K[x,y,z]/(x,y) \cong K[z]$ is an integral domain; if $f$,$g$ are non-zero, $\deg(f)$ and $\deg(g)$ are finite, so $\deg(fg) = \deg(f)\deg(g)$ is finite and thus $fg$ is non-zero. 
+Therefore, $(x,y)$ is prime. By the same argument, $(x,z)$ is prime. $(x,y,z)$ is maximal since $K[x,y,z]/(x,y,z) \cong K$, a field.
+
+Let $\mathfrak{a} = (x,y)(x,z) = (x^2, xy, xz, yz)$. Note that $(x,y,z)^2 = (x^2,xy,xz,y^2,yz,z^2)$ and also $(x,y) \cap (x,z) = (x,xy,xz,yz) = (x,yz)$ so that
+$$(x,y) \cap (x,z) \cap (x,y,z)^2 = (x,yz) \cap (x^2,xy,xz,y^2,yz,z^2) = (x^2,xy,xz,yz) = \mathfrak{a}.$$
+
+Since $(x,y)$ and $(x,z)$ are prime, they are primary; also, since $(x,y,z)$ is maximal, $(x,y,z)^2$ is primary, so we have a primary decomposition of $\mathfrak{a}$. Clearly,
+$r((x,y)) = (x,y)$, $r((x,z)) = (x,z)$, and since $r((x,y,z)^2)$ contains the maximal ideal $(x,y,z)$ and is not the whole ring, we must have $r((x,y,z)^2) = (x,y,z)$. Thus, the
+associated primes of the decomposition are distinct. Moreover,
+$$(x,z) \not\subset (x,y,z) \cap (x,y) = (x,y), \quad (x,y) \not\subset (x,y,z) \cap (x,z) = (x,z),$$
+$$\text{ and } (x,y,z) \not\subset (x,y)\cap(x,z) = (x,xy,xz,yz),$$
+so the primary decomposition is reduced.
+
+The prime ideals belonging to $\mathfrak{a}$ are thus $(x,y,z)$, $(x,y)$, and $(x,z)$. Since $(x,y)$ and $(x,z)$ each do not contain any of the other primes, they are isolated. Since
+$(x,y) \subset (x,y,z)$, $(x,y,z)$ is embedded.
+
+\subsection{Exercise - Complete}\label{4.6}
+
+We show that if $X$ is an infinite, compact Hausdorff space, then in the ring of real-valued continuous functions on $X$, $C(X)$, $0$ is not decomposable.
+
+\begin{proof}
+We proceed by contradiction. Let
+$$0 = \bigcap_{i=1}^n \mathfrak{q}_i$$
+be a reduced, primary decomposition of $0$. By Exercise \ref{1.26}, $\Max(C(X)) = \{\mathfrak{m}_x : x \in X\}$, where $\mathfrak{m}_x$ is the maximal ideal of functions $f \in C(X)$
+satisfying $f(x) = 0$. 
+
+Suppose there are two distinct maximal ideals $\mathfrak{m}_x$, $\mathfrak{m}_y$ containing $\mathfrak{q}_i$. Since $X$ is Hausdorff and compact, it is normal, so we can make use 
+of Urysohn's lemma. $X$ is Hausdorff, so the sets $\{x\}$ and $\{y\}$ are closed. Further, they have disjoint open sets $x \in U_x$ and $y \in U_y$. By Urysohn's lemma, there is a 
+real-valued continuous function $f_x$ such that $f_x(x) = 1$ and $f_x(U_x^c) = 0$. We define $f_y$ symmetrically. Then, since $U_x \cap U_y = \emptyset$, $U_x^c \cup U_y^c = X$ so that 
+$f_x f_y = 0$. Note that $f_x \in \mathfrak{m}_y - \mathfrak{m}_x$ and $f_y \in \mathfrak{m}_x - \mathfrak{m}_y$, so neither $f_x$ nor $f_y$ is in $\mathfrak{q}_i$ since we
+assume that $\mathfrak{q}_i \subset \mathfrak{m}_x \cap \mathfrak{m}_y$. However, note that $f_x f_y = 0 \in \mathfrak{q}_i$. Since $f_x \not\in \mathfrak{q}_i$, we must have
+$f_y^n \in \mathfrak{q}_i \subset \mathfrak{m}_y$ for some $n > 0$ since $\mathfrak{q}_i$ is primary. But since $f_y(y) = 1$, $f_y^n(y) = 1$, so $f_y^n \not\in \mathfrak{m}_y$ and thus not in 
+$\mathfrak{q}_i$, a contradiction. Thus, for all $\mathfrak{q}_i$ in the decomposition, $\mathfrak{q}_i$ has a unique maximal ideal $\mathfrak{m}_{x_i}$ containing it for some $x_i \in X$.
+
+Let $\{x_i\}$ be the points defining these finitely many maximal ideals. Since $X$ is infinite, by assumption, there is some $y \in X - \{x_i\}$. By the previous paragraph, $\mathfrak{m}_y$
+does not contain any of the $\mathfrak{q}_i$. Thus, for each $i$, there is some $f_i \in \mathfrak{q}_i$ such that $f_i(y) \neq 0$. Note that the finite product $f_1 \cdots f_n \in \bigcap_{i=1}^n \mathfrak{q}_i$,
+but $(f_1 \cdots f_n)(y) \neq 0$, violating our assumption that $0 = \bigcap_{i=1}^n \mathfrak{q}_i$.
+\end{proof}
+
+\subsection{Exercise - Complete}\label{4.7}
+
+\begin{proof}[(i) Proof.]
+Consider the injective ring homomorphism $A \to A[x]$, $a \mapsto a$. Let $\mathfrak{a}$ be an ideal of $A$. Note that $\mathfrak{a}[x]$ is additively generated by elements of the 
+form $ax^n$, where $n \ge 0$ and $a \in \mathfrak{a}$. Since $x^n \in A[x]$ and $a \in \mathfrak{a}$, $ax^n \in \mathfrak{a} A[x]$, so $\mathfrak{a}[x] \subset \mathfrak{a}A[x]$. Conversely, if 
+$f = f_0 + f_1 x^1 + \cdots + f_n x^n \in A[x]$, then for any $a \in \mathfrak{a}$ and any $f_i \in A$, $af_i \in \mathfrak{a}$, so $af = (af_0) + (af_1)x^1 + \cdots + (af_n)x^n \in \mathfrak{a}[x]$; 
+finally, $\mathfrak{a}^e = \mathfrak{a}A[x] = \mathfrak{a}[x]$.
+\end{proof}
+
+\begin{proof}[(ii) Proof.]
+Consider the ring homomorphism $A[x] \to (A/\mathfrak{p})[x]$. The kernel of this map is clearly $\mathfrak{p}[x]$. Suppose $f,g \in A[x] - \mathfrak{p}[x]$. Then, $\overline{f}$ and $\overline{g}$ are
+non-zero, so they have highest degree terms, $ax^m$ and $bx^n$. Then, $\overline{f} \cdot \overline{g}$ has highest degree term $(ab)x^{m+n}$. Since $\mathfrak{p}$ is prime, $A/\mathfrak{p}$ is an integral
+domain, so $ab \neq 0$ and thus $\overline{fg} = \overline{f} \cdot \overline{g} \neq 0$. In particular, $fg \not\in \mathfrak{p}[x]$, so $\mathfrak{p}[x]$ is a prime ideal.
+\end{proof}
+
+\begin{proof}[(iii) Proof.]
+Suppose $\mathfrak{q}$ is primary. Then, $A/\mathfrak{q} \neq 0$ and all its zero divisors are nilpotent. Now, consider $A[x]/\mathfrak{q}[x] \cong (A/\mathfrak{q})[x]$. Since $A/\mathfrak{q} \neq 0$, 
+$(A/\mathfrak{q})[x] \neq 0$. Now, suppose $f = \sum f_ix^i \in (A/\mathfrak{q})[x]$ is a zero-divisor. By Exercise \ref{1.2}, there is some non-zero $a \in A/\mathfrak{q}$ such that $0 = af = \sum (af_i)x^i$. Thus,
+each $f_i$ is a zero divisor of $A/\mathfrak{q}$ and thus nilpotent. Again by Exercise \ref{1.2}, $f$ is itself nilpotent, so $\mathfrak{q}[x]$ is primary.
+
+Now, we just have to show that $r(\mathfrak{q}[x]) = \mathfrak{p}[x]$. We start by showing $\mathfrak{p}[x] \subset r(\mathfrak{q}[x])$. Since $r(\mathfrak{q}[x])$ is additively closed, it is enough to show that the
+additive generators $ax^n$ of $\mathfrak{p}[x]$ (i.e., $a \in \mathfrak{p}$) are in $r(\mathfrak{q}[x])$. Since $\mathfrak{q}$ is $\mathfrak{p}$-primary, $a \in r(\mathfrak{q})$. Thus, there is some $m > 0$ such that
+$a^m \in \mathfrak{q}$. Thus, $(ax^n)^m = (a^m)x^{nm} \in \mathfrak{q}[x]$, as desired. Thus, $\mathfrak{p}[x] \subset r(\mathfrak{q}[x])$. Conversely, since $\mathfrak{q} \subset \mathfrak{p}$, 
+$\mathfrak{q}[x] \subset \mathfrak{p}[x]$, so $r(\mathfrak{q}[x]) \subset r(\mathfrak{p}[x]) = \mathfrak{p}[x]$ since $\mathfrak{p}[x]$ is prime by (ii). Hence, we have equality: $\mathfrak{p}[x] = r(\mathfrak{q}[x])$.
+\end{proof}
+
+\begin{proof}[(iv) Proof.]
+Suppose $\bigcap_i \mathfrak{q}_i$ is a minimal primary decomposition of $\mathfrak{a}$. Then clearly,
+$$\bigcap_i (\mathfrak{q}_i[x]) = \mathfrak{a}[x];$$
+$f \in \mathfrak{a}[x] \iff f_j \in \mathfrak{a}$ for all $j$ $\iff$ $f_j \in \mathfrak{q}_i$ for all $i, j$ $\iff$ $f \in\mathfrak{q}_i[x]$ for all $i$ $\iff$ $f \in \bigcap \mathfrak{q}_i[x]$.
+
+By (iii), $\mathfrak{q}_i[x]$ is primary for each $i$, so we have a primary decomposition. By (iii), if $r(\mathfrak{q}_i) = \mathfrak{p}_i$, then $r(\mathfrak{q}_i[x]) = \mathfrak{p}_i[x]$. Since the $\mathfrak{p}_i$
+are distinct, the $\mathfrak{p}_i[x]$ are distinct. Also, since for all $i$
+$$\bigcap_{i\neq j}\mathfrak{q}_j \not\subset \mathfrak{q}_i,$$
+we have
+$$\bigcap_{i\neq j}(\mathfrak{q}_j[x]) \not\subset \mathfrak{q}_i[x];$$
+simply choose some $a \in \mathfrak{q}_i - \bigcap_{i\neq j}\mathfrak{q}_j$ and consider $a$ as a constant polynomial. Thus, $\bigcap_i (\mathfrak{q}_i[x])$ is a minimal primary decomposition of $\mathfrak{a}[x]$.
+\end{proof}
+
+\begin{proof}[(v) Proof.]
+By (iv), if $\{\mathfrak{p}_i\}$ are the primes belonging to $\mathfrak{a}$, $\{\mathfrak{p}_i[x]\}$ are the primes belonging to $\mathfrak{a}[x]$. Further, if $\mathfrak{p}_i \subset \mathfrak{p}_j$, then 
+$\mathfrak{p}_i[x] \subset \mathfrak{p}_j[x]$. In particular, if $\mathfrak{p}$ is a minimal prime belonging to $\mathfrak{a}$, then $\mathfrak{p}[x]$ is a minimal prime belonging to $\mathfrak{a}[x]$.
+\end{proof}
+
+\subsection{Exercise - Complete}\label{4.8}
+
+\begin{proof}
+By Exercise \ref{1.2}, if $f \in k[x_1,\ldots,x_n]$ is a zero-divisor, then there is some non-zero $a \in k$ such that $af=0$. Then, $f = a^{-1}af = 0$, 
+so $k[x_1,\ldots,x_n]$ is an integral domain for all $n > 0$. Consider the ring homomorphism $k[x_1,\ldots,x_n] \to k[x_{i+1},\ldots,x_n]$ that sends $x_j \mapsto 0$
+when $1 \le j \le i$. Clearly, this map is surjective, and the kernel is the ideal $(x_1,\ldots,x_i)$. Thus, 
+$$k[x_1,\ldots,x_n]/(x_1,\ldots,x_i) \cong k[x_{i+1},\ldots,x_n].$$
+But as before, $k[x_{i+1},\ldots,x_n]$ is an integral domain, so $(x_1,\ldots,x_i)$ is a prime ideal.
+
+Now, consider the power $(x_1)^N$ of $k[x_1,\ldots,x_n]$. Let $f \in k[x_1,\ldots,x_n]$ represent a zero-divisor of $k[x_1,\ldots,x_n]/(x_1)^N$. I.e., there is some $g \in k[x_1,\ldots,x_n]$ non-zero in the
+quotient such that
+$$fg \in (x_1)^N.$$
+There is some maximal $m$ such that $g = x_1^m h$, where $h \in k[x_1,\ldots,x_n]$. Since $g$ is non-zero in the quotient, $m < N$. Then, we have
+$$fh x_1^m = \ell x_1^N,$$
+where $\ell \in k[x_1,\ldots,x_n]$. Then,
+$$fh = \ell x_1^{N-m}.$$
+Consider again the ring homomorphism $k[x_1,\ldots,x_n] \to k[x_2,\ldots,x_n]$ that sends $x_1 \mapsto 0$. Since we chose $m$ minimal, $h(0,x_2,\ldots,x_n)$ is not identically zero. Otherwise, we could find
+some $h'$ such that $h = x_1 h'$, violating the minimality of $m$. Then, $\overline{f} \cdot \overline{h} = \ell \cdot 0 = 0$. Since $k[x_2,\ldots,x_n]$ is an integral domain, $\overline{f} = 0$ so that
+$f \in (x_1)$ and $f^N \in (x_1)^N$. Thus, $(x_1)^N$ is primary in $k[x_1,\ldots,x_n]$ for all $n > 0$, $N > 0$.
+
+We wish to show now that $(x_1,\ldots,x_i)$ is primary in $k[x_1,\ldots,x_n]$ for all $1 \le i \le n$. Since the result of the previous paragraph holds for any $n > 0$, $(x_1)$ is primary in $k[x_1,x_{i+1},\ldots,x_n]$.
+For the inductive step, assume $(x_1,\ldots,x_{j-1})$ is primary in $k[x_1,\ldots,x_{j-1},x_{i+1},\ldots,x_n]$ for $j \le i$. Then, by Exercise \ref{4.7}, $(x_1,\ldots,x_{j-1})[x_j] = (x_1,\ldots,x_j)$ is primary in
+$k[x_1,\ldots,x_{j-1},x_{i+1},\ldots,x_n][x_j] \cong k[x_1,\ldots,x_j,x_{i+1},\ldots,x_n]$. By induction, $(x_1,\ldots,x_i)$ is primary in $k[x_1,\ldots, x_i,x_{i+1},\ldots,x_n] = k[x_1,\ldots,x_n]$, as desired.
+\end{proof}
+
+\subsection{Exercise - Complete}\label{4.9}
+
+\begin{proof}
+If $x \in A$ is a zero divisor, there is some non-zero $y \in A$ such that $xy = 0$. Then, $x \in (0:y)$. Since $y \neq 0$, $1 \not\in (0:y)$, so
+there are primes containing $(0:y)$. Now, consider $A \to A/(0:y)$. By Proposition 1.1, the primes of $A/(0:y)$ are in a one-to-one correspondence
+with primes of $A$ containing $(0:y)$, and the map is order-preserving. By Exercise \ref{1.8}, $A/(0:y)$ has minimal ideals, so there is a minimal
+prime ideal $\mathfrak{p}$ of $A$ containing $(0:y)$. By definition, $\mathfrak{p} \in D(A)$, so $x \in (0:y) \subset \mathfrak{p}$.
+
+Conversely, suppose $x \in \mathfrak{p}$ for some $\mathfrak{p} \in D(A)$. Then, there is some $y \in A$ such that $\mathfrak{p}$ is minimal in the
+set of prime ideals containing $(0:y)$. So, consider $\pi : A \to A/(0:y)$. By Proposition 1.1, $\pi(\mathfrak{p})$ is a minimal prime of $A/(0:y)$.
+Then, by Exercise \ref{3.6}, $S = A/(0:y) - \pi(\mathfrak{p})$ is maximal in the set of multiplicatively closed sets of $A/(0:y)$ not containing $0$.
+Since $x \in \mathfrak{p}$, $\pi(x) \not\in S$, so let $S'$ be the multiplicatively closed set generated by $S$ and $\pi(x)$. Then clearly, 
+$S \subset S'$, so $S'$ must contain $0$. Thus, there is some $s \in S$ and some minimal $n > 0$ such that $s \pi(x^n) = 0$. Since $s \in A/(0:y)$ is 
+non-zero, there is some non-zero $z \in A$ such that $\pi(s) = z$, so $0 = \pi(z)\pi(x^n) = \pi(zx^n)$, so $zx^n \in (0:y)$. Then, $zyx^n = 0$, so
+$x(zyx^{n-1}) = 0$. If $zyx^{n-1} = 0$, this violates the minimality of $n$, so $x$ is a zero-divisor.
+\end{proof}
+
+\begin{proof}
+Suppose $\mathfrak{p} \in D(A) \cap f^*\Spec(S^{-1}A)$. Then, $\mathfrak{p} \cap S = \emptyset$ by Proposition 3.11 and $\mathfrak{p}$ is a minimal prime
+containing some $(0:a)$ for some $a \in A$. Since $(a)$ is clearly finitely generated, we have by Proposition 3.15 that $S^{-1}(0:a) = (S^{-1}0:S^{-1}a) = (0:a/1)$.
+Since $S^{-1}$ preserves ordering and $S^{-1}\mathfrak{p}$ is prime since $\mathfrak{p}\cap S = \emptyset$ (Proposition 3.11), $S^{-1}\mathfrak{p}$ is a
+minimal prime containing $(0:a/1)$. Thus, $\mathfrak{p} \in f^*D(S^{-1}A)$.
+
+Conversely, if $S^{-1}\mathfrak{p} \in D(S^{-1}A)$ (all primes of $S^{-1}A$ have this form via Proposition 3.11), then clearly, $S^{-1}\mathfrak{p} \in \Spec(S^{-1}A)$
+so that $\mathfrak{p} \in f^*\Spec(S^{-1}A)$. Further, $S^{-1}\mathfrak{p}$ is a minimal prime containing $(0:a/s)$ for some $a/s \in S^{-1}A$. 
+
+We split the remainder into two cases. The first assumes $a \in S$. If $b \in (0:a/s)$, we have $0 = (s/a) \cdot (b \cdot a/s) = b \cdot 1 = b$, so $(0:a/s) = 0$. Since $S^{-1}\mathfrak{p}$ is 
+the minimal prime containing $(0:a/s) = 0$, it must be the nilradical of $S^{-1}A$; since all primes contain $0$, all primes contain $S^{-1}\mathfrak{p}$, so since $S^{-1}\mathfrak{p}$ 
+is prime, it is also the intersection of all primes, the nilradical. Thus, $\mathfrak{p}$ is the nilradical of $A$ by Corollary 3.12. Then, since $\mathfrak{p}$ is prime, it is the
+minimal prime containing $0 = (0:1)$.
+
+Finally, we have the case $a \not\in S$. Let $b \in (0:a/s)$. Then, $b \cdot a/s = 0$, so $0 = s \cdot (b\cdot a/s) = b \cdot a/1$; i.e., $(0:a/s) \subset (0:a/1)$. Conversely, if 
+$b \cdot a/1 = 0$, then $0 = (1/s)\cdot b \cdot a/1 = b \cdot a/s$, so $(0:a/s) = (0:a/1)$. Thus, as before, we have $S^{-1}(0:a) = (S^{-1}0:S^{-1}a) = (0:a/1) = (0:a/s)$ (Proposition 3.15), 
+so $S^{-1}\mathfrak{p}$ is a minimal prime containing $S^{-1}(0:a)$. Since $\mathfrak{p} \mapsto S^{-1}\mathfrak{p}$ is a one-to-one, order-preserving relationship between primes of $A$ not 
+containing $S$ and primes of $S^{-1}A$ (Proposition 3.11), $\mathfrak{p}$ is a minimal prime containing $(0:a)$. Finally, $f^*D(S^{-1}A) = D(A) \cap f^*\Spec(S^{-1}A)$.
+\end{proof}
+
+\begin{proof}
+Suppose $0$ is decomposable. By Theorem 4.5, $\Ass(0)$ is precisely the set of prime ideals of the form $r(0:x)$ for some $x \in A$. 
+
+By definition, $\mathfrak{p} \in D(A)$ when there is some $x \in A$ such that $\mathfrak{p}$ is minimal among the primes containing $(0:x)$. Since $r(0:x)$ is the 
+intersection of prime ideals containing $(0:x)$, $\mathfrak{p} = r(0:x)$. Thus, $D(A) \subset \Ass(0)$. Conversely, if $\mathfrak{p} \in \Ass(0)$, then $\mathfrak{p} = r(0:x)$
+for some $x \in A$. $r(0:x)$ is the intersection of prime ideals containing $(0:x)$, so since $(0:x) \subset r(0:x) = \mathfrak{p}$, $\mathfrak{p}$ is minimal among the primes
+containing $(0:x)$. Finally, $\Ass(0) = D(A)$.
+\end{proof}
+
+\subsection{Exercise - Complete}\label{4.10}
+
+\begin{proof}[(i) Proof.]
+Let $a \in S_{\mathfrak{p}}(0)$. Then, $0 \equiv a/1 \in A_{\mathfrak{p}}$, so there is some $s \in A - \mathfrak{p}$ such that $s a = 0$. Since $0 \in \mathfrak{p}$ and $\mathfrak{p}$
+is prime, we must have $s \in \mathfrak{p}$ or $a \in \mathfrak{p}$. But, $s \in A - \mathfrak{p}$, so we must have $a \in \mathfrak{p}$.
+\end{proof}
+
+\begin{proof}[(ii) Proof.]
+Here, we use Exercise \ref{2.6}: Let $\Sigma$ be the set of multiplicatively closed sets of $A$ not containing $0$. $S \in \Sigma$ is maximal if and only if $A-S$ is a minimal prime.
+
+If $\mathfrak{p}$ is a minimal prime, then $S = A - \mathfrak{p}$ is a maximal mutliplicatively closed set. Let $x \in \mathfrak{p}$. Then, $\{x\} \cup S$ generates a multiplicatively closed
+set strictly bigger than $S$, so by maximality, this set contains $0$. Therefore, there is some $n > 0$ and $s \in A - \mathfrak{p}$ such that $s x^n = 0$. But then, $x^n/1 = 0$ in $A_{\mathfrak{p}}$,
+so $x \in S_{\mathfrak{p}}(0)$ and thus $\mathfrak{p} \subset r(S_{\mathfrak{p}})(0)$. By (i), $S_{\mathfrak{p}}(0) \subset \mathfrak{p}$, so $r(S_{\mathfrak{p}}) \subset r(\mathfrak{p}) = \mathfrak{p}$,
+so actually, $\mathfrak{p} = r(S_{\mathfrak{p}})(0)$.
+
+Conversely, suppose $\mathfrak{p} = r(S_{\mathfrak{p}})(0)$. Then, for any $x \in \mathfrak{p}$, there is some $n>0$ such that $x^n/1 = 0$ in $A_{\mathfrak{p}}$. Thus, $A - \mathfrak{p}$ is maximal
+in the set of multiplicatively closed sets not containing $0$, so $\mathfrak{p}$ is a minimal prime.
+\end{proof}
+
+\begin{proof}[(iii) Proof.]
+Suppose $\mathfrak{p} \subset \mathfrak{q}$, where $\mathfrak{p}$ and $\mathfrak{q}$ are both prime ideals. Then, $A - \mathfrak{q} \subset A - \mathfrak{p}$ so that the canonical homomorphism
+$A \to A_{\mathfrak{p}}$ factors through the canonical maps $A \to A_{\mathfrak{q}} \to (A - \mathfrak{p})^{-1}A_{\mathfrak{q}} \cong A_{\mathfrak{p}}$ (Exercise \ref{3.3}). 
+Then clearly, $\ker(A \to A_{\mathfrak{q}}) \subset \ker(A \to A_{\mathfrak{p}})$, so $S_{\mathfrak{q}}(0) \subset S_{\mathfrak{p}}(0)$.
+\end{proof}
+
+\begin{proof}[(iv) Proof.]
+Suppose $x \in \bigcap_{\mathfrak{p} \in D(A)}S_{\mathfrak{p}}(0)$; suppose to the contrary that $x \neq 0$ so that $(0:x) \neq A$. Then, there is some maximal ideal $\mathfrak{m} \in A$ such
+that $(0:x) \subset \mathfrak{m}$. The ring $A/(0:x)$ has minimal prime ideals by Exercise \ref{1.8}. Then, there is some minimal prime $\mathfrak{p}$ over $(0:x)$ since by 
+Proposition 1.1, the primes of $A/(0:x)$ are in an order-preserving, one-to-one correspondence with primes of $A$ containing $(0:x)$. In particular, $\mathfrak{p} \in D(A)$. By assumption, 
+$x \in S_\mathfrak{p}(0)$ (since $x \in S_\mathfrak{q}(0)$ for all $\mathfrak{q}\in D(A)$), so there is some $y \in A - \mathfrak{p}$ such that $xy = 0$. However, this would imply that 
+$y \in (0:x) \subset \mathfrak{p}$, contradicting the fact that $y \in A - \mathfrak{p}$. Hence, $x = 0$ and $\bigcap_{\mathfrak{p} \in D(A)}S_{\mathfrak{p}}(0) = 0$.
+\end{proof}
+
+\subsection{Exercise - Complete}\label{4.11}
+
+\begin{proof}
+First, we show that $S_{\mathfrak{p}}(0)$ is a $\mathfrak{p}$-primary ideal. Suppose $ab \in S_{\mathfrak{p}}(0)$ and $a \not\in S_\mathfrak{p}(0)$. By Exercise \ref{4.10}, 
+$S_{\mathfrak{p}}(0) \subset \mathfrak{p}$, so $a \in A - \mathfrak{p}$. By definition, $(ab)/1 = 0$ in $A_\mathfrak{p}$, so there is some $s \in A - \mathfrak{p}$ such that $sab = 0$.
+Since $a$ and $s$ are both outside of $\mathfrak{p}$, $sa \not\in \mathfrak{p}$ since $\mathfrak{p}$ is prime. Then, if we project the relation $(sa)b = 0$ onto $A/\mathfrak{p}$, then
+$\overline{sa} \neq 0$. Since $A/\mathfrak{p}$ is an integral domain, $b \in \mathfrak{p}$. We invoke Exercise \ref{4.10} and the fact that $\mathfrak{p}$ is a minimal prime to see that
+$\mathfrak{p} = r(S_{\mathfrak{p}}(0))$, so $b^n \in S_{\mathfrak{p}}(0)$ for some $n > 0$. Then, since the radical of $S_\mathfrak{p}(0)$ is $\mathfrak{p}$, it is $\mathfrak{p}$-primary.
+
+Now, suppose $\mathfrak{q}$ is a $\mathfrak{p}$-primary ideal. By Proposition 4.8, $\mathfrak{q}^{ec} = \mathfrak{q}$ with regard to the homomorphism $A \to A_{\mathfrak{p}}$. Clearly, 
+$0 \subset \mathfrak{q}^e$, so $S_{\mathfrak{p}}(0) = 0^c \subset \mathfrak{q}^{ec} = \mathfrak{q}$. Thus, $S_{\mathfrak{p}}(0)$ is the smallest $\mathfrak{p}$-primary ideal.
+\end{proof}
+
+\begin{proof}
+By Exercise \ref{4.10}, if $S_\mathfrak{p}(0) \subset \mathfrak{p}$ for all primes $\mathfrak{p}$. Thus, if $\mathfrak{a}$ is the intersection of $S_\mathfrak{p}(0)$ as $\mathfrak{p}$
+ranges over all minimal primes, then
+$$\mathfrak{a} \subset \bigcap_{\mathfrak{p} \text{ minimal}}\mathfrak{p} = \bigcap_{\mathfrak{p} \in \Spec(A)}\mathfrak{p} = \mathfrak{N},$$
+as desired. The first equality is justified by Exercise \ref{1.8}: every prime contains a minimal prime.
+\end{proof}
+
+\begin{proof}
+Since we're assuming $0$ has a primary decomposition, we have $D(A) = \Ass(0)$ by Exercise \ref{4.9}. In particular, since $0$ is decomposable, $D(A)$ is finite. By Exercise \ref{4.10}, 
+$$0 = \bigcap_{\mathfrak{p} \in D(A)}S_\mathfrak{p}(0).$$
+
+Now, suppose $\bigcap_{\mathfrak{p} \text{ minimal}} S_\mathfrak{p}(0) = 0$. By Exercise \ref{4.10}, $D(A)$ is the set of prime ideals minimal over $(0:x)$ for some $x \in A$. Clearly, the
+minimal primes of $A$ are in this set since they are minimal primes containing $(0:1) = 0$. In particular, there are finitely many minimal prime ideals since $D(A)$ is a finite set here. Thus,
+$$0 = \bigcap_{\mathfrak{p} \text{ minimal}} S_\mathfrak{p}(0)$$
+is a primary decomposition of $0$. Hence, there is some restriction of the indexing set such that we obtain a minimal primary decomposition. Then, all the associated primes of $0$ are minimal 
+in $A$ and thus isolated.
+
+Conversely, suppose the primes of $\Ass(0)$ are all isolated. Then, we have a minimal primary decomposition of $0$ as 
+$$0 = \bigcap_{\mathfrak{p} \in \Ass(0)}\mathfrak{q}_{\mathfrak{p}},$$
+where $\mathfrak{q}_{\mathfrak{p}}$ is a $\mathfrak{p}$-primary ideal. We've shown above that $S_{\mathfrak{p}}(0)$ is the minimal $\mathfrak{p}$-primary ideal in $A$, so
+$S_{\mathfrak{p}}(0) \subset \mathfrak{q}_{\mathfrak{p}}$ for all $\mathfrak{p}$. Further, from Exercise \ref{4.10}, we have $D(A) = \Ass(0)$, so
+$$\bigcap_{\mathfrak{p} \in D(A)}S_{\mathfrak{p}}(0) = \bigcap_{\mathfrak{p} \in \Ass(0)}S_{\mathfrak{p}}(0) \subset \bigcap_{\mathfrak{p} \in \Ass(0)}\mathfrak{q}_{\mathfrak{p}} = 0.$$
+We showed above that all minimal primes of $A$ are in $D(A)$. By Exercise \ref{1.8}, $\mathfrak{p} \in D(A)$ contains some minimal prime $\mathfrak{q}$ of $A$. But then, $\mathfrak{q} \in D(A)$. 
+Since we're supposing all primes are isolated in $\Ass(0) = D(A)$, $\mathfrak{p} = \mathfrak{q}$, so $D(A)$ is exactly the minimal primes of $A$. Thus,
+$$\bigcap_{\mathfrak{p} \text{ minimal}}S_{\mathfrak{p}}(0) = 0,$$
+as desired.
+\end{proof}
+
+\subsection{Exercise - Complete}\label{4.12}
+
+\begin{proof}[(i) Proof.]
+By Proposition 3.11(v), $S^{-1}(\mathfrak{a}) \cap S^{-1}(\mathfrak{b}) = S^{-1}(\mathfrak{a} \cap \mathfrak{b})$. By the intra-text Exercise 1.18, we then have
+$$S(\mathfrak{a} \cap \mathfrak{b}) = (S^{-1}(\mathfrak{a} \cap \mathfrak{b}))^c = (S^{-1}(\mathfrak{a}) \cap S^{-1}(\mathfrak{b}))^c = 
+(S^{-1}(\mathfrak{a}))^c \cap (S^{-1}(\mathfrak{b}))^c = S(\mathfrak{a}) \cap S(\mathfrak{b}),$$
+as desired.
+\end{proof}
+
+\begin{proof}[(ii) Proof.]
+By Proposition 3.11(v), we have $S^{-1}(r(\mathfrak{a})) = r(S^{-1}(\mathfrak{a}))$. By the intra-text Exercise 1.18, we then have
+$$r(S(\mathfrak{a})) = r((S^{-1}(\mathfrak{a}))^c) = r(S^{-1}(\mathfrak{a}))^c = (S^{-1}(r(\mathfrak{a})))^c = S(r(\mathfrak{a})),$$
+as desired.
+\end{proof}
+
+\begin{proof}[(iii) Proof.]
+By Proposition 3.11(ii), $\mathfrak{a} \cap S \neq \emptyset \iff S^{-1}(\mathfrak{a}) = (1)$. 
+
+If $S^{-1}(\mathfrak{a}) = (1)$, then $(S^{-1}(\mathfrak{a}))^c = (1)^c$, i.e. $S(\mathfrak{a}) = (1)$. Conversely, if $S(\mathfrak{a}) = (1)$, then 
+$1 \in (S^{-1}(\mathfrak{a}))^c = \mathfrak{a}^{ec}$. Therefore, $1 \in \mathfrak{a}^{ece} = \mathfrak{a}^e = S^{-1}(\mathfrak{a})$ (Proposition 1.17),
+so $S^{-1}(\mathfrak{a}) = (1)$.
+\end{proof}
+
+\begin{proof}[(iv) Proof.]
+By Exercise \ref{3.3}, $S_1^{-1}(S_2^{-1}(A)) \cong (S_1S_2)^{-1}(A)$ canonically so that the composite homomorphism
+$A \to S_2^{-1}(A) \to S_1^{-1}(S_2^{-1}(A))$ commutes with the isomorphism and the direct canonical homomorphism $A \to (S_1S_2)^{-1}(A)$.
+Thus, $(S_1S_2)^{-1}(\mathfrak{a}) = S_1^{-1}(S_2^{-1}(\mathfrak{a}))$. In fact,
+$$(S_1S_2)(\mathfrak{a}) = ((S_1S_2)^{-1}(\mathfrak{a}))^c = (S_1^{-1}(S_2^{-1}(\mathfrak{a})))^c = S_1((S_2^{-1}(\mathfrak{a}))^c) = S_1(S_2(\mathfrak{a})),$$
+where, of course, $-^c$ means contraction back to $A$.
+\end{proof}
+
+\begin{proof}
+We can write the primary decomposition of $\mathfrak{a}$ as 
+$$\mathfrak{a} = \bigcap_{i=1}^n \mathfrak{q}_i,$$
+where $\mathfrak{q}_i$ is primary for all $i$. By (i),
+$$S(\mathfrak{a}) = \bigcap_{i=1}^n S(\mathfrak{q}_i).$$
+Therefore, to see that there are only finitely many ideals $S(\mathfrak{a})$ as $S$ ranges over all multiplicatively closed sets, it will suffice to replace $\mathfrak{a}$ with 
+a $\mathfrak{p}$-primary ideal $\mathfrak{q}$.
+
+Suppose $S \cap \mathfrak{p} \neq \emptyset$. By Proposition 4.8(i), $S^{-1}\mathfrak{q} = S^{-1}A$, so $S(\mathfrak{q}) = (1)$. If, on the other hand, $S \cap \mathfrak{p} = \emptyset$, then
+by Proposition 4.8(ii), $\mathfrak{q} = (S^{-1}(\mathfrak{q}))^c = S(\mathfrak{q})$. Thus, for any multiplicatively closed subset of $A$, we must have that $S(\mathfrak{q})$ is $(1)$ or $\mathfrak{q}$,
+as desired.
+\end{proof}
+
+\subsection{Exercise - Complete}\label{4.13}
+
+\begin{proof}[(i) Proof.]
+Suppose $xy \in \mathfrak{p}^{(n)}$ and $x \not\in \mathfrak{p}^{(n)}$. Note that, by Proposition 3.11, we have 
+$$r(S_{\mathfrak{p}}^{-1}(\mathfrak{p}^n)) = S_{\mathfrak{p}}^{-1}(r(\mathfrak{p}^n)) = S_{\mathfrak{p}}^{-1}(\mathfrak{p}).$$
+Since $S_{\mathfrak{p}}^{-1}(\mathfrak{p})$ is maximal in $A_{\mathfrak{p}}$, we have by Proposition 4.2 that $S_{\mathfrak{p}}^{-1}(\mathfrak{p}^n)$ is primary. Then,
+since $(xy)/1 \in S_{\mathfrak{p}}^{-1}(\mathfrak{p}^n)$ and $x/1 \not\in S_{\mathfrak{p}}^{-1}(\mathfrak{p}^n)$ by assumption, we must have $(y/1)^k \in S_{\mathfrak{p}}^{-1}(\mathfrak{p}^n)$
+for some $k > 0$. Then, since $(y/1)^k = y^k/1$, we have $y^k \in \mathfrak{p}^{(n)}$, so $\mathfrak{p}^{(n)}$ is primary.
+
+By Exercise \ref{4.12}, we have
+$$r(S_{\mathfrak{p}}(\mathfrak{p}^n)) = S_{\mathfrak{p}}(r(\mathfrak{p}^n)) = S_{\mathfrak{p}}(\mathfrak{p}) = \mathfrak{p},$$
+the latter equality following from Proposition 4.8. Finally, $\mathfrak{p}^{(n)}$ is $\mathfrak{p}$-primary.
+\end{proof}
+
+\begin{proof}[(ii) Proof.]
+Suppose $\mathfrak{p}^n$ has a primary decomposition so that we have a minimal primary decomposition
+$$\mathfrak{p}^n = \bigcap_{i=1}^m \mathfrak{q}_i,$$
+where $\mathfrak{q}_i$ is $\mathfrak{p}_i$-primary for each $i$. Now, by Exercise \ref{4.12}, we have
+$$\mathfrak{p}^{(n)} = S_{\mathfrak{p}}(\mathfrak{p}^n) = \bigcap_{i=1}^m S_{\mathfrak{p}}(\mathfrak{q}_i).$$
+By Proposition 4.9, this is a primary decomposition of $\mathfrak{p}^{(n)}$. However, we already showed in (i)
+that $\mathfrak{p}^{(n)}$ is $\mathfrak{p}$-primary, so it is already a primary decomposition. Thus, since the decomposition is minimal, 
+we have $\mathfrak{p}^{(n)} = S_{\mathfrak{p}}(\mathfrak{q})$ for some $\mathfrak{q} \in \{\mathfrak{q}_i\}$. 
+
+By Exercise \ref{4.12}, we have
+$$r(S_{\mathfrak{p}}(\mathfrak{q})) = r(S_{\mathfrak{p}}(\mathfrak{p}^n)) = S_{\mathfrak{p}}(r(\mathfrak{p}^n)) = S_{\mathfrak{p}}(\mathfrak{p}) = \mathfrak{p},$$
+where the last equality follows by Proposition 4.8. Since $S_{\mathfrak{p}}(\mathfrak{q}) \neq (1)$, we have again by Proposition 4.8 that $\mathfrak{p}'$ 
+(the prime associated to the primary ideal $\mathfrak{q}$) is contained in $\mathfrak{p}$. Thus, by Proposition 4.8 and Exercise \ref{4.12}, we have 
+$$r(S_{\mathfrak{p}}(\mathfrak{q})) = S_{\mathfrak{p}}(r(\mathfrak{q})) = S_{\mathfrak{p}}(\mathfrak{p}') = \mathfrak{p}',$$
+so $\mathfrak{p}' = \mathfrak{p}$. Finally, by Proposition 4.8, we have 
+$$\mathfrak{p}^{(n)} = S_{\mathfrak{p}}(\mathfrak{q}) = \mathfrak{q},$$
+as desired. In particular, $\mathfrak{p}^{(n)}$ is the $\mathfrak{p}$-primary component of $\mathfrak{p}^n$.
+\end{proof}
+
+\begin{proof}[(iii) Proof.]
+Suppose $\mathfrak{p}^{(m)}\mathfrak{p}^{(n)}$ is decomposable, so it has a minimal primary decomposition
+$$\mathfrak{p}^{(m)}\mathfrak{p}^{(n)} = \bigcap_{i=1}^N \mathfrak{q}_i.$$
+By Proposition 4.9, we have a minimal decomposition
+$$S_{\mathfrak{p}}^{-1}(\mathfrak{p}^{(m)}\mathfrak{p}^{(n)}) = \bigcap_{j=1}^M S_{\mathfrak{p}}^{-1}(\mathfrak{q}_j),$$
+where we reindex to exclude the $\mathfrak{q}_j$ that meet $S_{\mathfrak{p}} = A - \mathfrak{p}$. By Exercise 3.11(v), we have
+$$S_{\mathfrak{p}}^{-1}(\mathfrak{p}^{(m)}\mathfrak{p}^{(n)}) = S_{\mathfrak{p}}^{-1}(S_{\mathfrak{p}}(\mathfrak{p}^m))S_{\mathfrak{p}}^{-1}(S_{\mathfrak{p}}(\mathfrak{p}^{n}))
+= S_{\mathfrak{p}}^{-1}(\mathfrak{p}^m)S_{\mathfrak{p}}^{-1}(\mathfrak{p}^n) = S_{\mathfrak{p}}^{-1}(\mathfrak{p}^{m+n}).$$
+
+However, note that by Exercise \ref{4.12}, we have
+$$r(S_{\mathfrak{p}}^{-1}(\mathfrak{p}^{m+n})) = S_{\mathfrak{p}}^{-1}(r(\mathfrak{p}^{m+n})) = S_{\mathfrak{p}}^{-1}(\mathfrak{p}).$$
+Since $S_{\mathfrak{p}}^{-1}(\mathfrak{p})$ is a maximal ideal in $A_{\mathfrak{p}}$, we conclude by Proposition 4.2 that $S_{\mathfrak{p}}^{-1}(\mathfrak{p}^{m+n})$
+is $S_{\mathfrak{p}}^{-1}(\mathfrak{p})$-primary. Then, since $S_{\mathfrak{p}}^{-1}(\mathfrak{p}^{(m)}\mathfrak{p}^{(n)}) = S_{\mathfrak{p}}^{-1}(\mathfrak{p}^{m+n})$ is primary, we must
+have $M = 1$ in the minimal primary decomposition, so $S_{\mathfrak{p}}^{-1}(\mathfrak{p}^{(m)}\mathfrak{p}^{(n)}) = S_{\mathfrak{p}}^{-1}(\mathfrak{q})$ for some $\mathfrak{q} \in \{\mathfrak{q}_j\}$.
+
+Suppose $\mathfrak{q}$ is $\mathfrak{p}'$-primary. Then, by Proposition 3.11, we have
+$$r(S_{\mathfrak{p}}^{-1}(\mathfrak{q})) = S_{\mathfrak{p}}^{-1}(r(\mathfrak{q})) = S_{\mathfrak{p}}^{-1}(\mathfrak{p}').$$
+Also, from the preceding paragraph, we have
+$$r(S_{\mathfrak{p}}^{-1}(\mathfrak{q})) = r(S_{\mathfrak{p}}^{-1}(\mathfrak{p}^{m+n})) = S_{\mathfrak{p}}^{-1}(r(\mathfrak{p}^{m+n})) = S_{\mathfrak{p}}^{-1}(\mathfrak{p}).$$
+Since $\mathfrak{p}$ and $\mathfrak{p}'$ both do not meet $A - \mathfrak{p}$ (otherwise $S_{\mathfrak{p}}^{-1}\mathfrak{q} = (1)$), we have by the one-to-one correspondence of 
+Proposition 3.11(iv) that $S_{\mathfrak{p}}^{-1}(\mathfrak{p}) = S_{\mathfrak{p}}^{-1}(\mathfrak{p}')$ implies $\mathfrak{p} = \mathfrak{p}'$. Therefore, $\mathfrak{q}$
+is $\mathfrak{p}$-primary.
+
+Since $\mathfrak{q}$ is $\mathfrak{p}$-primary and $S_{\mathfrak{p}} \cap \mathfrak{q} = \emptyset$, we have by Proposition 4.8 that $(S_{\mathfrak{p}}^{-1}(\mathfrak{q}))^c = \mathfrak{q}$.
+Thus,
+$$\mathfrak{q} = (S_{\mathfrak{p}}^{-1}(\mathfrak{q}))^c = (S_{\mathfrak{p}}^{-1}(\mathfrak{p}^{m+n}))^c = \mathfrak{p}^{(m+n)}.$$
+In particular, $\mathfrak{p}^{(m+n)}$ is the $\mathfrak{p}$-primary component of $\mathfrak{p}^{(m)}\mathfrak{p}^{(n)}$.
+\end{proof}
+
+\begin{proof}[(iv) Proof.]
+If $\mathfrak{p}^{(n)} = \mathfrak{p}^n$, then since $\mathfrak{p}^{(n)}$ is $\mathfrak{p}$-primary by (i), $\mathfrak{p}^n$ is $\mathfrak{p}$-primary. Conversely, suppose
+$\mathfrak{p}^n$ is $\mathfrak{p}$-primary. Then, $\mathfrak{p}^n$ is trivially decomposable. By (ii), $\mathfrak{p}^{(n)}$ is the $\mathfrak{p}$-primary component of the decomposition.
+However, $\mathfrak{p}^n$ is the $\mathfrak{p}$-primary component, so $\mathfrak{p}^n = \mathfrak{p}^{(n)}$.
+\end{proof}
+
+\subsection{Exercise - Complete}\label{4.14}
+
+\begin{proof}
+To start, let $\mathfrak{q}$ be a $\mathfrak{p}$-primary ideal, and let $x \in A$ be such that $(\mathfrak{q}:x)$ is maximal in the set of all ideals of this form, excluding $(1)$ of course.
+Then, by Lemma 4.4, $x \not\in \mathfrak{q}$. Now, suppose $y \in A - (\mathfrak{q}:x)$. Then, by intra-text Exercise 1.12,
+$$(\mathfrak{q}:x) \subset ((\mathfrak{q}:x):y) = (\mathfrak{q}:xy).$$
+As $(\mathfrak{q}:x)$ is $\mathfrak{p}$-primary by Lemma 4.4 and $y \not\in (\mathfrak{q}:x)$, $(\mathfrak{q}:xy) = ((\mathfrak{q}:x):y) \neq (1)$ (again by Lemma 4.4). By the maximality of
+$(\mathfrak{q}:x)$, we must have $(\mathfrak{q}:x) = (\mathfrak{q}:xy)$, so for all $a \in A$, $axy \in \mathfrak{q} \implies ax \in \mathfrak{q}$. Letting $a = y^n$, we have that
+$xy^{n+1} \in \mathfrak{q}$ implies that $xy^n \in \mathfrak{q}$. Continuing along this chain, $xy^n \in \mathfrak{q} \implies x \in \mathfrak{q}$. Then, $y^n \not\in \mathfrak{q}$ for any
+$n > 0$; otherwise, letting $x = 1$, we have $xy^n \in \mathfrak{q}$, implying $1 \in \mathfrak{q}$, a clear contradiction. Thus, $y \not\in r(\mathfrak{q}) = \mathfrak{p}$. In particular, we've
+shown $y \not\in (\mathfrak{q}:x)$ implies that $y \not\in \mathfrak{p}$, so $\mathfrak{p} \subset (\mathfrak{q}:x)$. But, $(\mathfrak{q}:x) \subset r(\mathfrak{q}:x) = \mathfrak{p}$, so we have
+$(\mathfrak{q}:x) = \mathfrak{p}$.
+
+Now, since $\mathfrak{a}$ is a decomposable ideal, we have a minimal primary decomposition
+$$\mathfrak{a} = \bigcap_{i=1}^n \mathfrak{q}_i,$$
+where $\mathfrak{q}_i$ is a $\mathfrak{p}_i$-primary ideal. Since the decomposition is minimal, for any $\mathfrak{q}_j$, there is some $y \in \bigcap_{i\neq j}\mathfrak{q}_i - \mathfrak{q}_j$. Then,
+by Lemma 4.4 and intra-text Exercise 1.12,
+$$(\mathfrak{a}:y) = \bigcap_{i=1}^n (\mathfrak{q}_i:y) = (\mathfrak{q}_j:y).$$
+If we choose $y$ such that $(\mathfrak{q}_i:y)$ is maximal for $y \not\in \mathfrak{q}_i$, then by the preceding paragraph, $(\mathfrak{q}_i:y) = \mathfrak{p}_i$. Thus, the maximal elements of the set of 
+ideals of the form $(\mathfrak{a}:x)$ are exactly $\Ass(\mathfrak{a})$.
+\end{proof}
+
+\subsection{Exercise - Complete}\label{4.15}
+
+\begin{proof}
+Since $\mathfrak{a}$ is decomposable, we have a minimal primary decomposition
+$$\mathfrak{a} = \bigcap_{i=1}^n \mathfrak{q}_i = \left(\bigcap_{i:\mathfrak{p}_i \in \Sigma} \mathfrak{q}_i\right)\cap\left(\bigcap_{i:\mathfrak{p}_i \not\in \Sigma} \mathfrak{q}_i\right),$$
+where $\mathfrak{q}_i$ is a $\mathfrak{p}_i$-primary ideal. We have $f \in A$ such that $f \in \mathfrak{p} \iff \mathfrak{p} \not\in \Sigma$. Since $\mathfrak{p}$ is prime, for any $m > 0$, we
+actually have $f^m \in \mathfrak{p} \iff \mathfrak{p} \not\in \Sigma$. Note that $r(\mathfrak{q}) = \mathfrak{p}$, so for any $i$ with $\mathfrak{p}_i \not\in \Sigma$, there is some $n_i > 0$ such 
+that $f^{n_i} \in \mathfrak{q}_i$. Since $\mathfrak{a}$ is decomposable, there are finitely many such $i$ so let $N$ be the max over $\{n_i\}$. Then, for all $\mathfrak{q}$ with 
+$r(\mathfrak{q}) = \mathfrak{p} \not\in \Sigma$, $f^N \in \mathfrak{q}$. On the other hand, if $r(\mathfrak{q}) = \mathfrak{p} \in \Sigma$, then $f^N \not\in \mathfrak{p}$ and thus
+$f^N \not\in \mathfrak{q}$. Therefore, for all $n \ge N$, $f^n \not\in \mathfrak{p}$ for $\mathfrak{p} \in \Sigma$, and $f^n \in \mathfrak{q}$ if $r(\mathfrak{q}) = \mathfrak{p} \not\in \Sigma$.
+
+For $n \ge N$, we have by Lemma 4.4 that if $\mathfrak{p} \in \Sigma$, $(\mathfrak{q}:f^n) = \mathfrak{q}$ since $f^n \not\in \mathfrak{p}$ ($f \not\in \mathfrak{p} \implies f^n \not\in\mathfrak{p}$ since
+$\mathfrak{p}$ is prime); on the other hand, $f^n \in \mathfrak{q}$ if $r(\mathfrak{q}) = \mathfrak{p} \not\in \Sigma$, so $(\mathfrak{q}:f^n) = (1)$. Thus, by intra-text Exercise 1.12,
+$$(\mathfrak{a}:f^n) = \left(\bigcap_{i:\mathfrak{p}_i \in \Sigma} (\mathfrak{q}_i:f^n)\right)\cap\left(\bigcap_{i:\mathfrak{p}_i \not\in \Sigma} (\mathfrak{q}_i:f^n)\right)
+= \left(\bigcap_{i:\mathfrak{p}_i \in \Sigma}\mathfrak{q}_i\right)\cap\left(\bigcap_{i:\mathfrak{p}_i \not\in \Sigma}(1)\right) = \mathfrak{q}_{\Sigma},$$
+as desired.
+
+If $S_f = \{f^n\}_{n \ge 0}$, then $\mathfrak{p} \cap S_f = \emptyset \iff \mathfrak{p} \in \Sigma$ by the first paragraph. By Proposition 4.9, we have
+$$S_f(\mathfrak{a}) = \bigcap_{i:\mathfrak{p}_i \in \Sigma}\mathfrak{q}_i = \mathfrak{q}_{\Sigma},$$
+as desired.
+\end{proof}
+
+\subsection{Exercise - Complete}\label{4.16}
+
+\begin{proof}
+By Proposition 3.11(i), every ideal of $S^{-1}A$ is an extended ideal from $A$. So, if $\phi : A \to S^{-1}A$ is the canonical homomorphism, every ideal of $S^{-1}A$ has the form
+$S^{-1}\mathfrak{a}$, where $\mathfrak{a}$ is an ideal of $A$. Since every ideal of $A$ is decomposable, we have a minimal primary decomposition of $\mathfrak{a}$:
+$$\mathfrak{a} = \bigcap_{i=1}^n \mathfrak{q}_i,$$
+so by Proposition 4.9, if we reindex so that $\mathfrak{q}_i \cap S = \emptyset \iff i \le m$, we have a minimal primary decomposition
+$$S^{-1}\mathfrak{a} = \bigcap_{i=1}^m S^{-1}\mathfrak{q}_i,$$
+so every ideal of $S^{-1}A$ is decomposable.
+\end{proof}
+
+\subsection{Exercise - Complete}\label{4.17}
+
+\begin{proof}
+We start by generalizing Exercise \ref{4.11}: if $\mathfrak{a} \neq (1)$ and $\mathfrak{p}$ is a prime ideal minimal over $\mathfrak{a}$, then $S_{\mathfrak{p}}(\mathfrak{a})$ is $\mathfrak{p}$-primary. Since
+$\mathfrak{p}$ is minimal among prime ideals over $\mathfrak{a}$, $\overline{\mathfrak{p}}$ is a minimal prime ideal of $A/\mathfrak{a}$. By Exercise \ref{4.11}, $\overline{\mathfrak{q}} = S_{\overline{\mathfrak{p}}}(0)$
+is $\overline{\mathfrak{p}}$-primary. If $sa \in \mathfrak{a}$ for $s \in S_\mathfrak{p}$, then $\overline{s} \overline{a} = 0$, where $\overline{s} \in S_\overline{\mathfrak{p}}$. Thus, $a \in S_{\overline{\mathfrak{p}}}(0)$.
+Conversely, if $\overline{s} \overline{a} = 0$, where $\overline{s} \in S_\overline{\mathfrak{p}}$, then $sa \in \mathfrak{a}$. Thus, $\overline{S_{\mathfrak{p}}(\mathfrak{a})} = S_\overline{\mathfrak{p}} (0)$. In particular,
+$S_{\mathfrak{p}}(\mathfrak{a})$ is the contraction of a primary ideal, so it is itself primary. Note that
+$r(S_{\overline{\mathfrak{p}}}(0)) = \overline{\mathfrak{p}}$ by Exercise \ref{4.11}, so contracting along $A \to A/\mathfrak{a}$, we have 
+$$r(S_{\mathfrak{p}}(\mathfrak{a})) = r(S_{\overline{\mathfrak{p}}}(0)^c) = (r(S_{\overline{\mathfrak{p}}}(0)))^c = (\overline{\mathfrak{p}})^c = \mathfrak{p},$$
+so $S_{\mathfrak{p}}(\mathfrak{a})$ is $\mathfrak{p}$-primary.
+
+Let $\mathfrak{a} \neq (1)$ be an ideal of $A$. Let $\mathfrak{p}_0$ be a prime ideal minimal over $\mathfrak{a}_0 = \mathfrak{a}$. As we just showed, $\mathfrak{q}_0 = S_{\mathfrak{p}_0}(\mathfrak{a}_0)$ is $\mathfrak{p}_0$-primary.
+By (L1), there is some $x_0 \not\in \mathfrak{p}_0$ such that $\mathfrak{q}_0 = (\mathfrak{a}_0 : x_0)$. We wish to show now that $\mathfrak{a}_0 = \mathfrak{q}_0 \cap [\mathfrak{a}_0 + (x_0)]$. The first inclusion follows easily since
+$\mathfrak{a}_0 \subset \mathfrak{q}_0$ and $\mathfrak{a}_0 \subset \mathfrak{a}_0 + (x_0)$. Conversely, choose some $a_0 + b_0 x_0 \in \mathfrak{a}_0 + (x_0)$ that is also in $\mathfrak{q}_0 = (\mathfrak{a}_0 : x)$. Then,
+$x_0(a_0 + b_0 x_0) = a_0 x_0 + b_0 x_0^2 \in \mathfrak{a}_0$ so that $b_0 x_0^2 \in \mathfrak{a}_0 \subset \mathfrak{q}_0$. Since $x_0 \not\in \mathfrak{p}_0$, $(x_0^2)^k = x_0^{2k} \not\in \mathfrak{p}_0 = r(\mathfrak{q}_0)$ 
+for any $k > 0$. Since $b_0 x_0^2 \in \mathfrak{q}_0$, $\mathfrak{q}_0$ is primary, and $(x_0^2)^k \not\in \mathfrak{q}_0$ for any $k > 0$, we must have $b_0 \in \mathfrak{q}_0 = (a_0 : x_0)$. Thus, $b_0x_0 \in \mathfrak{a}_0$
+so that $a_0 + b_0 x_0 \in \mathfrak{a}_0$, giving us the second inclusion. Therefore, $\mathfrak{a}_0 = \mathfrak{q}_0 \cap [\mathfrak{a}_0 + (x_0)]$.
+
+In particular, the set of ideals $\mathfrak{b}$ containing $\mathfrak{a}_0 + (x_0)$ such that $\mathfrak{q}_0 \cap \mathfrak{b} = \mathfrak{a}_0$ is non-empty; let therefore $\mathfrak{a}_1$ be a maximal element of this set. If
+$\mathfrak{a}_1 = (1)$, then $\mathfrak{q}_0 = \mathfrak{a}_0$, so we have a primary decomposition of $\mathfrak{a}_0$. Thus, suppose $\mathfrak{a}_1 \neq (1)$. Then, there is a prime ideal $\mathfrak{p}_1$ minimal among those
+containing $\mathfrak{a}_1$, and $\mathfrak{q}_1 = S_{\mathfrak{p}_1}(\mathfrak{a}_1)$ is $\mathfrak{p}_1$-primary by the first paragraph. By (L1), $\mathfrak{q}_1 = (\mathfrak{a}_1 : x_1)$ for some $x_1 \not\in \mathfrak{p}_1$.
+As before, we have $\mathfrak{a}_1 = \mathfrak{q}_1 \cap (\mathfrak{a}_1 + (x_1))$. Then, $\mathfrak{a}_0 = \mathfrak{q}_0 \cap \mathfrak{a}_1 = \mathfrak{q}_0 \cap \mathfrak{q}_1 \cap (\mathfrak{a}_1 + (x_1))$.
+
+We use transfinite induction to pull the pieces together. Suppose $\mathfrak{a}_0 = [\mathfrak{a}_\alpha + (x_\alpha)]\cap \bigcap_{\beta \le \alpha} \mathfrak{q}_{\beta}$ for some ordinal $\alpha$ 
+and primary ideals $\mathfrak{q}_{\beta}$ such that $\mathfrak{a}_{\alpha}$ is not contained in $r(\mathfrak{q}_{\beta})$ for any $\beta < \alpha$. If $\mathfrak{a}_{\alpha} \neq (1)$, then as before,
+there is some ideal $\mathfrak{a}_{\alpha + 1}$ containing $\mathfrak{a}_{\alpha} + (x_{\alpha})$, maximal under the contraint $\mathfrak{a}_0 = \mathfrak{a}_{\alpha + 1} \cap \bigcap_{\beta \le \alpha} \mathfrak{q}_{\beta}$.
+If $\mathfrak{a}_{\alpha + 1} = (1)$, we're finished, so suppose $\mathfrak{a}_{\alpha + 1} \neq (1)$ so that there is some prime $\mathfrak{p}_{\alpha + 1}$ minimal over $\mathfrak{a}_{\alpha + 1}$ so that
+$\mathfrak{q}_{\alpha + 1} = S_{\mathfrak{p}_{\alpha + 1}}(\mathfrak{a}_{\alpha + 1})$ is $\mathfrak{p}_{\alpha + 1}$-primary. By (L1), there is some $x_{\alpha + 1} \not\in \mathfrak{p}_{\alpha + 1}$ such that
+$\mathfrak{q}_{\alpha + 1} = (\mathfrak{a}_{\alpha+1} : x_{\alpha+1})$. As before, we have $\mathfrak{a}_{\alpha+1} = \mathfrak{q}_{\alpha+1} \cap [\mathfrak{a}_{\alpha+1} + (x_{\alpha + 1})]$ so that
+$$\mathfrak{a}_0 = \mathfrak{a}_{\alpha+1} \cap \bigcap_{\beta \le \alpha} \mathfrak{q}_{\beta} = [\mathfrak{a}_{\alpha + 1} + (x_{\alpha+1})] \cap \bigcap_{\beta \le \alpha + 1}\mathfrak{q}_{\beta}.$$
+
+So, we've proven the zero case and the successor step. For the limit step, suppose that for all $\alpha < \beta$, we have $\mathfrak{a}_0 = \mathfrak{a}_{\alpha + 1} \cap \bigcap_{\gamma \le \alpha} \mathfrak{q}_{\gamma}$
+with $\mathfrak{a}_\gamma$ properly containing $\mathfrak{a}_{\alpha}$ for all $\alpha < \gamma$. Define $\mathfrak{a}_{\beta} = \bigcup_{\alpha < \beta}\mathfrak{a}_{\alpha}$. Then, $\mathfrak{a}_\beta$ properly contains
+$\mathfrak{a}_\alpha$ for each $\alpha < \beta$ so that
+$$\mathfrak{a}_\beta \cap \bigcap_{\alpha < \beta}\mathfrak{q}_\alpha = \bigcup_{\gamma < \beta}\left(\mathfrak{a}_{\gamma} \cap \bigcap_{\alpha < \beta} \mathfrak{q}_{\alpha}\right)
+= \bigcup_{\gamma + 1 < \beta}\left(\mathfrak{a}_{\gamma + 1} \cap \bigcap_{\alpha \le \gamma} \mathfrak{q}_{\alpha} \cap \bigcap_{\gamma<\alpha<\beta}\mathfrak{q}_{\alpha}\right)$$
+$$= \bigcup_{\gamma + 1 < \beta}\left(\mathfrak{a}_0 \cap \bigcap_{\alpha<\beta}\mathfrak{q}_{\alpha}\right) = \bigcup_{\gamma + 1 < \beta}\mathfrak{a}_0 = \mathfrak{a}_0,$$
+as desired.
+
+If for any $\alpha$, we obtain $\mathfrak{a}_{\alpha} = (1)$, we've shown $\mathfrak{a}_0$ is the intersection of primary ideals. For $\alpha < \beta$, $\mathfrak{a}_{\beta}$ strictly contains
+$\mathfrak{a}_{\alpha}$. The cardinality of $A$ imposes a bound on the number of distinct $\mathfrak{a}_{\alpha}$ we can have, so we have by transfinite induction that 
+$\mathfrak{a} = \bigcap_{\alpha < \beta}\mathfrak{q}_{\alpha}$ for some $\beta$ of cardinality less than $A$. Thus, $\mathfrak{a}$ is the intersection of (possibly infinitely many) primary ideals.
+\end{proof}
+
+\subsection{Exercise - Complete}\label{4.18}
+
+\begin{proof}
+(i) $\implies$ (L1). Let $\mathfrak{a} \neq (1)$ be an ideal of $A$. Then, it has a minimal primary decomposition
+$$\mathfrak{a} = \bigcap_{i=1}^n \mathfrak{q}_i.$$
+Let $\Sigma$ be the set of indices $i$ such that $\mathfrak{q}_i \subset \mathfrak{p}$. Then, if $i \not\in \Sigma$, $\mathfrak{q}_i \not\subset \mathfrak{p}$
+so that $\mathfrak{q}_i \cap S_{\mathfrak{p}} \neq \emptyset$. By Proposition 4.9, we have $S_{\mathfrak{p}} = \bigcap_{i \in \Sigma}\mathfrak{q}_i$.
+On the other hand, $(\mathfrak{a}:x) = \bigcap_{i=1}^n (\mathfrak{q}_i:x)$; $(\mathfrak{q}_i : x) = (1)$ when $x \in \mathfrak{q}_i$ (Lemma 4.4) and $(\mathfrak{q}_i : x) = \mathfrak{q}_i$
+when $x \not\in \mathfrak{p}_i$. Thus, we are looking for some $x \in \bigcap_{i:i\not\in \Sigma} \mathfrak{q}_i - \bigcup_{i:i\in \Sigma}\mathfrak{p}_i$. By Proposition 4.1,
+since $\mathfrak{q}_i \subset \mathfrak{p}$ for all $i \in \Sigma$, $\mathfrak{p}_i \subset \mathfrak{p}$ so that $\bigcup_{i:i\in \Sigma}\mathfrak{p}_i \subset \mathfrak{p}$. Therefore,
+$$\bigcap_{i:i\not\in \Sigma} (\mathfrak{q}_i - \mathfrak{p}) = \bigcap_{i:i\not\in \Sigma} \mathfrak{q}_i - \mathfrak{p} \subset \bigcap_{i:i\not\in \Sigma} \mathfrak{q}_i - \bigcup_{i:i\in \Sigma}\mathfrak{p}_i,$$
+so we just have to show that $\bigcap_{i:i\not\in \Sigma} (\mathfrak{q}_i - \mathfrak{p})$. For each $i \not\in \Sigma$, since $\mathfrak{q}_i \not\subset \mathfrak{p}$, there is some $x_i \in \mathfrak{q}_i - \mathfrak{p}$.
+Multiplying them all together, we clearly have $x = \prod_{i \not\in \Sigma} x_i \subset \bigcap_{i:i\not\in \Sigma} \mathfrak{q}_i$. But since $\mathfrak{p}$ is prime, a product of finitely many elements not in $\mathfrak{p}$
+is also not in $\mathfrak{p}$. Finally, we have $x \in \bigcap_{i:i\not\in \Sigma} (\mathfrak{q}_i - \mathfrak{p}) \subset \bigcap_{i:i\not\in \Sigma} \mathfrak{q}_i - \bigcup_{i:i\in \Sigma}\mathfrak{p}_i$ so that 
+$S_{\mathfrak{p}}(\mathfrak{a}) = (\mathfrak{a}:x)$.
+
+(i) $\implies$ (L2). Suppose we have a descending chain $S_1 \supset S_2 \supset \cdots$ of multiplicatively closed subsets of $A$. This leads to a descending chain $S_1(\mathfrak{a}) \supset S_2(\mathfrak{a}) \supset \cdots$.
+By Exercise \ref{4.12}, there are only finitely many sets of the form $S(\mathfrak{a})$, so the chain stabilizes.
+
+(ii) $\implies$ (i). Let $\mathfrak{a} \neq (1)$ be an ideal of $A$. Since we have (L1), we have by Exercise \ref{4.17} that there exist primary $\mathfrak{q}_{\alpha}$ for $\alpha < \beta$ such that
+$\mathfrak{a} = \bigcap_{\alpha} \mathfrak{q}_{\alpha}$. Let $mathfrak{p}_{\alpha} = r(\mathfrak{q}_{\alpha})$ and $S_{\beta} = A - \bigcup_{\alpha < \beta} \mathfrak{p}_{\alpha}$. By Exercise \ref{3.7},
+these are saturated multiplicatively closed sets of $A$ and $S_{\alpha} \supset S_{\beta}$ for $\alpha < \beta$. In Exercise \ref{4.17}, we defined $\alpha$ for finite ordinals. I.e., there is some ideal 
+$\mathfrak{a}_{n+1}$ such that 
+$$\mathfrak{a} = \mathfrak{a}_{n+1} \cap \mathfrak{q}_n \cap \cdots \cap \mathfrak{q}_0$$
+and $\mathfrak{a}_{n+1} \not\subset \mathfrak{p}_m$ for $m < n+1$. Then, $\mathfrak{a}_{n+1} \cap S_n \neq \emptyset$, so Exercise \ref{4.12} gives us $S_n(\mathfrak{a}_{n+1}) = (1)$, so 
+$$S_n(\mathfrak{a}) = \mathfrak{q}_n \cap \cdots \cap \mathfrak{q}_0.$$
+(L2) tells us that the sequence $S_n(\mathfrak{a})$ stabilizes so that for some $m$, we have, for all $\alpha > m$, $S_{\alpha}(\mathfrak{a}) = \mathfrak{q}_0 \cap \cdots \cap \mathfrak{q}_m$.
+
+Let $\alpha > n$ for all finite ordinals $n$. We can write $\mathfrak{a} = S_n(\mathfrak{a}) \cap \mathfrak{q}_{\alpha} \cap \bigcap_{\gamma \not\in 0,\ldots,n,\alpha}\mathfrak{q}_{\gamma}$. Taking 
+$S_{\alpha}$ and using Exercise \ref{4.12}, we have (since $S_{\alpha} S_n = S_n$)
+$$S_{\alpha}(\mathfrak{a}) = S_n(\mathfrak{a}) \cap S_{\alpha}(\mathfrak{q}_{\alpha}) \cap \bigcap_{\gamma \not\in 0,\ldots,n,\alpha}S_{\alpha}(\mathfrak{q}_{\gamma}).$$
+Note that $\mathfrak{q}_{\alpha}$ does not meet $A - \mathfrak{p}_{\alpha} \supset S_{\alpha}$, so if $x \in S_{\alpha}(\mathfrak{q}_{\alpha})$, there is some $s \in S_{\alpha}$ such
+that $sx \in \mathfrak{q}_{\alpha}$. Since $\mathfrak{q}_{\alpha}$ is primary, there is some $n$ such that $s^n \in \mathfrak{q}_{\alpha}$ (which cannot happen since $S_{\alpha}$ is saturated) or
+$x \in \mathfrak{q}_{\alpha}$. Thus, it must be the latter condition, forcing $S_{\alpha}(\mathfrak{q}_{\alpha}) = \mathfrak{q}_{\alpha}$. Thus, we have
+\begin{align*}
+S_{\alpha}(\mathfrak{a}) &= S_n(\mathfrak{a}) \cap S_{\alpha}(\mathfrak{q}_{\alpha}) \cap \bigcap_{\gamma \not\in 0,\ldots,n,\alpha}S_{\alpha}(\mathfrak{q}_{\gamma})
+= \mathfrak{q}_0 \cap \cdots \cap \mathfrak{q}_m \cap \mathfrak{q}_{\alpha} \cap \bigcap_{\gamma \not\in 0,\ldots,n,\alpha}S_{\alpha}(\mathfrak{q}_{\gamma}) \\
+\mathfrak{q}_0 \cap \cdots \cap \mathfrak{q}_m &= \mathfrak{q}_0 \cap \cdots \cap \mathfrak{q}_m \cap \mathfrak{q}_{\alpha} \cap \cdots \subset \mathfrak{q}_{\alpha},
+\end{align*}
+so $\mathfrak{q}_0 \cap \cdots \cap \mathfrak{q}_m \subset \mathfrak{q}_{\alpha}$ for any ordinal $\alpha > m$. Thus,
+$$\mathfrak{a} = \bigcap_{\alpha < \beta}\mathfrak{q}_{\alpha} = \mathfrak{q}_0 \cap \cdots \cap \mathfrak{q}_m,$$
+so $\mathfrak{a}$ has a primary decomposition.
+\end{proof}
+
+\subsection{Exercise - Complete}\label{4.19}
+
+\begin{proof}
+Every $\mathfrak{p}$-primary ideal contains $S_{\mathfrak{p}}(0) = \ker (A \to A_{\mathfrak{p}})$ by Exercise \ref{4.11}.
+
+We prove that if $\{\mathfrak{p}_1,\ldots,\mathfrak{p}_n\}$ are distinct prime ideals, none of which is minimal in $A$, then there exists an ideal $\mathfrak{a}$ with
+$\Ass(\mathfrak{a}) = \{\mathfrak{p}_1,\ldots,\mathfrak{p}_n\}$. We do this by induction on $n$. The base case is trivial; if the set of primes is $\{\mathfrak{p}\}$, then 
+$\Ass(\mathfrak{p}) = \mathfrak{p}$.
+
+Now, suppose the property holds for all sets of distinct primes (none of which is minimal in $A$) with cardinality $< n$. Now, suppose we have a set $\{\mathfrak{p}_1,\ldots,\mathfrak{p}_n\}$
+of distinct primes, none of which are minimal in $A$. Reindex so that $\mathfrak{p}_n$ is maximal in the set. By the inductive hypothesis, there is some ideal $\mathfrak{b}$ with a minimal
+primary decomposition $\mathfrak{b} = \mathfrak{q}_1 \cap \cdots \cap \mathfrak{q}_{n-1}$, where $\mathfrak{q}_i$ is $\mathfrak{p}_i$-primary. If $\mathfrak{b} \subset S_{\mathfrak{p}_n}(0)$,
+let $\mathfrak{p}$ be a minimal prime of $A$ contained in $\mathfrak{p}_n$. Then, by Exercise \ref{4.10}, we have $S_{\mathfrak{p}_n}(0) = S_{\mathfrak{p}}(0)$ so that 
+$\mathfrak{b} \subset S_{\mathfrak{p}}(0)$. Now,
+$$\mathfrak{p} \supset \mathfrak{b} = \bigcap_{i=1}^{n-1}\mathfrak{q}_i,$$
+so taking radicals, we have
+$$\mathfrak{p} = r(\mathfrak{p}) \supset \bigcap_{i=1}^{n-1}r(\mathfrak{q}_i) = \bigcap_{i=1}^{n-1}\mathfrak{p}_i.$$
+Hence, there is some $\mathfrak{p}_i$ such that $\mathfrak{p}_i \subset \mathfrak{p}$, but since we chose $\mathfrak{p}$ to be minimal in $A$, we have $\mathfrak{p} = \mathfrak{p}_i$. But
+by assumption, no prime ideal in our set can be minimal in $A$, giving us a contradiction. Therefore, $\mathfrak{b} \not\subset S_{\mathfrak{p}_n}(0)$. Let $\mathfrak{q}_n = S_{\mathfrak{p}_n}(0)$,
+which is a $\mathfrak{p}_n$-primary ideal by Exercise \ref{4.10}.
+
+Now, defining $\mathfrak{a} = \mathfrak{q}_1 \cap \cdots \cap \mathfrak{q}_n$, we clearly have a primary decomposition. We must show that it is minimal. First of all, the $r(\mathfrak{q}_i)$ are all
+distinct, as required. Further, $\mathfrak{q}_n \not\supset \mathfrak{q}_1 \cap \cdots \cap \mathfrak{q}_{n-1}$ by the preceding paragraph. Finally, we must show that for $i < n$
+$$\mathfrak{q}_i \not\supset \mathfrak{q}_1 \cap \cdots \cap \hat{\mathfrak{q}}_i \cap \cdots \cap \mathfrak{q}_n.$$
+We'll prove this by contradiction; suppose $\mathfrak{q}_i$ does contain the above intersection for a fixed $i < n$. Then, localizing at $\mathfrak{p}_i$, we obtain ($S = A - \mathfrak{p}_i$)
+$$S^{-1}\mathfrak{q}_i \supset S^{-1}\mathfrak{q}_1 \cap \cdots \cap \widehat{S^{-1}\mathfrak{q}_i} \cap \cdots \cap S^{-1}\mathfrak{q}_n.$$
+Since we chose $\mathfrak{p}_n$ to be maximal, we have $\mathfrak{p}_n \not\subset \mathfrak{p}_i$, so by Proposition 3.11, $S^{-1}\mathfrak{q}_n = A_{\mathfrak{p}_i}$. Thus,
+$$S^{-1}\mathfrak{q}_i \supset S^{-1}\mathfrak{q}_1 \cap \cdots \cap \widehat{S^{-1}\mathfrak{q}_i} \cap \cdots \cap S^{-1}\mathfrak{q}_{n-1}.$$
+Note that $\mathfrak{p}_i \supset \mathfrak{q}_i$, so $\mathfrak{q}_i \cap S = \emptyset$. Let $\Sigma$ be the set of indices $j$ satisfying $\mathfrak{q}_j \cap S = \emptyset$, excluding $i$. For
+$j \not\in \Sigma$, we have by Proposition 4.8 that $S^{-1}\mathfrak{q}_j = A_{\mathfrak{p}_i}$. Then, by Proposition 4.8, we have
+$$S^{-1}\mathfrak{q}_i \supset S^{-1}\mathfrak{q}_1 \cap \cdots \cap \widehat{S^{-1}\mathfrak{q}_i} \cap \cdots \cap S^{-1}\mathfrak{q}_{n-1} = \bigcap_{j \not\in \Sigma} A_{\mathfrak{p}_i} \cap \bigcap_{j \in \Sigma}S^{-1}\mathfrak{q}_j
+= \bigcap_{j \in \Sigma}S^{-1}\mathfrak{q}_j.$$
+By Proposition 4.8 again, after contracting, we have
+$$\mathfrak{q}_i \supset \bigcap_{j \in \Sigma}\mathfrak{q}_j \supset \bigcap_{j \neq i,n}\mathfrak{q}_j,$$
+violating the minimality of the primary decomposition for $\mathfrak{b}$ (inductive step). Thus, 
+$$\mathfrak{q}_i \not\supset \mathfrak{q}_1 \cap \cdots \cap \hat{\mathfrak{q}}_i \cap \cdots \cap \mathfrak{q}_n$$
+for all $i$, so indeed, $\Ass(\mathfrak{a}) = \{\mathfrak{p}_1,\ldots,\mathfrak{p}_n\}$. By induction, such an ideal can be found for any $n$.
+\end{proof}
+
+\subsection{Exercise - Complete}\label{4.20}
+
+\begin{proof}
+Suppose $x \in r(N:M)$. Then, for some $q > 0$, $x^q \in (N:M)$, so $x^q M \subset N$; i.e., $x \in r_M(N)$. Conversely, if $x \in r_M(N)$,
+then there is some $q > 0$ such that $x^q M \subset N$. Thus, $x^q \in (N:M)$, so $x \in r(N:M)$; hence, $r_M(N) = r(N:M)$. To see that 
+$r(N:M) = r(\Ann(M/N))$, we simply observe that
+$$x \in (N:M) \iff xM \subset N \iff x \in \Ann(M/N),$$
+so $(N:M) = \Ann(M/N)$. Thus, $r_M(N) = r(N:M) = r(\Ann(M/N))$. As $r_M(N)$ takes the form of a radical, it is then clearly an ideal.
+
+(i) $N \subset P \implies r_M(N) \subset r_M(P)$. This is clear: $x^q M \subset N \subset P$.
+
+(ii) $r(r_M(N)) = r_M(N)$. We prove the non-obvious inclusion. Suppose $x \in r(r_M(N))$. Thus, there is some $m > 0$ such that $x^m \in r_M(N)$. Then, there
+is some $q > 0$ such that $x^{mq}M = (x^m)^q M \subset N$, so $x \in r_M(N)$.
+
+(iii) $r_M(N \cap P) = r_M(N) \cap r_M(P)$. If $x \in r_M(N \cap P)$, there is some $q > 0$ such that $x^q M \subset N \cap P$, but $N \cap P$ is contained in $N$ and $P$. Thus,
+$x$ is in $r_M(N)$ and $r_M(P)$ so that $x \in r_M(N) \cap r_M(P)$. Conversely, there are $q,r > 0$ such that $x^q M \subset N$ and $x^r M \subset P$. Letting $n$ be larger than $q$
+and $r$, we have $x^n M \subset x^{n-q} (x^q M) \subset x^{n-q} N \subset$; similarly, $x^n M \subset P$ so that $x^n M \subset N \cap P$. Then, $x \in r_M(N \cap P)$.
+
+(iv) $r_M(N) = (1) \iff M = N$. First of all, we always have $N \subset M$ by assumption. Now, if $1 \in r_M(N)$, then $M = 1^q M \subset N$, so $M = N$. Conversely, if $M = N$, then
+for all $x \in A$, $xM \subset M = N$, so $x \in r_M(N)$, i.e. $r_M(N) = (1)$.
+
+(v) $r_M(N + P) \supset r(r_M(N) + r_M(P))$. By (i), we have $r_M(N), r_M(P) \subset r_M(N + P)$. Thus, $r_M(N) + r_M(P) \subset r_M(N + P)$. Taking radicals,
+$r(r_M(N) + r_M(P)) \subset r(r_M(N+P)) = r_M(N+P)$ by (ii).
+\end{proof}
+
+\subsection{Exercise - Complete}\label{4.21}
+
+\begin{proof}
+Suppose $Q$ is a primary submodule of $M$. Note that $M/Q$ is a $A/\Ann(M/Q)$-module. Let $x \in A/\Ann(M/Q)$ be a zero-divisor. I.e., there is some non-zero $y \in A/\Ann(M/Q)$
+such that $xy = 0$. Let $\phi_x$, $\phi_y$, and $\phi_{xy} = 0$ denote the endomorphisms on $M/Q$. Since $y$ is non-zero, there is some non-zero $m \in M/Q$ such that $\phi_y m \neq 0$.
+Then, $0 = (\phi_x \circ \phi_y)(m) = \phi_x(\phi_y(m))$ so that $\phi_x$ is not injective. Since $Q$ is primary in $M$, $\phi_x$ must be nilpotent, so $\phi_x^q = 0$ for some $q>0$. Thus,
+$x^q \in \Ann(M/Q)$, so $x$ is nilpotent in $A/\Ann(M/Q)$. Thus, $\Ann(M/Q)$ is a primary ideal of $A$.
+
+By Exercise \ref{4.20}, $\Ann(M/Q) = (Q:M)$. Further, $r(\Ann(M/Q)) = r_M(Q)$, so $r_M(Q)$ is prime and $\Ann(M/Q) = (Q:M)$ is $r_M(Q)$-primary.
+\end{proof}
+
+(4.3) If $Q_i$ are $\mathfrak{p}$-primary, then $Q = \bigcap_{i=1}^n Q_i$ is $\mathfrak{p}$-primary.
+
+\begin{proof}[(4.3) Proof.]
+By Exercise \ref{4.20}, we have
+$$r_M(Q) = \bigcap_{i=1}^n r_M(Q_i) = \bigcap_{i=1}^n \mathfrak{p} = \mathfrak{p},$$
+so we just have to show that $Q$ is primary.
+
+Suppose $x \in A$ is a zero-divisor on $M/Q$. Then, there is some $m \in M-Q$ such that $xm \in Q \subset Q_i$ for all $i$. Since $m \not\in Q$, there is some $j$ such that $m \not\in Q_j$.
+Since $Q_j$ is primary in $M$ and $x$ is a zero-divisor on $M/Q_j$, it is nilpotent on $M/Q_j$. Thus, $x \in r(\Ann(M/Q_j)) = \mathfrak{p} = r_M(Q)$, so $x$ is nilpotent on $M/Q$. Thus,
+$x$ is nilpotent as an endomorphism of $M/Q$. Finally, $Q$ is a $\mathfrak{p}$-primary submodule of $M$.
+\end{proof}
+
+(4.4) (i) Let $N \subset M$ be $A$-modules and $m \in N$. Then, $(N : m) = (1)$;
+(ii) Let $Q \subset M$ be a $\mathfrak{p}$-primary submodule, and $m \in M$. If $m \not\in Q$, then $(Q:m)$ is $\mathfrak{p}$-primary;
+(iii) Let $Q \subset M$ be a $\mathfrak{p}$-primary submodule, and $x \in A$. If $x \not\in \mathfrak{p}$, then $(Q:x) := \{m \in M : xm \in Q\} = Q$.
+
+\begin{proof}[(4.4) Proof.]
+(i) If $m \in N$, then since $N$ is an $A$-module, we have $Am \subset N$, so $(N:m) = (1)$.
+
+(ii) Note that $(Q:m)$ is an ideal of $A$. Suppose $x, y \in A$ and $x y \in (Q:m)$. Then, $(xy)m \in Q$, so $xy$ is a zero-divisor on $M/Q$. Since $Q$ is primary in $M$,
+$(xy)^q \in \Ann(M/Q)$ for some $q > 0$. Thus, $xy \in r(\Ann(M/Q)) = r_M(Q) = \mathfrak{p}$ by Exercise \ref{4.20}. Since $\mathfrak{p}$ is prime, $x \in \mathfrak{p}$ or
+$y \in \mathfrak{p}$. Without loss of generality, suppose $y \in \mathfrak{p}$. Then, since $\mathfrak{p} = r_M(Q)$, there is some $q > 0$ such that $y^q M \subset Q$, so $y^q m \in Q$.
+In other words, $y^q \in (Q:m)$, so $(Q:m)$ is primary. 
+
+Note that $\Ann(M/Q) \subset (Q:m)$, so $r(\Ann(M/Q)) \subset r(Q:m)$. Suppose $y \in r(Q:m)$ so that $y^q \in (Q:m)$ for some $q > 0$. Then, $y^q m \in Q$, so $y^q$ is a zero-divisor on $M/Q$.
+Since $Q$ is primary in $M$, there is some $n > 0$ such that $(y^q)^n = y^{qn} \in \Ann(M/Q)$, so $y \in r(\Ann(M/Q))$. Thus, $r(Q:m) = r(\Ann(M/Q)) = \mathfrak{p}$, so $(Q:m)$ is a 
+$\mathfrak{p}$-primary ideal.
+
+(iii) Suppose $x \not\in \mathfrak{p}$. First of all, it's clear that $Q \subset (Q:x)$. Conversely, suppose to the contrary that there exists some $m \in (Q:x) - Q$. Then,
+$xm \subset Q$ while $m \not\in Q$, so $x$ is a zero-divisor on $M/Q$. Since $Q$ is primary in $M$, $x^q \in \Ann(M/Q)$ for some $q > 0$. Thus, $x \in r(\Ann(M/Q)) = \mathfrak{p}$,
+a contradiction. Hence, $(Q:x) = Q$.
+\end{proof}
+
+\subsection{Exercise}\label{4.22}
+
+\subsection{Exercise}\label{4.23}

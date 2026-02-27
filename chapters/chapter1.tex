@@ -1,0 +1,1172 @@
+\section{Rings and Ideals (Complete)}
+
+\subsection{Exercise}\label{1.1} % 1
+
+\begin{proof}
+By assumption, $x^m = 0$ for some $m$. Then, 
+\[ (1 + x) \sum_{i=0}^{m-1} (-1)^i x^i = 1 + (-1)^{m-1}x^m = 1, \] 
+so $1 + x$ is a unit.
+
+Let $x$ be nilpotent and $u$ be a unit. Then, $u + x = u (1 + u^{-1} x)$. But $u^{-1} x$ is nilpotent since $x$ is. By the previous result, $1 + u^{-1} x$ is a unit and hence $u (1 + u^{-1} x) = u + x$ is also a unit.
+\end{proof}
+
+\subsection{Exercise}\label{1.2} % 2
+
+\begin{proof}[(i) Proof.]
+We will prove this by induction. Suppose $f$ has degree $0$ with inverse $g = b_0 + \dots + b_m x^m$. Then,
+$1 = fb_0 + \dots + fb_m x^m$. Therefore, since $f \in A$ and $fb_0 = 1$, $f$ is a unit. The converse is trivial since $f=a_0$,
+proving the base case.
+
+Now, suppose that for all polynomials of degree $n-1$, the proposition holds. Suppose $f$ has degree $n$ and 
+has an inverse $g = b_0 + \dots + b_mx^m$. Then,
+\begin{align*}
+1 &= \left(\sum_{i=0}^n a_i x^i\right) \cdot \left(\sum_{j=0}^m b_j x^j\right) \\
+&= \sum_{k=0}^{n+m}\left(\sum_{i=0}^k a_i b_{k-i}\right)x^i.
+\end{align*}
+This implies $a_n b_m = 0$. We'll show by induction on $r$ that $a_n^{r+1} b_{m-r} = 0$, the base case already
+proven. We assume this is true for all $r < l$. Multiplying by $a_n^l$,
+\begin{align*}
+a_n^l &= \left(\sum_{i=0}^n a_i x^i\right) \cdot \left(\sum_{j=0}^m a_n^l b_j x^j\right) \\
+&= \left(\sum_{i=0}^n a_i x^i\right) \cdot \left(\sum_{j=0}^{m-l} a_n^l b_j x^j\right),
+\end{align*}
+where we used the inductive hypothesis to remove higher terms: if $j > m-l$, then $l-(m-j+1) \ge 0$, so $a_n^l b_j = a_n^{l-(m-j+1)}(a_n^{m-j+1}b_{m-(m-j)}) = 0$.
+The coefficient of highest degree is $a_n \cdot a_n^l b_{m-l}$, so $a_n^{l+1}b_{m-l}=0$. By induction, $a_n^{r+1}b_{m-r}=0$
+for all $r$.
+
+From the expansion of $f \cdot g = 1$, we know that $a_0 b_0 = 1$. Then, using our result,
+$$a_n^{m+1} = a_0 (a_n^{m+1}b_{m - m}) = a_0 \cdot 0 = 0,$$
+so $a_n$ is nilpotent. Then, $- a_n x^n$ is nilpotent. Since $f$ is a unit, by Exercise \ref{1.1},
+$f + (-a_n x^n)$ is also a unit. However, it has degree $n-1$. By the inductive hypothesis, $a_0$ is a unit and $a_i$ is nilpotent
+for $1 \le i < n$. We've shown $a_n$ is nilpotent, so this direction is complete.
+
+Conversely, suppose $a_0$ is a unit and that $a_i$ is nilpotent for $1 \le i \le n$. Then, $f - a_nx^n$ has degree $n-1$,
+so by the inductive hypothesis, $f - a_nx^n$ is a unit since its coefficients have the right properties. 
+However, $a_n x^n$ is nilpotent since $a_n$ is, so by Exercise \ref{1.1},
+$(f - a_nx^n) + a_n x^n = f$ is a unit, so both directions are complete. By induction, the proposition follows for $f$ of any degree.
+\end{proof}
+
+\begin{proof}[(ii) Proof.]
+We'll prove this by induction on the degree. The base case is trivial since $f = a_0$ in degree 0. Now, suppose for all degrees 
+less than $n$, the proposition holds.
+
+If $f$ has degree $n$ and is nilpotent, there is an $m$ such that $f^m = 0$. Expanding, the top term is $a_n^m x^{nm}$, which is zero. Therefore,
+$a_n$ is nilpotent. However, $g = f + (- a_nx^n)$ is also nilpotent since it is the sum of two nilpotent elements (if $a$ and $b$ are the required nilpotent
+powers, take $a + b$; this power will annihilate all terms in the binomial expansion of $g$). $g$ has degree at most $n-1$, so by the inductive hypothesis
+$a_0,\ldots,a_{n-1}$ are all nilpotent. Since $a_n$ is nilpotent, this direction is complete.
+
+Conversely, if $f$ has degree $n$ and all coefficients are nilpotent, take $f = g + a_n x^n$, where $g$ has degree at most $n-1$. By the inductive hypothesis,
+$g$ is nilpotent, so $f$ is the sum of two nilpotent elements. Thus, $f$ is nilpotent. By induction, the proposition follows for $f$ of any degree.
+\end{proof}
+
+\begin{proof}[(iii) Proof.]
+The reverse implication is by definition. For the forward implication, suppose $f$ is a zero-divisor. The set of all possible $g$ such that
+$fg = 0$ has minimal degree $m$ since it is non-empty. Choose $g$ of degree $m$ such that $fg = 0$. If the highest terms are $a_n x^n$ and $b_m x^m$, 
+then $a_nb_mx^{n+m} = 0$ by $fg = 0$, so $a_n b_m = 0$. Note that $a_n g$ annihilates the term of degree $m$ and annihilates $f$, so $a_n g = 0$; 
+otherwise, we would be violating the minimality of $m$. 
+
+We will show by induction that $a_{n-r}g = 0$, the base case just proven. For the inductive hypothesis, suppose $a_{n-r}g=0$ for all $r < k$. Then,
+$$0 = g\sum_{i=0}^na_ix^i = \sum_{i=0}^n(ga_i)x^i = \sum_{i=0}^{n-k}(ga_i)x^i.$$
+The top term is $b_m a_{n-k} x^{m+n-k}$, so $b_m a_{n-k} = 0$. Thus, $a_{n-k}g$ has degree less than $m$ and annihilates $f$. 
+Again, to preserve the minimality of $m$, we have $a_{n-k} g = 0$. By induction, $a_{n-r}g = 0$ for all $r$.
+
+For any $a_i$, we have $a_ig = 0$. Thus,
+$$0 = a_i\left(b_0 + \dots + b_m x^m\right) = a_ib_0 + \dots + a_ib_m x^m.$$
+By definition, $b_m \neq 0$, yet $a_ib_m x^m = 0$. So, $a_i b_m = 0$ for all $i$. Thus,
+$$b_m f = b_m \sum_{i=0}^n (b_m a_i) x^i = 0,$$
+proving the claim.
+\end{proof}
+
+\begin{remark}
+For use in Exercise \ref{1.3}, we just proved: if $fg = 0$, $g$ annihilates every coefficient of $f$.
+\end{remark}
+
+\begin{proof}[(iv) Proof.]
+Suppose $fg$ is not primitive. Then, the ideal generated by its coefficients lie in a maximal ideal $\mathfrak{m}$.
+Thus, under the ring homomorphism $A[x] \to (A/\mathfrak{m})[x]$, $0 = \overline{fg} = \overline{f}\overline{g}$.
+If $\overline{f}$ is a zero divisor, then by (iii), there is a nonzero $a \in A/\mathfrak{m}$ such that
+$a\overline{f} = 0$. But, $a$ is a unit since $A/\mathfrak{m}$ is a field, so $\overline{f}=0$. The same argument applies
+to $\overline{g}$. Thus, either $\overline{f}$ or $\overline{g}$ is $0$; pulling back whichever is zero, its coefficients must
+all lie in $\mathfrak{m}$, violating primitivity.
+
+Conversely, suppose $f$ or $g$ is not primitive. Without loss of generality, we can say $f$ is not primitive, so its coefficients lie in
+a maximal ideal $\mathfrak{m}$. Then,
+$$fg = \sum_{k=0}^{n+m}\left(\sum_{i=0}^ka_ib_{k-i}\right)x^k.$$
+Obviously, $a_i b_{k-i} \in \mathfrak{m}$ since $a_i \in \mathfrak{m}$, so any finite sum of these terms is also. Therefore, the coefficients
+of $fg$ all lie in $\mathfrak{m}$, so $fg$ is not primitive, concluding the proof.
+\end{proof}
+
+\subsection{Exercise}\label{1.3} % 3
+
+Here, we will frequently use the fact that
+$$A[x_1,\ldots,x_n] \cong A[x_1,\ldots,x_{n-1}][x_n],$$
+which is easy to see by simply grouping terms on the left-hand side by $x_n$-degree.
+
+\begin{proof}[(ii) Proof.]
+We'll prove this by induction, using Exercise \ref{1.2}(ii), which establishes the base case. Now, assume the inductive hypothesis up to $n-1$.
+
+Let $f \in A[x_1,\ldots,x_n]$. We can write $f = f_0 + \cdots + f_m x_n^m \in A[x_1,\ldots,x_{n-1}][x_n]$. Assume $f$ is nilpotent. By Exercise \ref{1.2}(ii),
+each $f_i$ is nilpotent. Then, by the inductive hypothesis for (ii), all coefficients are nilpotent for each $f_i$ and thus for $f$. Conversely, if all
+coefficients of $f$ are nilpotent, then all coefficients of each $f_i$ are nilpotent. By the inductive hypothesis for (ii), each $f_i$ is nilpotent. By
+Exercise \ref{1.2}(ii), $f$ is nilpotent. By induction, the result follows.
+\end{proof}
+
+\begin{proof}[(i) Proof.]
+We'll prove this by induction, using Exercise \ref{1.2}(i), which establishes the base case. Now, assume the inductive hypothesis up to $n-1$.
+
+Suppose $f$ is a unit in $A[x_1,\ldots,x_n] = A[x_1,\ldots,x_{n-1}][x_n]$. Then, $f = f_0 + f_1 x_n + \cdots + f_m x_n^m$, where 
+$f_i \in A[x_1,\ldots,x_{n-1}]$. By the inductive hypothesis for (i), $f_0$ is a unit and $f_i$ is nilpotent for $i > 0$. By the inductive hypothesis 
+for (ii), all the coefficients of $f_i$ are nilpotent for $i > 0$. By the inductive hypothesis for $f_0$, the constant coefficient is a unit, and all
+other coefficients are nilpotent. Thus, viewing $f$ in $A[x_1,\ldots,x_n]$, the constant term is a unit and all other coefficients are nilpotent.
+
+Conversely, suppose $f$ in $A[x_1,\ldots,x_n]$ with the constant term a unit and all other coefficients nilpotent. Then, we can group terms so that
+$f = f_0 + f_1 x_n + \cdots + f_m x_n^m$, viewing $f \in A[x_1,\ldots,x_{n-1}][x_n]$. Then, $f_0$ has a unit for a constant term, with all other 
+coefficients being nilpotent. Thus, $f_0$ is a unit by the inductive hypothesis for (i). Likewise, $f_i$ for $i > 0$ has all nilpotent coefficients, so
+Exercise \ref{1.3}(ii) shows that $f_i$ is nilpotent. By Exercise \ref{1.2}(i), $f$ is a unit. By induction, (i) is proven in the general case.
+\end{proof}
+
+\begin{proof}[(iii) Proof.]
+First, we start with a lemma: we want to show by induction that for $f,g \in A[x_1,\ldots,x_n]$, $fg = 0$, we have that $g$ annihilates every 
+coefficient of $f$. The base case is shown in Exercise \ref{1.2}(iii).
+
+Suppose $f$ is a zero-divisor and $f \in A[x_1,\ldots,x_n] \cong A[x_1,\ldots,x_{n-1}][x_n]$. The set of all possible $g$ such that $fg = 0$ has minimal 
+degree $m$ in $x_n$ since it is non-empty. Choose $g$ of degree $m$ in $x_n$ such that $fg = 0$. If the highest terms are $f_k x_n^k$ and $g_l x_n^l$, 
+then $f_k g_l x^{k+l} = 0$ by $fg = 0$, so $f_k g_l = 0$. Note that $f_k g$ annihilates the term of degree $m$ and annihilates $f$, so $f_k g = 0$; 
+otherwise, we would be violating the minimality of $m$.
+
+We will show by induction that $f_{k-r}g = 0$, the base case just proven. For the inductive hypothesis, suppose $f_{k-r}g=0$ for all $r < q$. Then,
+$$0 = g\sum_{i=0}^k f_i x_n^i = \sum_{i=0}^k (gf_i)x_n^i = \sum_{i=0}^{k-q} (gf_i)x_n^i.$$
+The top term is $g_l f_{k-q} x_n^{l+k-q}$, so $g_l f_{k-q} = 0$. Thus, $f_{k-q} g$ has degree less than $m$ and annihilates $f$. 
+Again, to preserve the minimality of $m$, we have $f_{k-q} g = 0$. By induction, $f_{k-r}g = 0$ for all $r$.
+
+For any $f_i$, we have $f_ig = 0$. Thus,
+$$0 = f_i\left(g_0 + \dots + g_m x_n^m\right) = f_i g_0 + \dots + f_i g_m x_n^m.$$ 
+For any $g_j$, we have $f_i g_j x_n^j = 0$. So, $f_i g_j = 0$ for all $i$ and $j$. By induction,
+since $f_i,g_j \in A[x_1,\ldots,x_{n_1}]$, $g_j$ annihilates every coefficient of $f_i$. Since this
+is true for all $j$, $g$ annihilates every coefficient of $f_i$ for all $i$. By induction, for all $n$,
+if $f,g \in A[x_1,\ldots,x_n]$ and $fg = 0$, then $g$ annihilates every coefficient of $f$ individually. This proves the lemma.
+
+With this lemma, we can prove (iii). The reverse implication is by definition. For the forward implication, we prove (iii) 
+by induction, using the base case established by Exercise \ref{1.2}(iii). Assume the inductive hypothesis up to $n-1$ and that $f,g \in A[x_1,\ldots,x_n]$, 
+$fg = 0$. By our lemma, and since $f$ and $g$ are symmetrically defined, $f$ annihilates every coefficient of $g$ individually; since $g$ is nonzero,
+it has some nonzero coefficient $g_{\beta} \in A$. Thus, $g_{\beta} f = 0$. By induction, if for any $n$, $f,g \in A[x_1,\ldots,x_n]$ and $fg = 0$,
+then $af = 0$ for some nonzero $a \in A$.
+\end{proof}
+
+\begin{proof}[(iv) Proof.]
+Suppose $fg$ is not primitive. Then, the ideal generated by its coefficients lie in a maximal ideal $\mathfrak{m}$.
+Thus, under the ring homomorphism $A[x_1,\ldots,x_n] \to (A/\mathfrak{m})[x_1,\ldots,x_n]$, $0 = \overline{fg} = \overline{f}\cdot\overline{g}$.
+If $\overline{f}$ is a zero divisor, then by (iii), there is a nonzero $a \in A/\mathfrak{m}$ such that
+$a\overline{f} = 0$. But, $a$ is a unit since $A/\mathfrak{m}$ is a field, so $\overline{f}=0$. The same argument applies
+to $\overline{g}$. Thus, either $\overline{f}$ or $\overline{g}$ is $0$; pulling back whichever is zero, its coefficients must
+all lie in $\mathfrak{m}$, violating primitivity.
+
+Conversely, suppose $f$ or $g$ is not primitive. Without loss of generality, we can say $f$ is not primitive, so its coefficients lie in
+a maximal ideal $\mathfrak{m}$. Then, consider the same map as before, $A[x_1,\ldots,x_n] \to (A/\mathfrak{m})[x_1,\ldots,x_n]$. Then,
+$\overline{fg} = \overline{f}\cdot\overline{g} = 0 \cdot \overline{g} = 0$. In particular, all the coefficients of $fg$ lie in $\mathfrak{m}$, 
+so $fg$ is not primitive, concluding the proof.
+\end{proof}
+
+\subsection{Exercise}\label{1.4} % 4
+
+\begin{proof}
+Since all maximal ideals are prime ideals, the nilradical (intersection of all prime ideals) is contained in the Jacobson radical 
+(intersection of all maximal ideals) for any ring. Thus, we need to show that any $f(x)$ in the Jacobson radical is nilpotent.
+
+By Proposition 1.9, if $f(x)$ is in the Jacobson radical, then $1 + xf(x)$ is a unit in $A[x]$. We can write this as 
+$$1 + xf(x) = 1 + a_0x + \cdots + a_nx^{n+1}.$$
+By Exercise \ref{1.2}(i), $a_0,\ldots,a_n$ are nilpotent. Thus, by Exercise \ref{1.2}(ii), $f$ is nilpotent.
+\end{proof}
+
+\subsection{Exercise}\label{1.5} % 5
+
+\begin{proof}[(i) Proof.]
+Suppose $f = \sum_i a_i x^i \in A[[x]]$ is a unit so that there is some $g = \sum_i b_ix^i \in A[[x]]$ yielding $fg = 1$. 
+Expanding, the constant term is $a_0 b_0 = 1$. Thus, $a_0$ is a unit in $A$. 
+
+We will prove the converse by induction; we will show that for all $n$, we can construct some $g_n \in A[x]$ (realized as a subring of $A[[x]]$) of degree $n-1$ 
+such that $fg_n - 1 \in (x^n)$ and $g_n \equiv g_r \mod (x^r)$ for $r < n$. 
+Suppose $f = \sum_i a_i x^i$ and $a_0$ is a unit so that there is a $b_0$ yielding $a_0 b_0 = 1$.
+Let $g_0 = b_0$. Then, 
+$$fg_0 - 1 = \sum_{i=0}^{\infty} a_ib_0 x^i - 1 = \sum_{i=1}^{\infty} a_ib_0 x^i + (a_0b_0 - 1) = \sum_{i=1}^{\infty} a_ib_0 x^i \in (x^1),$$
+the ideal generated by $x$. This proves the base case. Our inductive hypothesis is that there is some $g_{n-1} = \sum_{i=0}^{n-1} b_ix^i$ such that 
+$fg_{n-1} - 1 \equiv 0 \mod (x^n)$. Define $b_n = - a_0^{-1}\sum_{i=1}^n a_i b_{n-i}$, recalling that $a_0$ is a unit. We claim that $g_n = \sum_{i=0}^n b_i x^i$
+satisfies the proper congruence. We have
+\begin{align*}
+fg_n &= \sum_{k=0}^{\infty} \left(\sum_{i=0}^k a_i b_{k-i} \right) x^k \\
+&= 1 + \left(\sum_{i=0}^n a_i b_{n-i} \right)x^n + \sum_{k=n+1}^{\infty} \left(\sum_{i=0}^k a_i b_{k-i} \right) x^k \\
+&\equiv 1 + \left(a_0b_n + \sum_{i=1}^n a_i b_{n-i} \right)x^n \mod (x^{n+1}) \\
+&\equiv 1 + \left(a_0\left(- a_0^{-1}\sum_{i=1}^n a_i b_{n-i}\right) + \sum_{i=1}^n a_i b_{n-i} \right)x^n \mod (x^{n+1}) \\
+&\equiv 1 + 0 \cdot x^n \mod (x^{n+1}) \\
+&\equiv 1 \mod (x^{n+1}). \\
+\end{align*}
+Note that since only the $x^n$ coefficient was changed, the compatibility requirement holds: i.e., $g_n \equiv g_r \mod (x^r)$ for $r < n$. Thus, if we let
+$g = \sum_{i=0}^{\infty} b_i x^i$, then $fg - 1 \equiv 0 \mod (x^n)$ for all $n$. Once we show that $\bigcap_n (x^n) = (0)$, then we'll have $fg = 1$, 
+proving the claim. But this is clear since any nonzero element $h \in A[[x]]$ has some nonzero coefficient $h_j$, so $h \not\in (x^{j+1})$.
+\end{proof}
+
+\begin{proof}[(ii) Proof.]
+Suppose $f = \sum_i a_i x^i$ is nilpotent. We will show that each $a_i$ is nilpotent by induction. For the base case, note that if $f^m = 0$, then
+the constant term is $a_0^m = 0$, so $f_0 = a_0$ is nilpotent. For the inductive step, suppose that $a_i$ is nilpotent for $i < n$. Then, since the 
+nilradical is an ideal, $f - \sum_{i=0}^{n-1} a_i x^i = \sum_{i=n}^{\infty} a_i x^i$ is nilpotent. Thus, there is some $m$ such that
+$$0 = \left(\sum_{i=n}^{\infty} a_i x^i\right)^m \equiv a_n^m x^{nm} \mod (x^{nm+1}),$$
+so $a_n$ is nilpotent. The result follows by induction.
+\end{proof}
+
+\begin{remark}
+Consider the direct product ring $A = \Pi_{i=2}^{\infty}(\Z / 2^i \Z)$. Then, construct 
+$$f = \sum_i a_i x^i,$$
+where $a_i = (2,\ldots,2,0,\ldots)$; $2$ appears until slot $i$, whereafter it is $0$ indefinitely. Let $a_0 = a_1 = 0$ since there is no map into the ring.
+So, the minimal exponent that annihilates $a_i$ is $i$ whenever $i > 1$. Each $a_i$ is therefore nilpotent.
+
+Note that we have principal ideals $\mathfrak{q}_n = (1,\ldots,1,0,\ldots)$ that project the ring onto $\Pi_{i=2}^n(\Z / 2^i \Z)$; $a_i \in \mathfrak{q}_i$.
+
+On the other hand, for any $m$, consider $f^m$. Then, consider $a_{m(m+1)}$. Note that the coefficient summands are the ordered partitions of 
+$m(m+1)$ that have size $m$. There is precisely one summand that is not in the ideal $\mathfrak{q}_m$ and that is $a_{m+1}^m$, so the projection of the 
+$x^{m(m+1)}$ coefficient onto $A/\mathfrak{q}_m$ is $a_{m+1}^m$. But, this is nonzero since $a_{m+1}^m$ projects onto $\Z / 2^{m+1} \Z$ as $2^m$. Thus,
+$f^m$ has a nonzero $x^{m(m+1)}$ coefficient.
+
+In particular, for general commutative rings with unit (not necessarily Noetherian), if $a_i$ is nilpotent for all $i$, this does not imply that
+$f = \sum_{i=0}^{\infty}a_i x^i$ is nilpotent.
+\end{remark}
+
+\begin{proof}[(iii) Proof.]
+Consider the ring homomorphism $\varphi : A[[x]] \to A$ that sends the power series to its constant term.
+
+For every maximal ideal $\mathfrak{m}$ of $A$, $\varphi^{-1}(\mathfrak{m}) = \mathfrak{m} + xA[[x]]$ is an ideal, the contraction of $\mathfrak{m}$. 
+Each of these are contained in maximal ideals of $A[[x]]$, so 
+\begin{align*}
+\bigcap_{\mathfrak{m}}(\mathfrak{m} + xA[[x]]) &\subset \mathfrak{R}(A[[x]]) \\
+\bigcap_{\mathfrak{m}}\mathfrak{m} + xA[[x]] &\subset \mathfrak{R}(A[[x]])\\
+\mathfrak{R}(A) + xA[[x]] &\subset \mathfrak{R}(A[[x]])\\
+\end{align*}
+In particular, if $a_0 \in \mathfrak{R}(A)$ and $f$ has constant term $a_0$, then $f \in \mathfrak{R}(A[[x]])$.
+
+Conversely, assume $a_0$ is not in the Jacobson radical of $A$. Then, there is some maximal ideal $\mathfrak{m}$ in $A$ that does not contain $a_0$. 
+But, $\mathfrak{m} + xA[[x]]$ is a non-trivial ideal of $A[[x]]$ under the contraction $\varphi^{-1}(\mathfrak{m})$. If $\mathfrak{m} + xA[[x]]$ is maximal, 
+we'd have that $f$ is not in the maximal ideal $\mathfrak{m} + xA[[x]]$ (since its constant term $a_0 \not\in \mathfrak{m}$), so 
+$f \not\in \mathfrak{R}(A[[x]])$.
+
+So, the proof is complete once we show that $\mathfrak{m} + xA[[x]]$ is maximal. Let $\mathfrak{r}$ be the maximal ideal containing $\mathfrak{m} + xA[[x]]$. In order for 
+these ideals to be unequal, there is some $g \in \mathfrak{r}$ such that $g_0 \not\in \mathfrak{m}$. However, projecting to $A$ (inverse map of homomorphism $A \xhookrightarrow{} A[[x]]$), 
+we have an ideal $\mathfrak{r}'$ containing $\mathfrak{m}$ 
+properly, so by the maximality of $\mathfrak{m}$, $\mathfrak{r} = A$. Thus, $\mathfrak{r} = A + xA[[x]] = A[[x]]$, violating maximality, so $\mathfrak{m} + A[[x]]$
+is maximal.
+\end{proof}
+
+\begin{proof}[(iv) Proof.]
+First, let's show that for any maximal ideal $\mathfrak{m}$ of $A$, $\mathfrak{m} + xA[[x]]$ is maximal. Let $\mathfrak{r}$ be the maximal ideal containing $\mathfrak{m} + xA[[x]]$. 
+In order for these ideals to be unequal, there must be some $g \in \mathfrak{r}$ such that $g_0 \not\in \mathfrak{m}$. However, projecting to $A$ (inverse map of homomorphism $A \xhookrightarrow{} A[[x]]$), 
+we have an ideal $\mathfrak{r}'$ containing $\mathfrak{m}$ properly, so by the maximality of $\mathfrak{m}$, $\mathfrak{r} = A$. Thus, $\mathfrak{r} = A + xA[[x]] = A[[x]]$, violating maximality, so 
+$\mathfrak{m} + A[[x]]$ is maximal.
+
+
+Suppose $\mathfrak{m}$ is a maximal ideal of $A[[x]]$. Then, under the ring homomorphism $\varphi : A \xhookrightarrow{} A[[x]]$, $\mathfrak{m}^c = \varphi^{-1}(\mathfrak{m})$
+is an ideal of $A$. First of all, if $\mathfrak{m}^c = A$, then $\mathfrak{m}$ contains some series with constant term $1$; by (i), it contains a unit, so $\mathfrak{m} = A[[x]]$,
+violating maximality. 
+
+If $\mathfrak{m}^c = 0$, then $\mathfrak{m}$ is contained in the ideal $xA[[x]]$, so $\mathfrak{m} = xA[[x]]$. Note that $xA[[x]]$ is 
+maximal when $A$ only has the ideals $0$ and $(1)$ (i.e., $A$ is a field) since for any ideal $I$ of $A$ (not $0$ or $A$), $I + xA[[x]]$ is a 
+proper ideal containing $\mathfrak{m}$, violating the maximality of $\mathfrak{m}$. Otherwise, the only ideal containing $xA[[x]]$ is 
+$A + xA[[x]] = A[[x]]$, the whole ring. For our purposes, just note that $\mathfrak{m}$ is indeed generated by $x$ and $\mathfrak{m}^c$.
+
+Thus, we are left with the case where $\mathfrak{m}^c$ is neither $0$ nor $A$. Since it is a nontrivial ideal, it is contained in some maximal ideal $\mathfrak{r}$ of $A$. Thus,
+$\mathfrak{m} \subset \mathfrak{m}^c + xA[[x]] \subset \mathfrak{r} + xA[[x]]$. By the maximality of $\mathfrak{m}$, $\mathfrak{m}^c = \mathfrak{r}$, and $\mathfrak{m} = \mathfrak{m}^c + xA[[x]]$,
+completing the proof.
+\end{proof}
+
+\begin{proof}[(v) Proof.]
+Let $\mathfrak{p}$ be a prime ideal of $A$. Consider the ring homomorphism $\varphi : A[[x]] \to A$ that maps each series to its constant term. Then,
+$\varphi^{-1}(\mathfrak{p}) = \mathfrak{p} + xA[[x]]$ is a prime ideal of $A[[x]]$ since contraction preserves primality. Under the ring homomorphism
+$\psi : A \xhookrightarrow{} A[[x]]$, $\mathfrak{p}$ is the contraction of the prime ideal $\mathfrak{p} + xA[[x]]$, proving the claim.
+\end{proof}
+
+\subsection{Exercise}\label{1.6} % 6
+
+\begin{proof}
+Since all maximal ideals are prime, we know that $\mathfrak{N} \subset \mathfrak{R}$. Suppose to the contrary that the ideal
+$\mathfrak{R}$ is not contained in $\mathfrak{N}$. Then, by assumption, there is some nonzero idempotent $e \in \mathfrak{R}$.
+Since $e^2 = e$, a simple inductive argument reveals that $e$ cannot be nilpotent. 
+
+Let $\mathfrak{p}$ be any prime ideal. Consider the map $A \to A/\mathfrak{p}$. Because $A/\mathfrak{p}$ is an integral domain and 
+$0 = \overline{e^2 - e} = \overline{e}(\overline{e} - 1)$, we have $e \in \mathfrak{p}$ or $e \in 1 + \mathfrak{p}$. If $e \in \mathfrak{p}$
+for all prime ideals, then $e$ must also be in nilradical, as it is the intersection of prime ideals. Thus, there is some prime ideal
+$\mathfrak{p}'$ such that $e \in 1 + \mathfrak{p}'$.
+
+There is some maximal ideal $\mathfrak{m}'$ containing $\mathfrak{p}'$, so $e \in 1 + \mathfrak{m}'$.
+However, since $e \in \mathfrak{R}$, which is the intersection of all maximal ideals, $e \in \mathfrak{m}'$ also.
+Together, these two facts imply $1 \in \mathfrak{m}'$, yielding the desired contradiction.
+\end{proof}
+
+\subsection{Exercise}\label{1.7} % 7
+
+\begin{proof}
+Let $\mathfrak{p}$ be a prime ideal so that $A/\mathfrak{p}$ is an integral domain. For any $y \in A/\mathfrak{p}$
+such that $y \neq 0$, there is some $x \in A$, such that $\overline{x} = y$. By assumption, there is an $n > 1$ 
+such that $x^n = x$, so $y^n = y$. Note that $y^{n-1} - 1 \in A/\mathfrak{p}$ and 
+$$y(y^{n-1} - 1) = y^n - y = 0.$$
+Since $A/\mathfrak{p}$ is an integral domain and $y \neq 0$, $y^{n-1} = 1$. In particular, $y$ is a unit. Thus,
+all nonzero elements are nonzero, implying that $A/\mathfrak{p}$ is a field and $\mathfrak{p}$ is maximal.
+\end{proof}
+
+\subsection{Exercise}\label{1.8} % 8
+
+\begin{proof}
+Let $\mathcal{S}$ be the set of prime ideals of $\mathcal{S}$. If $\mathfrak{p} \subset \mathfrak{q}$, we'll define a partial ordering
+by $\mathfrak{q} \le \mathfrak{p}$. Now, suppose we have a chain $\mathcal{T} \subset \mathcal{S}$. Let 
+$$Q = \bigcap_{\mathfrak{q} \in \mathcal{T}}\mathfrak{q},$$
+which, as an intersection of ideals, is itself an ideal.
+
+Suppose $a,b \in A$ and $ab \in Q$. If $a \not\in Q$, then there is some $\mathfrak{r} \in \mathcal{T}$ such that 
+$a \not\in \mathfrak{r}$. Since $a \not\in \mathfrak{r}$, for any $\mathfrak{q}$ such that $\mathfrak{q} \subset \mathfrak{r}$, $a\not\in\mathfrak{q}$.
+Since $\mathcal{T}$ is a chain,
+$$Q = \bigcap_{\mathfrak{q} \le \mathfrak{r}}\mathfrak{q} \cap \bigcap_{\mathfrak{q} \ge \mathfrak{r}}\mathfrak{q}
+= \mathfrak{r}\cap \bigcap_{\mathfrak{q} \ge \mathfrak{r}}\mathfrak{q}
+= \bigcap_{\mathfrak{q} \ge \mathfrak{r}}\mathfrak{q}.$$
+Let $\mathfrak{q} \ge \mathfrak{r}$. Then, since $ab \in Q \subset \mathfrak{q}$ and $\mathfrak{q}$ is prime, we must have $b \in \mathfrak{q}$, as we've
+already shown $a$ cannot be in $\mathfrak{r}$. Thus, $b \in \mathfrak{q}$ for all $\mathfrak{q} \ge \mathfrak{r}$, so $b \in Q$. Thus, $Q$ is a prime ideal.
+
+For all $\mathfrak{q} \in \mathcal{T}$, $Q \subset \mathfrak{q}$ ($Q \ge \mathfrak{q}$) and is thus a maximal element. Using Zorn's lemma, $\mathcal{S}$
+has at least one maximal element. By our notation, these are minimal elements with respect to inclusion since we used $\ge$ for $\subset$.
+\end{proof}
+
+\subsection{Exercise}\label{1.9} % 9
+
+\begin{proof}
+If $\mathfrak{a} = \bigcap_{\mathfrak{p}} \mathfrak{p}$ is an intersection of prime ideals, then
+$$r(\mathfrak{a}) = r\left(\bigcap_{\mathfrak{p}}\mathfrak{p}\right) = \bigcap_{\mathfrak{p}}r\left(\mathfrak{p}\right) = \bigcap_{\mathfrak{p}}\mathfrak{p} = \mathfrak{a}.$$
+
+Conversely, suppose $r(\mathfrak{a}) = \mathfrak{a}$. By Proposition 1.14, $r(\mathfrak{a}) = \bigcap_{\mathfrak{p}} \mathfrak{p}$, where $\mathfrak{p}$ ranges over the prime ideals
+containing $\mathfrak{a}$. Therefore, $\mathfrak{a}$ is an intersection of prime ideals.
+\end{proof}
+
+\subsection{Exercise}\label{1.10} % 10
+
+\begin{proof}
+(i) $\implies$ (ii). Since $\mathfrak{N}$ is the intersection of all prime ideals, $\mathfrak{N}$ is the unique prime ideal. By Theorem 1.3,
+$A$ must have a maximal ideal, but since every maximal ideal is prime and $\mathfrak{N}$ is the only prime ideal, $\mathfrak{N}$ must
+be maximal. Hence, it is also the only maximal ideal. By Corollary 1.5, every non-unit is contained in a maximal ideal, so every non-unit
+must be in $\mathfrak{N}$, hence nilpotent.
+
+(ii) $\implies$ (iii). Consider the ring homomorphism $A \to A/\mathfrak{N}$. Every element $x\in A$ is either a unit or nilpotent; if $x$ is a unit, 
+$\overline{x}$ is a unit, and if $x$ is nilpotent, $x \in \mathfrak{N}$, so $\overline{x} = 0$. Since the projection is surjective, every nonzero element
+of the ring $A/\mathfrak{N}$ is a unit, i.e. $A/\mathfrak{N}$ is a field.
+
+(iii) $\implies$ (i). Since $A/\mathfrak{N}$ is a field, $\mathfrak{N}$ a maximal ideal. All maximal ideals are prime.
+However, $\mathfrak{N}$ is also the intersection of all prime ideals. Suppose there is another prime ideal $\mathfrak{p}$, not equal to $\mathfrak{N}$.
+Thus, there is an element $x \in \mathfrak{p} - \mathfrak{N}$ since $\mathfrak{N} \subset \mathfrak{p}$. Under the map $A \to A/\mathfrak{N}$,
+$\mathfrak{x}$ is a unit since it is non-zero. There is a $y$ in $A$ such that $xy = 1 + \mathfrak{N}$. But, $xy \in \mathfrak{p}$ since $x \in \mathfrak{p}$,
+so $\mathfrak{p} + \mathfrak{N} = (1)$ and are thus coprime. But $\mathfrak{N} \subset \mathfrak{p}$, so $\mathfrak{p} = (1)$, a contradiction.
+\end{proof}
+
+\subsection{Exercise}\label{1.11} % 11
+
+\begin{proof}[(i) Proof.]
+For every $x \in A$, 
+\begin{align*}
+    (1 + x)^2 &= 1 + x \\
+    1 + 2x + x^2 &= 1 + x \\
+    1 + 2x + x &= 1 + x \\
+    2x &= 0.
+\end{align*}
+\end{proof}
+
+\begin{proof}[(ii) Proof.]
+Suppose $x \in A$ represents the class $\bar{x} \in A / \mathfrak{p}$. Then, 
+\[ \bar{x}^2 = (\mathfrak{p} + x)(\mathfrak{p} + x) = \mathfrak{p} + x^2 = \mathfrak{p} + x = \bar{x}. \] 
+Since $\mathfrak{p}$ is prime, $A / \mathfrak{p}$ is an integral domain. Hence, $\bar{x}^2 = \bar{x} \implies \bar{x} (\bar{x} - 1) = 0 \implies \bar{x} \in \{0, 1\}$. Thus, $A / \mathfrak{p}$ is the field of size 2, making $\mathfrak{p}$ a maximal ideal.
+\end{proof}
+
+\begin{proof}[(iii) Proof.]
+For $I$ finitely-generated, $I = (x_1,\ldots,x_n)$ for $x_i \in A$. We'll show that $I$ is principal.
+
+We do this by induction, proving that an ideal with $n$-many generators can be generated by a single element. The base case is trivial. For the inductive step,
+suppose that for all ideals generated by $n-1$ elements (or fewer), $(a_1,\ldots,a_{n-1}) = (a)$. Consider $(x_1,\ldots,x_n)$. By the inductive step,
+$(x_1,\ldots,x_{n-1}) = (a)$, so 
+$$(x_1,\ldots,x_n) = (a, x_n).$$
+
+Consider the element $b = a + x_n + ax_n$. Note that 
+$$ab = a^2 + ax_n + a^2x_n = a + ax_n + ax_n = a + 2ax_n = a$$
+and
+$$x_n b = a x_n + x_n^2 + a x_n^2 = a x_n + x_n + a x_n = x_n + 2 a x_n = x_n.$$
+Thus, $a, x_n \in (b)$, so $(x_1,\ldots,x_n) = (a, x_n) = (b)$ since, by the construction of $b$, $b \in (a, x_n)$. By induction, any finitely generated
+ideal of a Boolean ring $A$ is principal.
+\end{proof}
+
+\subsection{Exercise}\label{1.12} % 12
+
+\begin{proof}
+If $x$ is a unit, $x^2 = x \implies x^2 x^{-1} = x x^{-1} \implies x = 1$. If $x$ is not a unit, then $x \in \mathfrak{m}$. That means that $1 - x$ is not 
+in $\mathfrak{m}$ (otherwise $x + (1-x) = 1 \in \mathfrak{m}$) and consequently that $1 - x$ is a unit. $x^2 = x \implies x (1 - x) = 0$, but since 
+$1 - x$ is a unit, we have $x = 0$.
+\end{proof}
+
+\subsection{Exercise}\label{1.13} % 13
+
+Here, we construct an algebraic closure of a field $K$.
+
+Let $K$ be a field, and let $\Sigma$ be the set of all irreducible monic polynomials $f$ in one indeterminate with coefficients in $K$. Let 
+$A$ be the polynomial ring over $K$ generated by indeterminates $x_f$, one for each $f \in \Sigma$. Let $\mathfrak{a}$ be the ideal of $A$
+generated by the polynomials $f(x_f)$ for all $f \in \Sigma$. We now show that $\mathfrak{a} \neq (1)$.
+
+\begin{proof}
+Let $R$ be any nonzero commutative ring with unit. Consider $R[x]/(f(x))$, where $f(x)$ is a monic polynomial over $R$. Suppose
+$R[x] = (f(x))$. Then, $1 = f(x)r(x)$ for some $r(x) \in R[x]$. However, by Exercise \ref{1.2}(i), $f(x)$ cannot be a unit
+since its highest coefficient is $1$, a unit. In particular, $(f(x))$ is a proper ideal of $R[x]$. Thus, for a nonzero ring $R$,
+$R[x]/(f(x))$ is also nonzero.
+
+We'll show that $K[x_1,\ldots,x_n] / (f_1(x_1), \ldots, f_n(x_n))$ is nonzero if $\{f_i\}$ are monic polynomials over $K$. We
+do this by induction. We proved the base case above, setting $K = R$.
+
+Now, suppose $K[x_1,\ldots,x_{n-1}] / (f_1(x_1), \ldots, f_{n-1}(x_{n-1}))$ is nonzero. Then,
+\begin{align*}
+K[x_1,\ldots,x_n]/(f_1(x_1), \ldots, f_n(x_n)) &\cong K[x_1,\ldots,x_{n-1}][x_n]/(f_1(x_1), \ldots, f_n(x_n)) \\
+&\cong \left(K[x_1,\ldots,x_{n-1}]/(f_1(x_1),\ldots,f_{n-1}(x_{n-1}))\right)[x_n]/(f_n(x_n)) \\
+&\cong R[x_n]/(f_n(x_n)),
+\end{align*}
+where $R = K[x_1,\ldots,x_{n-1}]/(f_1(x_1),\ldots,f_{n-1}(x_{n-1}))$. Since $R$ is nonzero and $f_n(x_n)$ is a monic polynomial over $R$,
+we have that $R[x_n]/(f_n(x_n))$ is nonzero by our initial proof. By induction, $K[x_1,\ldots,x_n] / (f_1(x_1), \ldots, f_n(x_n))$ is nonzero.
+
+We turn to the main point. Suppose to the contrary that $\mathfrak{a} = (1)$. Then, there is some finite collection of pairs $(h_i,f_i) \in A \times \Sigma$
+such that
+$$1 = \sum_{i=1}^n h_i f_i(x_{f_i}).$$
+Write $x_i = x_{f_i}$ for convenience. For the indeterminates $x_g$ not equal to some $f_i$, we can map $x_g \mapsto 0$. This is a ring homomorphism of $A$. This
+maps the $h_i \mapsto k_i \in K[x_1,\ldots,x_n]$ so that
+$$1 = \sum_{i=1}^n k_i f_i(x_i).$$
+But then, we have $(f_1(x_1),\ldots,f_n(x_n)) = (1)$, violating $K[x_1,\ldots,x_n]/(f_1(x_1),\ldots,f_n(x_n))$ being nonzero. Thus,
+$\mathfrak{a} \neq (1)$. 
+\end{proof}
+
+By Corollary 1.4, $A$ has a maximal ideal $\mathfrak{m}$ containing $\mathfrak{a}$ since $\mathfrak{a} \neq (1)$. Now, let $K_1 = A/\mathfrak{m}$,
+which is a field since $\mathfrak{m}$ is maximal. Since $\mathfrak{m}$ cannot contain any units and $K \xhookrightarrow{} A$, 
+$K$ is a subfield of $K_1$. Further, for every $f \in \Sigma$, $x_f \in K_1$ and satisifies $f(x_f) = 0$.
+
+Since $K_1$ is a field, we can repeat the construction with $K_1$ in place of $K$, obtaining a field $K_2$, and so on. Now, 
+let $L = \bigcup_{n=1}^{\infty} K_n$, which is a field since all operations take place in some subfield $K_n$.
+
+Suppose $f \in \Sigma$ has degree $n$. In $K_1$, if $x_f$ maps to the residue class $\alpha_f$ in $A/\mathfrak{m}$, then $f(x) = (x-\alpha_f)g(x)$, where
+$g(x) \in K_1[x]$ has degree $n-1$. In the worse case, $g$ is irreducible here. By a simple inductive argument, $f(x)$ factors completely over $K_n \subset K$.
+Thus, every $f \in \Sigma$ splits completely in $K$.
+
+By the same logic, let $f \in L[x]$ be a monic polynomial; suppose $f$ has degree $n$. Since $f$ has finitely-many coefficients, all coefficients lie in some
+common subfield $K_k$. Then, by construction, $f$ splits completely in $K_{k+n}$, so $L$ is algebraically closed.
+
+Now, let $\overline{K}$ be the set of all elements of $L$ that are algebraic over $K$. Then, $\overline{K}$ is an algebraic closure of $K$.
+
+\subsection{Exercise}\label{1.14} % 14
+
+\begin{proof}
+Since $0$ is such an ideal, $\Sigma$ is non-empty. For $I,J \in \Sigma$, we say that $I \le J$ if $I \subset J$, endowing $\Sigma$ with a 
+partial ordering. Let $\mathcal{T}$ be a chain of $\Sigma$. Then, for all $I \in \mathcal{T}$, let $T = \bigcup_{I \in \mathcal{T}}I$. $T$ is
+an ideal (because the chain is ordered by inclusion) and contains only zero-divisors, so $T \in \Sigma$. Further, $I \subset T$ for all 
+$I \in \mathcal{T}$. Thus, every chain has an upper bound in $\Sigma$. By Zorn's lemma, $\Sigma$ has at least one maximal element.
+
+Now that we've proven existence, let $M$ be a maximal element of $\Sigma$. We now show that $M$ is prime. Note that the elements of $A$ that are not
+zero divisors form a multiplicatively-closed set $S$. Suppose $x,y \in A - M$. By the maximality of $M$, $M + (x)$ and $M + (y)$ must both contain
+elements of $S$. Thus, there are $m_1,m_2 \in M$ and $a_1,a_2 \in A$ so that $m_1 + a_1 x, m_2 + a_2 y \in S$. Since $S$
+is multiplicatively-closed,
+$$(m_1 + a_1 x)(m_2 + a_2 y) = m_1m_2 + m_1 a_2 y + m_2 a_1 x + a_1 a_2 xy \in S.$$
+If $xy \in M$, then all terms would be in $M$ so that the sum would be in $M$. However, $M$ only contains zero divisors and $S$ contains no zero divisors,
+so this would be a contradiction. Thus, $xy \not\in M$, proving the primality of $M$.
+
+If $z$ is a zero divisor, then $(z) \in \Sigma$. Thus, $(z)$ is contained in some maximal element $M$ of $\Sigma$, which we've just shown is prime. Thus,
+the set of zero divisors in $A$ is a union of prime ideals.
+\end{proof}
+
+\subsection{Exercise}\label{1.15} % 15
+
+\begin{proof}[(i) Proof.]
+Clearly, $V(\mathfrak{a}) \subset V(E)$ since $E \subset \mathfrak{a}$. However, if $\mathfrak{p}$ contains $E$, then the ideal $\mathfrak{a}$ that $E$ 
+generates must also be contained in $\mathfrak{p}$, so $V(E) = V(\mathfrak{a})$.
+
+Since $\mathfrak{a} \subset r(\mathfrak{a})$, we have $V(r(\mathfrak{a})) \subset V(\mathfrak{a})$. Let $\mathfrak{p}$ be any prime containing $\mathfrak{a}$;
+consider the ring homomorphism $\varphi: A \to A/\mathfrak{p}$. Then, $\varphi(\mathfrak{a}) = 0$. If $x \in r(\mathfrak{a})$, then $x^n \in \mathfrak{a}$
+for some $n > 0$. Under the map, we have $\overline{x}^n = 0$. Since $\mathfrak{p}$ is prime, $A/\mathfrak{p}$ is an integral domain, so $\overline{x} = 0$.
+Thus, $x \in \mathfrak{p}$ and $r(\mathfrak{a}) \subset \mathfrak{p}$. Consequently, $V(\mathfrak{a}) = V(r(\mathfrak{a}))$.
+\end{proof}
+
+\begin{proof}[(ii) Proof.]
+$V(0) = X$ since for any prime ideal $\mathfrak{p} \in X$, $0 \subset \mathfrak{p}$. Likewise, for any prime ideal $\mathfrak{p} \in X$, $\mathfrak{p}$
+is a proper ideal of $A$, so $\mathfrak{p}$ does not contain $(1)$. Thus, $V(1) = \emptyset$.
+\end{proof}
+
+\begin{proof}[(iii) Proof.]
+Let $(E_i)_{i\in I}$ be a family of subsets of $A$. Suppose $\mathfrak{p}$ is a prime ideal containing $\bigcup_{i \in I}E_i$. Then, $\mathfrak{p}$
+contains each $E_i$; i.e.,
+$$V\left(\bigcup_{i \in I} E_i\right) \subset \bigcap_{i \in I} V(E_i).$$
+Conversely, suppose $\mathfrak{p}$ contains each $E_i$; then clearly, it contains the union. So, we have equality.
+\end{proof}
+
+\begin{proof}[(iv) Proof.]
+If a prime ideal $\mathfrak{p} \in V(\mathfrak{a})\cup V(\mathfrak{b})$, then it is in one of the two sets. Assume without loss of generality that
+$\mathfrak{p} \in V(\mathfrak{a})$. Then, $\mathfrak{p}$ contains $\mathfrak{a}$ and thus also contains $\mathfrak{a} \cap \mathfrak{b}$, so
+$V(\mathfrak{a}) \cup V(\mathfrak{b}) \subset V(\mathfrak{a}\cap\mathfrak{b})$. Since $\mathfrak{a}\mathfrak{b} \subset \mathfrak{a} \cap \mathfrak{b}$, we have $V(\mathfrak{a} \cap \mathfrak{b}) \subset V(\mathfrak{a}\mathfrak{b})$. Thus,
+if we can show that $V(\mathfrak{a}\mathfrak{b}) \subset V(\mathfrak{a}) \cup V(\mathfrak{b})$, we will have shown full equality.
+
+Let $\mathfrak{p}$ be a prime ideal containing $\mathfrak{a}\mathfrak{b}$. Consider the homomorphism $\varphi : A \to A/\mathfrak{p}$. Since
+$\varphi$ is surjective, the ideals $\mathfrak{a}$ and $\mathfrak{b}$ map to ideals $\overline{\mathfrak{a}}$ and $\overline{\mathfrak{b}}$ 
+of $A/\mathfrak{p}$. Suppose to the contrary that both $\overline{\mathfrak{a}}$ and $\overline{\mathfrak{b}}$ contain nonzero elements, 
+say $a$ and $b$. Then, $ab$ is nonzero since $A/\mathfrak{p}$ is an integral domain ($\mathfrak{p}$ is prime). However, 
+$\overline{\mathfrak{a}}\cdot\overline{\mathfrak{b}} = \overline{\mathfrak{ab}} = 0$ since $\mathfrak{ab} \subset \mathfrak{p}$. Thus, either $\overline{\mathfrak{a}} = 0$
+or $\overline{\mathfrak{b}} = 0$. In other words, $\mathfrak{a} \subset \mathfrak{p}$ or $\mathfrak{b} \subset \mathfrak{p}$. In either case,
+$\mathfrak{p} \in V(\mathfrak{a}) \cup V(\mathfrak{b})$, completing the proof.
+\end{proof}
+
+\begin{remark}
+We've shown that $V(E)$ satisfy the axioms for closed sets in a topological space. The resulting topology is called the Zariski topology. We denote this topological space 
+$\Spec(A) := X$, the prime spectrum of $A$.
+\end{remark}
+
+\subsection{Exercise}\label{1.16} % 16
+
+\begin{center}
+    \includegraphics[width = 4in]{"./images/spec_examples.jpg"}
+\end{center}
+
+\subsection{Exercise}\label{1.17} % 17
+
+Before proving properties (i)-(vii), we must show that the sets $X_f$ form a basis of open sets for the Zariski topology.
+\begin{proof}
+Any open set $U$, by definition, is the complement of a closed set $V$ of $\Spec A$. In Exercise \ref{1.15}, we showed that each closed set of $\Spec A$
+can be represented by $V(\mathfrak{a})$ for some ideal $\mathfrak{a}$ (since arbitrary intersections and finite unions have the same form), 
+so $U = V(\mathfrak{a})^c$ for some ideal $\mathfrak{a}$. By Exercise \ref{1.15}(iii),
+$$V(\mathfrak{a}) = V\left(\bigcup_{f \in \mathfrak{a}}\right) = \bigcap_{f \in \mathfrak{a}}V(f).$$
+Thus,
+$$U = V(\mathfrak{a})^c = \left(\bigcap_{f \in \mathfrak{a}}V(f)\right)^c
+= \bigcup_{f \in \mathfrak{a}}V(f)^c = \bigcup_{f \in \mathfrak{a}}X_f,$$
+so $\{X_f\}_{f \in A}$ forms a basis of open sets in $\Spec A$.
+\end{proof}
+
+\begin{proof}[(i) Proof.]
+Note that $V(f) = V(\{f\})$, the prime ideals containing the element $f \in A$. Then, $X_f = V(\{f\})^c$, where $-^c$ denotes the complement. By Exercise
+\ref{1.15}(i), $V(f) = V((f))$ for any $f \in A$. If $f,g \in A$, then using Exercise \ref{1.15}(iv), we have
+$$X_f \cap X_g = V((f))^c \cap V((g))^c = (V((f)) \cup V((g)))^c = V((f)(g))^c = V((fg))^c = V(fg)^c = X_{fg},$$
+completing the proof.
+\end{proof}
+
+\begin{proof}[(ii) Proof.]
+If $X_f = \emptyset$, then $V(f) = X$. Thus, $f$ is in the intersection of all prime ideals, meaning $f \in \mathfrak{N}_A$ (i.e., $f$ is nilpotent).
+Conversely, if $f$ is nilpotent, it is in the nilradical and thus in every prime ideals, so $X_f = V(f)^c = X^c = \emptyset$.
+\end{proof}
+
+\begin{proof}[(iii) Proof.]
+If $X_f = X$, then $V(f) = \emptyset$. Thus, $f$ is not in any prime ideal and thus not in any maximal ideal. In particular, $(f) = A$, so $f$ is a unit.
+Conversely, if $f$ is a unit, then there is some $g \in A$ such that $fg = 1$. Thus, for any prime ideal $\mathfrak{p}$, under $A \to A/\mathfrak{p}$,
+we have $\overline{f}\cdot\overline{g} = 1$. So, $\overline{f} \neq 0$ and $f \not\in \mathfrak{p}$. Hence, $V(f) = \emptyset$ and $X_f = X$.
+\end{proof}
+
+\begin{proof}[(iv) Proof.]
+If $X_f = X_g$, then $V(f) = V(g)$. By Proposition 1.14,
+$$r(f) = \bigcap_{\mathfrak{p} : (f) \subset \mathfrak{p}}\mathfrak{p}
+= \bigcap_{\mathfrak{p} \in V(f)}\mathfrak{p}
+= \bigcap_{\mathfrak{p} \in V(g)}\mathfrak{p}
+= r(g).$$
+Conversely, if $r(f) = r(g)$, then $V(f) = V(r(f)) = V(r(g)) = V(g)$, so $X_f = X_g$.
+\end{proof}
+
+\begin{proof}[(v) Proof.]
+Suppose $\{U_j\}_{j \in J}$ is an open cover of $X$. Since we showed that $\{X_f\}_{f \in A}$ form a basis of open sets, we can write 
+$U_j = \bigcup_{f \in I_j}X_f$ for each $j \in J$. Thus, if $I = \bigcup_{j \in J}I_j$, we have an open cover
+$$X = \bigcup_{f \in I}X_f = \bigcup_{f \in I}V(f)^c = \left(\bigcap_{f \in I}V(f)\right)^c$$
+$$\implies \emptyset = \bigcap_{f \in I}V(f) = V\left(\bigcup_{f \in I}(f)\right),$$
+using Exercise \ref{1.15}(iii). Let $\mathfrak{a}$ be the ideal generated by $f \in I$. Then, $V(\mathfrak{a}) = \emptyset$, so 
+$V(r(\mathfrak{a})) = \emptyset$ by Exercise \ref{1.15}(i). No prime ideal contains $r(\mathfrak{a})$, so $r(\mathfrak{a}) = (1)$. Thus, $\mathfrak{a} = (1)$.
+
+In particular, there is some finite collection $\{f_s\}_{s \in S}$ of $\{f_i\}_{i \in I}$ such that
+$$\sum_{s \in S}a_s f_s = 1$$
+for some $a_s \in A$. Thus, there is no prime ideal that divides every $(f_i)$, so $\bigcap_{s \in S}V(f_s) = \emptyset$ and $X = \bigcup_{s \in S}X_{f_s}$.
+Since each $f_s$ is contained in some $U_s$, we have
+$$X = \bigcup_{s \in S}U_s,$$
+where $S$ is finite and $U_s \in \{U_j\}_{j \in J}$. Hence, $X$ is quasi-compact.
+\end{proof}
+
+\begin{proof}[(vi) Proof.]
+For $f \in A$, let $\{U_j\}_{j \in J}$ be an open covering of $X_f$. Then, for each $j$, 
+$U_j = \bigcup_{g \in I_j}X_g$ since $\{X_g\}_{g \in A}$ form a basis of open sets. If $I = \bigcup_{j \in J}I_j$, then
+$$X_f \subset \bigcup_{g \in I}X_g.$$
+Taking the intersection with $X_f$ and using (i), we have
+$$X_f \subset X_f \cap \bigcup_{g \in I}X_g = \bigcup_{g \in I}(X_f \cap X_g) = \bigcup_{g \in I}X_{fg} \subset X_f,$$
+so $X_f = \bigcup_{g \in I}X_{fg}$. Taking complements and using results of Exercise \ref{1.15}, we have
+$$V(f) = \bigcap_{g \in I} V(fg) = V\left(\bigcup_{g \in I}(fg)\right) = V\left(\sum_{g \in I}(fg)\right).$$
+By (iv), $r(f) = r\left(\sum_{g \in I}fg\right)$. Therefore, for some power $n>0$ of $f$, we have
+$$f^n = \sum_{s \in S}a_s f g_s$$
+for a finite subset $S \subset I$ and $a_s \in A$. From the sum, if there is some prime ideal $\mathfrak{p}$ that does not contain $f$ (and thus not $f^n$),
+it does not contain at least one element $a_s f g_s$ on the right-hand side. So, it does not contain $g_s$ for some $s \in S$. In particular,
+\begin{align*}
+V(f)^c &\subset \bigcup_{s \in S}V(g_s)^c \\
+X_f &\subset \bigcup_{s \in S}X_{g_s}.
+\end{align*}
+Since each $X_{g_s}$ is contained in some $U \in \{U_j\}_{j \in J}$ by the definition of $I$, $X_f$ has a finite subcover and is thus quasi-compact.
+\end{proof}
+
+\begin{proof}[(vii) Proof.]
+Suppose $U$ is an open set of $X$ and that $U$ is a finite union of sets $X_f$. Now, let $S$ be an open covering of $U$. Then, it
+is an open covering of each $X_f$. By (vi), each $X_f$ has a finite subcover. The union of these finite subcovers is finite and covers $U$, so 
+$U$ is quasi-compact.
+
+Conversely, suppose $U$ is quasi-compact. By Exercise \ref{1.15}, $U = V(\mathfrak{a})^c$ for some ideal $\mathfrak{a}$. Thus, by Exercise 15(iii),
+$$U = V(\mathfrak{a})^c = V\left(\bigcup_{f \in \mathfrak{a}}(f)\right)^c = \left(\bigcap_{f \in \mathfrak{a}}V(f)\right)^c
+= \bigcup_{f \in \mathfrak{a}}V(f)^c = \bigcup_{f \in \mathfrak{a}}X_f.$$
+Since $U$ is quasi-compact, there is a finite subcover, so $U$ is the union of finitely-many $X_f$.
+\end{proof}
+
+\subsection{Exercise}\label{1.18} % 18
+
+\begin{proof}[(i) Proof.]
+Let $x \in \Spec A$. If $\mathfrak{p}_x$ is maximal, then $V(\mathfrak{p}_x)$ contains only the prime $\mathfrak{p}_x$. Otherwise, there is a
+prime ideal containing $\mathfrak{p}_x$ properly, violating maximality. So in this case, $x$ is a closed point ($\{x\}$ is closed). Conversely,
+if $\mathfrak{p}_x$ is not maximal, there is some maximal ideal $\mathfrak{p}_y$ properly containing $\mathfrak{p}_x$. In order for $\{x\}$ to be
+closed, there must be some subset $E \subset A$ such that $V(E) = \{x\}$. But in this case, $E \subset \mathfrak{p}_x \subset \mathfrak{p}_y$, so
+$\{x,y\}\subset V(E)$. Thus, $x$ is not a closed point when $\mathfrak{p}_x$ is not maximal.
+\end{proof}
+
+\begin{proof}[(ii) Proof.]
+Any closed set containing $x$ is, by definition, of the form $V(E)$ for some subset $E \subset A$, and by assumption, $x \in V(E)$. Thus, 
+$E \subset \mathfrak{p}_x$. By Exercise \ref{1.15}(iii),
+$$\overline{\{x\}} = \bigcap_{E \subset \mathfrak{p}_x}V(E) = V\left(\bigcup_{E \subset \mathfrak{p}_x}E\right) = V(\mathfrak{p}_x).$$
+\end{proof}
+
+\begin{proof}[(iii) Proof.]
+By (ii), $\overline{\{x\}} = V(\mathfrak{p}_x)$, so we need to show that $y \in V(\mathfrak{p}_x) \iff \mathfrak{p}_x \subset \mathfrak{p}_y$. 
+But, this holds by definition.
+\end{proof}
+
+\begin{proof}[(iv) Proof.]
+We aim to show that $\Spec A$ is $T_0$, so for any two elements $x,y \in \Spec A$, we must show that there is an open set that contains only one of
+$x$ and $y$. Equivalently, we can produce a closed set that contains exactly one.
+
+Let $x,y \in \Spec A$ be distinct points. If $y \not\in V(\mathfrak{p}_x)$, then we are done since $x \in V(\mathfrak{p}_x)$. So, suppose $y \in V(\mathfrak{p}_x)$. 
+By (iii), $\mathfrak{p}_x \subset \mathfrak{p}_y$. Now, consider $V(\mathfrak{p}_y)$. If $x \not\in V(\mathfrak{p}_y)$, then we are done since
+$y \in V(\mathfrak{p}_y)$. So, suppose $x \in V(\mathfrak{p}_y)$. By (iii), $\mathfrak{p}_y \subset \mathfrak{p}_x$, so $\mathfrak{p}_x = \mathfrak{p}_y$
+(or $x=y$), providing the necessary contradiction.
+\end{proof}
+
+\subsection{Exercise}\label{1.19} % 19
+
+\begin{proof}
+A topological space is irreducible if $X \neq \emptyset$ and every pair of non-empty open sets in $X$ intersect. Since $\{X_f\}_{f \in A}$ form an open basis of $X$, 
+$X$ is irreducible if and only if $X_f \cap X_g \neq \emptyset$ for all $f,g \in A$ satisyfing $X_f \neq \emptyset$ and $X_g \neq \emptyset$.
+
+Suppose that the nilradical $\mathfrak{N}$ is prime, and suppose $f,g \in A$ satisfy $X_f \neq \emptyset$ and $X_g \neq \emptyset$. Then, 
+$V(f) \neq X$ and $V(g) \neq X$. Since $\mathfrak{N}$ is the intersect of all primes in $X$, $\mathfrak{N} \not\in V(f) \cup V(g)$ since, by assumption, 
+neither $V(f)$ nor $V(g)$ contain all primes. Thus, $\mathfrak{N} \in V(f)^c \cap V(g)^c = X_f \cap X_g$, so $X_f \cap X_g$ is non-empty.
+
+If the nilradical is not prime, then there are $f,g \in A$ such that $fg \in \mathfrak{N}$ yet neither $f$ nor $g$ are nilpotent. By Exercise \ref{1.17}(ii),
+$X_f$ and $X_g$ are thus non-empty. However, by Exercise \ref{1.17}(i), $X_f \cap X_g = X_{fg}$. Since $fg \in \mathfrak{N}$ and $\mathfrak{N}$ is the intersection
+of all prime ideals, each prime ideal contains $fg$, so $V(fg) = X$ and $X_{fg} = \emptyset$. $X_f \cap X_g = \emptyset$ even though both
+$X_f$ and $X_g$ are non-empty, so $X$ is not irreducible.
+\end{proof}
+
+\subsection{Exercise}\label{1.20} % 20
+
+\begin{proof}[(i) Proof.]
+Let $Y$ be an irreducible subspace of $X$. Because $\overline{Y}$ is closed, any closed set $V$ of $X$ yields a
+closed set $V \cap \overline{Y}$ in $X$. Since all closed sets of the subspace $\overline{Y}$ have this form (definition of subspace topology), 
+any closed set of $\overline{Y}$ is inherited from a closed set of $X$.
+
+Since $Y$ is irreducible, $Y \neq \emptyset$ (thus $\overline{Y} \neq \emptyset$) and every pair of non-empty open sets in $Y$ intersect. Equivalently, every pair of closed sets $V_1, V_2$ 
+not equal to all of $Y$ satisfy $V_1 \cup V_2 \neq Y$.
+
+Let $V_1, V_2$ be any two closed sets of $\overline{Y}$, neither alone containing all of $\overline{Y}$. Then, for some closed sets $A_1,A_2$ of $X$, we have
+$V_1 = A_1 \cap \overline{Y}$ and $V_2 = A_2 \cap \overline{Y}$. Thus, $B_1 = A_1 \cap Y$ and $B_2 = A_2 \cap Y$ are closed in $Y$. If, 
+for instance, $A_1 \cap Y$ contains all of $Y$, then $A_1 \cap \overline{Y}$ is a closed set containing $Y$, 
+so $\overline{Y} \subset A_1 \cap \overline{Y}$. But this is a contradiction since we assumed $A_1 \cap \overline{Y}$ does not contain all of $\overline{Y}$. Thus,
+neither $B_1$ nor $B_2$ alone contain all of $Y$. By the irreducibility of $Y$, $B_1 \cup B_2 \neq Y$. 
+
+Now, assume for the sake of contradiction that $V_1 \cup V_2 = \overline{Y}$. Then,
+$$\overline{Y} = V_1 \cup V_2 = (A_1 \cap \overline{Y}) \cup (A_2 \cap \overline{Y}) = (A_1 \cup A_2)\cap \overline{Y}.$$
+Since $Y \subset \overline{Y}$, we can intersect with $Y$:
+$$Y = (A_1 \cup A_2)\cap \overline{Y} \cap Y = (A_1 \cup A_2)\cap Y
+= (A_1 \cap Y) \cup (A_2 \cap Y) = B_1 \cup B_2,$$
+yielding our contradiction. Thus, $\overline{Y}$ is irreducible when $Y$ is irreducible.
+\end{proof}
+
+\begin{proof}[(ii) Proof.]
+Let $\Sigma$ be the set of irreducible subspaces of $X$; $\subset$ gives $\Sigma$ a partial ordering. Let $\mathcal{T}$ be a chain, and define 
+$U = \bigcup_{Y \in \mathcal{T}} Y$. Let $A_1, A_2$ be two non-empty open sets of $U$. Choose some $x \in A_1$ and $y \in A_2$. 
+Then, there is some $Y_1$ that contains $x$ and some $Y_2$ that contains $y$. Since $\mathcal{T}$ is a chain, either $Y_1 \subset Y_2$ or $Y_2 \subset Y_1$. 
+Without loss of generality, assume $Y_1 \subset Y_2$. Then, $x \in Y_1 \subset Y_2$, so $x, y \in Y_2$. For convenience, write $Y = Y_2$. 
+Note that since $A_1,A_2$ are open in $U$, $A_1 = V_1 \cap U$ and $A_2 = V_2 \cap U$ for open sets $V_1, V_2$ in $X$. But also, $A_1^Y = V_1 \cap Y \subset A_1$ 
+and $A_2^Y = V_2 \cap Y \subset A_2$ since $Y \subset U$. Since $x$ is in $A_1$ and $Y$, $x \in A_1^Y$, and since $y$ is in $A_2$ and $Y$, $y \in A_2^Y$, so both sets 
+are open and non-empty. By the irreducibility of $Y$, $A_1^Y \cap A_2^Y \neq \emptyset$. Since $A_1^Y \subset A_1$ and $A_2^Y \subset A_2$, $A_1^Y \cap A_2^Y \subset A_1 \cap A_2$,
+so $A_1 \cap A_2$ is also non-empty. Thus, $U$ is irreducible and $U \in \Sigma$. In particular, all chains in $\Sigma$ have maximal elements in $\Sigma$. 
+By Zorn's lemma, every irreducible subspace of $X$ is contained in a maximal irreducible subspace.
+\end{proof}
+
+\begin{proof}[(iii) Proof.]
+Let $Y$ be a maximal irreducible subspace of $X$. By (i), $\overline{Y}$ is irreducible, but since $Y$ is maximal and $Y \subset \overline{Y}$, we have
+$Y = \overline{Y}$, so $Y$ is closed.
+
+Let $x \in X$; consider the subspace $\{x\}$. If $U_1$ and $U_2$ are any non-empty open sets of $\{x\}$, then $U_1 = U_2 = \{x\}$. Thus, $U_1 \cap U_2 = \{x\} \neq \emptyset$.
+In particular, $\{x\}$ is an irreducible subspace. By (ii), it is contained in some maximal irreducible subspace. Thus, the maximal irreducible subspaces cover $X$.
+
+Now, suppose $X$ is Hausdorff. Let $Y$ be an irreducible subspace of $X$, and let $x,y \in Y$ ($Y$ is non-empty by irreducibility). If $x$ and $y$ are distinct, then since $X$ is Hausdorff,
+there are open sets $U_x$ and $U_y$ such that $x \in U_x$, $y \not\in U_x$, $y \in U_y$, $x \not\in U_y$, and $U_x \cap U_y = \emptyset$. Thus, $Y \cap U_x$
+and $Y \cap U_y$ are non-empty open sets of $Y$ since they contain $x$ and $y$, respectively. However, 
+$$(Y \cap U_x) \cap (Y \cap U_y) = Y \cap (U_x \cap U_y) = Y \cap \emptyset = \emptyset.$$
+Thus, $Y$ is not irreducible, yielding a contradiction. Thus, $Y$ cannot have more than one point. Conversely, we've already shown that one-point sets are
+irreducible subspaces. Thus, the irreducible components of Hausdorff spaces are one-point sets.
+\end{proof}
+
+\begin{proof}[(iv) Proof.]
+First, we show that $V(\mathfrak{p})$ is irreducible for any $\mathfrak{p} \in X$. In (iii), we showed that one-point sets are irreducible, i.e. $\{\mathfrak{p}\}$ 
+is irreducible for every $\mathfrak{p} \in \Spec A$. Since $\overline{\{\mathfrak{p}\}} = V(\mathfrak{p})$ by
+Exercise \ref{1.18}(ii), (i) tells us that $\overline{\{\mathfrak{p}\}} = V(\mathfrak{p})$ inherits the irreducibility of $\{\mathfrak{p}\}$.
+
+By (iii), every irreducible component is closed, so each is of the form $V(\mathfrak{a})$ for some ideal $\mathfrak{a}$. If $\mathfrak{a} = (1)$,
+then $V(\mathfrak{a}) = \emptyset$, violating irreducibility. Thus, there is some prime ideal $\mathfrak{p}$ such that $\mathfrak{p} \subset \mathfrak{a}$, so
+$V(\mathfrak{a}) \subset V(\mathfrak{p})$. Since $V(\mathfrak{p})$ is irreducible, $V(\mathfrak{a}) = V(\mathfrak{p})$ by the maximality of $V(\mathfrak{a})$.
+Thus, every irreducible component is of the form $V(\mathfrak{p})$ for some $\mathfrak{p} \in X$.
+
+Now, suppose we have an irreducible component; then, we can write it as $V(\mathfrak{p})$ for some $\mathfrak{p} \in X$. Then, if 
+$\mathfrak{q} \in X$ and $\mathfrak{q} \subset \mathfrak{p}$ properly, then $V(\mathfrak{p}) \subset V(\mathfrak{q})$ properly since
+$V(\mathfrak{q})$ contains $\mathfrak{q}$ but $V(\mathfrak{p})$ does not contain $\mathfrak{q}$. Since $\mathfrak{q}$ is prime, $V(\mathfrak{q})$ is irreducible,
+violating the maximality of $V(\mathfrak{p})$. Thus, there is no such $\mathfrak{q}$, and $\mathfrak{p}$ is a minimal prime ideal of $A$.
+
+Conversely, let $\mathfrak{p}$ be a minimal prime ideal of $A$. Then, $V(\mathfrak{p})$ is contained in some irreducible component, which we've shown 
+has the form $V(\mathfrak{q})$ for some $\mathfrak{q} \in X$. Thus, $V(\mathfrak{p}) \subset V(\mathfrak{q})$, so $\mathfrak{q} \subset \mathfrak{p}$.
+Since $\mathfrak{p}$ is a minimal prime ideal, $\mathfrak{p} = \mathfrak{q}$, so $V(\mathfrak{p}) = V(\mathfrak{q})$, and $V(\mathfrak{p})$ is an 
+irreducible component.
+\end{proof}
+
+\subsection{Exercise}\label{1.21} % 21
+
+\begin{proof}[(i) Proof.]
+Let $f \in A$. If $\mathfrak{q} \in Y_{\phi(f)}$, then $\mathfrak{q} \not\in V_Y(\phi(f))$, so $(\phi(f)) \not\subset \mathfrak{q}$. Thus,
+$\phi(f) \not\in \mathfrak{q}$, so $f \not\in \phi^{-1}(\mathfrak{q})$. Hence, $\phi^{-1}(\mathfrak{q}) \not\in V_X(f)$, so $\phi^{-1}(\mathfrak{q}) \in X_f$ 
+and $\mathfrak{q} \in \phi^{*-1}(X_f)$.
+
+Conversely, if $\mathfrak{q} \not\in Y_{\phi(f)}$, then $\mathfrak{q} \in V_Y(\phi(f))$, so $\phi(f) \in \mathfrak{q}$. Thus, $f \in \phi^{-1}(\mathfrak{q})$, so
+$\phi^{-1}(\mathfrak{q}) \in V_X(f)$. Hence, $\phi^{-1}(\mathfrak{q}) \not\in X_f$. Then, by definition, $\mathfrak{q} \not\in \phi^{*-1}(X_f)$. Thus, $\phi^{*-1}(X_f) = Y_{\phi(f)}$ for any $f \in A$.
+
+Let $U$ be an open set of $X$, so $U = \bigcup_{f \in I}X_f$. Then,
+$$\phi^{*-1}(U) = \phi^{*-1}\left(\bigcup_{f \in I}X_f\right) = \bigcup_{f \in I}\phi^{*-1}(X_f) = \bigcup_{f \in I}Y_{\phi(f)},$$
+which is an open set of $Y$. Thus, $\phi^* : Y \to X$ is continuous.
+\end{proof}
+
+\begin{proof}[(ii) Proof.]
+If $\mathfrak{q} \in \phi^{*-1}(V_X(\mathfrak{a}))$, then $\phi^*(\mathfrak{q}) = \phi^{-1}(\mathfrak{q}) \in V_X(\mathfrak{a})$. Hence,
+$\mathfrak{a} \subset \phi^{-1}(\mathfrak{q})$, so $\phi(\mathfrak{a}) \subset \mathfrak{q}$, so 
+$\mathfrak{q} \in V_Y(\phi(\mathfrak{a})) = V_Y(\mathfrak{a}^e)$.
+
+Conversely, if $\mathfrak{q} \in V_Y(\mathfrak{a}^e)$, then $\phi(\mathfrak{a}) \subset \mathfrak{a}^e \subset \mathfrak{q}$, so 
+$\mathfrak{a} \subset \phi^{-1}(\mathfrak{q})$, hence $\phi^{-1}(\mathfrak{q}) \in V_X(\mathfrak{a})$. Thus, $\mathfrak{q} \in \phi^{*-1}(V_X(\mathfrak{a}))$. 
+Combining both directions, we have $\phi^{*-1}(V_X(\mathfrak{a})) = V_Y(\mathfrak{a}^e)$.
+\end{proof}
+
+\begin{proof}[(iii) Proof.]
+Note that $\phi^*(V(\mathfrak{b})) = \{\mathfrak{q}^c : \mathfrak{b}\subset\mathfrak{q}\}$. So, $\mathfrak{a}$ must contain all of these 
+$\mathfrak{q}^c$. Since all closed sets containing $\phi^*(V(\mathfrak{b}))$ must contain each $\mathfrak{q}^c$, all must contain 
+$\bigcap_{\mathfrak{b} \subset \mathfrak{q}}\mathfrak{q}^c$. Since this is itself an ideal, it gives the closure:
+$$\overline{\phi^*(V(\mathfrak{b}))} = V\left(\bigcap_{\mathfrak{b} \subset \mathfrak{q}}\mathfrak{q}^c\right).$$
+Note that 
+$$\bigcap_{\mathfrak{b} \subset \mathfrak{q}}\mathfrak{q}^c = \bigcap_{\mathfrak{b} \subset \mathfrak{q}}\phi^{-1}(\mathfrak{q})
+= \phi^{-1}\left(\bigcap_{\mathfrak{b} \subset \mathfrak{q}}\mathfrak{q}\right) = \phi^{-1}(r(\mathfrak{b})) = r(\mathfrak{b})^c = r(\mathfrak{b}^c).$$
+Thus,
+$$\overline{\phi^*(V(\mathfrak{b}))} = V\left(\bigcap_{\mathfrak{b} \subset \mathfrak{q}}\mathfrak{q}^c\right) = V(r(\mathfrak{b}^c)) = V(\mathfrak{b}^c).$$
+\end{proof}
+
+\begin{proof}[(iv) Proof.]
+Since $\phi$ is surjective, we have a ring isomorphism $A/(\ker \phi) \to B$. Thus, we have an inverse homomorphism 
+$\psi : B \to A/(\ker \phi)$. From these maps, we obtain $\psi^* : \Spec (A/(\ker \phi)) \to \Spec (B)$ and 
+$\phi^* : \Spec(B) \to \Spec(A/(\ker \phi))$, which are inverse maps describing a bijection; by (i), both are continuous, so they describe a homeomorphism.
+
+Now, we have to show that the map $\Spec(A / (\ker \phi)) \to V(\ker \phi)$, viewed as a closed subspace of $\Spec(A)$, is a homeomorphism.
+
+But this follows easily from Proposition 1.1, considering the map $A \to A/(\ker \phi)$. More concretely, 
+there is a one-to-one, order-preserving, primality-preserving correspondence between ideals of $A$ containing $\ker \phi$
+and ideals of $A/(\ker \phi)$. Thus, the map induced by projection $\Spec(A/\ker \phi) \to V(\ker\phi)$ is a bijection. 
+Because the map preserves the containment relation, it is a closed map ($V(\mathfrak{a}) \to V(\mathfrak{a}^c)$). Since it is a bicontinuous bijection,
+it is a homeomorphism.
+\end{proof}
+
+\begin{remark}
+This shows that $\Spec(A)$ and $\Spec(A/\mathfrak{N}_A)$ are naturally homeomorphic.
+\end{remark}
+
+\begin{proof}[(v) Proof.]
+Suppose $\ker \phi \subset \mathfrak{N}$. Since $Y = V(0)$, by (iii), we have 
+$$\overline{\phi^*(Y)} = \overline{\phi^*(V(0))} = V(\phi^{-1}(0)).$$ Since $\ker \phi$ is in the nilradical, which is contained by every prime ideal,
+$V(\phi^{-1}(0)) = X$, so $\phi^*(Y)$ is dense in $X$. 
+
+Conversely, if $\phi^*(Y)$ is dense in $X$, then we have, by (iii),
+$$X = \overline{\phi^*(Y)} = \overline{\phi^*(V(0))} = V(\phi^{-1}(0)),$$
+so $\phi^{-1}(0) \subset \mathfrak{p}$ for all prime ideals, so $\ker \phi \subset \mathfrak{N}$.
+\end{proof}
+
+\begin{proof}[(vi) Proof.]
+We have two ring homomorphisms $\phi : A \to B$ and $\psi : B \to C$. If $\mathfrak{r} \in \Spec(C)$, then we have a map $(\psi \circ \phi)^* : \Spec(C) \to \Spec(A)$. This takes
+$\mathfrak{r} \in \Spec(C)$ to $(\psi \circ \phi)^{-1}(\mathfrak{r}) \in \Spec(A)$. But, $(\psi \circ \phi)^{-1} = \phi^{-1} \circ \psi^{-1}$. In particular,
+$(\psi \circ \phi)^*$ decomposes into maps 
+$$\Spec(C) \xlongrightarrow{\psi^*} \Spec(B) \xlongrightarrow{\phi^*} \Spec(A),$$ 
+so $(\psi \circ \phi)^* = \phi^* \circ \psi^*$.
+\end{proof}
+
+\begin{proof}[(vii) Proof.]
+$A$ is an integral domain with one non-zero prime ideal $\mathfrak{p}$, $K$ is the field of fractions of $A$, and $B = (A/\mathfrak{p}) \times K$. We
+define $\phi: A \to B$ by $\phi(x) = (\overline{x}, x)$, where $\overline{x}$ is the image of $x$ in $A/\mathfrak{p}$.
+
+Since $\phi$ is a ring homomorphism, we have $\phi^*: \Spec B \to \Spec A$. $A$ has only one non-zero prime ideal $\mathfrak{p}$, so $\Spec A = \{0,\mathfrak{p}\}$.
+For $B$, the only prime ideal of $K$ is $0$, and the only prime ideal of $A / \mathfrak{p}$ is $0$. Thus, $\Spec B = \{0 \times K, (A / \mathfrak{p}) \times 0\}$. Note
+that $0$ is not prime in $B$ since $0 = (0 \times K)((A / \mathfrak{p}) \times 0)$. We have $\phi^{-1}(0 \times K) = \mathfrak{p}$ and $\phi^{-1}((A / \mathfrak{p}) \times 0) = 0$.
+Thus, $\phi^*$ is bijective.
+
+However, we will show that it is not a homeomorphism. We only need to look at the image $\phi^*(\{(A / \mathfrak{p}) \times 0\}) = \{0\}$. Note that 
+$\{(A / \mathfrak{p}) \times 0\} = V((A / \mathfrak{p}) \times 0)$, so this set is closed. However, $\{0\}$ is not closed since for any $\mathfrak{a}$, 
+$0 \in V(\mathfrak{a})$ implies $\mathfrak{a} \subset 0 \subset \mathfrak{p}$, so $\mathfrak{p} \in \overline{\{0\}}$, i.e. $\phi^*$ maps a closed set to a non-closed
+set. Therefore, $\phi^*$ is not a homeomorphism.
+\end{proof}
+
+\subsection{Exercise}\label{1.22} % 22
+
+First, we show that if $A = \prod_{i=1}^n$, then $\bigsqcup_{i=1}^n \Spec(A_j) \cong \Spec A$ as topological spaces.
+
+\begin{proof}
+Let $A = \prod_{i=1}^n$. We claim that all primes take the form 
+$$A_1 \times \cdots \times A_{j-1} \times \mathfrak{p}_j \times A_{j+1} \times \cdots \times A_n,$$
+where $\mathfrak{p}_j \in \Spec A_j$. If $\pi_j : A \to A_j$ is the projection map, this is equivalent to saying all primes are of the form
+$\pi_j^{-1}(\mathfrak{p}_j)$ for some $j$ and $\mathfrak{p}_j \in \Spec(A_j)$. First of all, it's clear that ideals of this form 
+are prime since for $a,b \in A$ with $\pi_j(ab) \in \mathfrak{p}$, we have $\pi_j(a)\pi_j(b) \in \mathfrak{p}$, so either $\pi_j(a) \in \mathfrak{p}$
+or $\pi_j(b) \in \mathfrak{p}$. Thus, either $a \in \pi_j^{-1}(\mathfrak{p})$ or $b \in \pi_j^{-1}(\mathfrak{p})$, so $\pi_j^{-1}(\mathfrak{p}) \in \Spec(A)$.
+In particular, we've shown $$\bigsqcup_{i=1}^n \Spec(A_j) \xhookrightarrow{} \Spec A.$$
+
+Conversely, suppose $\mathfrak{p}$ is a prime of $A$. Suppose $\pi_i(\mathfrak{p}) \neq A_i$ and $\pi_j(\mathfrak{p}) \neq A_j$ for distinct $i,j$. Then,
+let the components of $a \in A$ be all zeros except for the $i$th slot, where we choose $a_i \in A_i - \pi_i(\mathfrak{p})$. Similarly, we define $b \in A$ by
+letting the components of $b$ be all zeros except for the $j$th slot, where we choose $b_j \in A_j - \pi_j(\mathfrak{p})$. Then, neither $a$ nor $b$ is in $\mathfrak{p}$,
+yet $ab = 0 \in \mathfrak{p}$, violating the primality of $\mathfrak{p}$. Thus, all projection maps of $\mathfrak{p}$ must be surjective except for one. So,
+$$\mathfrak{p} = A_1 \times \cdots \times A_{j-1} \times \pi_j(\mathfrak{p}) \times A_{j+1} \times \cdots \times A_n.$$
+Let $a_j,b_j \in A_j$. Lift $a_j,b_j$ to $a,b \in A$ by letting all other components be zero. If $ab \in \mathfrak{p}$, then $a_jb_j \in \pi_j(\mathfrak{p})$. Since
+$\mathfrak{p}$ is prime, either $a$ or $b$ is in $\mathfrak{p}$. Without loss of generality, suppose $a \in \mathfrak{p}$. Then, $\pi_j(a) = a_j \in \pi_j(\mathfrak{p})$. Thus,
+$\pi_j(\mathfrak{p})$ is prime. Hence, we have a bijection
+$$\bigsqcup_{i=1}^n \Spec(A_j) \cong \Spec A.$$
+
+To be more concrete, consider the projection $\pi_j : A \to A_j$. By Exercise \ref{1.21}(iv), $\pi_j^*$ is a homeomorphism of $\Spec(A_j)$ onto the closed subset
+$V(\ker \pi_j)$ of $\Spec A$. Explicitly, the kernel is $A_1 \times \cdots \times A_{j-1} \times 0 \times A_{j+1} \times \cdots \times A_n$, which matches
+our constructed maps. We identified $V(A_1 \times \cdots \times A_{j-1} \times 0 \times A_{j+1} \times \cdots \times A_n)$ directly with $\Spec A_j$, which are homeomorphic. 
+To be slightly pedantic, note that the closed subsets just mentioned are disjoint for distinct $j$ by our earlier proof that a prime cannot have two non-surjective projections.
+\end{proof}
+
+\begin{proof}
+By the previous proof, (ii) implies (i) since $A \cong A_1 \times A_2$ implies $\Spec(A) \cong \Spec(A_1) \sqcup \Spec(A_2)$, so $\Spec(A)$ is disconnected. 
+
+Now, we show (i) implies (iii). Suppose $\Spec(A)$ is disconnected. By Exercise \ref{1.21}(iv), $\Spec(A)$ is naturally homeomorphic to $\Spec(A/\mathfrak{N})$, 
+so consider $A' = A/\mathfrak{N}$, which has no nilradical and is disconnected (by the homeomorphism). We can write $\Spec(A')$ as the disjoint union 
+of two closed sets $V(\mathfrak{a})$ and $V(\mathfrak{b})$  for ideals $\mathfrak{a},\mathfrak{b} \subset A'$. By Exercise \ref{1.15}(iv),
+$$\Spec(A') = V(\mathfrak{a}) \cup V(\mathfrak{b}) = V(\mathfrak{a} \cap \mathfrak{b}),$$
+so $\mathfrak{a} \cap \mathfrak{b} \subset \mathfrak{N}_{A'} = 0$. Further, since $V(\mathfrak{a}) \cap V(\mathfrak{b}) = \emptyset$, $\mathfrak{a} + \mathfrak{b} = A'$.
+Consider the ring homomorphism $\psi: A' \to A'/\mathfrak{a} \times A'/\mathfrak{b}$. If
+$\psi(x) = (0,0)$, then $x \in \mathfrak{a} \cap \mathfrak{b} \subset \mathfrak{N}_{A'} = 0$, so $\psi$ is injective. By Proposition 1.10(ii), since
+$\mathfrak{a} + \mathfrak{b} = (1)$, $\psi$ is surjective, so we have a ring isomorphism. Thus, 
+$$A / \mathfrak{N} \cong A_1 \times A_2$$ for nonzero rings $A_1$ and $A_2$. Now, consider the idempotent $\overline{e} = (1,0)$. Then, there is an $e \in A$ such 
+that $e^2 - e \in \mathfrak{N}$. If $e^2 - e = 0$, then we have our idempotent; otherwise, there is a minimal $n > 0$ such that
+$(e^2 - e)^n = 0$. We can use the identity in $\Z[X]$ (the binomial theorem), which expands $1 = (X + (1-X))^{2n-1}$ as
+$$1 = \sum_{k=0}^{2n-1}\binom{2n-1}{k}e^k (1-e)^{2n-1-k}.$$
+Let $f = \sum_{k=0}^{n-1}\binom{2n-1}{k}e^k(1-e)^{2n-1-k}$. Then, we have
+$$f = f^2 + f\sum_{k=n}^{2n-1}\binom{2n-1}{k}e^k(1-e)^{2n-1-k},$$
+but every term of $f$ contains $(1-e)$ of degree at least $n$, and all terms of the remainder contain $e$ of degree at least $n$. Thus, the latter sum is annihilated,
+and we have $f = f^2$. Note that since $e(1-e) \in \mathfrak{N}$, $f \equiv (1-e)^{2n-1} \mod \mathfrak{N}$. Projecting down to $A_1 \times A_2$, we have
+$\overline{f} = (1 - (1,0))^{2n-1} = (0,1)^{2n-1} = (0,1)$, which is not the image of either $0$ or $1$. Thus, as desired, $f$ is a non-trival idempotent.
+
+Now, we show (iii) implies (ii). Suppose $e$ is an idempotent of $A$ not equal to $0$ or $1$. Note that
+$$(1-e)^2 = 1 - 2e + e^2 = 1 - 2e + e = 1 - e,$$
+so $1-e$ is also an idempotent. Further, note that $e(1-e) = e - e^2 = e - e = 0$, so $e$ and $1-e$ are orthogonal idempotents. For any $x \in A$, we have
+$x = xe + x(1-e)$. Then, we have the decomposition $\psi : A \cong Ae \times A(1-e)$ by multiplying by $e$ and $1-e$, respectively, i.e. $\psi(x) = (xe,x(1-e))$. 
+Note that the right-hand side is a ring since $e$ acts as the identity in $Ae$ and $(1-e)$ acts as the identity in $A(1-e)$. Further, it's easily checked that the 
+map is a ring homomorphism by using the idempotent relation and the orthogonality of the two idempotents. The only thing left to check is that the map is bijective.
+If $\psi(x) = (0,0)$, then $xe=0$ and $x(1-e) = 0$, so their sum $xe + x(1-e) = x = 0$, so injectivity holds. Conversely, if we have $(ae,b(1-e))$ in the direct product, 
+then $ae + b(1-e) \in A$ maps to this element, so surjectivity holds. Thus, this is an isomorphism of rings. Finally, (iii) implies (ii), and now we see that 
+all three properties are equivalent.
+\end{proof}
+
+\begin{remark}
+By Exercise \ref{1.12}, no local ring has an idempotent distinct from $0$ and $1$. We've shown this cannot happen if $\Spec(A)$ is disconnected, so the spectrum of
+a local ring is always connected.
+\end{remark}
+
+\subsection{Exercise}\label{1.23} % 23
+
+\begin{proof}[(i) Proof.]
+For any $f \in A$, consider $X_f$. Clearly, $X_f$ is closed and open if and only if $V(f)$ is open and closed. Since $V(f)$ is closed by definition, we just have to show that $V(f)$
+is an open set, i.e. there is some $g \in A$ such that $V(f) = V(g)^c$. Since $A$ is a boolean ring, $f = f^2$ and $(1-f)^2 = 1-f$. Note that for any $x \in A$,
+we can write $x = xf + x(1-f)$. Consider the map  $\psi : A \to Af \times A(1-f)$. We will show that this is a ring isomorphism. It's a homomorphism since $Af$ and $A(1-f)$ are rings
+with multiplicative identity $f$ and $1-f$; also, since $f(1 - f) = f - f^2 = 0$, multiplication is respected, i.e. 
+$(af + b(1-f))(cf + d(1-f)) = (ac)f + (bd)(1-f)$. Now, we must show it is bijective. If $\psi(x) = (0,0)$, then $xf = 0$ and $x(1-f) = 0$, so $0 = xf + x(1-f) = x$, hence $\psi$ is 
+injective. Conversely, if we have $(af, b(1-f)) \in Af \times A(1-f)$, then $\psi(af + b(1-f)) = (af, b(1-f))$. Thus, $\psi$ is surjective and hence bijective.
+
+Since $\psi$ realizes $A$ as a direct product of rings, by Exercise \ref{1.22}, we know that 
+$$\Spec(A) \cong \Spec(Af) \sqcup \Spec(A(1-f)).$$
+Now, considering the projections $\pi_f : A \to Af$ and $\pi_{1-f} A \to A(1-f)$, we have by Exercise \ref{1.21}(iv) that $\Spec(Af) \cong V(f)$ and $\Spec(A(1-f)) \cong V(1-f)$, where $\cong$
+denotes homeomorphism. Thus, $\Spec(A)$ is a disjoint union of the closed sets $V(f)$ and $V(1-f)$, so as desired, $V(f) = V(1-f)^c$.
+\end{proof}
+
+\begin{proof}[(ii) Proof.]
+Let $f_1,\ldots,f_n \in A$. We want to show that $X_{f_1} \cup \cdots \cup X_{f_n} = X_f$ for some $f \in A$. Taking complements, this is equivalent to the statement
+$$V(f_1) \cap \cdots \cap V(f_n) = V(f).$$
+Note that by Exercise \ref{1.15}(iii), we have
+$$V(f_1) \cap \cdots \cap V(f_n) = V\left(\bigcup_{i=1}^n (f_i)\right) = V((f_1,\ldots,f_n)).$$
+However, by Exercise \ref{1.11}(i), every finitely generated ideal of $A$ is principal, so $(f_1,\ldots,f_n) = (f)$ for some $f \in A$, as desired.
+\end{proof}
+
+\begin{proof}[(iii) Proof.]
+Let $Y \subset X$ be a closed and open set. Since $Y$ is closed and $X$ is quasi-compact by Exercise \ref{1.17}(v), we can easily show that $Y$ is also quasi-compact. Let $\{U\}_U$ be an open cover of 
+$Y$. Then, $Y^c$ is open, so $\{Y^c\}\cup\{U\}_U$ is an open cover of $X$. Since $X$ is quasi-compact, there is a finite subcover $\{V\}_V$, which obviously covers $Y$ as well. Removing $Y^c$ if necessary, which
+does not cover any points of $Y$, we have a finite subcover of $Y$ that uses only open sets in $\{U\}_U$. Thus, $Y$ is quasi-compact.
+
+Since $Y$ is also open, it is a union of basic open sets, and since it is quasi-compact, it is a union of finitely-many basic open sets. In other words, $Y = \bigcup_{i=1}^n X_{f_i}$. By (ii), there is some $f \in A$
+such that $\bigcup_{i=1}^n X_{f_i} = X_f$, so $Y = X_f$, as desired.
+\end{proof}
+
+\begin{proof}[(iv) Proof.]
+Let $\mathfrak{p},\mathfrak{q}$ be distinct primes in $\Spec A$. Since they are distinct, suppose without loss of generality that $\mathfrak{p}$ contains some $f \in A$ that is not in $\mathfrak{q}$; otherwise, swap $\mathfrak{q}$
+and $\mathfrak{p}$. Then, $(f) \subset \mathfrak{p}$, so $\mathfrak{p} \not\in X_f$. But, since $\mathfrak{q} \not\in V(f)$, we have $\mathfrak{q} \in X_f$. Since $X_f$ is both open and closed by (i), we have two disjoint open 
+sets $X_f$ and $X_f^c$ that contain $\mathfrak{q}$ and $\mathfrak{p}$, respectively. Thus, $\Spec A$ is Hausdorff. Since $X$ is quasi-compact by Exercise \ref{1.17}(v), $X$ is a compact Hausdorff space. 
+\end{proof}
+
+\subsection{Exercise}\label{1.24} % 24
+
+\begin{proof}
+We start by showing $A(L)$ is a ring. We'll first prove the useful fact:
+$$(a \wedge b)' = a' \vee b'.$$
+Since the complement is unique, we just have to verify that it is the complement of $a \wedge b$. We have
+\begin{align*}
+(a \wedge b) \wedge (a' \vee b') &= a \wedge b \wedge (a' \vee b')\\
+&= a \wedge ((b \wedge a') \vee (b \wedge b'))\\
+&= a \wedge ((b \wedge a') \vee 0)\\
+&= a \wedge (b \wedge a')\\
+&= (a \wedge a') \wedge b \\
+&= 0 \wedge b \\
+&= 0.
+\end{align*}
+Then, we have
+\begin{align*}
+(a \wedge b) \vee (a' \vee b') &= (a \wedge b) \vee a' \vee b'\\
+&= ((a \vee a') \wedge (b \vee a')) \vee b'\\
+&= (1 \wedge (b \vee a')) \vee b'\\
+&= (b \vee a') \vee b'\\
+&= a' \vee (b \vee b')\\
+&= a' \vee 1\\
+&= 1,
+\end{align*}
+so indeed, $(a \wedge b)' = a' \vee b'$. In fact, we can permute $a \maspto a'$ and $b \mapsto b'$ and take the complement of both sides to obtain the complementary property:
+$$a' \wedge b' = (a \vee b)'.$$
+
+Now, we can begin proving that $A(L)$ is a ring, starting with the additive properties. Note that because the complements are unique, we have $0' = 1$ since $0 \wedge 1 = 0$ and $0 \vee 1 = 1$. Also note that
+since $a$ and $a'$ are symmetric in the definition of $a'$, we have $(a')' = a$.
+
+By the commutativity of $\vee$ and $\wedge$, $+$ is also commutative. We'll now show associativity.
+\begin{align*}
+(a + b) + c &= ((a \wedge b') \vee (a' \wedge b)) + c \\
+&= (((a \wedge b') \vee (a' \wedge b)) \wedge c') \vee (((a \wedge b') \vee (a' \wedge b))' \wedge c) \\
+&= ((a \wedge b' \wedge c') \vee (a' \wedge b \wedge c')) \vee (((a \wedge b') \vee (a' \wedge b))' \wedge c) \\
+&= (a \wedge b' \wedge c') \vee (a' \wedge b \wedge c') \vee (((a \wedge b')' \wedge (a' \wedge b)') \wedge c) \\
+&= (a \wedge b' \wedge c') \vee (a' \wedge b \wedge c') \vee ((a' \vee b) \wedge (a \vee b') \wedge c) \\
+&= (a \wedge b' \wedge c') \vee (a' \wedge b \wedge c') \vee (a' \wedge a \wedge c) \vee (a' \wedge b' \wedge c) \vee (b \wedge a \wedge c) \vee (b \wedge b' \wedge c) \\
+&= (a \wedge b' \wedge c') \vee (a' \wedge b \wedge c') \vee (0 \wedge c) \vee (a' \wedge b' \wedge c) \vee (b \wedge a \wedge c) \vee (0 \wedge c) \\
+&= (a \wedge b' \wedge c') \vee (a' \wedge b \wedge c') \vee 0 \vee (a' \wedge b' \wedge c) \vee (b \wedge a \wedge c) \vee 0 \\
+&= (a \wedge b' \wedge c') \vee (a' \wedge b \wedge c') \vee (a' \wedge b' \wedge c) \vee (a \wedge b \wedge c).
+\end{align*}
+Note that the final line is completely symmetric under permutations of $a$, $b$, and $c$. Since we already have commutativity, this is equal to $c + (b + a)$. Since permuting $a$ and $c$ does not
+change the value of the final line (by aforementioned symmetry), we have $(a + b) + c = a + (b + c)$, so addition is associative.
+
+For any $a \in A(L)$, we have
+$$a + 0 = (a \wedge 0') \vee (a' \wedge 0) = (a \wedge 1) \vee (a' \wedge 0) = a \vee 0 = a,$$
+so $0$ is the additive identity. Further, for any $a \in A(L)$, we have
+$$a + a' = (a \wedge a') \vee (a \wedge a') = a \wedge a' = 0,$$
+by definition, so each $a$ has an additive inverse. Thus, $(A(L), +)$ forms an abelian group.
+
+Moving on, note that multiplication is commutative because $\wedge$ is commutative. Then, let $a,b \in A(L)$. We have $a \cdot 1 = a \wedge 1 = a$ since $1$ is a global max. Thus, $A(L)$ has commutative
+multiplication with unit. Associativity follows easily since
+$$a\cdot(b\cdot c) = a \wedge(b \wedge c) = (a \wedge b) \wedge c = (a \cdot b) \cdot c.$$
+Lastly, we must show that multiplication distributes over addition. We have
+\begin{align*}
+ab + ac &= (a \wedge b) + (a \wedge c) \\
+&= ((a \wedge b) \wedge (a \wedge c)') \vee ((a \wedge b)' \wedge (a \wedge c)) \\ 
+&= (a \wedge b \wedge (a' \vee c')) \vee ((a' \vee b') \wedge a \wedge c) \\ 
+&= (a \wedge b \wedge a') \vee (a \wedge b \wedge c') \vee (a'\wedge a \wedge c) \vee (b'\wedge a \wedge c) \\ 
+&= (0 \wedge b) \vee (a \wedge b \wedge c') \vee (0 \wedge c) \vee (b'\wedge a \wedge c) \\ 
+&= 0 \vee (a \wedge b \wedge c') \vee 0 \vee (b'\wedge a \wedge c) \\ 
+&= (a \wedge b \wedge c') \vee (a \wedge b' \wedge c) \\ 
+&= a \wedge ((b \wedge c') \vee (b' \wedge c)) \\ 
+&= a \wedge (b + c) \\
+&= a(b+c), 
+\end{align*}
+so the distributive property holds, and $A(L)$ is a ring. It is now easy to see that it is a Boolean ring since for any $a \in A(L)$, $a^2 = a \wedge a = a$.
+
+Conversely, suppose $A$ is a Boolean ring. We define an ordering $a \le b$ when $a = ab$. Thus, $0$ is clearly a minimal element and $1$ is clearly a maximal element,
+satisfying property (i) of a Boolean lattice. Define $a \wedge b = ab$ and $a \vee b = a + b + ab$. We now verify the two distributive properties:
+\begin{align*}
+a \wedge (b \vee c) &= a(b + c + bc) \\
+&= ab + ac + abc \\
+&= ab + ac + a^2bc \\
+&= ab + ac + (ab)(ac) \\
+&= (ab) \vee (ac) \\
+&= (a \wedge b) \vee (a \wedge c).
+\end{align*}
+Also,
+\begin{align*}
+(a \vee b) \wedge (a \vee c) &= (a + b + ab)(a + c + ac) \\
+&= a^2 + ac + a^2c + ab + bc + abc + a^2b + abc + a^2bc \\
+&= a + ac + ac + ab + bc + abc + ab + abc + abc \\
+&= a + 2ac + 2ab + bc + abc + 2abc \\
+&= a + bc + abc \\
+&= a \vee (bc) \\
+&= a \vee (b \wedge c),
+\end{align*}
+so property (ii) is satisfied.
+
+Lastly, we must show that there is a unique complement $a'$ for each $a \in A$. We claim that this is satisfied by $1 - a$. We can prove existence and uniqueness at once by
+applying the definitions. We have
+$$0 = a \wedge a' = a a' \quad\text{ and }\quad 1 = a \vee a' = a + a' + a a'.$$
+Since $a a' = 0$, we have that $1 = a + a' + 0$, so $a' = 1 - a$. This proves (iii). Thus, $A$ defined by our $\wedge$ and $\vee$ is a Boolean lattice.
+\end{proof}
+
+\subsection{Exercise}\label{1.25} % 25
+
+\begin{proof}
+Here, we prove Stone's theorem. Let $L$ be a Boolean lattice. By Exercise \ref{1.24}, $L$ can be made into a Boolean ring, $A(L)$. We define $\mathcal{T}$ to be the open-and-closed subsets of $\Spec(A(L))$. 
+By Exercise \ref{1.23}, the elements of $\mathcal{T}$ are exactly $X_f$, where $f \in A(L)$. By Exercise \ref{1.23}, $\Spec(A(L))$ is a compact Hausdorff space, so $\mathcal{T}$ is the set of open-and-closed subsets
+of a compact Hausdorff space. Thus, we aim to show that $L \to \mathcal{T}$ is an isomorphism of lattices.
+
+We show that $\mathcal{T}$ is a Boolean lattice. We define $U \le V$ when $U \subset V$. (i) $X_1$ is the maximal element; $X_0$ is the minimal element. (ii) We define $\wedge$ and $\vee$ by $\cap$ 
+and $\cup$. These are closed operations (two open-and-closed sets yield an open-and-closed set), and they distribute over each other. (iii) We define the complement of $X_f$ by $X_f^c = X_{f'}$; 
+there is such an $f'$ since $X_f^c$ is open-and-closed. $X_f \wedge X_{f'} = X_f \cap X_{f'} = \emptyset = X_0$ and $X_f \vee X_{f'} = X_f \cup X_{f'} = X = X_1$. Thus, $\mathcal{T}$ is a lattice.
+
+The map in view factors as $L \to A(L) \to \mathcal{T}$, where the first map is clearly a bijection. Suppose $f,g \in A(L)$. Then, if $F,G \in L$ yield $f,g \in A(L)$, then $fg = F \wedge G$ by
+our construction of the Boolean ring (Exercise \ref{1.24}). Thus, $F \wedge G \mapsto fg \mapsto X_{fg}$. However, $F \mapsto f \mapsto X_f$ and $G \mapsto g \mapsto X_g$. However, $X_f \wedge X_g = X_f \cap X_g = X_{fg}$
+by Exercise \ref{1.17}, so the map preserves $\wedge$. If $f, f'$ are complements in $L$, then in $A(L)$, they satisfy 
+$$f + f' = (f \wedge f) \vee (f' \wedge f') = f \vee f' = 1,$$
+so $f' = 1-f$. However, $(f) + (1-f) = (1)$ and $(f) \cap (1-f)$ contains no prime ideals. Thus, $X_f^c = X_{1-f}$, so the map preserves complements. Because the map preserves complements and $\wedge$,
+de Morgan's law here shows that it also preserves $\vee$. In particular, $L \to \mathcal{T}$ is a homomorphism of lattices.
+
+Lastly, we show bijectivity. Note that $L \to A(L)$ is a bijection since the map preserves the underlying set. Every element of $\mathcal{T}$ has the form $X_f$ for some $f \in A$, and the map is $f \mapsto X_f$,
+so clearly the map is surjective. To show injectivity, suppose $f,g \in X_f$ and $X_f = X_g$. Then, for every prime ideal $\mathfrak{p}$ of $A(L)$, $f \in \mathfrak{p} \iff g \in \mathfrak{p}$. By Exercise \ref{1.11},
+$A/\mathfrak{p}$ is the field of two elements, so for all $\mathfrak{p}$, $f \equiv g \mod \mathfrak{p}$. In particular, $f-g \in \mathfrak{p}$ for all $\mathfrak{p}$. Hence, $f-g \in \mathfrak{N}$. Since
+$a^2 = a$ for all $a \in A(L)$ (Boolean ring), $(f-g)^2 = f-g$. However, $f-g$ is nilpotent, so $(f-g)^n = 0$ for some $n > 0$. By a simple inductive argument using $(f-g)^2 = f-g$, we have $f-g = (f-g)^n = 0$,
+so $f = g$. Thus, the map is injective and therefore bijective. Hence, $L \to \mathcal{T}$ is a lattice isomorphism.
+\end{proof}
+
+\subsection{Exercise}\label{1.26} % 26
+
+Let $A$ be a ring. We define $\Max(A)$ to be the subspace of $\Spec(A)$ containing the maximal ideals, and we endow it with the induced topology. It is called the {\it maximal spectrum} of $A$. Let
+$X$ be a compact Hausdorff space, and let $C(X)$ denote the ring of all real-valued continuous functions on $X$. For each $x \in X$, let $\mathfrak{m}_x$ be the set of all $f \in C(X)$ such that
+$f(x) = 0$. The ideal $\mathfrak{m}_x$ is maximal since it is the kernel of the map $C(X) \to \R$ via $f \mapsto f(x)$. Thus, we have a map $\mu : X \to \Max(C(X))$ via $x \mapsto \mathfrak{m}_x$. We aim
+to show that $\mu$ is a homeomorphism of $X$ onto $\Max(C(X))$.
+
+\begin{proof}
+Let $\mathfrak{m} \in \Max(C(X))$, and define $V = V(\mathfrak{m})$ by
+$$V = \{x \in X : f(x) = 0 \text{ for all } f \in \mathfrak{m}\}.$$
+Suppose $V$ is empty. Then, for each $x \in X$, there exists $f_x \in \mathfrak{m}$ such that $f_x(x) \neq 0$. Since $f_x$ is continuous, there is an open neighborhood $U_x$ of $x$ in $X$ on which $f_x$
+does not vanish. By compactness, a finite number of the neighborhoods, say $U_{x_1},\ldots,U_{x_n}$ cover $X$. Let
+$$f = f_{x_1}^2 + \cdots + f_{x_n}^2.$$
+Then, $f$ does not vanish anywhere on $X$, hence $1/f$ is a well-defined real-valued function on $X$. Open intervals are a basis of $\R$, so since $0$ is not in the image of $1/f$, it is enough to consider
+intervals $(a,b)$, where $0 < a < b$ or $a < b < 0$. Note that $(1/f)^{-1}((a,b)) = f^{-1}((1/b,1/a))$, but this is open by the continuity of $f$, so $1/f$ is also continuous. Hence, $1/f \in C(X)$ and $f$ is
+a unit, violating the maximality of $\mathfrak{m}$. Hence, $V$ is non-empty, and there is some $x \in V$. Then, $\mathfrak{m} \subset \mathfrak{m}_x$, so by maximality, $\mathfrak{m} = \mathfrak{m}_x$. 
+Hence, $\mu$ is surjective.
+
+Since $X$ is compact and Hausdorff, it is also normal. By the Hausdorff property, with distinct $x,y \in X$, we have disjoint open sets $U_x$ and $U_y$ such that $x \in U_x$ and $y \in U_y$. By normality, there
+are disjoint closed sets $V_x$ and $V_y$ containing $U_x$ and $U_y$, respectively. By Urysohn's lemma (since $X$ is normal), there exists a continuous function which is $0$ on $V_x$ and $1$ on $V_y$, and vice-versa.
+Thus, $\mathfrak{m}_x$ contains an element that $\mathfrak{m}_y$ does not and vice-versa, so $\mu: x \mapsto \mathfrak{m}_x$ is injective. Compiling results, we've shown that $\mu$ is bijective.
+
+Let $f \in C(X)$. Define
+$$U_f = \{x \in X : f(x) \neq 0\} \quad\text{ and }\quad \tilde U_f = \{\mathfrak{m} \in \Max(C(X)) : f \not\in \mathfrak{m}\}.$$
+Consider any closed set $C$ of $X$. If $y \not\in C$, then since $\{y\}$ is closed, we have by Urysohn's lemma that there is some $f \in C(X)$ such that $f(y) = 1$ and $f$ is $0$ on $C$. Thus, $C$ is the
+intersection of $U_f^c$ for all $f \in C(X)$ such that $f$ is zero on $C$. Thus, any open set is a union of $U_f$, so $\{U_f\}$ forms a basis of $X$.
+Also, for any $f \in C(X)$, $X_f$ forms a basis of $\Spec(C(X))$ by Exercise \ref{1.17}. Restricted to $\Max(C(X))$, these open sets have the form
+$$\{\mathfrak{m} \in \Max(C(X)) : (f) \subset \mathfrak{m}\}^c = \{\mathfrak{m} \in \Max(C(X)) : (f) \not\subset \mathfrak{m}\} = \{\mathfrak{m} \in \Max(C(X)) : f \not\in \mathfrak{m}\} = \tilde U_f,$$
+so $\{\tilde U_f\}$ defines a basis for $\Max(C(X))$ since the topology is inherited from $\Spec(C(X))$.
+
+Thus, if we can show $\mu(U_f) = \tilde U_f$, we will have shown that $\mu$ is an open map and thus a homeomorphism by its already established bijectivity.
+If $f(x) \neq 0$, then $f \not\in \mathfrak{m}_x$. Conversely, if $f \not\in \mathfrak{m}_x$, then by definition, $f(x) \neq 0$. Thus, $\mu(U_f) = \tilde U_f$, completing the proof.
+\end{proof}
+
+\begin{remark}
+This implies the topological space $X$ can be reconstructed from the ring $C(X)$ via $\Max (C(X))$.
+\end{remark}
+
+\subsection{Exercise}\label{1.27} % 27
+
+Let $k$ be an algebraically closed field, and let
+$$f_a (x_1,\ldots,x_n) = 0$$
+be a set of polynomial equations in $n$ variables with coefficients in $k$. The set $X$ of all points $x = (x_1,\ldots,x_n) \in k^n$ which satisfy the equations is an {\it affine algebraic variety}.
+Consider the set of all polynomials $g \in k[x_1,\ldots,x_n]$ with the property that $g(x)=0$ for all $x \in X$. This set is an ideal $I(X)$ in the polynomial ring, and is called the {\it ideal of the variety} 
+$X$. The quotient ring
+$$P(X) = k[x_1,\ldots,x_n] / I(X)$$
+is the ring of polynomial functions on $X$ because two polynomials $g,h$ define the same polynomial on $X$ if and only if $g - h$ vanishes at every point of $X$, i.e. if and only if $g-h \in I(X)$.
+
+Let $\xi_i$ be the image of $t_i$ under the projection $k[x_1,\ldots,x_n] \to P(X)$. These are the {\it coordinate functions} on $P(X)$. If $x \in X$, then $\xi_i(x)$ is well-defined and gives the
+$i$th coordinate of $x$. Clearly, $P(X)$ is generated as a $k$-algebra by the coordinate functions, and is called the {\it coordinate ring} (or {\it affine algebra}) of $X$.
+
+As in Exercise \ref{1.26}, for each $x \in X$, let $\mathfrak{m}_x$ be the ideal of all $f \in P(X)$ such that $f(x) = 0$; it is a maximal ideal of $P(X)$. Hence, we have a mapping $\mu : X \to \Max(P(X))$
+by $x \mapsto \mathfrak{m}_x$. It is easy to show that $\mu$ is injective: if $x \neq y$, we have $\xi_i(x) \neq \xi_i(y)$ for some $i$, so $\xi_i - \xi_i(x) \in \mathfrak{m}_x$, but it is not in $\mathfrak{m}_y$. 
+Therefore, $\mathfrak{m}_x \neq \mathfrak{m}_y$. We now show that $\mu$ is surjective; this creates a one-to-one correspondence between $X$ and $\Max(P(X))$, one form of Hilbert's Nullstellensatz.
+
+We'll start by showing that the maximal ideals of $k[x]$ are exactly $(x - a)$ for $a \in k$.
+\begin{proof}
+Clearly, $(x - a)$ is maximal as it is the kernel of the surjective ring homomorphism $k[x] \to k$ via $f \mapsto f(a)$ since $k$ is algebraically closed. Let $\mathfrak{m}$ be a maximal ideal of $k[x]$. Let
+$f \in \mathfrak{m}$. Since the degree of a polynomial is a nonnegative integer, there is a minimal degree $m$ of $\mathfrak{m}$ (it's clear that $\mathfrak{m} \neq 0$). Note that $m > 0$; otherwise $\mathfrak{m}$ contains a unit,
+violating maximality. Let $f$ be a polynomial of degree $m$. Then, since $k$ is algebraically closed, it factors as $a_0(x-a_1)\cdots(x-a_m)$ for $a_0 \neq 0$. Redefine $f$ as $a_0^{-1}f$. Since $\mathfrak{m}$ is an ideal 
+and $k$ is a subring of $k[x]$, $f = (x-a_1)\cdots(x-a_m)$ is in $\mathfrak{m}$. If $g$ is also a monic degree $m$ polynomial of $\mathfrak{m}$, then if $f-g$ is nonzero, it has degree less than $m$, violating the minimality
+of $m$. Hence, $f = g$, so all degree $m$ polynomials in $\mathfrak{m}$ have $a_1,\ldots,a_m$ as roots.
+
+Let $g$ be a polynomial in $\mathfrak{m}$ of minimal degree such that $g(a_1) \neq 0$. Then, it has degree $n > m$ since $f$ is not proportional to $g$ (values at $a_1$). Multiply by some element of $k$ to make it monic; 
+it's still in $\mathfrak{m}$. Since $k$ is algebraically closed, $g(x) = (x-b_1)\cdots(x-b_n)$. Now, $f(x)(x-b_{m+1})\cdots(x-b_n)$ is in $\mathfrak{m}$ since $(x-b_{m+1})\cdots(x-b_n) \in k[x]$. Thus,
+$$h(x) = f(x)(x-b_{m+1})\cdots(x-b_n) - g(x) = (f(x) - (x-b_1)\cdots(x-b_m))(x-b_{m+1})\cdots(x-b_n).$$
+Note that $h(x) \in \mathfrak{m}$. Also, $f(x) - (x-b_1)\cdots(x-b_m) \neq 0$ since $f(a_1) = 0$, but $(x-b_1)\cdots(x-b_m) \neq 0$. However, both are monic of degree $m$, so their difference has
+degree less than $m$. Thus, $h(x)$ has degree less than $n$. However, $f(x)(x-b_{m+1})\cdots(x-b_n)$ evaluates to $0$ at $a_1$, but $g(a_1)\neq 0$, so $h(a_1)\neq 0$. This violates the minimality of $n$. Thus,
+we have that no such $g$ exists, meaning that $g(a_1) = 0$ for all $g \in \mathfrak{m}$. Hence, $\mathfrak{m} \subset (x - a_1)$, so by maximality, $\mathfrak{m} = (x-a_1)$.
+\end{proof}
+
+Now, we show that the maximal ideals of $k[x_1,\ldots,x_n]$ are exactly $(x_1 - a_1,\ldots,x_n - a_n)$ for $a_i \in k$.
+\begin{proof}
+Consider the ideal $(x_1 - a_1, \ldots, x_n - a_n)$ of $k[x_1,\ldots,x_n]$ for $a_i \in k$. It is the kernel of the surjective ring homomorphism $k[x_1,\ldots,x_n] \to k$ via $f \mapsto f(a_1,\ldots,a_n)$,
+so it is a maximal ideal. 
+
+Conversely, suppose $\mathfrak{m}$ is a maximal ideal of $k[x_1,\ldots,x_n]$. For each $i$, we have an injective ring homomorphism $k[x_i] \to k[x_1,\ldots,x_n]$. The contraction of $\mathfrak{m}$ is
+a prime ideal of $k[x_i]$. This is contained in some maximal ideal $(x_i - a_i)$ by the previous proof. Note that $\mathfrak{m} \subset (x_i - a_i) + \mathfrak{m}$; since the contraction of $\mathfrak{m}$ is 
+contained in $(x_i - a_i)$, the contraction of the sum is also contained in $(x_i - a_i)$. Thus, the sum cannot be the whole ring, so by the maximality of $\mathfrak{m}$, we have $(x_i - a_i) \subset \mathfrak{m}$.
+Doing this for each $i$, we have that $(x_i - a_i)$ is a subset of $\mathfrak{m}$ for each $i$. Thus, $(x_1 - a_1,\ldots,x_n - a_n) \subset \mathfrak{m}$, so by the maximality of both sets,
+$\mathfrak{m} = (x_1 - a_1,\ldots,x_n - a_n)$.
+\end{proof}
+
+Now, we can prove the surjectivity of $\mu$.
+
+\begin{proof}
+Suppose $\mathfrak{m} \in \Max(P(X))$. Using the ring homomorphism $\phi : k[x_1,\ldots,x_n] \to P(X)$, we have that $\phi^{-1}(\mathfrak{m})$ is a prime ideal of $k[x_1,\ldots,x_n]$. Let $\mathfrak{M}$
+be a maximal ideal of $k[x_1,\ldots,x_n]$ containing $\phi^{-1}(\mathfrak{m})$. Since $\phi$ is surjective, $\phi(\mathfrak{M})$ is an ideal of $P(X)$ containing $\mathfrak{m}$. By maximality, $\phi(\mathfrak{M}) = \mathfrak{m}$
+or $\phi(\mathfrak{M}) = P(X)$. 
+
+In the first case, $\mathfrak{M} \subset \phi^{-1}(\mathfrak{m})$, so $\mathfrak{M} = \phi^{-1}(\mathfrak{m})$, and $\phi^{-1}(\mathfrak{m})$ is a maximal ideal of $k[x_1,\ldots,x_n]$. In the second case,
+since $P(X) = k[x_1,\ldots,x_n] / I(X)$, we have that $I(X) + \mathfrak{M} = k[x_1,\ldots,x_2]$. In particular, since $\mathfrak{M}$ is maximal, $\mathfrak{M}$ does not contain $I(X)$; else, 
+$k[x_1,\ldots,x_2] = I(X) + \mathfrak{M} = \mathfrak{M}$. But, $I(X) \subset \phi^{-1}(\mathfrak{m})$, violating the fact that $\mathfrak{M}$ contains $\phi^{-1}(\mathfrak{m})$. Hence, we have
+that $\phi^{-1}(\mathfrak{m})$ is a maximal ideal of $k[x_1,\ldots,x_n]$.
+
+By our previous proof, we then have that $\phi^{-1}(\mathfrak{m}) = (x_1 - a_1, \ldots, x_n - a_n)$ for $a_i \in k$. Since $I(X) \subset \phi^{-1}(\mathfrak{m})$, we must have $a = (a_1,\ldots,a_n) \in X$. By
+the surjectivity of the projection map $\phi$, $\phi((x_1 - a_1, \ldots, x_n - a_n)) = \mathfrak{m}$. Since for any $f \in \phi((x_1 - a_1, \ldots, x_n - a_n))$, $f(a) = 0$, we have that $\mathfrak{m}_a \subset \mathfrak{m}$.
+By maximality, $\mathfrak{m} = \mathfrak{m}_a$, proving the surjectivity of $\mu$.
+\end{proof}
+
+\subsection{Exercise}\label{1.28} % 28
+
+Let $f_1, \ldots, f_m$ be elements of $k[x_1,\ldots,x_n]$. They determine a {\it polynomial mapping} $\phi : k^n \to k^m$; if $x \in k^n$, the cooordinates of $\phi(x)$ are $f_1(x),\ldots,f_m(x)$.
+Let $X$, $Y$ be affine algebraic varieties in $k^n$, $k^m$, respectively. A mapping $\phi : X \to Y$ is said to be {\it regular} if $\phi$ is the restriction to $X$ of a polynomial mapping from
+$k^n$ to $k^m$. If $\eta$ is a polynomial function on $Y$, then $\eta \circ \phi$ is a polynomial function on $X$. Hence $\phi$ induces a $k$-algebra homomorphism $P(Y) \to P(X)$, namely $\eta \mapsto \eta \circ \phi$.
+We will show that this yields a one-to-one correspondence between the regular mappings $X \to Y$ and the $k$-algebra homomorphisms $P(Y) \to P(X)$.
+
+\begin{proof}
+Let $\phi : X \to Y$ be a regular mapping. We'll start by showing that the $k$-homomorphism $\eta \mapsto \eta \circ \phi$ is unique to $\phi$. Suppose $\psi : X \to Y$ is a regular function and
+$\eta \circ \psi = \eta \circ \phi$ for all $\eta \in P(Y)$. Consider the coordinate functions $\xi_i \in P(Y)$. Then, $\xi_i \circ \psi = \xi_i \circ \phi$ for all $i$, so $\psi = \phi$.
+
+Now, consider an arbitrary $k$-algebra homomorphism $\theta: P(Y) \to P(X)$, or
+$$\theta: k[y_1,\ldots,y_m]/I(Y) \to k[x_1,\ldots,x_n]/I(X).$$
+Since $\xi_i$ generate $P(Y)$ as a $k$-algebra, $\theta$ is defined entirely by $\theta(\xi_i)$. Define $\theta_1$ to be the map
+$$\theta_1: k[y_1,\ldots,y_m] \to k[x_1,\ldots,x_n]/I(X)$$
+that sends $y_i \mapsto \theta(\xi_i)$. Then, $\theta_1$ is a $k$-algebra homomorphism. Likewise, there are $\Xi_i$ that generate $P(X)$. Hence, 
+$\theta_1(y_i) = \sum_{\alpha \in I_i}c_{i,\alpha}\Xi^{\alpha}$ for $c_{i,\alpha} \in k$. Then, we can define $\psi$ to be the unique $k$-algebra homomorphism
+$$\psi : k[y_1,\ldots,y_m] \to k[x_1,\ldots,x_n]$$
+defined by $\psi(y_i) = \sum_{\alpha \in I_i}c_{i,\alpha}x^{\alpha}$. Then, if the canonical projection maps defining the varieties are $\pi_Y:k[y_1,\ldots,y_m] \to k[y_1,\ldots,y_m] /I(Y)$ and 
+$\pi_X : k[x_1,\ldots,x_n] \to k[x_1,\ldots,x_n]/I(X)$, we have $\pi_X \circ \psi = \theta \circ \pi_Y$ by our definition of $\psi$. In particular, $\pi_X(\psi(I(Y))) = \theta(0) = 0$, so $\psi : I(Y) \to I(X)$. 
+
+For each $y_i$, $\psi(y_i)$ is a polynomial of $k[x_1,\ldots,x_n]$. Hence, $(\psi(y_1)(x),\ldots,\psi(y_m)(x))$ defines a map $k[x_1,\ldots,x_n] \to k[y_1,\ldots,y_m]$. Since
+$\psi : I(Y) \to I(X)$, this defines a map $X \to Y$. This is regular as it is the restriction of a $k$-homomorphism $k[x_1,\ldots,x_n] \to k[y_1,\ldots,y_m]$.
+
+The regular functions $X \to Y$ are one-to-one with the $k$-homomorphisms $P(Y) \to P(X)$.
+\end{proof}
