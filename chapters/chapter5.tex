@@ -81,15 +81,86 @@ we obtain
 $$0 = 1 + \frac{g_{n-1}(-1)}{h_{n-1}(-1)}(-1+1)^1 + \cdots + \frac{g_{1}(-1)}{h_{1}(-1)} (-1+1)^{n-1} + \frac{g_{0}(-1)}{h_{0}(-1)} (-1+1)^n,$$
 implying that $0 = 1$, a clear contradiction. Thus, $\frac{1}{x+1} \in B_{\mathfrak{n}}$ is not integral over $A_{\mathfrak{m}}$.
 
-\subsection{Exercise}\label{5.5}
+\subsection{Exercise - Complete}\label{5.5}
 
+\begin{proof}[(i) Proof.]
+Since $x \in A$ is a unit in $B$, there is some $b \in B$ such that $xb = 1$. $B$ is integral over $A$, so there is some polynomial of
+minimal degree $n > 0$ such that 
+$$b^n + a_{n-1}b^{n-1} + \cdots + a_1 b + a_0 = 0,$$
+where $a_i \in A$. Assume to the contrary that $n > 1$. Multiplying by $x$, we obtain
+$$(xb)b^{n-1} + a_{n-1} (xb) b^{n-2} + \cdots + a_1 (xb) + a_0 x = 0,$$
+but since $xb = 1$,
+$$b^{n-1} + a_{n-1} b^{n-2} + \cdots + a_2 b + (a_1 + a_0 x) = 0.$$
+Since $x \in A$, $a_1 + a_0 x \in A$, so this is a monic polynomial of $b$ (since $n > 1$) with coefficients in $A$. Since we chose $n > 1$ 
+minimal, we clearly have a contradiction, so $n = 1$. In particular, $b$ satisfies a monic polynomial of the form $f(t) = t - a = 0$,
+where $a \in A$, so $b = a \in A$, as desired.
+\end{proof}
 
+\begin{proof}[(ii) Proof.]
+Let $\mathfrak{R}_B$ and $\mathfrak{R}_A$ be the Jacobson radicals of $B$ and $A$ respectively. We wish to show that $A \cap \mathfrak{R}_B = \mathfrak{R}_A$.
+We will make use of Proposition 1.9, that $x \in \mathfrak{R} \iff 1 - xy$ is a unit in $R$ for all $y \in R$.
 
-\subsection{Exercise}\label{5.6}
+If $x \in \mathfrak{R}_B \cap A$, then $x \in A$ and $1 - xy$ is a unit in $B$ for all $y \in B$. Since $A \subset B$, $1 - xy$ is a unit in $B$
+for all $y \in A$. In this case, $1 - xy \in A$, so by (i), since $1 - xy$ is a unit in $B$, it is also a unit in $A$. Thus, $1 - xy$ is a unit
+in $A$ for all $y \in A$, so $x \in \mathfrak{R}_A$.
 
-\subsection{Exercise}\label{5.7}
+Conversely, suppose $x \not\in \mathfrak{R}_B \cap A$. If $x \not\in A$, then clearly $x \not\in \mathfrak{R}_A$, as desired. So, assume $x \in A$
+so that $x \not\in \mathfrak{R}_B$. As $\mathfrak{R}_B$ is the intersection of maximal ideals of $B$, there is some maximal ideal $\mathfrak{m}$ of
+$B$ such that $x \not\in \mathfrak{m}$. Since $\mathfrak{m}$ is prime, $\mathfrak{m}^c$ is also a prime ideal, so there is some maximal ideal 
+$\mathfrak{m}_A$ of $A$ such that $\mathfrak{m}_A \supset \mathfrak{m}_B^c$. By Theorem 5.11 (``Going-Up''), there is a prime ideal $\mathfrak{q}$ such that
+$\mathfrak{q} \supset \mathfrak{m}$ and $\mathfrak{q} \cap A = \mathfrak{m}_A$. Since $\mathfrak{m}$ is maximal, $\mathfrak{q} = \mathfrak{m}$, so 
+$\mathfrak{m}_A = \mathfrak{m}^c$. Thus, $\mathfrak{m}^c$ is maximal. Because $\mathfrak{m}^c = A \cap \mathfrak{m}$, $x \not\in \mathfrak{m}$
+implies $x \not\in \mathfrak{m}^c$. Then, since $\mathfrak{m}^c$ is maximal, $x \not\in \mathfrak{R}_A$.
+\end{proof}
+
+\subsection{Exercise - Complete}\label{5.6}
+
+\begin{proof}
+Since each $B_i$ is an integral $A$-algebra, each $B_i$ is integral over $f_i(A)$. Clearly, $f = (f_1,\ldots,f_n)$ makes $B := \prod_{i=1}^n B_i$ into
+an $A$-algebra. So, we must show that $B$ is integral over $(\prod_{i=1}^n f_i)(A) = f(A)$. Let $b \in B$, and let $b_i$ be the component in $B_i$ under the
+canonical projection map. Since $b_i$ is integral over $A$, $b_i$ satisfies some monic polynomial
+$$b_i^m + f_i(a_{m-1})b_i^{m-1} + \cdots + f_i(a_1)b_i + f_i(a_0).$$
+We can then define a polynomial $g_i(x)$ on $f(A)[x]$ as
+$$g_i(x) = x^m + f(a_{m-1})x^{m-1} + \cdots + f(a_1)x + f(a_0).$$
+If $\pi_i : B \to B_i$ is the canonical projection map,
+$$\pi_i(g_i(b)) = \pi_i(b^m + f(a_{m-1})b^{m-1} + \cdots + f(a_0)) = b_i^m + f_i(a_{m-1})b_i^{m-1} + \cdots + f_i(a_0) = 0.$$
+Thus, for each $i$, we have some monic polynomial $g_i \in f(A)[x]$ such that $\pi_i(g_i(b)) = 0$. Let $g = g_1 \cdots g_n \in f(A)[x]$; note that $g$
+is monic since each factor is monic. Then, for all $i$,
+$$\pi_i(g(b)) = \pi_i(g_1(b)) \cdots \pi_i(g_i(b)) \cdots \pi_i(g_n(b)) = \pi_i(g_1(b)) \cdots 0 \cdots \pi_i(g_n(b)) = 0,$$
+so $g(b) = 0$. Hence, $b$ is integral over $f(A)$, so $B$ is an integral $A$-algebra.
+\end{proof}
+
+\subsection{Exercise - Complete}\label{5.7}
+
+\begin{proof}
+Suppose that $b \in B-A$ is integral over $A$. Then, it satisfies a monic polynomial in $A[x]$, so let's choose a monic polynomial of minimal degree $n > 0$
+such that
+$$b^n + a_{n-1}b^{n-1} + \cdots + a_1 b + a_0 = 0.$$
+Since $b \not\in A$ by assumption, $n > 1$ since if $b + a_0 = 0$, $b = -a_0 \in A$. Rearranging terms, we have
+$$b(b^{n-1} + a_{n-1}b^{n-2} + \cdots + a_1) = - a_0 \in A$$
+Since $b \in B - A$ and $B - A$ is multiplicatively closed, we must have $b^{n-1} + a_{n-1}b^{n-2} + \cdots + a_1 \in A$; otherwise, both factors are in
+$B-A$, so $-a_0 \in B-A$, a contradiction. In particular, we have that $b^{n-1} + a_{n-1}b^{n-2} + \cdots + a_1 = a \in A$, so
+$$b^{n-1} + a_{n-1}b^{n-2} + \cdots + a_2 b + (a_1 - a) = 0,$$
+where $a_1 - a \in A$. This violates the minimality of $n$, so $b \in B-A$ cannot be integral. Thus, $A$ is integrally closed in $B$.
+\end{proof}
 
 \subsection{Exercise}\label{5.8}
+
+\begin{proof}[(i) Proof.]
+Let $f,g \in B[x]$ be monic polynomials such that $fg \in C[x]$. Since $C$ is the integral closure of $A$ in $B$, $C$ is integrally closed in $B$ 
+(Corollary 5.5). Since $B$ is an integral domain, it is a subring of its field of fractions, $K$ (Exercise \ref{3.9}). Thus, $C \subset B \subset K$,
+so $fg \in K[x]$. Let $L$ be the splitting field of $fg$ over $K$; since $K \subset L$, $fg \in L[x]$ and splits into linear factors over $L[x]$. Thus,
+$f(x) = \prod_{i=1}^n(x - \xi_i) \in L[x]$ and $g(x) = \prod_{j=1}^m(x - \eta_j) \in L[x]$. Since $\{\xi_i,\eta_j\}_{i,j}$ are roots of the polynomial
+$fg \in C[x]$, then $\{\xi_i, \eta_j\}_{i,j} \subset L$ are all integral over $C$.
+
+Let $E$ be the integral closure of $C$ in $L$. Then, $\{\xi_i, \eta_j\}_{i,j} \subset E$. Since $E$ is a subring of $L$ (Corollary 5.3), the coefficients of
+$f(x) = \prod_{i=1}^n(x - \xi_i)$ and $g(x) = \prod_{j=1}^m(x - \eta_j)$ are all in $E$. Thus, $f(x),g(x) \in B[x] \cap E[x]$ ($B$ and $E$ viewed as 
+subrings of $L$). Since $C$ is integrally closed in $B$, $C = B \cap E$, so $B[x] \cap E[x] = C[x]$. As desired, $f(x),g(x) \in C[x]$.
+\end{proof}
+
+\begin{proof}[(ii) Proof.]
+
+\end{proof}
 
 \subsection{Exercise}\label{5.9}
 
