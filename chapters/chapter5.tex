@@ -144,7 +144,7 @@ $$b^{n-1} + a_{n-1}b^{n-2} + \cdots + a_2 b + (a_1 - a) = 0,$$
 where $a_1 - a \in A$. This violates the minimality of $n$, so $b \in B-A$ cannot be integral. Thus, $A$ is integrally closed in $B$.
 \end{proof}
 
-\subsection{Exercise}\label{5.8}
+\subsection{Exercise - Complete}\label{5.8}
 
 \begin{proof}[(i) Proof.]
 Let $f,g \in B[x]$ be monic polynomials such that $fg \in C[x]$. Since $C$ is the integral closure of $A$ in $B$, $C$ is integrally closed in $B$ 
@@ -159,22 +159,190 @@ subrings of $L$). Since $C$ is integrally closed in $B$, $C = B \cap E$, so $B[x
 \end{proof}
 
 \begin{proof}[(ii) Proof.]
+Let $f,g \in B[x]$ be monic polynomials such that $fg \in C[x]$.
 
+First, we will show that there is a ring $B'$ containing $B$ such that $f$ and $g$ split into linear factors. Let $\deg(f) = n$. Let's extend $B$
+by first creating the ring $D = B[x]/(f(x))$. In $D$, $f$ has the root $\overline{x}$, which we will call $\alpha$. Now, consider the canonical map
+$D[y] \to D[y]/(y - \alpha)$. Since $B \subset D$, $f \in D[y]$. Note that $f(y) \mapsto \overline{f(y)} = \overline{f(\alpha)} = 0$, so 
+$f(y) \in (y - \alpha)$. Thus, there is some polynomial $f_1 \in D[y]$ such that $f(y) = f_1(y)(y - \alpha)$. Suppose $b y^m$ is the term of highest
+degree of $f_1(y)$. Then, the term of highest degree of the right-hand product is $b y^{m+1}$. The term of highest degree on the left-hand side is $y^n$,
+so $m = n-1$ and $b = 1$. Thus, $f_1$ is a monic polynomial of degree $n - 1$. Repeating this process finitely, we obtain a ring $D'$ containing $B$ such
+that $f(x)$ splits into linear factors in $D[x]$. Repeat the process again for $g$, starting with the ring $D$. Then, we obtain a ring $B'$ containing $B$
+such that $f$ and $g$ both split into linear factors in $B'[x]$.
+
+In particular, $f(x) = \prod_{i=1}^n(x - \xi_i) \in B'[x]$ and $g(x) = \prod_{j=1}^m(x - \eta_j) \in B'[x]$. Note that $\{\xi_i,\eta_j\}_{i,j}$ are all
+roots of $fg$ in $B'$, so each of these elements is a member of the integral closure $C'$ of $C$ in $B'$. Since $C'$ is a subring of $B'$ (Corollary 5.3),
+the coefficients of the expansion of $f$ and $g$ are also in $C'$. Recall that by assumption the coefficients of $f$ and $g$ are in $B$. Thus, the coefficients
+are in $B$ and are integral over $C$. However, $C$ is integrally closed in $B$, so the coefficients of $f$ and $g$ are in $C$. Thus, $f,g \in C[x]$.
 \end{proof}
 
-\subsection{Exercise}\label{5.9}
+\begin{remark}
+Note that we've already shown $x,y \in C$ implies $xy \in C$ and $x + y \in C$. Here, we obtain a converse. Consider the polynomial $(t - x)(t - y) \in C[t]$
+since $xy, x+y \in C$. By this result, $t-x,t-y \in C[t]$, so $x,y \in C$.
+\end{remark}
 
-\subsection{Exercise}\label{5.10}
+\subsection{Exercise - Complete}\label{5.9}
 
-\subsection{Exercise}\label{5.11}
+\begin{proof}
+Suppose $f \in B[x]$ is integral over $A[x]$ so that
+$$f^n + g_{n-1} f^{n-1} + \cdots + g_0 = 0,$$
+where $g_i \in A[x]$. Choose $r > \max\{n,\deg(g_i)\}_i$, and let $p = f - x^r$. Then,
+$$(p + x^r)^n + g_{n-1} (p + x^r)^{n-1} + \cdots + g_0 = 0.$$
+After expanding, we obtain a polynomial in $p$:
+$$p^n + h_{n-1} p^{n-1} + \cdots + h_0 = 0,$$
+where $h_0(x) = (x^r)^n + g_{n-1}(x^r)^{n-1} + \cdots + g_0 \in A[x]$ (since $g_i \in A[x]$ for all $i$ by assumption). Since
+$p^n + h_{n-1} p^{n-1} + \cdots + h_1 p^1 = - h_0 \in A[x] \subset C[x]$, we have
+$$p^n + h_{n-1} p^{n-1} + \cdots + h_1 p^1 = p(p^{n-1} + h_{n-1} p^{n-2} + \cdots + h_1) \in C[x].$$
+By Exericse \ref{5.8}, $p \in C[x]$. Since $x^r \in C[x]$ and $f = p + x^r$, $f \in C[x]$. Thus, the integral closure of $A[x]$ in 
+$B[x]$ is contained in $C[x]$.
 
-\subsection{Exercise}\label{5.12}
+Conversely, to show that any element of $C[x]$ is integral over $A[x]$, it is enough to consider monomials in $C[x]$ since any element
+of $C[x]$ is a sum of monomials (and the integral closure of $A[x]$ in $B[x]$ forms a ring). The monomials of $C[x]$ have the form $c x^n$, 
+where $c \in C$ and $n \ge 0$. Note that $c$ is integral over $A[x]$ since it is integral over $A$ via the definition of $C$. Further, $x^n$ 
+is integral over $A[x]$ since $x^n \in A[x]$. Thus, the product $cx^n$ is integral since the integral elements of $B[x]$ over $A[x]$ form a 
+ring. Thus, $C[x]$ is the integral closure of $A[x]$ in $B[x]$.
+\end{proof}
 
-\subsection{Exercise}\label{5.13}
+\subsection{Exercise - Complete}\label{5.10}
 
-\subsection{Exercise}\label{5.14}
+\begin{proof}[(i) Proof.]
+$(a) \implies (b)$. By induction, it is sufficient to prove the going-up property with primes $\mathfrak{p}_1 \subset \mathfrak{p}_2$ of $f(A)$
+and the prime $\mathfrak{q}_1 = \mathfrak{p}_1 \cap f(A)$ of $B$. Since $f^*$ is closed, we know by Exercise \ref{1.21} that $f^*(V(\mathfrak{q}_1)) 
+= \overline{f^*(V(\mathfrak{q}_1))} = V(\mathfrak{q}_1^c) = V(\mathfrak{p}_1)$. Hence, $\mathfrak{p}_2 \in V(\mathfrak{p}_1)$, so there is some
+$\mathfrak{q}_2 \in V(\mathfrak{q}_1)$ such that $\mathfrak{q}_2^c = f^*(\mathfrak{q}_2) = \mathfrak{p}_2$. Thus, $\mathfrak{q}_2 \supset \mathfrak{q}_1$ 
+and $\mathfrak{p}_2 = \mathfrak{q}_2^c = \mathfrak{q}_2 \cap f(A)$, as desired.
+
+$(b) \implies (c)$. Now, suppose $f$ has the going-up property; let $\mathfrak{q}$ be a prime ideal of $B$ and let $\mathfrak{p} = \mathfrak{q}^c$. By 
+Exercise \ref{3.21}, the map $f^* : \Spec(B/\mathfrak{q}) \to \Spec(A/\mathfrak{p})$ is equivalent to the map $f^* : \Spec(B) \to \Spec(A)$ restricted to
+$f^* : V(\mathfrak{q}) \to V(\mathfrak{p})$. Thus, to show surjectivity, we just have to show that $\mathfrak{p}' \supset \mathfrak{p}$ implies that
+there is some $\mathfrak{q}' \supset \mathfrak{q}$ such that $\mathfrak{p}' = f^*(\mathfrak{q}') = \mathfrak{q}'^c$. But this is exactly the
+going-up property, so $f^*$ is indeed surjective.
+
+$(c) \implies (b)$. Conversely, to show the going-up property, it's sufficient (by induction) to prove it for primes $\mathfrak{p}' \supset \mathfrak{p}$
+of $A$ and $\mathfrak{q}$ of $B$ such that $\mathfrak{p} = \mathfrak{q}^c$. Since we're assuming $f^* : \Spec(B/\mathfrak{q}) \to \Spec(A/\mathfrak{p})$
+is surjective, we have $f^*(V(\mathfrak{q})) = V(\mathfrak{p})$ by Exercise \ref{3.21}. Since $\mathfrak{p}' \in V(\mathfrak{p})$, there is some 
+$\mathfrak{q}' \in V(\mathfrak{q})$ such that $\mathfrak{q}'^c = f^*(\mathfrak{q}) = \mathfrak{p}'$, so the going-up property holds.
+\end{proof}
+
+\begin{proof}[(ii) Proof.]
+$(a') \implies (c')$. Let $\mathfrak{q} \in \Spec(B)$, and let $\mathfrak{q}^c = \mathfrak{p} \in \Spec(A)$. Note that $B_{\mathfrak{q}}$ is the
+direct limit of $B_t$ as $t$ ranges over $B - \mathfrak{q}$. Thus, by Exercise \ref{3.26}, we have
+$$f^*(\Spec(B_{\mathfrak{q}})) = \bigcap_t f^*(\Spec(B_t)) = \bigcap_t f^*(Y_t),$$
+where $Y_t$ are open neighborhoods of $\Spec(B)$. Since $f^*$ is an open mapping, $f^*(Y_t)$ are open neighborhoods of $\mathfrak{p}$ in $\Spec(A)$,
+so they each contain $\Spec(A_{\mathfrak{p}})$. Thus, $f^* : \Spec(B_{\mathfrak{q}}) \to \Spec(A_{\mathfrak{p}})$ is surjective.
+
+$(c') \implies (b')$. By a simple inductive argument, it is enough to show the going-down property for primes $\mathfrak{p}' \subset \mathfrak{p}$ 
+of $A$ and for $\mathfrak{q} \in \Spec(B)$ such that $\mathfrak{p} = \mathfrak{q}^c$. Note that both $\overline{\mathfrak{p}}',\overline{\mathfrak{p}}$ are in 
+$\Spec(A_{\mathfrak{p}})$ by Proposition 3.11. Also, $\overline{\mathfrak{q}} \in \Spec(B_{\mathfrak{q}})$. Since $f^* : \Spec(B_{\mathfrak{q}}) \to \Spec(A_{\mathfrak{p}})$
+is surjective, there is some $\overline{\mathfrak{q}}' \in \Spec(B_{\mathfrak{q}})$ such that $f^*(\overline{\mathfrak{q}}') = \overline{\mathfrak{p}}'$. Again
+by Proposition 3.11, there is some $\mathfrak{q}' \in \Spec(B)$ with projection $\overline{\mathfrak{q}}'$. By the same proposition, $\mathfrak{q}'$ does not meet $B - \mathfrak{q}$,
+so $\mathfrak{q}' \subset \mathfrak{q}$. Since
+\begin{center}
+\begin{tikzcd}
+\Spec(B) \arrow[d] \arrow[r] & \Spec(A) \arrow[d] \\
+\Spec(B_{\mathfrak{q}}) \arrow[r] & \Spec(A_{\mathfrak{p}})
+\end{tikzcd}
+\end{center}
+is commutative and $\mathfrak{q}' \mapsto \overline{\mathfrak{p}}'$, $f^*(\mathfrak{q}') \in \Spec(A)$ must be precisely $\mathfrak{p}'$ via Proposition 3.11. Thus, the going-down
+property holds.
+
+$(b') \implies (c')$. Let $\mathfrak{q}$ be an ideal of $B$, and let $\mathfrak{p} = \mathfrak{q}^c \in \Spec(A)$. Now, consider $f^* : \Spec(B_{\mathfrak{q}})
+\to \Spec(A_{\mathfrak{p}})$. Select some arbitrary $\overline{\mathfrak{p}}' \in \Spec(A_{\mathfrak{p}})$. By Proposition 3.11, there exists some prime ideal $\mathfrak{p}'$
+of $A$ that maps to $\overline{\mathfrak{p}}'$, justifying the notation. Again by Proposition 3.11, $\mathfrak{p}'$ does not meet $A - \mathfrak{p}$, so 
+$\mathfrak{p}' \subset \mathfrak{p}$. By the going-down property, there is some $\mathfrak{q}' \subset \mathfrak{q}$ such that $\mathfrak{p}' = \mathfrak{q}'^c$. By the
+same commutative diagram from the previous paragraph, $f^*(\overline{\mathfrak{q}}') = \overline{\mathfrak{p}}'$, so $f^*$ is surjective.
+\end{proof}
+
+\subsection{Exercise - Complete}\label{5.11}
+
+\begin{proof}
+Since $f : A \to B$ is a flat homomorphism of rings, Exercise \ref{3.18} gives us the surjectivity of $\Spec(B_{\mathfrak{q}}) \to \Spec(A_{\mathfrak{p}})$. 
+Then, by Exercise \ref{5.10}, $f$ has the going-down property.
+\end{proof}
+
+\subsection{Exercise - Complete}\label{5.12}
+
+\begin{proof}
+Note that we can extend the automorphism group $G$ of $A$ to $A[x]$ by defining $\sigma(x) = x$. Then clearly, $(A[x])^G = A^G[x]$ since for
+an arbitary element of $A[x]$, we have
+$$\sigma\left(a_n x^n + \cdots + a_1 x + a_0\right) = \sigma(a_n) x^n + \cdots + \sigma(a_1) x + \sigma(a_0).$$
+For $a \in A$, consider the element $p_a(x) = \prod_{\sigma \in G}(x - \sigma(a))$. Since at least one linear term is $(x - a)$ ($G$ is a group, 
+so it contains the trivial automorphism), $p_a(a) = 0$. Note that for any $\tau \in G$,
+$$\tau(p_a(x)) = \tau\left(\prod_{\sigma \in G}(x - \sigma(a))\right) = \prod_{\sigma \in G}\tau(x - \sigma(a))
+= \prod_{\sigma \in G}(x - (\tau\sigma)(a)) = \prod_{\sigma \in G}\tau(x - \sigma(a)) = p_a(x),$$
+so $p_a(x) \in (A[x])^G = A^G[x]$. Lastly, $p_a(x)$ is clearly monic, so $a$ is integral over $A^G$; hence, $A$ is integral over $A^G$.
+\end{proof}
+
+\begin{proof}
+Let $S$ be a multiplicatively closed subset of $A$ such that $\sigma(S) \subset S$ for all $\sigma \in G$, and let $S^G = S \cap A^G$. We wish to
+show that the action of $G$ on $A$ extends to an action on $S^{-1}A$. Since $S \subset A$, the obvious definition will be thus: for arbitrary 
+$a/s \in S^{-1}A$, where $a \in A$ and $s \in S$, $\sigma(a/s) := \sigma(a)/\sigma(s)$. Since $\sigma(S) \subset S$, this action is closed. Now, we must
+show that $\sigma$ is a ring homomorphism for all $\sigma \in G$. Note that $\sigma(1) = \sigma(1/1) = \sigma(1)/\sigma(1) = 1/1 = 1$, and 
+$\sigma(0) = \sigma(0/1) = \sigma(0)/\sigma(1) = 0/1 = 0$. If $a/s, a'/s' \in S^{-1}A$, then
+$$\sigma\left(\frac{a}{s}\frac{a'}{s'}\right) = \sigma\left(\frac{a a'}{s s'}\right) = \frac{\sigma(a a')}{\sigma(s s')}
+= \frac{\sigma(a)\sigma(a')}{\sigma(s)\sigma(s')} = \frac{\sigma(a)}{\sigma(s)}\frac{\sigma(a')}{\sigma(s')}
+= \sigma\left(\frac{a}{s}\right)\sigma\left(\frac{a'}{s'}\right)$$
+and
+$$\sigma\left(\frac{a}{s} + \frac{a'}{s'}\right) = \sigma\left(\frac{a s' + a' s}{s s'}\right)
+= \frac{\sigma(a s' + a' s)}{\sigma(s s')} = \frac{\sigma(a) \sigma(s') + \sigma(a')\sigma(s)}{\sigma(s)\sigma(s')}$$
+$$= \frac{\sigma(a)}{\sigma(s)} + \frac{\sigma(a')}{\sigma(s')} = \sigma\left(\frac{a}{s}\right) + \sigma\left(\frac{a'}{s'}\right),$$
+so indeed the elements of $G$ are ring homomorphisms of $S^{-1}A$ onto itself. Compatibility is also easy to show:
+$$\sigma\left(\tau\left(\frac{a}{s}\right)\right) = \sigma\left(\frac{\tau(a)}{\tau(s)}\right)
+= \frac{\sigma(\tau(a))}{\sigma(\tau(s))} = \frac{(\sigma\tau)(a)}{(\sigma\tau)(s)} = (\sigma\tau)\left(\frac{a}{s}\right).$$
+Thus, $G$ is a group of ring homomorphisms on $S^{-1}A$. Since $G$ is a group, all elements are invertible, so the elements are actually
+ring automorphisms.
+\end{proof}
+
+\begin{proof}
+Finally, we wish to show that $(S^G)^{-1}A^G \cong (S^{-1}A)^G$. For any $a \in A^G$, $\sigma(a/1) = \sigma(a)/1 = a/1$, so the sequence of
+canonical maps $A^G \to A \to S^{-1}A$ factors as $A^G \to (S^{-1}A)^G \to S^{-1}A$. If $s \in S^G \subset S$, then $s$ becomes a unit in 
+$S^{-1}A$, so it is a unit in $(S^{-1}A)^G$ since $1/s$ is $G$-fixed (as $s$ is). In particular, we can invoke the universal property of
+localizations (Proposition 3.1) to obtain a unique homomorphism $\psi : (S^G)^{-1}A^G \to (S^{-1}A)^G$ that takes $a/s \mapsto a/s$.
+
+To show that $\psi$ is bijective, we start by showing it is injective. Suppose $a \in A^G, s \in S^G$, and $\psi(a/s) = 0$. Then, $a/s = 0/1$ in 
+$(S^{-1}A)^G$, so there is some $t \in S$ such that $ta = 0$. Since $S$ is $G$-stable and multiplicatively closed, and since $G$ is finite, 
+$t' = \prod_{\sigma \in G}\sigma(t) \in S^G$, and $t'a = 0$. Since $t' \in S^G$, we have in $(S^G)^{-1}A^G$ that $a/s = (at')/(st') = 0/(st') = 0$,
+so $\psi$ is injective.
+
+To show surjectivity, suppose $a/s \in (S^{-1}A)^G$. Let $s' = \prod_{\sigma \in G : \sigma \neq \id} \sigma(s)$ so that $ss' = \prod_{\sigma \in G} \sigma(s)$.
+By assumption, $a/s$ is $G$-fixed, and clearly, $ss'/1$ is fixed since the action of $G$ on the product $ss'$ simply permutes the factors. Thus, their product,
+$(a/s)(ss'/1) = (as')/1$ is $G$-fixed. Thus, for all $\sigma \in G$, $as'/1 = \sigma(as'/1) = \sigma(as')/1$, so there is some $t_{\sigma} \in S$ such that
+$t_{\sigma}(as' - \sigma(as')) = 0$. Let $t = \prod_{\tau \in G}\tau\left(\prod_{\sigma \in G}t_{\sigma}\right) \in S^G$. Since $t_{\sigma}$ is a factor of $t$,
+we have $\sigma(t a s') = t \sigma(a s') = t a s'$. Thus, $a/s = (t a s')/(t s' s)$, where $tas' \in A^G$, and $t s' s \in S^G$ since $t \in S^G$ and 
+$s' s \in S^G$. Thus, $\psi$ is surjective.
+\end{proof}
+
+\subsection{Exercise - Complete}\label{5.13}
+
+\begin{proof}
+Let $\mathfrak{p}_1,\mathfrak{p}_2 \in P$, the set of prime ideals of $A$ whose contraction in $A^G$ is $\mathfrak{p}$. Let $x \in \mathfrak{p}_1$.
+Then, $\prod_{\sigma \in G}\sigma(x) \in \mathfrak{p}_1 \cap A^G = \mathfrak{p} \subset \mathfrak{p}_2$ (note that the product is in $\mathfrak{p}_1$
+simply because it contains $x$). Since $\mathfrak{p}_2$ is prime, we see by induction that one of the factors of the product lies in $\mathfrak{p}_2$, 
+i.e. there is some $\sigma \in G$ such that $\sigma(x) \in \mathfrak{p}_2$. Thus, $\mathfrak{p}_1 \subset \bigcup_{\sigma \in G}\sigma(\mathfrak{p}_2)$. 
+Since each element of $G$ is a ring automorphism, $\sigma(\mathfrak{p}_2)$ is prime for all $\sigma \in G$. Since $G$ is finite, the right-hand side is 
+a finite union of prime ideals, so since it contains the prime ideal $\mathfrak{p}_1$, we have by Proposition 1.11, that there is some $\sigma \in G$ 
+such that $\mathfrak{p}_1 \subset \sigma(\mathfrak{p}_2)$. Note that 
+$$A^G \cap \sigma(\mathfrak{p}_2) = \sigma^{-1}(A^G \cap \sigma(\mathfrak{p}_2)) 
+= A^G \cap (\sigma^{-1}\sigma)(\mathfrak{p}_2) = A^G \cap \mathfrak{p}_2 = \mathfrak{p},$$
+so both $\mathfrak{p}_1$ and $\sigma(\mathfrak{p}_2)$ are primes having contraction $\mathfrak{p}$. Because $\mathfrak{p}_1 \subset \sigma(\mathfrak{p}_2)$, 
+we have by Corollary 5.9 that $\mathfrak{p}_1 = \sigma(\mathfrak{p}_2)$. Note that we used the integrality of $A$ over $A^G$ established in Exercise \ref{5.12}.
+Hence, $G$ acts transitively on $P$; in particular, $P$ is finite since $G$ is finite.
+\end{proof}
+
+\subsection{Exercise - Complete}\label{5.14}
+
+\begin{proof}
+Let $\sigma \in G$, and let $b \in B$. $B$ is the integral closure of $A$ in $L$, so there is a monic polynomial $f \in A[x]$ such that
+$f(b) = 0$. Since $A \subset K$, $\sigma(A) = A$, so $0 = \sigma(f(b)) = f(\sigma(b))$. Thus, $B \subset \sigma(B)$. Since we chose $\sigma$
+arbitrarily, we also have $B \subset \sigma^{-1}(B)$, so $\sigma(B) \subset \sigma(\sigma^{-1}B) = B$; thus, $B = \sigma(B)$.
+
+Since $L/K$ is a finite, separable, normal extension, we have by elementary Galois theory that $L^G = K$. Thus, $B^G = L^G \cap B = K \cap B = A$
+since $A$ is integrally closed in $K$ and $B$ is the ring of integral elements of $L$ over $A$.
+\end{proof}
 
 \subsection{Exercise}\label{5.15}
+
+
 
 \subsection{Exercise}\label{5.16}
 
