@@ -432,15 +432,85 @@ we have by Exercise \ref{5.2} that $\theta_a$ can be extended to a $k$-algebra h
 from $P(X)$ to $k$ corresponds to a point $b \in X$ such that $\psi(b) = a$ (Exercise \ref{1.28}). Thus, $\psi$ is surjective.
 \end{proof}
 
-\subsection{Exercise}\label{5.17}
+\subsection{Exercise - Complete}\label{5.17}
 
+\begin{proof}
+Since $I(X) \neq (1)$, the coordinate ring $P(X) = k[t_1,\ldots,t_n]/I(X) \neq 0$. By Exercise \ref{5.16}, there is a linear subspace $L$ of
+dimension $r \ge 0$ and a $k$-linear map such that $X \to L$ is surjective. Hence, $X$ is non-empty since $L$ is non-empty. 
+\end{proof}
 
+\begin{remark}
+This fact, that an affine algebraic variety $X$ over an algebraically closed field $k$ is non-empty if $I(X) \neq (1)$, is a weak form of the
+Nullstellensatz.
+\end{remark}
 
-\subsection{Exercise}\label{5.18}
+Every maximal ideal of $k[t_1,\ldots,t_n]$ has the form $(t_1 - a_1, \ldots, t_n - a_n)$ for some $a \in k^n$.
 
-\subsection{Exercise}\label{5.19}
+\begin{proof}
+Let $\mathfrak{m}$ be a maximal ideal of $k[t_1,\ldots,t_n]$. Note that $P := k[t_1,\ldots,t_n]/\mathfrak{m}$ is a finitely generated $k$-algebra,
+so by Exercise \ref{3.16}, there is some collection of algebraically indepedent $y_i \in P$ such that $P$ is integral over $k[y_1,\ldots,y_r]$. Note
+that since $\mathfrak{m}$ is maximal, $P$ is a field, so by Proposition 5.7, $k[y_1,\ldots,y_r]$ is a field so that $r = 0$; simply note that
+$y_1 \in k[y_1,\ldots,y_r]$ ($r > 0$) does not have an inverse. Thus, the composition
+of $k$-algebra homomorphisms $k \to k[t_1,\ldots,t_n] \to P$ is an isomorphism. In particular, $t_i \mapsto a_i$ for some $a_i \in k$ for each $i$. 
+The kernel of the map $k[t_1,\ldots,t_n] \to k[t_1,\ldots,t_n]/\mathfrak{m} \cong k$ is then $(t_1 - a_1, \ldots, t_n - a_n)$. But the kernel is also
+clearly $\mathfrak{m}$, so $\mathfrak{m} = (t_1 - a_1, \ldots, t_n - a_n)$, as desired.
+\end{proof}
+
+\subsection{Exercise - Complete}\label{5.18}
+
+\begin{proof}
+Let $B$ be a finitely generated $k$-algebra, where $k$ is a field. Assume $B$ is itself a field. Let $x_1,\ldots,x_n$ generate $B$ as a $k$-algebra.
+We will prove that $B$ is a finite algebraic extension of $k$ by induction. If $n = 1$, then $B = k[x_1]$. Since $B$ is a field, $x_1^{-1} \in B$, so we
+can write $x_1^{-1} = a_0 + a_1 x_1 \cdots + a_n x_1^n$, where $a_i \in k$ and $a_n \neq 0$. Then,
+$$a_n x_1^{n+1} + \cdots + a_1 x_1^2 + a_0 x_1 - 1 = 0,$$
+so $B = k[x_1]$ is a finite algebraic extension of $k$. This proves the base case.
+
+Now, assume $n > 1$ and the inductive hypothesis holds for $m < n$, and assume $B$ has $n$ generators $x_1,\ldots,x_n$ as a $k$-algebra. Let $A = k[x_1]$
+and $K = k(x_1)$, the field of fractions of $A$. $B$ is a finitely generated $K$-algebra with generators $x_2,\ldots,x_n$, so by the inductive hypothesis,
+$B$ is a finite algebraic extension of $K$. Thus, $x_2,\ldots,x_n$ each satisfy a monic polynomial equation with coefficients in $K$, i.e. coefficients of
+the form $a/b$, where $a,b \in A$. Let $f \in A$ be the product of all denominators over each monic polynomial. Then, $x_2,\ldots,x_n$ are integral over $A_f$,
+as these same monic polynomials map canonically to $A_f[x]$. Since $B$ is generated as a ring by $x_2,\ldots,x_n$, $B$ is integral over $A_f$. Since $K \subset B$,
+$K$ is also integral over $A_f$.
+
+If $x_1$ is algebraic over $k$, then $K$ is a finite algebraic extension of $k$. Since $B$ is a finite algebraic extension of $K$, $B$ is a finite algebraic extension
+of $k$ by transitivity, as desired. Then, the proof follows by induction. So, we only have to prove that $x_1$ is algebraic over $k$. Assume to the contrary that
+$x_1$ is transcendental over $k$. Then, $A = k[x_1]$ is a unique factorization domain, so $A$ is integrally closed. By Proposition 5.12, since $A_f$ has the same
+field of fractions $K$ as $A$, which is integrally closed, $A_f$ is itself integrally closed. But, we saw that $K$ is integral over $A_f$, so we must have $A_f = K$;
+thus, $k(x_1) = k[x_1]$, showing that $x_1^{-1} \in k[x_1]$. By our proof of the base case above, this shows that $x_1$ is algebraic over $k$, giving the desired
+contradiction.
+\end{proof}
+
+\begin{remark}
+This is known as ``Zariski's Lemma''.
+\end{remark}
+
+\subsection{Exercise - Complete}\label{5.19}
+
+First, we prove that all maximal ideals of $k[t_1,\ldots,t_n]$ are of the form $(t_1-a_1,\ldots,t_n-a_n)$, where $a \in k^n$.
+
+\begin{proof}
+Let $\mathfrak{m}$ be a maximal ideal of $k[t_1,\ldots,t_n]$ so that $B = k[t_1,\ldots,t_n] / \mathfrak{m}$ is both a field and a finitely
+generated $k$-algebra. By Exercise \ref{5.18}, $B$ is a finite algebraic extension of $k$, so since $k$ is algebraically closed, we have
+a $k$-algebra homomorphism $k[t_1,\ldots,t_n] \to k[t_1,\ldots,t_n]/\mathfrak{m} \xlongrightarrow{\sym} k$. Thus, for each $t_i$, we have
+$t_i \mapsto a_i \in k$, so the kernel of this map is $(t_1-a_1,\ldots,t_n-a_n)$. But also, the kernel is clearly $\mathfrak{m}$, so
+$\mathfrak{m} = (t_1-a_1,\ldots,t_n-a_n)$.
+\end{proof}
+
+We use this to show that if $X$ is an affine algebraic variety such that $I(X) \neq (1)$, then $X$ is non-empty.
+
+\begin{proof}
+If $I(X) \neq (1)$, then there is some maximal ideal $\mathfrak{m}$ of $k[t_1,\ldots,t_n]$ such that $\mathfrak{m} \supset I(X)$. We've just
+shown that all maximal ideals are of the form $(t_1 - a_1, \ldots, t_n - a_n)$ for some $a \in k^n$, so $\mathfrak{m} = \mathfrak{m}_a$. But,
+$\mathfrak{m}_a = I(\{a\})$, where the point $\{a\}$ is the affine algebraic variety associated to $\{t_i - a_i\}$. Since $I(\{a\}) \supset I(X)$,
+we have the natural $k$-algebra homomorphism $P(X) \xhookrightarrow{} P(\{a\})$. By Exercise \ref{1.27}, there is some regular function $f : \{a\} \to X$,
+so $X$ is non-empty as $f(a) \in X$.
+\end{proof}
 
 \subsection{Exercise}\label{5.20}
+
+\begin{proof}
+
+\end{proof}
 
 \subsection{Exercise}\label{5.21}
 
