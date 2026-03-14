@@ -340,13 +340,101 @@ Since $L/K$ is a finite, separable, normal extension, we have by elementary Galo
 since $A$ is integrally closed in $K$ and $B$ is the ring of integral elements of $L$ over $A$.
 \end{proof}
 
-\subsection{Exercise}\label{5.15}
+\subsection{Exercise - Complete}\label{5.15}
 
+\begin{proof}
+$A$ is an integrally closed domain, $K$ is its field of fractions, $L$ is a finite extension field of $K$, and $B$ is the integral
+closure of $A$ in $L$. Let $L_{sep}$ be the maximal separable subfield of $K$ in $L$, and let $C$ be the integral closure of $A$ in 
+$L_{sep}$. Note that $L/L_{sep}$ is purely inseparable, and $L_{sep}/K$ is separable. To show that the fibers of $\Spec(B) \to \Spec(A)$
+are finite, it is clearly sufficient to show that the fibers of $\Spec(B) \to \Spec(C)$ and $\Spec(C) \to \Spec(A)$ are each finite.
 
+Since $L_{sep}/K$ is a separable extension, we can embed $L_{sep}$ in a finite normal, separable extension $E$ of $K$. Let $G$ be the 
+Galois group of $E/K$, and let $D$ be the integral closure of $E$ in $A$ (note that $C \subset D$). By Exercise \ref{5.14}, $A = D^G$,
+so by Exercise \ref{5.13}, $\Spec(D) \to \Spec(D^G) = \Spec(A)$ has finite fibers. Since we can factor this as
+$\Spec(D) \to \Spec(C) \to \Spec(A)$, $\Spec(C) \to \Spec(A)$ has finite fibers.
 
-\subsection{Exercise}\label{5.16}
+Now, we must consider the purely inseparable extension $L/L_{sep}$. If the characteristic of $L_{sep}$ is $0$, $L_{sep} = L$ so that
+$C = B$. Clearly then, $\Spec(B) \to \Spec(C)$ has finite fibers. So, suppose the characteristic of
+$L_{sep}$ is $p > 0$. Let $\mathfrak{p} \in \Spec(C)$, and let $\mathfrak{q} \in \Spec(B)$ be such that $\mathfrak{q} \cap C = \mathfrak{p}$.
+In a finite purely inseparable extension, every $\ell \in L$ has a power $p^n$ ($n \ge 0$) such that $\ell^{p^n} \in L_{sep}$. Let 
+$\ell \in \mathfrak{q} \subset B \subset L$. Then, for some $n \ge 0$, $\ell^{p^n} \in L_{sep}$. Since $\ell$ is integral over $A$, 
+$\ell^{p^n}$ is integral over $A$ (integral elements form a subring), so $\ell^{p^n} \in B \cap L_{sep} = C$. But $\ell \in \mathfrak{q}$, so 
+$\ell^{p^n} \in \mathfrak{q} \cap C = \mathfrak{p}$. Since $\mathfrak{p}$ is prime, we have (by a simple inductive argument) that 
+$\ell \in \mathfrak{p}$. Thus, $\mathfrak{q} = \mathfrak{p}$, so the fibers of $\Spec(B) \to \Spec(C)$ are clearly finite.
+\end{proof}
+
+\subsection{Exercise - Complete}\label{5.16}
+
+Let $k$ be a field, and let $A \neq 0$ be a finitely generated $k$-algebra. Then there exist elements $y_1,\ldots,y_r \in A$ which are
+algebraically independent over $k$ and such that $A$ is integral over $k[y_1,\ldots,y_r]$. (We will assume that $k$ is infinite, even
+though it remains true when $k$ is finite).
+
+\begin{proof}
+$A$ is finitely generated, so let $x_1,\ldots,x_n$ generate $A$ as a $k$-algebra. We can renumber the $x_i$ so that $x_1,\ldots,x_r$
+are algebraically independent over $k$ and each of $x_{r+1},\ldots,x_n$ is algebraic over $k[x_1,\ldots,x_r]$. Now we proceed by induction
+on $n$. If $n = r$ there is nothing to do; this is the base case: $k[x_1,\ldots,x_r]$ is clearly integral over itself. So suppose $j > r$ 
+and assume the result is true for $j - 1$ generators, i.e. $k[z_1,\ldots,z_{j-1}]$ is integral over $k[y_1,\ldots,y_r]$ for generators 
+$z_1,\ldots,z_{j-1}$, where $y_1,\ldots,y_r$ are a collection of algebraically independent elements over $k$. The generator $x_j$ is algebraic 
+over $k[x_1,\ldots,x_{j-1}]$, so there is a non-zero polynomial $f \in k[x_1,\ldots,x_j]$ such that $f(x_1,\ldots,x_{j-1},x_j) = 0$. Let $F$ 
+be the homogeneous part of highest degree in $f$. Since $k$ is infinite, there exist $\lambda_1,\ldots,\lambda_{j-1} \in k$ such that 
+$F(\lambda_1,\ldots,\lambda_{j-1},1) \neq 0$. Let $x_i' = x_i - \lambda_i x_j$ so that $x_i = \lambda_i x_j + x_i'$.
+
+Now, we'll show that $x_j$ is integral over $k[x_1',\ldots,x_{j-1}']$. Let $a = F(\lambda_1,\ldots,\lambda_{j-1},1) \neq 0$.
+$$F(x_1,\ldots,x_{j-1},x_j) = F(\lambda_1 x_j + x_1',\ldots, \lambda_{j-1} x_j + x_{j-1}', x_j) \in k[x_1',\ldots,x_{j-1}'][x_j].$$
+Since $F \in k[x_1,\ldots,x_j]$ is homogeneous, it has some homogeneous degree $m > 0$. Since we replace the arguments $x_1,\ldots,x_j$
+with homogeneous polynomials of degree 1, the polynomial remains homogeneous of degree $m$. Collecting terms in $k[x_1',\ldots,x_{j-1}'][x_j]$,
+we have
+$$F(\lambda_1 x_j + x_1',\ldots, \lambda_{j-1} x_j + x_{j-1}', x_j) = F_0(x_1',\ldots,x_{j-1}') x_j^m + \cdots + F_m(x_1',\ldots,x_{j-1}'),$$
+where $F_i \in k[x_1',\ldots,x_{j-1}']$ is homogeneous of degree $i$. Finally, observe that the term of highest degree satisfies
+$$F_0 x_j^m = F(\lambda_1 x_j,\ldots, \lambda_{j-1} x_j, x_j) = F(\lambda_1, \ldots, \lambda_{j-1}, 1)x_j^m = ax_j^m \neq 0,$$
+as desired. Then, the term of highest degree in $x_j$ is $a^{-1}F(\lambda_1 x_j + x_1',\ldots, \lambda_{j-1} x_j + x_{j-1}', x_j)$ is $x_j^m$.
+
+Remember that $f(x_1,\ldots,x_{j-1},x_j) = 0$, so $a^{-1}f(x_1,\ldots,x_{j-1},x_j) = 0$. Then, 
+$0 = a^{-1}f(\lambda_1 x_j + x_1, \ldots, \lambda_{j-1}x_j + x_{j-1}', x_j) \in k[x_1',\ldots,x_{j-1}'][x_j]$. Finally, note that since we replaced
+arguments with degree 1 homogeneous polynomials, the highest degree terms are still $m$. As we just saw, the degree $m$ terms are 
+$a^{-1}F(\lambda_1 x_j + x_1',\ldots, \lambda_{j-1} x_j + x_{j-1}', x_j)$, so when we collect terms in $k[x_1',\ldots,x_{j-1}'][x_j]$,
+$a^{-1}f(x_1,\ldots,x_{j-1},x_j)$ is monic in $x_j$, so $x_j$ is integral over $k[x_1',\ldots,x_{j-1}']$. 
+
+In particular, $k[x_1,\ldots,x_j]$ is integral over $k[x_1',\ldots,x_{j-1}']$. By the inductive hypothesis, we have that 
+$k[x_1',\ldots,x_{j-1}']$ is integral over $k[y_1,\ldots,y_r]$. By the transitivity of integrality, $A$ is integral over $k[y_1,\ldots,y_r]$. 
+By induction, $A$ is integral over $k[y_1,\ldots,y_r]$ for algebraically independent elements $y_1,\ldots,y_r$.
+\end{proof}
+
+\begin{remark}
+This is ``Noether's Normalization Theorem''.
+\end{remark}
+
+There is a geometric interpretation if $k$ is algebraically closed: If $X$ is an affine algebraic variety in $k^n$ with coordinate ring
+$A \neq 0$, then there exists a linear subspace $L$ of dimension $r$ in $k^n$ and a linear mapping of $k^n$ onto $L$ which maps $X$ onto $L$.
+
+\begin{proof}
+The coordinate ring is given by $P(X) = k[t_1,\ldots,t_n]/I(X)$, which is clearly finitely generated as a $k$-algebra. Indeed, 
+$P(X) = k[x_1,\ldots,x_n]$, where $x_i$ is the coordinate function associated to $t_i$. By the previous proof, the collection of 
+$y_1, \ldots, y_r$ we constructed was a sequence of linear combinations of $x_1, \ldots, x_n$ and thus is itself a linear combination of 
+the $x_1, \ldots, x_n$; here, we use the fact that $k$ is infinite (it is algebraically closed).
+
+For each $i$ then, $y_i = \sum_{j=1}^n c_{ij} x_j$. Define $\varphi : k[y_1,\ldots,y_r] \to k[t_1,\ldots,t_n]$ to be the $k$-algebra homomorphism generated 
+by $\varphi(y_i) = \sum_{j=1}^n c_{ij} t_j$. Let $y_i' = \varphi(y_i)$. Since $\{y_i\}$ are algebraically independent, $\{y_i'\}$ are also algebraically 
+independent. Since $y_i'$ are each linear combinations of $\{t_j\}$, we can find and addend $y_{r+1}',\ldots,y_n' \in k[t_1,\ldots,t_n]$ to $\{y_i'\}_{i=1}^r$
+so that $k[t_1,\ldots,t_n] \cong k[y_1',\ldots,y_n']$ as $k$-algebras. 
+
+For every point $a = (a_1,\ldots,a_n) \in k^n$, we have a $k$-algebra homomorphism $\ell : k^n \to k^r$ given by $(y_1'(a),\ldots,y_r'(a))$. This is a $k$-linear
+map since each $y_i'$ is a $k$-linear combination of $t_j$, so $y_i'(a) = \sum_{j=1}^n c_{ij} a_j$. Let $L$ be the $r$-dimensional subvariety of $k^n$ defined by 
+$(y_{r+1}' = 0, \ldots, y_n' = 0)$. This is a linear subspace, as $y_i' = 0$ represents a linear equation in terms of $\{t_j\}$.
+
+Consider the canonical $k$-algebra homomorphism $\pi : k[y_1',\ldots,y_n'] \to k[y_1',\ldots,y_n']/I(X) \cong P(X)$. Note that 
+$k[y_1,\ldots,y_r] \cong k[y_1',\ldots,y_n']/(y_{r+1}' = 0,\ldots,y_n' = 0) = P(L)$, so $\tau : P(L) \xhookrightarrow{} P(X)$. 
+In light of Exercise \ref{1.28}, we obtain a regular map $\psi : X \to L$.
+
+Now, let $a = (a_1,\ldots,a_n) \in L$. Then, we have a $k$-algebra homomorphism $\theta_a : P(L) \to k$ defined by evaluating functions at $a$.
+Since $P(X) \cong k[x_1,\ldots,x_n]$ is integral over $P(L) \cong k[y_1,\ldots,y_r]$ by the previous result, and since $k$ is algebraically closed, 
+we have by Exercise \ref{5.2} that $\theta_a$ can be extended to a $k$-algebra homomorphism $\hat\theta_a : P(X) \to k$. A $k$-algebra homomorphism 
+from $P(X)$ to $k$ corresponds to a point $b \in X$ such that $\psi(b) = a$ (Exercise \ref{1.28}). Thus, $\psi$ is surjective.
+\end{proof}
 
 \subsection{Exercise}\label{5.17}
+
+
 
 \subsection{Exercise}\label{5.18}
 
