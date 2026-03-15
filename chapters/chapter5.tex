@@ -506,15 +506,53 @@ we have the natural $k$-algebra homomorphism $P(X) \xhookrightarrow{} P(\{a\})$.
 so $X$ is non-empty as $f(a) \in X$.
 \end{proof}
 
-\subsection{Exercise}\label{5.20}
+\subsection{Exercise - Complete}\label{5.20}
 
 \begin{proof}
+Let $S = A - \{0\}$, which is multiplicatively closed since $A$ is an integral domain. This gives the field of fractions $K = S^{-1}A$. Since $B$ is a ring
+that's finitely generated over $A$, $S^{-1}B$ is finitely generated over $S^{-1}A$ and is thus a finitely generated $K$-algebra. By Exercise \ref{5.16},
+there are elements $x_1,\ldots,x_n$ in $S^{-1}B$, algebraically independent over $K$ and such that $S^{-1}B$ is integral over $K[x_1, \ldots, x_n]$.
 
+Let $z_1,\ldots,z_m$ generate $B$ as an $A$-algebra. Then, for each $i$, $z_i = z_i/1 \in S^{-1}B$ is integral over $K[x_1,\ldots,x_n]$. Then, for each $i$,
+we have an equation of integral dependence: 
+$$z_i^k + f_{i,k-1} z_i^{k-1} + \cdots + f_{i,0} = 0,$$
+where $f_{i,j} \in K[x_1,\ldots,x_n]$ for each $j$. Each $f_{i,j}$ is the sum of finitely many monomials of the form $c_{ij,\nu}x_1^{\nu_1}\cdots x_n^{\nu_n}$, 
+where $c_{ij,\nu} \in K$, so $c_{ij,\nu} = a_{ij,\nu}/s_{ij,\nu}$, where $a_{ij,\nu} \in A[x_1,\ldots,x_n]$, $s_{ij,\nu} \in S$. Define $s_{ij} = \prod_{\nu}s_{ij,\nu}$. 
+$s_{ij} \in S$ since $\nu$ runs over the finitely many monomials that sum to $f_{i,j}$. Now, let $s_i = \prod_j s_{ij} \in S$. We have
+$$0 = s_i^k(z_i^k + f_{i,k-1} (z_i/1)^{k-1} + \cdots + f_{i,0}) = (s_i z_i)^k + s_i f_{i,k-1} (z_i s_i)^{k-1} + \cdots + f_{i,0}s_i^k.$$
+Since $s_i$ was defined to clear denominators, this is the image in $K[x_1,\ldots,x_n]$ of $(s_i z_i)^k + s_i f_{i,k-1} (z_i s_i)^{k-1} + \cdots + f_{i,0}s_i^k \in A[x_1,\ldots,x_n]$.
+Note that since $A[x_1,\ldots,x_n]$ is an integral domain, the map $A[x_1,\ldots,x_n] \to K[x_1,\ldots,x_n]$ is injective, so since it is $0$ in $K[x_1,\ldots,x_n]$, $s_i z_i$ is integral 
+over $A[x_1,\ldots,x_n]$ for each $i$. If $t = \prod_i s_i$, then $t z_i$ is integral over $A[x_1,\ldots,x_n]$ for each $i$; letting $t_i = \prod_{j \neq i} s_j$, $t z_i = t_i s_i z_i$,
+so since $t_i \in A$ and $s_i z$ is integral over $A[x_1,\ldots,x_n]$, $t z_i$ is integral over $A[x_1,\ldots,x_n]$ for each $i$.
+
+Now, for each $x_i$, note that $x_i \in S^{-1}B$, so $x_i = b_i/q_i$, where $b_i \in B$ and $q_i \in S$. Let $q = \prod_i q_i$, and let $s = tq$. Then, since $tz_i$
+is integral over $A[x_1,\ldots,x_n]$, $sz_i = qtz_i$ is integral over $A[x_1,\ldots,x_n]$. Further, since $s = q_i \cdot k_i$, where $k_i \in B$, we have
+$x_i = (b_i k_i)/(q_i k_i) = y_i / s$, where $y_i = b_i k_i \in B$. 
+
+Now, we confirm we have the desired $s$. Since $x_i$ are algebraically independent over $A$, $y_i = s x_i$ are algebraically independent over $A$. Let 
+$B' = A[y_1,\ldots,y_n]$. Then, $B_s' = A_s[y_1,\ldots,y_n] = A_s[x_1,\ldots,x_n]$ since $s$ is a unit in $A_s$ and $x_i = y_i / s$. Likewise, recall that
+$B$ is generated as an $A$-algebra by $z_1,\ldots,z_m$. Thus, $B_s$ is generated as an $A_s$-algebra by $z_1,\ldots,z_m$. Since $s z_i \in B$ is integral over 
+$A[x_1,\ldots,x_n]$, $s z_i \in B_s$ is integral over $A_s[x_1,\ldots,x_n] = B_s'$. Since $s$ is invertible and $s^{-1} \in A_s$, $z_i = s^{-1} (s z_i) \in B_s$
+is integral over $B_s'$. Since the elements that generate $B_s$ are integral over $B_s'$, $B_s$ is integral over $B_s'$.
 \end{proof}
 
-\subsection{Exercise}\label{5.21}
+\subsection{Exercise - Complete}\label{5.21}
+
+\begin{proof}
+$A$ is a subring of an integral domain $B$ such that $B$ is finitely generated over $A$.
+By Exercise \ref{5.20}, there exists some $s \neq 0$ and algebraically independent elements $y_1,\ldots,y_n$ over $A$ in $B$ such that
+$B_s$ is integral over $B_s'$, where $B' = A[y_1,\ldots,y_n]$. We're given a homomorphism $f : A \to \Omega$ such that $f(s) \neq 0$.
+
+Note that $f$ is easily extended to $B'$ by simply assigning $y_i \mapsto 0$; this is well-defined since the $y_i$ are algebraically independent. We
+then extend $f : B' \to \Omega$ to $f : B_s' \to \Omega$; an element of $B_s'$ has the form $b / s^k$, where $k \ge 0$ and $b \in B'$.
+Since $f(s) \neq 0$, $f(b / s^k) = f(b) / f(s)^k$. $B_s$ is integral over $B_s'$, so we can extend to $f : B_s \to \Omega$ by Exercise \ref{5.2}.
+Finally, since $B$ is an integral domain, $B$ injects into $B_s$, so we have a ring homomorphism $f : B \to \Omega$ that restricts to the 
+original $f : A \to \Omega$.
+\end{proof}
 
 \subsection{Exercise}\label{5.22}
+
+
 
 \subsection{Exercise}\label{5.23}
 
