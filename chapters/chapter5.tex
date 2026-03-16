@@ -517,9 +517,9 @@ Let $z_1,\ldots,z_m$ generate $B$ as an $A$-algebra. Then, for each $i$, $z_i = 
 we have an equation of integral dependence: 
 $$z_i^k + f_{i,k-1} z_i^{k-1} + \cdots + f_{i,0} = 0,$$
 where $f_{i,j} \in K[x_1,\ldots,x_n]$ for each $j$. Each $f_{i,j}$ is the sum of finitely many monomials of the form $c_{ij,\nu}x_1^{\nu_1}\cdots x_n^{\nu_n}$, 
-where $c_{ij,\nu} \in K$, so $c_{ij,\nu} = a_{ij,\nu}/s_{ij,\nu}$, where $a_{ij,\nu} \in A[x_1,\ldots,x_n]$, $s_{ij,\nu} \in S$. Define $s_{ij} = \prod_{\nu}s_{ij,\nu}$. 
+where $c_{ij,\nu} \in K$, so $c_{ij,\nu} = a_{ij,\nu}/s_{ij,\nu}$, where $a_{ij,\nu} \in A$, $s_{ij,\nu} \in S$. Define $s_{ij} = \prod_{\nu}s_{ij,\nu}$. 
 $s_{ij} \in S$ since $\nu$ runs over the finitely many monomials that sum to $f_{i,j}$. Now, let $s_i = \prod_j s_{ij} \in S$. We have
-$$0 = s_i^k(z_i^k + f_{i,k-1} (z_i/1)^{k-1} + \cdots + f_{i,0}) = (s_i z_i)^k + s_i f_{i,k-1} (z_i s_i)^{k-1} + \cdots + f_{i,0}s_i^k.$$
+$$0 = s_i^k(z_i^k + f_{i,k-1} z_i^{k-1} + \cdots + f_{i,0}) = (s_i z_i)^k + s_i f_{i,k-1} (z_i s_i)^{k-1} + \cdots + f_{i,0}s_i^k.$$
 Since $s_i$ was defined to clear denominators, this is the image in $K[x_1,\ldots,x_n]$ of $(s_i z_i)^k + s_i f_{i,k-1} (z_i s_i)^{k-1} + \cdots + f_{i,0}s_i^k \in A[x_1,\ldots,x_n]$.
 Note that since $A[x_1,\ldots,x_n]$ is an integral domain, the map $A[x_1,\ldots,x_n] \to K[x_1,\ldots,x_n]$ is injective, so since it is $0$ in $K[x_1,\ldots,x_n]$, $s_i z_i$ is integral 
 over $A[x_1,\ldots,x_n]$ for each $i$. If $t = \prod_i s_i$, then $t z_i$ is integral over $A[x_1,\ldots,x_n]$ for each $i$; letting $t_i = \prod_{j \neq i} s_j$, $t z_i = t_i s_i z_i$,
@@ -550,15 +550,144 @@ Finally, since $B$ is an integral domain, $B$ injects into $B_s$, so we have a r
 original $f : A \to \Omega$.
 \end{proof}
 
-\subsection{Exercise}\label{5.22}
+\subsection{Exercise - Complete}\label{5.22}
 
+\begin{proof}
+We have to show that for every non-zero $v \in B$, there is some maximal ideal of $B$ not containing $v$. Since $B$ is finitely generated over
+$A$ as a ring, $B_v$ is finitely generated over $A$ as a ring. Further, since $B$ is an integral domain, $B \xhookrightarrow{} B_v$, so we can
+view $A$ as a subring of $B_v$. By Exercise \ref{5.21}, there exists $s \neq 0$ in $A$ such that whenever $f : A \to \Omega$ is a homomorphism
+($\Omega$ algebraically closed) for which $f(s) \neq 0$, then $f$ can be extended to a homomorphism $f : B_v \to \Omega$. Since the Jacobson
+radical of $A$ is $0$, there is some maximal ideal $\mathfrak{m}$ of $A$ that does not contain $s$. Then, we have the canonical map $\psi : A \to A/\mathfrak{m} = k$,
+where $k$ is a field. Let $\Omega_k$ be an algebraic closure of $k$ so that $\psi : A \to k \subset \Omega_k$; note that $\psi(s) \neq 0$ since
+$s \not\in \mathfrak{m}$. Thus, $\psi$ can be extended to a homomorphism $\psi : B_v \to \Omega_k$. Note that $1 = \psi(v \cdot 1/v) = \psi(v) \cdot \psi(1/v)$. 
+Thus, $\psi(v) \neq 0$, as required.
 
+Let us describe this map more explicitly. In light of Exercise \ref{5.20}, $s$ is such that $(B_v)_s$ is integral over $A_s[y_1,\ldots,y_n]$, where 
+$y_1,\ldots,y_n$ are a collection of algebraically independent elements over $A$ (and thus $A_s$). By our construction in Exercise \ref{5.21}, 
+$\psi : A_s[y_1,\ldots,y_n] \to \Omega_k$ sends $y_i \mapsto 0$. Thus, $A_s[y_1,\ldots,y_n] \cap \ker \psi \subset A_s$. Since $s \not\in \mathfrak{m}$,
+$\mathfrak{m} A_s$ is a maximal ideal of $A_s$ in light of Proposition 3.11. However, since $\mathfrak{m} \subset \ker \psi$ by construction,
+$\mathfrak{m} A_s \subset A_s[y_1,\ldots,y_n] \cap \ker \psi$. Since $A_s[y_1,\ldots,y_n] \cap \ker \psi$ is an ideal of $A_s$ containing the maximal 
+ideal $\mathfrak{m} A_s$, its either all of $A_s$ or $\mathfrak{m} A_s$. But $s \in A_s$ and $\psi(s) \neq 0$, so $A_s[y_1,\ldots,y_n] \cap \ker \psi
+= \mathfrak{m} A_s$.
 
-\subsection{Exercise}\label{5.23}
+Now, we wish to show that $B \cap \ker \psi$ is a maximal ideal of $B$. Let $b \in B$. Since $B$ is an integral domain, 
+it injects into $(B_v)_s$, which is integral over $A_s[y_1,\ldots,y_n]$. Thus, $b$ satisfies an integral equation
+$$b^k + a_{k-1}b^{k-1} + \cdots + a_0 = 0,$$
+where $a_i \in A_s[y_1,\ldots,y_n]$. Since $\psi : y_i \mapsto 0$, then $\psi(a_i) = \psi(c_i)$ for some $c_i \in A_s$. Then,
+\begin{align*}
+0 &= \psi(b)^k + \psi(a_{k-1})\psi(b)^{k-1} + \cdots + \psi(a_0) \\
+&= \psi(b)^k + \psi(c_{k-1})\psi(b)^{k-1} + \cdots + \psi(c_0) \\
+&= \psi(b^k + c_{k-1}b^{k-1} + \cdots + c_0).
+\end{align*}
+Then, $b^k + c_{k-1}b^{k-1} + \cdots + c_0 \in \ker \psi$. Modulo $\ker \psi$,
+$$\overline{b}^k + \overline{c_{k-1}}\overline{b}^{k-1} + \cdots + \overline{c_0} = 0,$$
+so $B / (B \cap \ker \psi)$ is integral over $A_s / (A_s \cap \ker \psi)$.
 
-\subsection{Exercise}\label{5.24}
+If $f,g\in B$ and $fg \in B \cap \ker \psi$, then $\psi(fg) = \psi(f)\psi(g) = 0$. Since $\Omega_k$ is an integral domain, $\psi(f) = 0$ or $\psi(g) = 0$. 
+Thus, $f \in B \cap \ker \psi$ or $g \in B \cap \ker \psi$, so $B \cap \ker \psi$ is a prime ideal. Thus, $B / (B \cap \ker \psi)$ is an integral domain.
+Further, $A_s / (A_s \cap \ker \psi)$ is a field since $A_s \cap \ker \psi$ is a maximal ideal. Also, $A_s / (A_s \cap \ker \psi) \xhookrightarrow{} B / (B \cap \ker \psi)$,
+so by Proposition 5.7, $B / (B \cap \ker \psi)$ is a field, so $B \cap \ker \psi$ is a maximal ideal of $B$. Finally, since $\psi(v) \neq 0$, this maximal
+ideal does not contain $v$. Thus, the Jacobson radical of $B$ is $0$ since no non-zero element of $B$ is contained in every maximal ideal.
+\end{proof}
+
+\subsection{Exercise - Complete}\label{5.23}
+
+\begin{proof}
+(ii) $\implies$ (i). In every homomorphic image of $A$, the nilradical is equal to the Jacobson radical. Let $\mathfrak{p} \in \Spec(A)$. Then,
+we have a canonical homomorphism $A \to A/\mathfrak{p}$. Since $\mathfrak{p}$ is prime, $A/\mathfrak{p}$ is an integral domain, so the nilradical
+is zero. Thus, the Jacobson radical is zero, so the intersection of maximal ideals of $A/\mathfrak{p}$ is zero. By Proposition 1.1, the ideals of $A/\mathfrak{p}$
+are in a one-to-one order-preserving correspondence with ideals of $A$ containing $\mathfrak{p}$. Thus, the maximal ideals of $A$ containing $\mathfrak{p}$
+are precisely the maximal ideals of $A/\mathfrak{p}$. The intersection of these ideals is $0$ in $A/\mathfrak{p}$, so $\mathfrak{p}$ contains the intersection.
+Conversely, since each maximal ideal of the intersection contains $\mathfrak{p}$, the intersection contains $\mathfrak{p}$, so $\mathfrak{p}$ is the intersection of the
+maximal ideals containing it, as desired.
+
+(i) $\implies$ (ii). Suppose every prime in $A$ is the intersection of the maximal ideals containing it. Now, let $f : A \to B$ be a homomorphism of rings.
+Then, $f(A)$ is itself a ring, and $f(A) \cong A / \ker f$. So, it is sufficient to show that for any ideal $\mathfrak{a}$, 
+$\mathfrak{N}_{A/\mathfrak{a}} = \mathfrak{R}_{A/\mathfrak{a}}$. Note that the ideals of $A/\mathfrak{a}$ are precisely those of $A$ that contain $\mathfrak{a}$,
+and this correspondence is order-preserving (Proposition 1.1). Let $\overline{\mathfrak{p}}$ be a prime ideal of $A/\mathfrak{a}$, so its contraction is a prime 
+$\mathfrak{p}$ of $A$ containing $\mathfrak{a}$. By assumption, $\mathfrak{p}$ is the intersection
+of the maximal ideals containing it; note these maximal ideals must also contain $\mathfrak{a}$. Further, since the ideal correspondence is order-preserving, these
+maximal ideals remain maximal in $A/\mathfrak{a}$, so $\overline{\mathfrak{p}}$ is an intersection of maximal ideals. Thus, the nilradical of $A/\mathfrak{a}$
+is equal to the Jacobson radical, as desired.
+
+(i) $\implies$ (iii). Suppose every prime ideal in $A$ is the intersection of maximal ideals, and suppose $\mathfrak{p} \in \Spec(A)$ is not maximal. Then, 
+the prime ideals strictly containing $\mathfrak{p}$ includes all of the maximal ideals containing $\mathfrak{p}$. Thus, $\mathfrak{p}$ is a subset of
+the intersection of primes strictly containing $\mathfrak{p}$, which in turn, is a subset of the maximal ideals containing $\mathfrak{p}$. Since 
+this last intersection is $\mathfrak{p}$ by assumption, we have equality throughout, so $\mathfrak{p}$ is the intersection of primes strictly containing
+$\mathfrak{p}$.
+
+(iii) $\implies$ (ii). Assume (ii) is false, so (i) is false (we proved (i) $\implies$ (ii)). Therefore, there is some prime $\mathfrak{p}$ that is not
+the intersection of the maximal ideals containing it. Thus, $B = A/\mathfrak{p}$ is an integral domain with non-zero Jacobson radical $\mathfrak{R}$,
+so let $f \in \mathfrak{R}$ be a non-zero element. Since $B$ is an integral domain, $B \to B_f$ is injective, so $B_f \neq 0$. Thus, $B_f$ has some
+maximal ideal whose contraction in $B$ is a prime ideal $\mathfrak{q}$. Note that $f \not\in \mathfrak{q}$ (otherwise $(1/f)f = 1 \in \mathfrak{q}$).
+Any prime ideal in $B$ that does not contain $f$ is in $B_f$ (Proposition 3.11), so since $\mathfrak{q}$ has this property and is maximal in $B_f$, it
+is maximal in the set of primes of $B$ not containing $f$. Since $f$ is in every maximal ideal of $B$, $\mathfrak{q}$ is not maximal. Further, any prime
+of $B$ containing $\mathfrak{q}$ strictly must contain $f$ since $\mathfrak{q}$ is maximal among primes that do not contain $f$. Thus, the intersection of
+primes strictly containing $\mathfrak{q}$ contains $f$, so the intersection does not equal $\mathfrak{q}$. 
+
+Finally, since $B = A/\mathfrak{p}$, $\mathfrak{q}$ lifts to a prime $\mathfrak{q}'$ of $A$. First, note that $\mathfrak{q}'$ is not maximal since $\mathfrak{q}$
+is not maximal. Explicitly, there is some $\mathfrak{m}$ of $B$ such that $\mathfrak{m}$ strictly contains $\mathfrak{q}$, and this lifts to a maximal ideal
+$\mathfrak{m}'$ that strictly contains $\mathfrak{q}'$; this is all in light of Proposition 1.1, which guarantees an order-preserving one-to-one correspondence
+between ideals of $A$ containing $\mathfrak{p}$ and ideals of $A/\mathfrak{p}$. Finally, the intersection of primes of $A$ strictly containing $\mathfrak{q}'$ is
+an ideal that maps to the intersection of primes of $A/\mathfrak{p}$ that strictly contain $\mathfrak{q}$. Since this latter intersection is not $\mathfrak{q}$,
+the former intersection is not $\mathfrak{q}'$ (since the correspondence of ideals is one-to-one). Thus, (iii) is false, as desired.
+\end{proof}
+
+\begin{remark}
+A ring with these three equivalent properties is called a ``Jacobson ring''.
+\end{remark}
+
+\subsection{Exercise - Complete}\label{5.24}
+
+\begin{proof}[(i) Proof.]
+$A$ is a Jacobson ring, and $B$ is an $A$-algebra that is integral over $A$. Let $\mathfrak{q}$ be a prime ideal of $B$, and let 
+$\mathfrak{p} = \mathfrak{q}^c$. By Proposition 5.6, $B/\mathfrak{q}$ is integral over $A/\mathfrak{p}$. Since $A$ is a Jacobson
+ring, we have by Exercise \ref{5.23} that $\mathfrak{p}$ is an intersection of maximal ideals. Therefore, $\mathfrak{R}(A/\mathfrak{p}) = 0$.
+By Exercise \ref{5.5}, $\mathfrak{R}(B/\mathfrak{q})^c = \mathfrak{R}(A/\mathfrak{p}) = 0$.
+
+Now, suppose $b \in \mathfrak{R}(B/\mathfrak{q})$, so it satisfies an equation of integral dependence over $A/\mathfrak{p}$. We choose $n > 0$
+to be minimal. Then,
+$$b^n + a_{n-1}b^{n-1} + \cdots + a_1 b + a_0 = 0,$$
+where $a_i \in A/\mathfrak{p}$, so
+$$a_0 = - b (b^{n-1} + a_{n-1}b^{n-2} + \cdots + a_1).$$
+Since $b$ is in every maximal ideal of $B/\mathfrak{q}$, $a_0$ is in every maximal ideal of $B/\mathfrak{q}$. Thus, 
+$$a_0 \in \mathfrak{R}(B/\mathfrak{q}) \cap A/\mathfrak{p} = \mathfrak{R}(B/\mathfrak{q})^c = 0.$$
+Therefore, we have $b(b^{n-1} + a_{n-1}b^{n-2} + \cdots + a_1) = 0$. Since $\mathfrak{q}$ is prime, $B/\mathfrak{q}$ is an integral domain. If $b \neq 0$,
+then $b^{n-1} + a_{n-1}b^{n-2} + \cdots + a_1 = 0$, violating the minimality of $n$. Thus, $b = 0$ so that $\mathfrak{R}(B/\mathfrak{q}) = 0$. In particular,
+$\mathfrak{q}$ is the intersection of the maximal ideals of $B$ containing it. By Exercise \ref{5.23}, $B$ is a Jacobson ring.
+\end{proof}
+
+\begin{proof}[(ii) Proof.]
+$A$ is a Jacobson ring, and $B$ is a finitely-generated $A$-algebra. First, we show that $f(A)$ ($f : A \to B$ the algebra-defining homomorphism) is a
+Jacobson ring so that it will be sufficient to assume $A$ is a subring of $B$. Let $C$ be a homomorphic image of $f(A)$; then, it is a homomorphic image
+of $A$, so the nilradical of $C$ is equal to the Jacobson radical by Exercise \ref{5.23}. In particular, $f(A)$ is a Jacobson ring.
+
+Therefore, we can assume $A$ is a subring of $B$. Let $\mathfrak{q}$ be a prime ideal of $B$, so $\mathfrak{p} = \mathfrak{q}^c = A \cap \mathfrak{q}$ is 
+a prime ideal of $A$. Then, $A/\mathfrak{p} \xhookrightarrow{} B/\mathfrak{q}$; because $B$ is a finitely-generated $A$-algebra, $B/\mathfrak{q}$ is a
+finitely-generated $A/\mathfrak{p}$-algebra. Since $A$ is a Jacobson ring, we have by Exercise \ref{5.23} that $\mathfrak{p}$ is the intersection of the
+maximal ideals containing it. Thus, the Jacobson radical of $A/\mathfrak{p}$ is $0$.
+
+Note that $B/\mathfrak{q}$ is an integral domain since $\mathfrak{q}$ is prime. Now, we can invoke Exercise \ref{5.22}: the Jacobson radical of $B/\mathfrak{q}$ 
+is $0$ since the Jacobson radical of $A/\mathfrak{p}$ is $0$. Therefore, $\mathfrak{q}$ is the intersection of the maximal ideals in $B$ containing $\mathfrak{q}$.
+By Exercise \ref{5.23}, $B$ is a Jacobson ring, as desired.
+\end{proof}
+
+\begin{proof}
+Let $A$ be a finitely-generated ring. Then, it is a finitely-generated $\Z$-algebra. Note that every non-zero prime of $\Z$ is maximal. The only non-zero
+prime of $\Z$ is $0$, but $0 = \bigcap_{(p) \in \Spec(\Z)}(p)$, so it is the intersection of maximal ideals. Thus, it is a Jacobson ring by 
+Exercise \ref{5.23}. In light on (ii), $A$ is a Jacobson ring.
+\end{proof}
+
+\begin{proof}
+Let $A$ be a finitely-generated $k$-algebra, where $k$ is a field. The only prime ideal of $k$ is $0$, which is maximal, so by Exercise \ref{5.23},
+$k$ is a Jacobson ring. By (ii), $A$ is a Jacobson ring.
+\end{proof}
 
 \subsection{Exercise}\label{5.25}
+
+\begin{proof}
+
+\end{proof}
 
 \subsection{Exercise}\label{5.26}
 
