@@ -683,13 +683,42 @@ Let $A$ be a finitely-generated $k$-algebra, where $k$ is a field. The only prim
 $k$ is a Jacobson ring. By (ii), $A$ is a Jacobson ring.
 \end{proof}
 
-\subsection{Exercise}\label{5.25}
+\subsection{Exercise - Complete}\label{5.25}
 
 \begin{proof}
+(i) $\implies$ (ii). $A$ is a Jacobson ring; let $B$ be a finitely-generated $A$-algebra that is also a field. First, we show that $f(A)$ ($f : A \to B$ the 
+algebra-defining homomorphism) is a Jacobson ring so that it will be sufficient to assume $A$ is a subring of $B$. Let $C$ be a homomorphic image of $f(A)$; then, 
+it is a homomorphic image of $A$, so the nilradical of $C$ is equal to the Jacobson radical by Exercise \ref{5.23}. In particular, $f(A)$ is a Jacobson ring.
 
+Since $B$ is a field, it is an integral domain, so we can apply Exercise \ref{5.21}: there exists some non-zero $s \in A$ such that, if $\Omega$ is algebraically
+closed, $f : A \to \Omega$ is a ring homomorphism, and $f(s) \neq 0$, then $f$ can be extended to $B$. By Exercise \ref{5.20},
+there exists a non-zero $s \in A$ such that $B_s$ is integral over $(A[y_1,\ldots,y_n])_s$, where $y_1,\ldots,y_n$ are algebraically independent.
+
+If $s$ is a unit in $A$, then $(A[y_1,\ldots,y_n])_s \cong A[y_1,\ldots,y_n]$ and $B_s \cong B$, so $B$ is integral over $A[y_1,\ldots,y_n]$. Since $B$ is a field,
+we have by Proposition 5.7 that $A[y_1,\ldots,y_n]$ is a field; in particular, $y_i^{-1} \in A[y_1,\ldots,y_n]$ if $1 \le i \le n$. Then, $y_1^{-1} = P(y_1,\ldots,y_n)$, 
+so $P(y_1,\ldots,y_n)y_1 - 1 = 0$, violating the algebraic indpendence of $\{y_i\}$. Thus, $n = 0$, so $A$ is a field,
+and $B$ is a finitely generated $A$-algebra. Thus, $B$ is a finite algebraic extension over $A$ (since $B$ is integral over $A$), as desired.
+
+On the other hand, suppose $s$ is not a unit in $A$. Since $A$ is an integral domain, the nilradical is $0$; since $A$ is also Jacobson, the Jacobson radical
+must also be $0$ since these ideals are equal in homomorphic images of $A$, by Exercise \ref{5.23}. Thus, $s$ is not in the Jacobson radical, so there is some
+maximal ideal $\mathfrak{m}$ of $A$ such that $s \not\in \mathfrak{m}$. Define $f : A \to A/\mathfrak{m}$; let $k = A/\mathfrak{m}$ be the residue field, and let
+$\Omega_k$ be the algebraic closure of $k$. Then, we have $f : A \to \Omega_k$. Further, since $s \not\in \mathfrak{m}$, $f(s) \neq 0$, so we can extend the homomorphism
+to $B$. Suppose there is some non-zero $b \in B$ such that $f(b) = 0$. Then, $1 = f(b b^{-1}) = f(b) f(b^{-1}) = 0$, a contradiction. Thus, $f$ is injective on $B$. Hence,
+$B \cong f(B)$ is a finitely generated $k$-algebra (since $f(A) = k$), so it is a finite algebraic extension of $k$ by Exercise \ref{5.18} (Zariski's lemma).
+
+(ii) $\implies$ (i). Suppose that every finitely generated $A$-algebra $B$ which is a field is finite over $A$. Let $\mathfrak{p}$ be a non-maximal prime of $A$.
+Let $B = A/\mathfrak{p}$ (note that $B$ is an integral domain), and let $f \in B$ be some non-zero element. Then, $B_f$ is a finitely generated $A$-algebra since
+$B$ is clearly a finitely generated $A$-algebra. If $B_f$ is a field, then it is finite over $A$ (by assumption), so it is finite over $B$. Thus, it is integral
+over $B$ (no transcendental elements), so $B$ is a field by Proposition 5.7. This is a contradiction since we chose $\mathfrak{p}$ to be non-maximal, so $B_f$
+is not a field. Therefore, it has some non-zero maximal (prime) ideal whose contraction in $B$ is a non-zero ideal $\mathfrak{p}'$ such that $f \not\in \mathfrak{p}'$. 
+Note that the non-zero primes of $B$ correspond exactly to primes of $A$ strictly containing $\mathfrak{p}$. For every non-zero element $f$ of $A/\mathfrak{p}$, we saw
+that there is some prime that does not contain it, so the intersection of non-zero primes of $A/\mathfrak{p}$ is $0$. Contracting back to $A$, the intersection of
+primes strictly containing $\mathfrak{p}$ is $\mathfrak{p}$. By Exercise \ref{5.23}, $A$ is a Jacobson ring.
 \end{proof}
 
 \subsection{Exercise}\label{5.26}
+
+
 
 \subsection{Exercise}\label{5.27}
 
