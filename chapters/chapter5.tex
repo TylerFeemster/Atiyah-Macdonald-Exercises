@@ -696,7 +696,7 @@ there exists a non-zero $s \in A$ such that $B_s$ is integral over $(A[y_1,\ldot
 
 If $s$ is a unit in $A$, then $(A[y_1,\ldots,y_n])_s \cong A[y_1,\ldots,y_n]$ and $B_s \cong B$, so $B$ is integral over $A[y_1,\ldots,y_n]$. Since $B$ is a field,
 we have by Proposition 5.7 that $A[y_1,\ldots,y_n]$ is a field; in particular, $y_i^{-1} \in A[y_1,\ldots,y_n]$ if $1 \le i \le n$. Then, $y_1^{-1} = P(y_1,\ldots,y_n)$, 
-so $P(y_1,\ldots,y_n)y_1 - 1 = 0$, violating the algebraic indpendence of $\{y_i\}$. Thus, $n = 0$, so $A$ is a field,
+so $P(y_1,\ldots,y_n)y_1 - 1 = 0$, violating the algebraic independence of $\{y_i\}$. Thus, $n = 0$, so $A$ is a field,
 and $B$ is a finitely generated $A$-algebra. Thus, $B$ is a finite algebraic extension over $A$ (since $B$ is integral over $A$), as desired.
 
 On the other hand, suppose $s$ is not a unit in $A$. Since $A$ is an integral domain, the nilradical is $0$; since $A$ is also Jacobson, the Jacobson radical
@@ -716,11 +716,65 @@ that there is some prime that does not contain it, so the intersection of non-ze
 primes strictly containing $\mathfrak{p}$ is $\mathfrak{p}$. By Exercise \ref{5.23}, $A$ is a Jacobson ring.
 \end{proof}
 
-\subsection{Exercise}\label{5.26}
+\subsection{Exercise - Complete}\label{5.26}
 
+\begin{proof}
+(1) $\implies$ (2). Suppose every non-empty locally closed subset of $X$ meets $X_0$. Now, let $E$ be a closed subset of $X$. Then, $E$ is locally
+closed since $E = E \cap X$, $E$ being closed and $X$ being open. Therefore, $E \cap X_0 \neq \emptyset$. Since $E$ is closed and $E \cap X_0 \subset E$,
+$C = \overline{E \cap X_0} \subset E$. Let $Y = E \cap C^c$; since $C$ is closed, $C^c$ is open, so $Y$ is locally closed since $E$ is closed. Therefore,
+if $Y$ is non-empty, then $Y \cap X_0 \neq \emptyset$ by assumption. However, note that $C^c = \overline{E \cap X_0} \subset (E \cap X_0)^c$. Thus,
+$$Y \cap X_0 = X_0 \cap E \cap C^c \subset (E \cap X_0) \cap (E \cap X_0)^c = \emptyset.$$
+Thus, since $Y \cap X_0$ is empty, $Y$ must also be empty (by assumption), so in fact, $\overline{E \cap X_0} = E$.
 
+(2) $\implies$ (3). The map $U \mapsto U \cap X_0$ that maps open sets of $X$ to open sets of $X_0$ is clearly surjective, as this is what defines open sets
+of $X_0$. Now, suppose we have two open sets $U,V$ such that $U \cap X_0 = V \cap X_0$. Therefore, 
+$$U^c \cap X_0 = X_0 - (U \cap X_0) = X_0 - (V \cap X_0) = V^c \cap X_0.$$ 
+By assumption, every closed set $E$ of $X$ satisfies $\overline{E \cap X_0} = E$. Thus, we have
+$V^c = \overline{V^c \cap X_0} = \overline{U^c \cap X_0} = U^c$, so $U = V$. Hence, the map is bijective.
+
+(3) $\implies$ (1). Finally, assume the map $U \mapsto U \cap X_0$ from open sets of $X$ onto open sets of $X_0$ is bijective. Let $Y$ be a locally closed
+subset of $X$, so $Y = U \cap C$, where $U$ is open and $C$ is closed. We will prove the contrapositive, so assume that $Y \cap X_0 = \emptyset$. Then, 
+$U \cap C \cap X_0 = \emptyset$. Since $C$ is closed, $C^c$ is an open set. Then, 
+$$U \cap X_0 = (U \cap C \cap X_0) \cup (U \cap C^c \cap X_0) = \emptyset \cup (U \cap C^c \cap X_0) = (U \cap C^c) \cap X_0.$$
+By the bijectivity of the map (since $U \cap C^c$ is open), $U = U \cap C^c$, so $U \subset C^c$. Thus, $Y = U \cap C = \emptyset$. So, if a locally closed
+set does not meet $X_0$, it is empty.
+\end{proof}
+
+\begin{remark}
+A subset $X_0$ satisfying these properties is said to be ```very dense''' in $X$.
+\end{remark}
+
+\begin{proof}
+(i) $\implies$ (ii). Suppose $A$ is a Jacobson ring, so by Exercise \ref{5.23}, every prime ideal is an intersection of maximal ideals. Now, let $V(\mathfrak{a})$
+be an arbitrary closed set of $\Spec(A)$, where $\mathfrak{a}$ is some ideal of $A$. If $\mathfrak{a} = (1)$ so that $V(\mathfrak{a}) = \emptyset$, then trivially,
+$\overline{V(\mathfrak{a}) \cap \Max(A)} = V(\mathfrak{a})$. So, assume $\mathfrak{a} \neq (1)$. Since $V(\mathfrak{a})$ is closed, we clearly have 
+$\overline{V(\mathfrak{a}) \cap \Max(A)} \subset V(\mathfrak{a})$. To show the reverse, suppose $\mathfrak{p} \in V(\mathfrak{a})$. By assumption, there is a 
+collection of maximal ideals $\{\mathfrak{m}_{\alpha}\}$ such that $\mathfrak{p} = \bigcap_{\alpha} \mathfrak{m}_{\alpha}$. Note that $\mathfrak{m}_{\alpha} \in V(\mathfrak{a})$
+and thus is in $V(\mathfrak{a}) \cap \Max(A) \subset \overline{V(\mathfrak{a}) \cap \Max(A)}$. Finally, note that since $\overline{V(\mathfrak{a}) \cap \Max(A)}$
+is closed, it is equal to some $V(\mathfrak{b})$, where $\mathfrak{b}$ is some ideal. Then, $\mathfrak{m}_{\alpha} \supset \mathfrak{b}$ for all $\mathfrak{m}_{\alpha}$,
+so $\mathfrak{p} = \bigcap_{\alpha} \mathfrak{m}_{\alpha} \supset \mathfrak{b}$. Thus, $\mathfrak{p} \in V(\mathfrak{b})$, so 
+$V(\mathfrak{a}) = \overline{V(\mathfrak{a}) \cap \Max(A)}$ for all closed sets $V(\mathfrak{a})$ of $\Spec(A)$. By the previous results, $\Max(A)$ is very dense in $\Spec(A)$.
+
+(ii) $\implies$ (iii). Since $\Max(A)$ is very dense in $X$, we have from the equivalent conditions proved above that any locally closed subset of $\Spec(A)$ must meet
+$\Max(A)$. Hence, any locally closed singleton set must contain a maximal ideal. For any maximal ideal $\mathfrak{m}$, we have $\{\mathfrak{m}\} = V(\mathfrak{m})$, by
+the definition of maximality, so every locally closed subset of $\Spec(A)$ consisting of a single point is closed.
+
+(iii) $\implies$ (i). Let $\mathfrak{p} \in \Spec(A)$ be a non-maximal prime, and let $\{\mathfrak{p}_{\alpha}\} \subset \Spec(A)$ be the set of primes that contain
+$\mathfrak{p}$ strictly. Then, $\mathfrak{p} \subset \bigcap_{\alpha} \mathfrak{p}_{\alpha}$. Suppose for the sake of contradiction that 
+$\mathfrak{p} \not\supset \bigcap_{\alpha} \mathfrak{p}_{\alpha}$. Then, $V\left(\bigcap_{\alpha} \mathfrak{p}_{\alpha}\right)^c \cap V(\mathfrak{p}) \neq \emptyset$
+since this set contains $\mathfrak{p}$. Since it is the intersection of an open and closed set, it is a locally closed set. Now, we'll show that this set is the
+singleton set containing $\mathfrak{p}$. Suppose $\mathfrak{q} \in V(\mathfrak{p})$ and is not equal to $\mathfrak{p}$. Then, $\mathfrak{q} \supset \mathfrak{p}$,
+so by definition, $\mathfrak{q} \in \{\mathfrak{p}_{\alpha}\}$. Hence, $\mathfrak{q} \supset \bigcap_{\alpha} \mathfrak{p}_{\alpha}$, so 
+$\mathfrak{q} \not\in V\left(\bigcap_{\alpha} \mathfrak{p}_{\alpha}\right)^c$. Thus, $\{\mathfrak{p}\} = V\left(\bigcap_{\alpha} \mathfrak{p}_{\alpha}\right)^c \cap V(\mathfrak{p})$
+is a locally closed set containing only one point, so by assumption, $\{\mathfrak{p}\}$ is a closed set. Thus, $\{\mathfrak{p}\} = V(\mathfrak{a})$ for some ideal $\mathfrak{a}$,
+so $\mathfrak{p} \supset \mathfrak{a}$. However, since $\mathfrak{p}$ is not maximal, there is some maximal ideal $\mathfrak{m}$ containing $\mathfrak{p}$ and thus also $\mathfrak{a}$.
+Therefore, $\mathfrak{m} \in V(\mathfrak{a})$, a contradiction. Hence, we must have $\mathfrak{p} = \bigcap_{\alpha} \mathfrak{p}_{\alpha}$, so by Exercise \ref{5.23},
+$A$ is a Jacobson ring.
+\end{proof}
 
 \subsection{Exercise}\label{5.27}
+
+
 
 \subsection{Exercise}\label{5.28}
 
