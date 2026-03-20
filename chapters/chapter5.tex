@@ -772,11 +772,63 @@ Therefore, $\mathfrak{m} \in V(\mathfrak{a})$, a contradiction. Hence, we must h
 $A$ is a Jacobson ring.
 \end{proof}
 
-\subsection{Exercise}\label{5.27}
+\subsection{Exercise - Complete}\label{5.27}
 
+\begin{proof}
+Let $K$ be a field and let $\Sigma$ be the set of local subrings of $K$. We can apply a partial order on $\Sigma$ using domination, i.e. $B$ dominates $A$
+if $A \subset B$ and $\mathfrak{m}_A = \mathfrak{m}_B \cap A$. Now, let $\mathcal{T}$ be a chain of elements of $\Sigma$. Define $R = \bigcup_{A \in \mathcal{T}} A$
+and $\mathfrak{m} = \bigcup_{A \in \mathcal{T}}\mathfrak{m}_A$. We aim to prove that this is an upper bound of $\mathcal{T}$ in $\Sigma$.
 
+First, note that $R$ is a subring of $K$ since it is a union of subrings of $K$. We want to show that $\mathfrak{m}$ is a maximal ideal of $R$, so we
+need to show that it is an ideal. If $x, y \in \mathfrak{m}$, then there are rings $A_x , A_y \in \mathcal{T}$ such that $x \in \mathfrak{m}_{A_x}$ and
+$y \in \mathfrak{m}_{A_y}$. Since $\mathcal{T}$ is a chain, either $A_x$ is a subring of $A_y$ or vice-versa. Assume without loss of generality that
+$A_x \subset A_y$. Then, $\mathfrak{m}_{A_x} = \mathfrak{m}_{A_y} \cap A_x$, so $x \in \mathfrak{m}_{A_y}$ as well. Thus, $x + y \in \mathfrak{m}_{A_y} \subset \mathfrak{m}$.
+Finally, if $r \in R$, then $r \in A_1$ for some $A_1 \in \mathcal{T}$. If $x \in \mathfrak{m}$, it is in $\mathfrak{m}_{A_2}$ for some ring $A_2 \in \mathcal{T}$.
+Since $\mathcal{T}$ is a chain, either $A_1$ dominates $A_2$ or vice-versa. If $A_1 \subset A_2$, then $r \in A_2$, so $r x \in \mathfrak{m}_{A_2} \subset \mathfrak{m}$,
+so $\mathfrak{m}$ is $R$-stable. If $A_2 \subset A_1$, then $x \in \mathfrak{m}_{A_2} \subset \mathfrak{m}_{A_1}$ so that $r x \in \mathfrak{m}_{A_1} \subset \mathfrak{m}$. Thus,
+$\mathfrak{m}$ is an ideal of $R$.
+
+We wish to show that for all $A \in \mathcal{T}$, $\mathfrak{m}_A = \mathfrak{m} \cap A$. We have
+$$A \cap \mathfrak{m} = A \cap \left(\bigcup_{B \in \mathcal{T}}\mathfrak{m}_B\right)
+= A \cap \left(\bigcup_{B \le A}\mathfrak{m}_B \cup \bigcup_{B > A}\mathfrak{m}_B\right)$$
+$$= \left(\bigcup_{B \le A}A \cap\mathfrak{m}_B\right) \cup \left(\bigcup_{B > A}A \cap \mathfrak{m}_B\right)
+= \left(\bigcup_{B \le A}\mathfrak{m}_B\right) \cup \left(\bigcup_{B > A}\mathfrak{m}_A\right)
+= \mathfrak{m}_A \cup \mathfrak{m}_A = \mathfrak{m}_A,$$
+as desired. Now, suppose $I$ is an ideal of $R$ that properly contains the ideal $\mathfrak{m}$. Then, there is some $x \in I - \mathfrak{m} \subset R$,
+so there is some $A \in \mathcal{T}$ such that $x \in A$. Then, $I \cap A \supset \mathfrak{m} \cap A = \mathfrak{m}_A$ properly. Since $\mathfrak{m}_A$
+is a maximal ideal of $A$, $I \cap A$ must be $A$. Thus, $1 \in I$, so $I = R$. In particular, $\mathfrak{m}$ is a maximal ideal of $R$.
+
+We must show that $R$ is a local ring. Let $\mathfrak{m}'$ be an arbitrary maximal ideal of $R$. For any $A \in \mathcal{T}$, since $A$ has
+a unique maximal ideal $\mathfrak{m}_A$, either $A \cap \mathfrak{m}' = (1)$ or $\mathfrak{m}_A \supset \mathfrak{m}' \cap A$. If there is any $A$
+for which $A \cap \mathfrak{m}' = (1)$, then $1 \in \mathfrak{m}'$, so $\mathfrak{m}' = R$, violating maximality. Therefore, for all $A$,
+we have $\mathfrak{m}_A \supset \mathfrak{m}' \cap A$. Taking the union over all $A$, we obtain $\mathfrak{m} \supset \mathfrak{m}' \cap R = \mathfrak{m}'$.
+Since $\mathfrak{m}'$ is maximal, $\mathfrak{m}' = \mathfrak{m}$, so $R$ is indeed a local ring with maximal ideal $\mathfrak{m}$. Thus, $R \in \Sigma$.
+Since $A \subset R$ and $\mathfrak{m}_A = \mathfrak{m} \cap A$ for all $A \in \mathcal{T}$, $R$ is an upper bound of $\mathcal{T}$ in $\Sigma$. By Zorn's
+lemma, $\Sigma$ has maximal elements.
+
+Finally, we wish to show that $A \in \Sigma$ is maximal if and only if $A$ is a valuation ring of $K$. Let $R$ be a maximal element of $\Sigma$. Consider
+the set of pairs $(A,f)$, where $A$ is a subring of $K$ and $f : A \to \Omega$ (an algebraically closed field) is a homomorphism. Then, the set $\Sigma'$ can be
+ordered such that $(A,f) \le (B,g)$ if $A \subset B$ and $g$ restricts to $f$ on $A$. Prior to Lemma 5.19, the text proves that $\Sigma'$ satisifes Zorn's lemma
+and thus has maximal elements. Let $\mathfrak{m}$ be the unique maximal ideal of $R$, and define $f : R \mapsto R/\mathfrak{m} \xhookrightarrow{} \Omega$, where
+$\Omega$ is an algebraic closure of the residue field. Since $(R,f) \in \Sigma'$, there is some maximal element $(B,g)$ of $\Sigma'$ such that $(R,f) \le (B,g)$.
+By Lemma 5.19, $B$ is a local ring and its maximal ideal is $\mathfrak{m}_B = \ker g$. Note that $R \cap \mathfrak{m}_B = R \cap \ker g = \ker f = \mathfrak{m}$.
+Thus, $B$ dominates $R$, so we have $R \le B$ in $\Sigma$. Since $R$ is a maximal element of $\Sigma$, we have $(R,f) = (B,g)$. By Theorem 5.21, $B$ is a valuation
+ring of $K$, so $R$ is a valuation ring of $K$.
+
+Conversely, suppose $A$ is a valuation ring of $K$. Then, it is a local subring of $K$, so $A \in \Sigma$. Thus, there is some maximal element $B \in \Sigma$
+so that $A \le B$. Since $A \subset B \subset K$, $B$ is also a valuation ring by Proposition 5.18. Since $B$ dominates $A$, $\mathfrak{m}_A = A \cap \mathfrak{m}_B$.
+Note that $\mathfrak{m}_A$ and $\mathfrak{m}_B$ are the set of non-units of $A$ and $B$, respectively (Proposition 1.6). Let $b \in \mathfrak{m}_B$ (non-zero), so 
+$b^{-1} \not\in B$. Thus, $b^{-1} \not\in A$, so since $A$ is a valuation ring of $K$, $b \in A$. Thus, $\mathfrak{m}_B \subset A$, so 
+$\mathfrak{m}_A = A \cap \mathfrak{m}_B = \mathfrak{m}_B$. Finally, suppose $b \in B - \mathfrak{m}_B$. Then, there is an inverse $b^{-1} \in B$. Since $b^{-1}$
+has its inverse $b$ in $B$, we must have $b^{-1} \in B - \mathfrak{m}_B$, as well. Now, since $A$ is a valuation ring of $K$, $b \in A$ or $b^{-1} \in A$. Swapping 
+$b$ and $b^{-1}$ if necessary, we can assume $b \in A$. Since $\mathfrak{m}_A = \mathfrak{m}_B$ and $b \not\in \mathfrak{m}_B$, $b \in A - \mathfrak{m}_A$. Thus, $b$
+is a unit in $A$, so $b^{-1} \in A$, and as before, $b^{-1} \in A - \mathfrak{m}_A$ since $b^{-1}$ is a unit in $A$. Thus, $B - \mathfrak{m}_B \subset A - \mathfrak{m}_A$,
+so that by $\mathfrak{m}_A = \mathfrak{m}_B$, $B \subset A$. Finally, $A = B$ so that $A$ is a maximal element of $\Sigma$, as desired.
+\end{proof}
 
 \subsection{Exercise}\label{5.28}
+
+
 
 \subsection{Exercise}\label{5.29}
 
