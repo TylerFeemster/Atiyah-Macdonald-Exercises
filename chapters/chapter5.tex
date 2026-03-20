@@ -741,7 +741,7 @@ set does not meet $X_0$, it is empty.
 \end{proof}
 
 \begin{remark}
-A subset $X_0$ satisfying these properties is said to be ```very dense''' in $X$.
+A subset $X_0$ satisfying these properties is said to be ``very dense'' in $X$.
 \end{remark}
 
 \begin{proof}
@@ -826,15 +826,100 @@ is a unit in $A$, so $b^{-1} \in A$, and as before, $b^{-1} \in A - \mathfrak{m}
 so that by $\mathfrak{m}_A = \mathfrak{m}_B$, $B \subset A$. Finally, $A = B$ so that $A$ is a maximal element of $\Sigma$, as desired.
 \end{proof}
 
-\subsection{Exercise}\label{5.28}
+\subsection{Exercise - Complete}\label{5.28}
 
+\begin{proof}
+(i) $\implies$ (ii). Assume $A$ is a valuation ring in its field of fractions $K$; let $\mathfrak{a}$, $\mathfrak{b}$ be two ideals of $A$. If 
+$\mathfrak{a} - \mathfrak{b}$ is empty, then $\mathfrak{a} \subset \mathfrak{b}$. So, assume there is some $a \in \mathfrak{a} - \mathfrak{b}$;
+clearly, $a \neq 0$. If $\mathfrak{b} = 0$, then $\mathfrak{b} \subset \mathfrak{a}$, so assume $\mathfrak{b} \neq 0$; let $b \in \mathfrak{b}$
+be non-zero. Then, $a/b , b/a \in K^{\times}$, so $a/b \in A$ or $b/a \in A$. If $a/b \in A$, then $a = (a/b)b \in \mathfrak{b}$, a contradiction.
+Thus, $b/a \in A$, so $b = (b/a)a \in \mathfrak{a}$. Since $b \in \mathfrak{b}$ was chosen arbitrarily, $\mathfrak{b} \subset \mathfrak{a}$.
 
+(ii) $\implies$ (i). Let $K$ be the field of fractions of $A$, which contains $A$ since $A$ is an integral domain. 
+Choose an arbitrary non-zero element $a/b \in K^{\times}$, so $a,b \in A$ are both non-zero. Then, we have the ideals $(a)$
+and $(b)$ in $A$. By assumption, either $(a) \subset (b)$ or $(b) \subset (a)$. If $(a) \subset (b)$, then $a = xb$ for some $x \in A$. But 
+$x = a/b$, so $a/b \in A$. On the other hand, if $(b) \subset (a)$, then $b = xa$ for some $x \in A$. But $x = b/a = (a/b)^{-1}$. Thus, 
+either $b/a$ or $(b/a)^{-1}$ lies in $A$, so $A$ is a valuation ring of $K$.
+\end{proof}
 
-\subsection{Exercise}\label{5.29}
+\begin{proof}
+Assume $A$ is a valuation ring of a field $K$ and $\mathfrak{p}$ is a prime ideal of $A$. Since $A$ is an integral domain as well, the ideals form a 
+chain of $A$. Since the ordering of ideals of $A_{\mathfrak{p}}$ and $A/\mathfrak{p}$ is inherited from the ordering of ideals of $A$, the set of ideals
+of these two rings both form a chain. By the result, since $A/\mathfrak{p}$ and $A_{\mathfrak{p}}$ are also both integral domains, $A/\mathfrak{p}$ and 
+$A_{\mathfrak{p}}$ are both valuation rings.
+\end{proof}
 
-\subsection{Exercise}\label{5.30}
+\subsection{Exercise - Complete}\label{5.29}
 
-\subsection{Exercise}\label{5.31}
+\begin{proof}
+Let $B$ be a subring of $K$ that contains $A$, a valuation ring of $K$. By Proposition 5.18, $B$ is a valuation ring of $K$ and thus a local ring
+with maximal ideal $\mathfrak{m}_B$. Since $A \subset B$, $\mathfrak{m}_B^c = \mathfrak{m}_B \cap A$ is a prime ideal $\mathfrak{p}$ of $A$, so 
+$\mathfrak{m}_A \supset \mathfrak{p}$ since $\mathfrak{m}_A$ is the unique maximal ideal of $A$.
+
+Now, consider $A_{\mathfrak{p}}$. Since $A$ is a valuation ring of $K$, we have by Exercise \ref{5.28} that $A_{\mathfrak{p}}$ is a valuation ring
+of $K$. Suppose $s \in A - \mathfrak{p}$, so $s \in B$ and $s \not\in \mathfrak{m}_B$. Then, since $B$ is a valuation ring, $s$ is a unit in $B$
+since $\mathfrak{m}_B$ is the set of non-units of $B$. Thus, we have a map $A_{\mathfrak{p}} \to B$ by mapping $a/s \mapsto a s^{-1}$ 
+(for $a \in A$ and $s \in A - \mathfrak{p}$). This is injective since $a s^{-1} = 0 \implies a = 0 \implies a/s = 0$, so we have
+$A_{\mathfrak{p}} \subset B \subset K$.
+
+Finally, note that $A_{\mathfrak{p}}$ is a local ring of $K$ and has unique maximal ideal $\mathfrak{p}$ such that 
+$\mathfrak{p} = A_{\mathfrak{p}} \cap \mathfrak{m}_B$. Thus, $B$ dominates $A_{\mathfrak{p}}$. By Exercise \ref{5.27},
+since $A_{\mathfrak{p}}$ is a valuation ring, it is maximal with respect to domination in the set of local rings of $K$,
+so $B = A_{\mathfrak{p}}$. Thus, $B$ is a local ring of $A$.
+\end{proof}
+
+\subsection{Exercise - Complete}\label{5.30}
+
+\begin{proof}
+Let $A$ be a valuation ring of a field $K$. $U = A^{\times}$ is subgroup of $K^{\times}$, so let $\Gamma = K^{\times}/U$. Let $x,y \in K^{\times}$,
+and suppose $x \ge y$ so that $xy^{-1} \in A$. Now, let $u,v \in U = A^{\times}$. Then, $(ux)(vy)^{-1} = (uv^{-1})xy^{-1} \in A$ since $xy^{-1} \in A$
+and $uv^{-1} \in U \subset A$, so $ux \ge vy$. In particular, the ordering $(K^{\times},\ge)$ lifts to an ordering of $(\Gamma, \ge)$.
+
+Let $\xi,\eta \in \Gamma$, and let $x,y \in K^{\times}$ be a choice of representatives for $\xi$ and $\eta$, respectively. Since $A$ is a valuation ring 
+of $K$, $xy^{-1} \in A$ or $(xy^{-1})^{-1} = yx^{-1} \in A$. Thus, $\xi \ge \eta$ or $\eta \ge \xi$, so $(\Gamma,\ge)$ is a total ordering.
+
+Now, suppose $\xi \ge \eta$ and $\omega \in \Gamma$. Let $x,y,z \in K^{\times}$ be representatives of $\xi,\eta,\omega$, respectively. Then,
+$(xz)(yz)^{-1} = zz^{-1}xy^{-1} = xy^{-1} \in A$, so $\xi \omega \ge \eta \omega$. Thus, $\ge$ is compatible with the group, so $\Gamma$ is
+a totally ordered abelian group.
+
+Let $v : K^{\times} \to \Gamma$ be the canonical homomorphism, and let $x,y \in K^{\times}$ such that $x + y \neq 0$. Note that either $x/y \in A$ or
+$y/x \in A$. Relabelling if necessary, we can assume $x/y \in A$. Since $x/y \in A$, $x/y + 1 = (x + y)/y \in A$, so $x + y \ge y$; hence,
+$v(x+y) \ge v(y) \ge \min(v(x),v(y))$, as desired.
+\end{proof}
+
+\begin{remark}
+$\Gamma$ is called the ``value group'' of $A$.
+\end{remark}
+
+\subsection{Exercise - Complete}\label{5.31}
+
+\begin{proof}
+Let $A = \{x \in K \mid v(x) \ge 0\}$. Note that $v(1) = 0$ since $v$ is a group homomorphism $K^{\times} \to \Gamma$, so $1 \in A$. Since 
+$0/1 \in A$, $v(0) \ge v(1) = 0$, so $0 \in A$. If $x,y \in A$, then $v(x),v(y) \ge 0$, so $v(x + y) \ge \min(v(x),v(y)) \ge 0$ and thus
+$x + y \in A$. Further, $v(xy) = v(x) + v(y) \ge 0$, so $xy \in A$. Further, note that 
+$$0 = v(1) = v(-1 \cdot -1) = 2 v(-1).$$
+If $v(-1) > 0$, then $2 v(-1) > 2 \cdot 0 = 0$, and if $v(-1) < 0$, then $2 v(-1) < 2 \cdot 0 = 0$; both are contradictions. Thus, $v(-1) = 0$,
+so $-1 \in A$. Thus, for any $x \in A$, $-1 \cdot x = -x \in A$. Hence, $A$ is a subring of $K$.
+
+Let $x \in K^{\times}$. Then, 
+$$0 = v(1) = v(x \cdot x^{-1}) = v(x) + v(x^{-1}).$$
+If $v(x) < 0$ and $v(x^{-1}) < 0$, then $v(x) + v(x^{-1}) < 0$, a contradiction. Thus, $v(x) \ge 0$ or $v(x^{-1}) \ge 0$, so $x \in A$ or $x^{-1} \in A$.
+Hence, $A$ is a valuation ring of $K$.
+\end{proof}
+
+\begin{proof}
+For the sake of completion, we want to show that valuations and valuation rings are essentially equivalent. We've shown that valuation rings have a valuation 
+(Exercise \ref{5.30}), and we've just shown that a valuation gives rise to a valuation ring (Exercise \ref{5.31}). We want to show that these processes are inverse.
+
+Let $v$ be the valuation gives above, and let $A$ be the valuation ring of $K$ coming from $v$, i.e. $A = \{x \in K \mid v(x) \ge 0\}$. The valuation coming from $A$ is
+$\pi : K^{\times} \to K^{\times} / A^{\times}$, so $\ker \pi \cong A^{\times}$. But if $x$ is a unit in $A$, then $0 = v(1) = v(x) + v(x^{-1})$, so since $v(x) \ge 0$ and 
+$v(x^{-1}) \ge 0$, we must have $v(x) = 0$. Thus, $\ker \pi \subset \ker v$. Conversely, if $x \in \ker v$, then $0 = v(1) = v(x) + v(x^{-1}) = v(x^{-1})$, so $x^{-1} \in A$. 
+Thus, $x$ is a unit so that $\ker v \subset U = \ker \pi$; then, $\ker \pi = \ker v$.
+
+To show finally that $\pi$ and $v$ are equivalent, it is enough to show that $\pi(x) \ge \pi(y) \iff v(x) \ge v(y)$ for $x,y\in K^{\times}$. So, suppose $\pi(x) \ge \pi(y)$.
+Then, $x \ge y$ so that $xy^{-1} \in A$. Therefore, $v(xy^{-1}) \ge 0$; since $v(xy^{-1}) = v(x) - v(y)$, we have $v(x) \ge v(y)$. Conversely, if $v(x) \ge v(y)$, then
+$v(xy^{-1}) \ge 0$, so $xy^{-1} \in A$. Thus, $x \ge y$, so $\pi(x) \ge \pi(y)$. Thus, $v$ and $\pi$ produce the same ordering.
+\end{proof}
 
 \subsection{Exercise}\label{5.32}
 
