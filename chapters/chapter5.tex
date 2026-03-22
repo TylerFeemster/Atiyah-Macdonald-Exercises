@@ -921,7 +921,75 @@ Then, $x \ge y$ so that $xy^{-1} \in A$. Therefore, $v(xy^{-1}) \ge 0$; since $v
 $v(xy^{-1}) \ge 0$, so $xy^{-1} \in A$. Thus, $x \ge y$, so $\pi(x) \ge \pi(y)$. Thus, $v$ and $\pi$ produce the same ordering.
 \end{proof}
 
-\subsection{Exercise}\label{5.32}
+\begin{remark}
+$\Gamma$ is the ``valuation group'' of $v$.
+\end{remark}
+
+\subsection{Exercise - Complete}\label{5.32}
+
+\begin{proof}
+$A$ is a valuation ring of $K$. Define $\Delta' = v(A-\mathfrak{p}) \subset \Gamma$. If $x,y \in A-\mathfrak{p}$, then $xy \in A - \mathfrak{p}$, so 
+$v(x) + v(y) = v(xy) \in \Delta'$. Also, $1 \in A-\mathfrak{p}$, so $0 = v(1) \in \Delta'$. Therefore, $\Delta'$ is a submonoid of $\Gamma$. Thus,
+$-\Delta'$ is also a submonoid of $\Gamma$. Clearly, $\Delta = \Delta' \cup (-\Delta')$ has the identity element and each element has an inverse. To show
+$\Delta$ is a subgroup, we just need to show closure. The only non-trivial case is when $v(x) \in \Delta'$ and $-v(y) \in -\Delta'$, where $x,y \in A - \mathfrak{p}$.
+Then, $v(x) + (-v(y)) = v(x) + v(y^{-1}) = v(xy^{-1})$. Since $A$ is a valuation ring, either $xy^{-1} \in A$ or $(xy^{-1})^{-1} = yx^{-1} \in A$. Suppose $xy^{-1} \in A$.
+If $xy^{-1} \in \mathfrak{p}$, then since $y \in A$, $x = y(xy^{-1}) \in \mathfrak{p}$, a contradiction. Thus, $xy^{-1} \in A - \mathfrak{p}$, so $v(xy^{-1}) \in \Delta' \subset \Delta$.
+On the other hand, if $yx^{-1} \in A$, then by the same logic above, $yx^{-1} \in A - \mathfrak{p}$, so $v(yx^{-1}) \in \Delta'$. Then, $v(xy^{-1}) = -v(yx^{-1}) \in -\Delta' \subset \Delta$,
+so $\Delta$ is a subgroup of $\Gamma$. Further, for any $\delta \in \Delta$, if $\delta \ge 0$, then $\delta \in \Delta' = v(A - \mathfrak{p})$.
+
+Now, suppose $\beta \in \Gamma$ and $0 \le \beta \le \alpha$, where $\alpha \in \Delta$. Then, $\alpha \ge 0$, so $\alpha = v(a)$ for some $a \in A - \mathfrak{p}$. 
+Let $x \in K^{\times}$ such that $v(x) = \beta \ge 0$. Since $v(x) \ge 0$, $x \in A$. Since $v(a) \ge v(x)$, $ax^{-1} \in A$. Suppose that $x \in \mathfrak{p}$. Then,
+$a = (ax^{-1})x \in \mathfrak{p}$, a contradiction, so $x \in A - \mathfrak{p}$. Thus, $\beta = v(x) \in \Delta$, so $\Delta$ is an isolated subgroup of $\Gamma$.
+
+Finally, let's show that the construction $\mathfrak{p} \mapsto \Delta_{\mathfrak{p}}$ is a bijection from $\Spec(A)$ into the set of isolated subgroups of $\Gamma$. First,
+we show injectivity. Suppose $\Delta_{\mathfrak{p}} = \Delta_{\mathfrak{q}}$ for $\mathfrak{p},\mathfrak{q} \in \Spec(A)$. By Exercise \ref{5.28}, since $A$ is a valuation
+ring of $K$, $\mathfrak{p} \subset \mathfrak{q}$ or $\mathfrak{q} \subset \mathfrak{p}$. Relabelling if necessary, we can assume that $\mathfrak{q} \subset \mathfrak{p}$. Then,
+$A - \mathfrak{p} \subset A - \mathfrak{q}$. Let $x \in A - \mathfrak{q}$. Since $\Delta_{\mathfrak{p}} = \Delta_{\mathfrak{q}}$, the subset of elements greater than $0$ are identical;
+thus, $v(A - \mathfrak{p}) = v(A - \mathfrak{q})$. Therefore, there is some $y \in A-\mathfrak{p}$ such that $v(x) = v(y)$. Then, $xy^{-1} \in A$ and $yx^{-1} \in A$. If $x \in \mathfrak{p}$,
+then since $yx^{-1} \in A$, $y = x(yx^{-1}) \in \mathfrak{p}$, a contradiction. Thus, $x \in A - \mathfrak{p}$; hence, $A - \mathfrak{p} = A - \mathfrak{q}$ so that $\mathfrak{p} = \mathfrak{q}$.
+
+To show surjectivity, let $\Delta$ be an isolated subgroup of $\Gamma$. Let $\Delta'$ be the subset of $\delta \in \Delta$ such that $\delta \ge 0$; let $S = v^{-1}(\Delta') \subset A$.
+Since $\Delta'$ is a submonoid of $\Delta$, $S$ is a multiplicatively closed subset of $A$. Now, we aim to show that $A - S$ is a prime ideal. Let $x,y \in A - S$. Then,
+$v(x+y) \ge \min(v(x),v(y)) \ge 0$. If $v(x+y) \in \Delta$, then since $\Delta$ is an isolated subgroup, $\min(v(x),v(y)) \in \Delta$. Then, either $x \in S$ or $y \in S$,
+a contradiction. Thus, $v(x+y) \not\in \Delta$, so $x+y \in A - S$. Thus, $A - S$ is additively closed. Suppose $x \in A - S$ and $a \in A$. Then, $v(ax) = v(a) + v(x) \ge v(x) \ge 0$
+since $v(a) \ge 0$. If $v(ax) \in \Delta$, then since $\Delta$ is an isolated subgroup, we must have $v(x) \in \Delta$, a contradiction. Thus, $ax \in A - S$, so $A - S$ is an ideal
+of $A$. Finally, suppose $x,y \in S$. Since $S$ is multiplicatively closed, $xy \in S$. Thus, $A - S \in \Spec(A)$, so the map is surjective.
+\end{proof}
+
+Now, let $\mathfrak{p}$ be a prime of $A$. By Exercise \ref{5.28}, $A/\mathfrak{p}$ and $A_{\mathfrak{p}}$ are both valuation rings since $A$ is a valuation ring.
+We prove now that $\Gamma(A/\mathfrak{p}) \cong \Delta_{\mathfrak{p}}$ and $\Gamma(A_{\mathfrak{p}}) \cong \Gamma/\Delta_{\mathfrak{p}}$.
+
+\begin{proof}
+Note that we have $A \subset A_{\mathfrak{p}} \subset K$. Since $A^{\times} \subset A_{\mathfrak{p}}^{\times}$, we have a homomorphism
+$$\Gamma = K^{\times}/A^{\times} \to K^{\times}/A_{\mathfrak{p}}^{\times} = \Gamma(A_{\mathfrak{p}}).$$
+This map is clearly surjective. Let $\Delta$ be the kernel of this map, which is a subgroup of $\Gamma$. Suppose $x \in K^{\times}$, $v(x) \in \Delta$,
+and $v(x) \ge 0$. Then, $x \in A$. Since $v(x) \in \Delta$, $x \in A_{\mathfrak{p}}^{\times}$. Thus, $x \in A \cap A_{\mathfrak{p}}^{\times} = A-\mathfrak{p}$.
+Conversely, if $x \in A - \mathfrak{p}$, then $x \in A_{\mathfrak{p}}^{\times}$ so that $x \in \Delta$. Thus, the positive part of $\Delta$ and $\Delta_{\mathfrak{p}}$
+correspond. Then, since $\Gamma$ is totally ordered, their negative parts also match (since they are both groups), so $\Delta = \Delta_{\mathfrak{p}}$. Thus,
+$\Gamma(A_{\mathfrak{p}}) \cong \Gamma/\Delta_{\mathfrak{p}}$.
+
+Now, note that the field of fractions of $A/\mathfrak{p}$ is canonically isomorphic to $A_{\mathfrak{p}}/\mathfrak{p}A_{\mathfrak{p}}$. Then, we have
+$\Gamma(A/\mathfrak{p}) \cong (A_{\mathfrak{p}}/\mathfrak{p}A_{\mathfrak{p}})^{\times}/(A/\mathfrak{p})^{\times}$. Note that we have a commutative diagram
+\begin{center}
+\begin{tikzcd}
+A \arrow[r] \arrow[d] & A_{\mathfrak{p}} \arrow[d] \\
+A/\mathfrak{p} \arrow[r] & A_{\mathfrak{p}}/\mathfrak{p}A_{\mathfrak{p}},
+\end{tikzcd}
+\end{center}
+where the horizontal maps are injective homomorphisms. Thus, we have a commutative diagram
+\begin{center}
+\begin{tikzcd}
+A^{\times} \arrow[r] \arrow[d] & A_{\mathfrak{p}}^{\times} \arrow[d] \\
+(A/\mathfrak{p})^{\times} \arrow[r] & (A_{\mathfrak{p}}/\mathfrak{p}A_{\mathfrak{p}})^{\times},
+\end{tikzcd}
+\end{center}
+where the horizontal maps are injective group homomorphisms. Equating kernels, we have
+$$A_{\mathfrak{p}}^{\times}/A^{\times} \cong (A_{\mathfrak{p}}/\mathfrak{p}A_{\mathfrak{p}})^{\times} / (A/\mathfrak{p})^{\times} \cong \Gamma(A/\mathfrak{p}).$$
+From above, the kernel of $\Gamma \to \Gamma(A_{\mathfrak{p}})$ is
+$$\Gamma/\Gamma(A_{\mathfrak{p}}) \cong (K^{\times}/A^{\times})/(K^{\times}/A_{\mathfrak{p}}^{\times}) \cong A_{\mathfrak{p}}^{\times}/A^{\times} \cong \Gamma(A/\mathfrak{p}),$$
+noting that $A^{\times} \subset A_{\mathfrak{p}}^{\times}$. But we showed above that this kernel is exactly $\Delta_{\mathfrak{p}}$,
+so $\Gamma(A/\mathfrak{p}) \cong \Delta_{\mathfrak{p}}$.
+\end{proof}
 
 \subsection{Exercise}\label{5.33}
 
