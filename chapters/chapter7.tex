@@ -45,13 +45,120 @@ $(\sum_i a_i x^i)^m$, we obtain a sum of elements of the form $a_{i_1} \cdots a_
 for all $k$, $a_{i_1} \cdots a_{i_m} \in \mathfrak{N}^m = 0$ so that each term in the sum vanishes. Thus, $(\sum_i a_i x^i)^m = 0$, as desired.
 \end{proof}
 
-\subsection{Exercise}\label{7.3}
+\subsection{Exercise - Complete}\label{7.3}
 
-\subsection{Exercise}\label{7.4}
+\begin{proof}
+(i) $\implies$ (iii). By assumption, $\mathfrak{a}$ is primary. It is sufficient to show that in the quotient $A/\mathfrak{a}$, $(0:x^n)$ is stationary for all $x \in A/\mathfrak{a}$.
+Let $x \in A/\mathfrak{a}$. Suppose $(0:x) = 0$ and let $m > 1$ be minimal such that $(0:x^m) \neq 0$. Then, $x^m y = 0$ for some $y \neq 0$, so $x (x^{m-1} y) = 0$.
+Because $(0:x) = 0$, $x^{m-1} y = 0$, so $(0:x^{m-1}) \neq 0$, violating the minimality of $m$. Thus, $(0:x^n) = 0$ for all $n > 0$, so $(0:x^n)$ is clearly stationary. On the other
+hand, suppose $(0:x) \neq 0$ so that there is some non-zero $y \in (0:x)$. Then, $x$ is a zero divisor. Since $\mathfrak{a}$ is primary, $x \in A/\mathfrak{a}$ is nilpotent, so there
+is some $m > 0$ such that $x^m = 0$. Then, $(0:x^n) = A/\mathfrak{a}$ for all $n \ge m$, so $(0:x^n)$ is stationary.
 
-\subsection{Exercise}\label{7.5}
+(iii) $\implies$ (i). By assumption the sequence $(\mathfrak{a}:x^n)$ is stationary for every $x \in A$. Passing to the quotient $A/\mathfrak{a}$, $(0:x^n)$ is stationary
+for every $x \in A/\mathfrak{a}$. Suppose $x,y \in A/\mathfrak{a}$ such that $y \neq 0$ and $xy = 0$. Then, $y \in (0:x)$. We have that $(0:x) \subset (0:x^2) \subset \cdots$
+is stationary, so $(0:x^n) = (0:x^{n+1}) = \cdots$ for some $n > 0$. If $a \in (y)$, then $ax = 0$, and if $a \in (x^n)$ also, then $a = bx^n$. Hence, $bx^{n+1} = ax = 0$,
+so $b \in (0:x^{n+1}) = (0:x^n)$. Thus, $a = bx^n = 0$. In particular, $(y) \cap (x^n) = 0$. Since $\mathfrak{a}$ is irreducible, $0$ is irreducible in $A/\mathfrak{a}$. Since
+$y \neq 0$, we must then have $(x^n) = 0$. Thus, every zero divisor $x$ is nilpotent in $A/\mathfrak{a}$, so $\mathfrak{a}$ is primary.
 
-\subsection{Exercise}\label{7.6}
+(i) $\implies$ (ii). Since $\mathfrak{a}$ is primary, $\mathfrak{p} = r(\mathfrak{a})$ is prime. Let $S$ be an arbitrary multiplicatively closed set of $A$. If
+$S \cap \mathfrak{p} = \emptyset$, then by Proposition 4.8, $(S^{-1}\mathfrak{a})^c = \mathfrak{a} = (\mathfrak{a}:1)$. As required, $1 \in S$. On the other hand,
+if $S \cap \mathfrak{p} \neq \emptyset$, there is some $x \in S \cap \mathfrak{p}$. Since $\mathfrak{p} = r(\mathfrak{a})$, there is some $n > 0$ such that $x^n \in \mathfrak{a}$. 
+Since $S$ is multiplicatively closed and $x \in S$, $x^n \in S \cap \mathfrak{a}$. We then have $(\mathfrak{a}:x^n) = (1)$. By Proposition 4.8, $S^{-1}\mathfrak{a} = S^{-1}A$, 
+so $(S^{-1}\mathfrak{a})^c = (1) = (\mathfrak{a}:x^n)$, where $x^n \in S$. Thus, for any multiplicatively closed set $S$ of $A$, $(S^{-1}\mathfrak{a})^c = (\mathfrak{a}:x)$ for
+some $x \in S$.
+
+(ii) $\implies$ (iii). We'll prove the contrapositive, so suppose there is some $x \in A$ such that $(\mathfrak{a}:x^n)$ is not stationary. Let $S_n = \{1,x^n,x^{n+1},\ldots\}$, which
+is clearly multiplicatively closed and $S_{n+1} \subset S_n$ for all $n > 0$. Now, suppose to the contrary that for all $n$, we can choose some $s \in S_n$ such that 
+$(S_n^{-1}\mathfrak{a})^c = (\mathfrak{a}:s)$. If $s = 1$, then $\mathfrak{a} = (\mathfrak{a}:1) = (S_n^{-1}\mathfrak{a})^c$. By Proposition 3.11, $S_n$ meets $\mathfrak{a}$,
+so for some $k > 0$, $x^k \in \mathfrak{a}$. Thus, for all $m \ge n$, $x^m \in \mathfrak{a}$ so that $(\mathfrak{a}:x^m) = A$, contradicting the fact that $(\mathfrak{a}:x^n)$ is not
+stationary. Thus, $s \neq 1$ for any $n > 0$.
+
+Therefore, for all $n > 0$, there is some $s \in S_n$ ($s \neq 1$) such that $(S_n^{-1}\mathfrak{a})^c = (\mathfrak{a}:s)$. Thus, there is some $m(n) \ge n$ such that $s = x^{m(n)}$.
+Choose $n > 0$. Then, since $S_1 S_n = S_1$, the homomorphism $A \to S_1^{-1}A$ factors through $A \to S_n^{-1}A \to S_1^{-1}A$. Hence, $S_n^{-1}\mathfrak{a} \subset S_1^{-1}\mathfrak{a}$
+so that $(S_n^{-1}\mathfrak{a})^c \subset (S_1^{-1} \mathfrak{a})^c$. Thus, $(\mathfrak{a}:x^{m(n)}) \subset (\mathfrak{a}:x^{m(1)})$ so that $m(n) \le m(1)$ since $(\mathfrak{a}:x^n)$ is not
+stationary. Then, for all $n$, $n \le m(n) \le m(1)$. This gives us the desired contradiction, as there are $n$ such that $n > m(1)$.
+\end{proof}
+
+\subsection{Exercise - Complete}\label{7.4}
+
+(i) The ring of rational functions $\C(z)$ without poles at $z$ for any $\lvert z \rvert = 1$ is a Noetherian ring.
+
+\begin{proof}
+By Hilbert's basis theorem, $\C[z]$ is Noetherian. Let $a \in \C$. We have a ring homomorphism $\psi_a : \C[z] \to \C$ via $f \mapsto f(a)$.
+This is clearly surjective, so $\C \cong \C[z]/\ker \psi_a$. Since $\ker \psi_a$ is an ideal and $\C$ is a field, $\mathfrak{m}_a = \ker \psi_a$ is a maximal ideal.
+
+Define $S = \C[z] - \bigcup_{a : \lvert a \rvert = 1}\mathfrak{m}_a$. Since $\mathfrak{m}_a$ is prime for all $a$, if $x,y \in S$, $x,y \not\in \mathfrak{m}_a$ for any $a$,
+so $xy \not\in \mathfrak{m}_a$ for any $a$, so $xy \in S$. Thus, $S$ is multiplicatively closed.
+
+The ring of rational functions $\C(z)$ without poles at $z$ for any $\lvert z \rvert = 1$ is $S^{-1}\C[z]$. By Proposition 7.3, $S^{-1}\C[z]$ is Noetherian since $\C[z]$ is
+Noetherian.
+\end{proof}
+
+(ii) The ring of power series of $\C[[z]]$ with a positive radius of convergence, $\C\{z\}$, is Noetherian.
+
+\begin{proof}
+First, note that $(z)$ is an ideal of the ring $\C\{z\}$. Now, suppose $f \in \C\{z\} - (z) \subset \C[[z]]$. Then, $f$ has a non-zero constant term, so by Exercise \ref{1.5},
+$f$ has an inverse $g$ in $\C[[z]]$. Since $f \in \C\{z\}$, $R_f > 0$ (the radius of convergence of $f$), and since $f(0) \neq 0$, $g(0) \neq 0$ since $fg = 1$. Since $f$ is 
+holomorphic on the disk $D(0,R_f)$ and $f(0) \neq 0$, then $1/f$ is holomorphic on $D(0,R_f)$ wherever it does not vanish. Since $f(0) \neq 0$, there is some $\epsilon > 0$
+such that $1/f$ is holomorphic on $D(0,\epsilon)$ by the continuity of $f$. Thus, $R_g \ge \epsilon > 0$, so $g \in \C\{z\}$. Thus, for any $f \in \C\{z\} - (z)$, $f$ is a unit.
+By Proposition 1.6, $\C\{z\}$ is a local ring and $(z)$ is its maximal ideal.
+
+Now, let $\mathfrak{a}$ be an arbitrary ideal of $\C\{z\}$. Suppose $\mathfrak{a} \neq 0$ and $\mathfrak{a} \neq \C\{z\}$. Then, $\mathfrak{a}$ is contained in some maximal ideal,
+so since there is only one, $(z) \supset \mathfrak{a}$. Let $n > 0$ be the minimal $n$ such that $(z)^n \supset \mathfrak{a}$; there is such an $n$ since $(z)^1 \supset \mathfrak{a}$.
+Thus, $(z)^n \supset \mathfrak{a}$, but $(z)^{n+1} \not\supset \mathfrak{a}$. Thus, there is some $f \in \mathfrak{a}$ of the form $f = z^n(a_0 + a_1 z + \cdots)$, where $a_0 \neq 0$.
+Let $a = a_0 + a_1 z + \cdots$; note that $R_a = R_f > 0$, so $a \in \C\{z\}$. Further, since $a_0 \neq 0$, $a^{-1} \in \C\{z\}$, as we demonstrated above. Since 
+$f = a z^n \in \mathfrak{a}$, we have $z^n = a^{-1}f \in \mathfrak{a}$, so $(z^n) = (z)^n \subset \mathfrak{a}$. Thus, $\mathfrak{a} = (z)^n$. In particular, all non-trivial ideals
+of $\C\{z\}$ are of the form $(z^n)$ for some $n > 0$.
+
+Every ideal is principal and thus finitely generated, so $\C\{z\}$ is Noetherian.
+\end{proof}
+
+(iii) The ring of power series of $\C[[z]]$ with an infinite radius of convergence, $\mathcal{O}(\C)$, is not Noetherian.
+
+\begin{proof}
+Every $f \in \mathcal{O}(\C)$ can be evaluating at any point in $\C$. Let $I_n$ be the subset of $\mathcal{O}(\C)$ with zeros at $\{n, n+1, \ldots\}$. Then clearly, these are ideals. 
+By the Weierstrass Factorization Theorem, since $\{n,n+1,\ldots\}$ does not have a limit point in $\C$, there exists some $f \in \mathcal{O}(\C)$ with precisely these zeros. 
+Thus, the ascending chain of ideals $I_1 \subset I_2 \subset \cdots$ is strictly ascending; hence, $\mathcal{O}(\C)$ is not Noetherian.
+\end{proof}
+
+(iv) The ring of polynomials in $z$ whose first $k$ derivatives vanish at the origin, $R_k = \C + z^{k+1}\C[z]$, is Noetherian.
+
+\begin{proof}
+Note that $\C$ is Noetherian and that $\C$ is a subring of $R_k$. In fact, $R_k$ is generated as a $\C$ algebra by $z^{k+1},\ldots,z^{2k+1}$, so $R_k$ is a finitely generated 
+$\C$-algebra. By Proposition 7.2, $R_k$ is Noetherian.
+\end{proof}
+
+(v) The ring of polynomials in $\C[w,z]$ whose partial derivatives with respect to $w$ vanish for $z = 0$, $R = \C + z\C[w,z]$, is not Noetherian.
+
+\begin{proof}
+Let $I_n = (z, wz, \ldots, w^n z)$ for each $n > 0$. Suppose to the contrary that $w^{n+1}z \in I_n$. Then, $w^{n+1}z = f_0 z + \cdots f_n w^n z$, where $f_i \in \C + z\C[w,z]$. Then,
+since $\C[w,z]$ is an integral domain, we have (in $\C[w,z]$) $w^{n+1} = f_0 + \cdots + f_n w^n$. Mapping this relation $\C[w,z] \to \C[w]$ via $z \mapsto 0$, we have
+$w^{n+1} = \overline{f_0} + \cdots + \overline{f_n} w^n$. Since $f_i \in \C + z\C[w,z]$, under the map $z \mapsto 0$, $\overline{f_i} \in \C$. Thus, 
+$w^{n+1} = \overline{f_0} + \cdots + \overline{f_n} w^n$ contradicts the fact that $w$ is transcendental in $\C[w]$. Hence, the inclusion $I_n \subset I_{n+1}$ is proper for all $n > 0$.
+Therefore, the chain of ideals $I_1 \subset I_2 \subset \cdots$ is strictly ascending, so $R$ is not Noetherian.
+\end{proof}
+
+\subsection{Exercise - Complete}\label{7.5}
+
+\begin{proof}
+First of all, by Exercise \ref{5.12}, $B$ is integral over $B^G$. We have that $A \subset B^G \subset B$, $A$ is Noetherian, and $B$ is a finitely generated $A$-algebra.
+By Proposition 7.8, $B^G$ is finitely generated as an $A$-algebra.
+\end{proof}
+
+\subsection{Exercise - Complete}\label{7.6}
+
+\begin{proof}
+Let $K$ be a finitely generated ring that is also a field. If $K$ has characteristic $0$, we have $\Z \subset \Q \subset K$. Since $K$ is finitely generated over $\Z$,
+it is finitely generated over $\Q$. Then, by Proposition 7.9, $K$ is a finite algebraic extension of $\Q$, so $K$ is finitely generated as a $\Q$-module. Since $\Z$ is
+Noetherian, we have by Proposition 7.8 that $\Q$ is a finitely generated $\Z$-algebra. Let $p_i/q_i \in \Q$ be the finite generators of $\Q$ as a $\Z$-algebra. Since there
+are finitely many $\{q_i\}$, finitely many primes divide each, and there are infinitely many primes of $\Z$, there is a prime $p$ of $\Z$ that does not divide any $q_i$.
+In particular, $p_i/q_i \in \Z_{(p)}$ for all $i$. Since $\Z_{(p)}$ is a $\Z$-algebra that contains each generator of $\Q$ as a $\Z$-algebra, we must have
+$\Q \subset \Z_{(p)}$; this is a clear contradiction as $1/p \in \Q$ but $1/p \not\in \Z_{(p)}$.
+
+Thus, $K$ has characteristic $p > 0$, so it is finitely generated as a $\Z/(p)$-algebra. Since $\Z/(p)$ is a field, we have by Proposition 7.9 that $K$ is a finite algebraic
+extension of $\Z/(p)$. Thus, $K$ is a finitely generated $\Z/(p)$-module. In particular, for some $n > 0$, we have a surjective $\Z/(p)$-module homomorphism $(\Z/(p))^n \to K$.
+Since $(\Z/(p))^n$ has $p^n$ elements, $K$ has at most $p^n$ elements, so $K$ is a finite field.
+\end{proof}
 
 \subsection{Exercise}\label{7.7}
 
