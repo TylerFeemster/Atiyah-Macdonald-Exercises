@@ -260,17 +260,162 @@ of $A$. Thus, the last chain is identical to the first, so $\mathfrak{a}_1 \subs
 $A$ is Noetherian.
 \end{proof}
 
-\subsection{Exercise}\label{7.13}
+\subsection{Exercise - Complete}\label{7.13}
 
-\subsection{Exercise}\label{7.14}
+\begin{proof}
+By Exercise \ref{3.21}, if $\mathfrak{p} \in \Spec(A)$, then the fiber $f^{*-1}(\mathfrak{p})$ is homeomorphic to 
+$\Spec(B_{\mathfrak{p}}/\mathfrak{p}B_{\mathfrak{p}})$. Since $f : A \to B$ is of finite type, $B$ is a finitely generated $A$-algebra. 
+Thus, $B_{\mathfrak{p}}$ is a finitely generated $A_{\mathfrak{p}}$-algebra, so $B_{\mathfrak{p}}/\mathfrak{p}B_{\mathfrak{p}}$ is a finitely
+generated $A_{\mathfrak{p}}$-algebra. Under this map, $\mathfrak{p}A_{\mathfrak{p}} \to 0$, so $B_{\mathfrak{p}}/\mathfrak{p}B_{\mathfrak{p}}$ is 
+a finitely generated $A_{\mathfrak{p}}/\mathfrak{p}A_{\mathfrak{p}}$-algebra. But $k(\mathfrak{p}) = A_{\mathfrak{p}}/\mathfrak{p}A_{\mathfrak{p}}$
+is the residue field of $A_{\mathfrak{p}}$, so $B_{\mathfrak{p}}/\mathfrak{p}B_{\mathfrak{p}}$ is finitely generated as a $k(\mathfrak{p})$-algebra.
+By Corollary 7.7, every finitely generated algebra over a field is Noetherian, so $B_{\mathfrak{p}}/\mathfrak{p}B_{\mathfrak{p}}$ is Noetherian.
+By Exercise \ref{6.8}, $\Spec(B_{\mathfrak{p}}/\mathfrak{p}B_{\mathfrak{p}})$ is a Noetherian topological space. Hence, the fibers of $f^*$ are
+Noetherian subspaces of $\Spec(B)$.
+\end{proof}
 
-\subsection{Exercise}\label{7.15}
+\subsection{Exercise - Complete}\label{7.14}
 
-\subsection{Exercise}\label{7.16}
+\begin{proof}
+Let $\mathfrak{a}$ be an ideal of $A = k[t_1,\ldots,t_n]$, and let $V$ be the variety in $k^n$ defined by $\mathfrak{a}$. Let $I(V)$ be the ideal of $A$
+defined by $V$. Note that if $f \in \mathfrak{a}$, then for any $x \in V$, $f(x) = 0$. Suppose $g \in r(\mathfrak{a})$ so that $g^m = f$ for some $m > 0$. 
+Then, for any $x \in V$, $(g(x))^m = f(x) = 0$. Since $k$ is an integral domain, $g(x) = 0$, so $g \in I(V)$. Thus, $r(\mathfrak{a}) \subset I(V)$.
 
-\subsection{Exercise}\label{7.17}
+Conversely, suppose $f \not\in r(\mathfrak{a})$. Since $r(\mathfrak{a})$ is the intersection of primes containing $\mathfrak{a}$, there is some prime $\mathfrak{p}$
+containing $\mathfrak{a}$ but not $f$. Then, $\overline{f} \in B = A/\mathfrak{p}$ is non-zero. Let $C = B_{\overline{f}} = B[1/\overline{f}]$, and let $\mathfrak{m}$
+be a maximal ideal of $C$. Since $C$ is a finitely generated $k$-algebra, $C/\mathfrak{m}$ is a finite algebraic extension of $k$ by Proposition 7.9. Since $k$ is 
+algebraically closed, $C/\mathfrak{m} \cong k$. Note that we have a composition of maps
+$$A = k[t_1,\ldots,t_n] \to B = A/\mathfrak{p} \to C = B[1/\overline{f}] \to k = C/\mathfrak{m}.$$
+Thus, we have $t_i \mapsto x_i \in k$ for each $i$, yielding a point $x = (x_i)_i \in k^n$.
 
-\subsection{Exercise}\label{7.18}
+If $g \in \mathfrak{a}$, then $g \mapsto g(x_1,\ldots,x_n)$. However, since $\mathfrak{a} \subset \mathfrak{p}$, $g \mapsto 0$ under $A \to A/\mathfrak{p}$,
+so $g(x) = 0$ for all $g \in \mathfrak{a}$. Thus, $x \in V$. Finally, we just have to show that $f \mapsto f(x)$ is non-zero. Since $C$ contains $\overline{f}$
+and $1/\overline{f}$, $\overline{f}$ is a unit of $C$. Therefore, $\overline{f} \not\in \mathfrak{m}$, so $\overline{f}$ maps to a non-zero element of $k \cong C/\mathfrak{m}$.
+Thus, $f(x) \neq 0$ so that $f \not\in I(V)$. $I(V) = r(\mathfrak{a})$, as desired.
+\end{proof}
+
+\begin{remark}
+This is the strong form of the Nullstellensatz.
+\end{remark}
+
+\subsection{Exercise - Complete}\label{7.15}
+
+\begin{proof}
+(i) $\implies$ (ii). If $M$ is free, then since it is also finitely generated, we have $M \cong \bigoplus_{i=1}^n A$ as $A$-modules. Now, let
+$$0 \to N' \to N \to N'' \to 0$$
+be a short exact sequence of $A$-modules. Then, we have the following short exact sequences:
+$$0 \to \bigoplus_{i=1}^n N' \to \bigoplus_{i=1}^n N \to \bigoplus_{i=1}^n N'' \to 0$$
+$$0 \to \bigoplus_{i=1}^n (A \otimes N') \to \bigoplus_{i=1}^n (A \otimes N) \to \bigoplus_{i=1}^n (A \otimes N'') \to 0$$
+$$0 \to \left(\bigoplus_{i=1}^n A\right) \otimes N' \to \left(\bigoplus_{i=1}^n A\right) \otimes N \to \left(\bigoplus_{i=1}^n A\right) \otimes N'' \to 0$$
+$$0 \to M \otimes N' \to M \otimes N \to M \otimes N'' \to 0.$$
+By Proposition 2.19, $M$ is flat.
+
+(ii) $\implies$ (iii). If $M$ is flat, then since $\mathfrak{m} \xhookrightarrow{} A$ is injective, we have by Proposition 2.19 that 
+$\mathfrak{m} \otimes M \to A \otimes M$ is injective.
+
+(iii) $\implies$ (iv). From the short exact sequence
+$$0 \to \mathfrak{m} \to A \to k \to 0,$$
+we have the exact sequence
+$$\Tor_1^A(k,M) \to \mathfrak{m} \otimes M \to A \otimes M \to k \otimes M \to 0.$$
+Since $\mathfrak{m} \otimes M \to A \otimes M$ is injective, $\Tor_1^A(k,M) = 0$.
+
+(iv) $\implies$ (i). Since $M$ is finitely generated, the $k$-vector space $M/\mathfrak{m}M \cong k \otimes M$ has a $k$-basis. Let $x_1,\ldots,x_n$ be elements in $M$ whose
+image forms a $k$-basis of $k \otimes M$. By Proposition 2.8, these elements generate $M$. Let $F$ be a free $A$-module with $A$-basis $e_1,\ldots,e_n$. Define $\phi : F \to M$
+by $\phi : e_i \mapsto x_i$, extending $A$-linearly to all of $F$. Let $E = \ker \phi$ so that we have a short exact sequence of $A$-modules $0 \to E \to F \to M \to 0$.
+Then, we have
+$$\Tor_1^A(k,M) \to k \otimes_A E \to k \otimes_A F \xlongrightarrow{1 \otimes \phi} k \otimes_A M \to 0.$$
+By assumption, $\Tor_1^A(k,M) = 0$. Since $1 \otimes \phi : k \otimes_A F \to k \otimes_A M$ is a surjection of $k$-vector spaces of the same dimension, $1 \otimes \phi$ is an isomorphism.
+Putting these together, $k \otimes_A E \to k \otimes_A F$ is injective with image $0$, so $k \otimes_A E = 0$. 
+
+$k \otimes_A E \cong E/\mathfrak{m}E$, so $E = \mathfrak{m}E$. Since $F$ is
+a finitely generated $A$-module and $A$ is Noetherian, $F$ is a Noetherian $A$-module by Proposition 6.5. Since $E$ is an $A$-submodule of the Noetherian $A$-module $F$, we have by 
+Proposition 6.2 that $E$ is finitely generated. Since $A$ is a local ring with maximal ideal $\mathfrak{m}$, $E = \mathfrak{m}E$, and $E$ is finitely generated, we have by Nakayama's lemma
+that $E = 0$. Thus, $F \cong M$ as $A$-modules, so $M$ is a free $A$-module.
+\end{proof}
+
+\subsection{Exercise - Complete}\label{7.16}
+
+\begin{proof}
+(i) $\implies$ (ii). For every prime $\mathfrak{p}$, $M_{\mathfrak{p}}$ is a flat $A_{\mathfrak{p}}$-module since $M$ is a flat $A$-module (Proposition 3.10). Since $A$
+is Noetherian, each $A_{\mathfrak{p}}$ is a Noetherian local ring (Proposition 7.3). Further, since $M$ is a finitely generated $A$-module, $M_{\mathfrak{p}}$ is a finitely 
+generated $A_{\mathfrak{p}}$-module. Hence, $M_{\mathfrak{p}}$ and $A_{\mathfrak{p}}$ satisfy the equivalent conditions of Exercise \ref{7.15}, so $M_{\mathfrak{p}}$ is a 
+free $A_{\mathfrak{p}}$-module.
+
+(ii) $\implies$ (iii). Clear. All maximal ideals are prime ideals.
+
+(iii) $\implies$ (i). Since $M$ is a finitely generated $A$-module, $M_{\mathfrak{m}}$ is a finitely generated $A_{\mathfrak{m}}$-module for all maximal ideals $\mathfrak{m}$
+of $A$. Since $A$ is Noetherian, $A_{\mathfrak{m}}$ is a Noetherian local ring (Proposition 7.3). Thus, by Exercise \ref{7.15}, $M_{\mathfrak{m}}$ is a flat 
+$A_{\mathfrak{m}}$-module for all maximal ideal $\mathfrak{m}$. By Proposition 3.10, $M$ is a flat $A$-module.
+\end{proof}
+
+\begin{remark}
+If $M$ is a finitely generated $A$-module ($A$ Noetherian), $M$ is flat $\iff$ $M$ is locally free. 
+\end{remark}
+
+\subsection{Exercise - Complete}\label{7.17}
+
+\begin{proof}
+First, we show that any $A$-submodule $N$ of a Noetherian $A$-module $M$ is a finite intersection of irreducible submodules.
+
+Since $M$ is a Noetherian $A$-module, $N$ is a finitely generated $A$-module (Proposition 6.2). Suppose to the contrary that $N$ is not a finite intersection
+of irreducible submodules of $M$. Then, the set of $A$-submodules of $M$ that are not a finite intersection of irreducible submodules is not empty. Since $M$ is 
+Noetherian, this set of submodules has a maximal element, say $N'$. Then, $N'$ is reducible, so we can write $N' = N_1 \cap N_2$, where both $N_1$ and $N_2$ are
+$A$-submodules of $M$ that strictly contain $N'$. Since $N'$ was chosen to be maximal, $N_1$ and $N_2$ are finite intersections of irreducible $A$-submodules of $M$,
+and thus, $N' = N_1 \cap N_2$ is also a finite intersection of irreducible $A$-submodules of $M$. This is a contradiction, so $N$ is a finite intersection of
+irreducible submodules.
+
+Now, we show that any irreducible $A$-submodule $Q$ of $M$ is primary. Suppose $m \in M - Q$ and $x \in A$ such that $xm \in Q$. In other words, $x$ is a zero-divisor
+of $M/Q$. Note that $M/Q$ is a Noetherian $A$-module since $M$ is (Proposition 6.3). Then, $\ker(x) \neq 0$ is an $A$-submodule of $M/Q$. Further, we have an ascending 
+chain $\ker(x) \subset \ker(x^2) \subset \cdots$ of submodules of $M/Q$. Since $M/Q$ is Noetherian, we must have $\ker(x^n) = \ker(x^{n+1})$ for some $n > 0$.
+
+We wish to show that $A \overline{m} \cap x^n(M/Q) = 0$. Choose some arbitrary $a \overline{m} \in A \overline{m}$. Further, assume $a \overline{m} \in x^n(M/Q)$. Then,
+$a \overline{m} = x^n d$ for some $d \in M/Q$. Since $x (a \overline{m}) = a \overline{xm} = 0$ ($xm \in Q$ by assumption), $x(x^n d) = x^{n+1} d = 0$. Thus, $d \in \ker(x^{n+1})
+= \ker(x^n)$, so $a \overline{m} = x^n d = 0$. Thus, $A \overline{m} \cap x^n(M/Q) = 0$. Lifting to $M$, we have $(A m + Q) \cap (x^n M + Q) = Q$. Since $m \not\in Q$, $Am + Q$
+strictly contains $Q$. Thus, since $Q$ is irreducible, we have $x^n M + Q = Q$, so $x^n M \subset Q$. Thus, $x^n$ is the zero endomorphism on $M/Q$, so $Q$ is primary.
+
+Putting these together, we see that any $A$-submodule of a Noetherian $A$-module $M$ is a finite intersection of primary $A$-submodules of $M$.
+\end{proof}
+
+\subsection{Exercise - Complete}\label{7.18}
+
+\begin{proof}
+(i) $\implies$ (ii). If $\mathfrak{p}$ belongs to $0$ in $M$, then by Exercise \ref{4.22}, there is some $m \in M$ such that $\mathfrak{p} = r(0 : m) = r(\Ann(m))$. If $\Ann(m)
+\neq r(\Ann(m))$, then choose some $x \in r(\Ann(m)) - \Ann(m)$. Then, $m_1 = xm$ is non-zero and $\Ann(m) \subset \Ann(m_1) \subset r(\Ann(m))$. Since $x \not\in \Ann(m)$ but 
+$x \in r(\Ann(m))$, there is some minimal $n > 1$ such that $x^n m = 0$. Thus, $x^{n-1} \in \Ann(m_1)$ but $x^{n-1} \not\in \Ann(m)$, so the containment is strict.
+
+Continuing in this way, choosing $m_k \in r(\Ann(m)) - \Ann(m_{k-1})$, we obtain an ascending chain $\Ann(m) \subset \Ann(m_1) \subset \cdots$ of ideals of $A$. Since $A$ is Noetherian, 
+this chain eventually stabilizes. Thus, there is some non-zero $m_n \in M$ such that we can no longer choose some $x \in r(\Ann(m)) - \Ann(m_n)$; hence, 
+$\Ann(m_n) = r(\Ann(m)) = \mathfrak{p}$, as desired.
+
+(ii) $\implies$ (i). By assumption, there is some $m \in M$ such that $\mathfrak{p} = \Ann(m)$. Thus, $\mathfrak{p} = r(\mathfrak{p}) = r(\Ann(m)) = r(0 : m)$. By Exercise \ref{4.22},
+$\mathfrak{p}$ belongs to $0$ in $M$.
+
+(ii) $\implies$ (iii). By assumption, there is some $m \in M$ such that $\mathfrak{p} = \Ann(m)$. Note that we have an $A$-submodule $Am$ of $M$. We also have a surjective $A$-module
+homomorphism $A \to Am$ ($a \mapsto am$) with kernel $\Ann(m) = \mathfrak{p}$. Thus, $A/\mathfrak{p} \cong Am$.
+
+(iii) $\implies$ (ii). Suppose there is some $A$-submodule $N$ of $M$ such that $N \xlongrightarrow{\phi} A/\mathfrak{p}$ is an $A$-module isomorphism. Let $m = \phi^{-1}(1)$,
+and let $x \in A$. Then, $$xm = 0 \iff \phi(xm) = 0 \iff \overline{x} = 0 \iff x \in \mathfrak{p}.$$
+Thus, $\mathfrak{p} = \Ann(m)$. Therefore, conditions (i), (ii), and (iii) are equivalent.
+
+Finally, since $M$ is a finitely generated $A$-module and $A$ is Noetherian, $M$ is a Noetherian $A$-module (Proposition 6.5). By Exercise \ref{7.17}, $0$ has a primary
+decomposition in $M$. By Exercise \ref{4.22}, there are finitely many prime ideals $\mathfrak{p}_1,\ldots,\mathfrak{p}_r$ belonging to $0$.
+
+Let $\Sigma$ be the set of submodules $N$ of $M$ that possess a chain $0 = M_0 \subset M_1 \subset \cdots \subset M_k = N$ such that $M_i/M_{i-1} \cong A/\mathfrak{p}_i$
+for some $\mathfrak{p}_i \in \Spec(A)$. Note that $\Sigma$ is non-empty since $0 \in \Sigma$. Actually, by the equivalent conditions above, each of the prime ideals $\mathfrak{p}_i$
+belonging to $0$ have an associated submodule $N_i$ of $M$ such that $N_i \cong A/\mathfrak{p}_i$. Thus, each $N_i$ is in $\Sigma$. In any case, $\Sigma$ is non-empty.
+
+Since $M$ is a Noetherian $A$-module, $\Sigma$ has a maximal element $M'$. If $M' \neq M$, then $M/M'$ is a non-zero Noetherian $A$-module. By Exercise \ref{7.17},
+the submodule $0$ of $M/M'$ has a primary decomposition (non-trivial since $M/M' \neq 0$) and thus has some associated prime $\mathfrak{p}$. By the equivalent conditions,
+there is a submodule $U/M'$ of $M/M'$ that is isomorphic to $A/\mathfrak{p}$ as an $A$-module. Then, we have a chain
+$0 = M_0 \subset \cdots \subset M_r = M' \subset U$
+such that $M_i/M_{i-1} \cong A/\mathfrak{p}_i$ for all $i \le r$ and $U/M' \cong A/\mathfrak{p}$. Thus, $U \in \Sigma$ and $U$ strictly contains $M'$, violating the 
+maximality of $M'$. Thus, $M = M'$, so $M$ can be expressed as a chain $0 = M_0 \subset M_1 \subset \cdots \subset M_r = M$, where $M_i/M_{i-1} \cong A/\mathfrak{p}_i$
+with $\mathfrak{p}_i \in \Spec(A)$ for all $i \le r$. 
+\end{proof}
+
+\begin{remark}
+Such a chain is called a ``prime filtration''.
+\end{remark}
 
 \subsection{Exercise}\label{7.19}
 
