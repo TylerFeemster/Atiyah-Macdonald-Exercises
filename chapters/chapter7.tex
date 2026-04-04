@@ -417,11 +417,118 @@ with $\mathfrak{p}_i \in \Spec(A)$ for all $i \le r$.
 Such a chain is called a ``prime filtration''.
 \end{remark}
 
-\subsection{Exercise}\label{7.19}
+\subsection{Exercise - Complete}\label{7.19}
 
-\subsection{Exercise}\label{7.20}
+\begin{proof}
+An ideal of $A$ is an $A$-submodule of $A$, a primary ideal of $A$ is a primary submodule of $A$, an irreducible ideal of $A$ is an irreducible
+submodule of $A$, $r_A(\mathfrak{a}) = r(\mathfrak{a})$, and $A$ is a Noetherian ring if it is Noetherian as an $A$-module. Thus, it will be enough
+to prove only the general result for a submodule $N$ of a Noetherian $A$-module $M$. 
 
-\subsection{Exercise}\label{7.21}
+Let $\bigcap_{i=1}^r P_i = \bigcap_{j=1}^s Q_j$ be two minimal irreducible decompositions of $N \subset M$. Relabelling if necessary, we may suppose $r \le s$.
+Let $P_k' = \bigcap_{i \neq k} P_i$ for each $k$. Now, fix $k$ and define $N_j = P_k' \cap Q_j$. Since all of the intersecting modules contain $N$, $N_j \supset N$; we now 
+show that there exists some $j$ such that $N_j \subset N$, yielding equality. Since $\{Q_j\}$ have intersection equal to $N$, we also have 
+$\bigcap_j N_j = N$. Let $\pi_i : M \to M/P_i$ be the canonical projection maps, and $\phi = (\phi_1,\ldots,\phi_r) : M \to \prod_i M/P_i$. Then, $\ker \phi = \bigcap_i P_i = N$.
+For each $j$ and each $i \neq k$, we have $N_j \subset P_k' \subset P_i$, so $\pi_i(N_j) = 0$. Therefore, the only potential non-zero coordinate of 
+$\phi(N_j)$ is the $k$th. For each $j$, we have a submodule (by surjectivity) $O_j = \pi_k(N_j)$ of $M/P_k$. Since $\phi(N) = 0$, $0 = \phi_k(N) = \phi_k(\bigcap_j N_j) = \bigcap_j O_j$.
+Since $P_k \subset M$ is irreducible, $0 \subset M/P_k$ is irreducible. Therefore, there is some $j(k)$ such that $O_{j(k)} = 0$. Then, $\pi_k(N_{j(k)}) = 0$
+so that $\phi(N_{j(k)}) = 0$, giving $N_{j(k)} \subset N$ and thus $N_{j(k)} = N$.
+
+For each $k \in \{1,\ldots,r\}$, we have an irreducible decomposition $P_1 \cap \cdots \cap Q_{j(k)} \cap \cdots \cap P_r$ of $N$. Thus, we have an irreducible decomposition
+$Q_{j(1)} \cap P_2 \cap \cdots \cap P_r$. The argument of the preceding paragraph did not rely on the decomposition being minimal, so we may apply the same argument to this new 
+irreducible decomposition. Then, we have an irreducible decomposition of $N$ as $Q_{j(1)} \cap Q_{j(2)} \cap P_3 \cap \cdots \cap P_r$. Continuing recursively, we obtain an 
+irreducible decomposition of $N$ as $Q_{j(1)} \cap \cdots \cap Q_{j(r)}$. Since the decomposition $\bigcap_{j=1}^s Q_j$ of $N$ was minimal, $k \mapsto j(k)$ must be surjective 
+so that $r \ge s$. Since we assumed $r \le s$, we have $r=s$, as desired.
+
+We want to show that there is a bijection $f : \{Q_i\} \to \{P_j\}$ such that $r_M(f(Q_i)) = r_M(Q_i)$ for all $i$. We've already shown that $r = s$, so it will suffice to show
+that each $\mathfrak{p}$ belonging to $N$ in $M$ has an equal number of $Q_i$ and $P_j$ that are $\mathfrak{p}$-primary.
+
+By Exercise \ref{7.17} (7.12), since $M$ is a Noetherian $A$-module, every irreducible submodule of $M$ is primary. Thus, our irreducible decompositions of $N$ are primary
+decompositions of $M$. By Exercise \ref{4.22} (4.5), the sets $\{r_M(P_i)\}$ and $\{r_M(Q_j)\}$ are equal. Let $\mathfrak{p}_1,\ldots,\mathfrak{p}_n$ be the associated primes. 
+There is at least one isolated prime, so let $t \ge 1$ be the number of isolated primes. Reorder them such that for $k \le t$, $\mathfrak{p}_k$ is isolated. For $k > t$, 
+we order the primes such that whenever $\mathfrak{p}_j \subset \mathfrak{p}_i$, $j < i$.
+
+For each prime $\mathfrak{p}$, let $P^{\mathfrak{p}}$ and $Q^{\mathfrak{p}}$ be the intersection of $\mathfrak{p}$-primary submodules in $\{P_j\}$ and $\{Q_j\}$, respectively. Then,
+$$N = \bigcap_{\mathfrak{p} \in \Ass(N)} P^{\mathfrak{p}} = \bigcap_{\mathfrak{p} \in \Ass(N)} Q^{\mathfrak{p}}$$
+are minimal primary decompositions of $N$ since, by Exercise \ref{4.21} (4.3), an intersection of $\mathfrak{p}$-primary submodules is $\mathfrak{p}$-primary.
+
+Let $p_k$ and $q_k$ be the number of $\{P_i\}$ and $\{Q_j\}$ that are $\mathfrak{p}_k$-primary. At this point, it clearly suffices to show that $p_k = q_k$ for all $k$. We'll do 
+this by induction. If $k = 1$, $\mathfrak{p}_1$ is isolated by our ordering. By Exercise \ref{4.23} (4.10), $P^{\mathfrak{p}_1} = Q^{\mathfrak{p}_1}$. Thus, the intersection of 
+$\{P_i\}$ and $\{Q_j\}$ that are $\mathfrak{p}_1$-primary yield a minimal irreducible decomposition of $P^{\mathfrak{p}_1} = Q^{\mathfrak{p}_1}$ since they are contained in 
+a minimal irreducible decomposition of $N$. By the first result of this proof, $p_1 = q_1$, completing the base case.
+
+Assume inductively that $p_j = q_j$ for all $j < i$. We have our minimal irreducible decomposition $N = \bigcap P_j = \bigcap Q_j$. Localizing at $\mathfrak{p}_i$, we obtain
+$$N_{\mathfrak{p}_i} = \bigcap_k P_{k,\mathfrak{p}_i} = \bigcap_k Q_{k,\mathfrak{p}_i}.$$
+By Exercise \ref{4.23} (4.8), if $P_k$ or $Q_k$ is $\mathfrak{p}$-primary and $\mathfrak{p} \not\subset \mathfrak{p}_i$, then the localized 
+module is $M_{\mathfrak{p}_i}$ and can thus be ignored in the intersection. Thus, we have a minimal irreducible decomposition
+$$N_{\mathfrak{p}_i} = \bigcap_{j: \mathfrak{p}_j \subset \mathfrak{p}_i} P_{j,\mathfrak{p}_i} = \bigcap_{j: \mathfrak{p}_j \subset \mathfrak{p}_i} Q_{j,\mathfrak{p}_i}.$$
+Note that these modules remain irreducible since all submodules of $M_{\mathfrak{p}_i}$ come from localizing submodules of $M$, and localization respects containment and intersections.
+Since $M$ is a Noetherian $A$-module, $M_{\mathfrak{p}_i}$ is a Noetherian $A_{\mathfrak{p}_i}$-module (Proposition 7.3). Then, invoking the preceding result from this proof,
+the total number of irreducible modules in the decompositions are equal: $\sum_{j: \mathfrak{p}_j \subset \mathfrak{p}_i} p_j = \sum_{j: \mathfrak{p}_j \subset \mathfrak{p}_i} q_j$.
+Since $\mathfrak{p}_j \subset \mathfrak{p}_i$ implies $j < i$ by our ordering, for all $j < i$ such that $\mathfrak{p}_j \subset \mathfrak{p}_i$, we can subtract $p_j = q_j$ from
+both sides. This leaves behind the equality $p_i = q_i$. By induction, $p_k = q_k$ for all $k$, as desired.
+\end{proof}
+
+\subsection{Exercise - Complete}\label{7.20}
+
+\begin{proof}[(i) Proof.]
+Suppose $E$ is a finite union of sets of the form $U \cap C$, where $U$ is open and $C$ is closed. Then, $C^c$ is open, so $U$ and $C^c$ are in $\mathcal{F}$. Thus, $C \in \mathcal{F}$,
+so $U \cap C \in \mathcal{F}$ for any open set $U$ and closed set $C$. Now, suppose $E_1,E_2 \in \mathcal{F}$. Then, $E_1 \cup E_2 = (E_1^c \cap E_2^c)^c \in \mathcal{F}$ 
+since $\mathcal{F}$ is closed under finite intersections and complements; thus, $\mathcal{F}$ is closed under finite unions as well. Since $E$ is a finite union of sets of the form 
+$U \cap C$ ($\in \mathcal{F}$), we have $E \in \mathcal{F}$.
+
+Conversely, note that $\mathcal{F}$ is generated by the open sets of $X$ under finite intersections and complements. Every open set is trivially a finite union of sets of the form $U \cap C$,
+where $U$ is open and $C$ is closed since an open set $U$ is $U \cap X$ (noting that $X$ is closed). Thus, it suffices to show that sets of this form are closed under complements and finite 
+intersections. Suppose we have two sets of this form: $\bigcup_i U_i \cap C_i$ and $\bigcup_j V_j \cap K_j$. Then,
+$$\left(\bigcup_i U_i \cap C_i\right)\cap\left(\bigcup_j V_j \cap K_j\right) = \bigcup_{(i,j)} (U_i \cap C_i) \cap (V_j \cap K_j) = \bigcup_{(i,j)} (U_i \cap V_j) \cap (C_i \cap K_j).$$
+Since $U_i \cap V_j$ is open and $C_i \cap K_j$ is closed, the intersection has the desired form. Moving to complements, we have
+$$\left(\bigcup_{i=1}^n U_i \cap C_i\right)^c = \bigcap_{i=1}^n U_i^c \cup C_i^c = \bigcup_{A \in \mathcal{P}(\{1,\ldots,n\})} \left(\bigcap_{i \in A} C_i^c \cap \bigcap_{i \not\in A} U_i^c\right).$$
+This is a finite union, $\bigcap C_i^c$ is open (even if $X$, i.e. empty indexing set), and $\bigcap U_i^c$ is closed (even if $X$, i.e. empty indexing set). Thus, complements preserve the form.
+Hence, a set $E$ of $X$ is in $\mathcal{F}$ if and only if it is a finite union of sets of the form $U \cap C$, where $U$ is open and $C$ is closed.
+\end{proof}
+
+\begin{proof}[(ii) Proof.]
+Suppose $E$ contains a non-empty open set $U$ of $X$. Since $X$ is irreducible, $X = \overline{U} \subset \overline{E} \subset X$, so $E$ is dense in $X$.
+
+Conversely, suppose $E \in \mathcal{F}$ is dense in $X$. By (i), $E = \bigcup_{i=1}^n U_i \cap C_i$, where each $U_i$ is open and each $C_i$ is closed. If $U_i \cap C_i$
+is empty, we may exclude it from the union; thus, we can assume $U_i \cap C_i$ is non-empty for all $i$. Then,
+$E \subset \bigcup_{i=1}^n C_i$, a closed set, so $X = \overline{E} \subset \bigcup_{i=1}^n C_i \subset X$, giving equality throughout. Taking complements,
+$\emptyset = \bigcap_{i=1}^n C_i^c$. Since $X$ is irreducible and $\bigcap_{i=1}^n C_i^c$ is an empty intersection of finitely many open sets, there is some $i$
+such that $C_i^c$ is empty. Thus, $C_i = X$ so that $E \supset U_i \cap C_i = U_i \cap X = U_i$. Since $U_i \cap C_i$ is non-empty and equal to $U_i$, $U_i$ is 
+a non-empty open subset of $E$, as desired.
+\end{proof}
+
+\subsection{Exercise - Complete}\label{7.21}
+
+\begin{proof}
+Suppose $E \in \mathcal{F}$, and let $X_0$ be an irreducible closed set of $X$. By Exercise \ref{7.20}, $E = \bigcup_{i=1}^n U_i \cap C_i$, where the $U_i$ are open and
+the $C_i$ are closed. Let $E_0 = E \cap X_0$, and suppose $\overline{E_0} = \overline{E \cap X_0} = X_0$. Since $X_0$ is an irreducible closed set of $X$, $X_0$ is an
+irreducible topological space. Let $\mathcal{F}_0$ be the collection of $X_0$ defined in Exercise \ref{7.20}. Note that 
+$$E_0 = X_0 \cap \bigcup_{i=1}^n U_i \cap C_i = \bigcup_{i=1}^n X_0 \cap (U_i \cap C_i) = \bigcup_{i=1}^n (X_0 \cap U_i) \cap (X_0 \cap C_i).$$
+Since $X_0 \cap U_i$ are open in $X_0$ and $X_0 \cap C_i$ are closed in $X_0$, both by definition, we see by Exercise \ref{7.20} (i) that $E_0 \in \mathcal{F}_0$. Then,
+since $X_0$ is irreducible and $E_0$ is dense in $X_0$, we have by Exercise \ref{7.20} (ii) that $E_0$ contains a non-empty open subset of $X_0$. Therefore, we've shown
+that if $E \in \mathcal{F}$, then $\overline{E \cap X_0} \neq X_0$ or $E \cap X_0$ contains a non-empty open subset of $X_0$.
+
+Conversely, suppose $E \not\in \mathcal{F}$. Then, the collection of closed sets $X' \subset X$ such that $E \cap X' \not\in \mathcal{F}$ is not empty ($X$ is such a closed set). 
+This collection has a minimal element $X_0$ since $X$ is a Noetherian space. Suppose $X_0$ is reducible, i.e. there are two closed sets $C_1$ and $C_2$ such that $X_0 = C_1 \cup C_2$
+and $X_0$ properly contains each closed set. Since $X_0$ is minimal in the collection, $E\cap C_1, E\cap C_2 \in \mathcal{F}$. Since $\mathcal{F}$ is closed under finite unions (as we 
+saw in the proof of Exercise \ref{7.20} (i)), $E \cap X_0 = (E \cap C_1) \cup (E \cap C_2) \in \mathcal{F}$, a contradiction. Thus, $X_0$ is closed and irreducible.
+
+Suppose to the contrary that $\overline{E \cap X_0} \neq X_0$. Then, $X_0$ properly contains the closed set $\overline{E \cap X_0}$, so $E \cap \overline{E \cap X_0} \in \mathcal{F}$
+by the minimality of $X_0$ in the aforementioned collection. Since $X_0$ is a closed set, $X_0 \in \mathcal{F}$, so we have 
+$$X_0 \cap (E \cap \overline{E \cap X_0}) = (E \cap X_0) \cap \overline{E \cap X_0} = E \cap X_0 \in \mathcal{F}.$$
+This contradicts the definition of $X_0$.
+
+Now, suppose to the contrary that $E \cap X_0$ contains a non-empty open set $X_0 \cap U$. We can thus write 
+$$E \cap X_0 = (E \cap X_0 \cap U) \cup (E \cap X_0 \cap U^c).$$
+Since $X_0 \cap U^c$ is closed and properly contained in $X_0$ (since $X_0 \cap U$ is non-empty), by the minimality of $X_0$ in the collection, 
+$E \cap (X_0 \cap U^c) \in \mathcal{F}$. On the other hand, since $E \cap X_0$
+contains $U \cap X_0$, $E \cap X_0 \cap U = X_0 \cap U$. Since $X_0$ is closed and $U$ is open, we have by Exercise \ref{7.20} (i) that $X_0 \cap U \in \mathcal{F}$.
+Thus, $E \cap X_0$ is the union of two sets in $\mathcal{F}$, so $E \cap X_0 \in \mathcal{F}$, a contradiction.
+\end{proof}
+
+\begin{remark}
+The sets belonging to $\mathcal{F}$ are called the ``constructible'' subsets of $X$.
+\end{remark}
 
 \subsection{Exercise}\label{7.22}
 
