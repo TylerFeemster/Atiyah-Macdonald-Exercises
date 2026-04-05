@@ -530,7 +530,31 @@ Thus, $E \cap X_0$ is the union of two sets in $\mathcal{F}$, so $E \cap X_0 \in
 The sets belonging to $\mathcal{F}$ are called the ``constructible'' subsets of $X$.
 \end{remark}
 
-\subsection{Exercise}\label{7.22}
+\subsection{Exercise - Complete}\label{7.22}
+
+\begin{proof}
+Suppose $E$ is an open set of $X$. Let $X_0$ be an irreducible closed subset of $X$. If $E \cap X_0 \neq \emptyset$, then $E \cap X_0$ is
+a non-empty open subset of $X_0$. Thus, if $E$ is an open set of $X$, then for every irreducible closed subset $X_0$ of $X$,
+either $E \cap X_0 = \emptyset$ or $E \cap X_0$ contains a non-empty open subset of $X_0$.
+
+Conversely, let $E$ be a subset of $X$ that is not open. Then, $E \cap X$ is trivially not open; thus, the collection of closed sets $C$ of $X$
+such that $E \cap C$ is not open in $C$ is non-empty. Since $X$ is Noetherian, this collection has a minimal element $X_0$. Suppose that $X_0$ is 
+reducible so that $X_0 = C_1 \cup C_2$ and $X_0$ properly contains both closed sets $C_1$ and $C_2$. Then, by minimality, $E \cap C_1$ is open in 
+$C_1$ and $E \cap C_2$ is open in $C_2$. Thus, $E \cap C_i = V_i \cap C_i$ for open sets $V_1$, $V_2$ of $X$. Let $U_i = V_i \cup C_i^c$, so $U_i$
+is open and $U_i \cap C_i = (V_i \cup C_i^c) \cap C_i = V_i \cap C_i = E \cap C_i$. Further, 
+$$E = (E \cap C_i) \cup (E \cap C_i^c) \subset (E \cap C_i) \cup C_i^c = (U_i \cap C_i) \cup C_i^c = (U_i \cap C_i) \cup (U_i \cap C_i^c) = U_i.$$
+Thus, $E \subset U_1 \cap U_2$ so that $E \cap C_i \subset (U_1 \cap U_2) \cap C_i \subset U_i \cap C_i = E \cap C_i$, so we have equality throughout.
+In particular, the open set $U = U_1 \cap U_2$ satisfies $U \cap C_i = E \cap C_i$ for both $i=1,2$. Then, 
+$$E \cap X_0 = (E \cap C_1) \cup (E \cap C_2) = (U \cap C_1) \cup (U \cap C_2) = U \cap (C_1 \cup C_2) = U \cap X_0,$$
+so $E \cap X_0$ is open in $X_0$, a contradiction. Thus, $X_0$ is closed and irreducible.
+
+$E \cap X_0 \neq \emptyset$ since $\emptyset$ is open. To finish the contrapositive then, we must show that $E \cap X_0$ does not contain a non-empty open
+subset. So, suppose to the contrary that there is some open set $U$ of $X$ such that $U \cap X_0 \neq \emptyset$ and $U \cap X_0 \subset E \cap X_0$.
+Since $U \cap X_0 \neq \emptyset$, $X_0$ strictly contains the closed set $U^c \cap X_0$. By the minimality of $X_0$, $E \cap (U^c \cap X_0)$ is open
+and thus open in $X_0$. Since $U \cap X_0 \subset E \cap X_0$, $E \cap U \cap X_0 = U \cap X_0$, which is an open set of $X_0$. Thus,
+$$E \cap X_0 = (E \cap X_0 \cap U) \cup (E \cap X_0 \cap U^c)$$
+is the union of two open sets of $X_0$, so $E \cap X_0$ is an open set of $X_0$, the desired contradiction.
+\end{proof}
 
 \subsection{Exercise}\label{7.23}
 
