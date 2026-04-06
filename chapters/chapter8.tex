@@ -1,13 +1,186 @@
-\section{Artin Rings}
+\section{Artin Rings (Complete)}
 
 \subsection{Exercise}\label{8.1}
 
+\begin{proof}
+Let $0 = \mathfrak{q}_1 \cap \cdots \cap \mathfrak{q}_n$ be a minimal primary decomposition of zero in a Noetherian ring $A$,
+where $\mathfrak{q}_i$ is $\mathfrak{p}_i$-primary. Localizing to $A_{\mathfrak{p}_i}$, if $S = A - \mathfrak{p}_i$, then since
+$S \cap \mathfrak{p}_i = \emptyset$, we have by Proposition 4.8 that $S^{-1}\mathfrak{q}_i$ is $S^{-1}\mathfrak{p}_i$-primary,
+and its contraction is $\mathfrak{q}_i$.
+
+Since $A$ is Noetherian, $A_{\mathfrak{p}_i}$ is also (Corollary 7.4), so by Proposition 7.14, 
+$S^{-1}\mathfrak{q}_i \supset (S^{-1}\mathfrak{p}_i)^r = S^{-1}\mathfrak{p}_i^{r_i}$ for some $r_i > 0$. Contracting, we obtain
+$\mathfrak{q}_i \supset \mathfrak{p}_i^{(r_i)}$.
+
+Suppose $\mathfrak{q}_i$ is an isolated primary component. Since there is some $r_i > 0$ such that $\mathfrak{q}_i \supset \mathfrak{p}_i^{(r_i)}$, 
+we can replace $\mathfrak{q}_i$ with the $\mathfrak{p}_i$-primary ideal $\mathfrak{p}_i^{(r_i)}$ (Exercise \ref{4.13}) to obtain another minimal
+primary decomposition of $0$. By Corollary 4.11 (2nd uniqueness theorem for primary decompositions), $\mathfrak{q}_i = \mathfrak{p}_i^{(r_i)}$. Likewise,
+if $m > r_i$, then $\mathfrak{p}_i^{(m)} \subset \mathfrak{p}_i^{(r_i)} = \mathfrak{q}_i$, so by the same argument, $\mathfrak{q}_i = \mathfrak{p}_i^{(m)}$
+so that $\mathfrak{p}_i^{(r_i)} = \mathfrak{p}_i^{(m)}$. By the one-to-one correspondence of Proposition 4.8, since $\mathfrak{p}_i^{(m)} = \mathfrak{p}_i^{(r_i)}$,
+$S^{-1}\mathfrak{p}_i^m = S^{-1}\mathfrak{p}_i^{r_i}$ for all $m > r_i$. Note that $A_{\mathfrak{p}_i}$ is a Noetherian local ring, so since
+$S^{-1}\mathfrak{p}_i$ is the unique maximal ideal and its powers stablize, we have by Proposition 8.6 that $S^{-1}\mathfrak{p}_i^m = 0$ for
+all $m$ such that $m > m_i$ for some $m_i > 0$ and $A_{\mathfrak{p}_i}$ is an Artinian local ring. In particular, if $m > \max\{m_i,r_i\}$, then
+$\mathfrak{q}_i = \mathfrak{p}_i^{(m)} = (S^{-1}\mathfrak{p}_i^m)^c = (S^{-1}0)^c$.
+
+Now, suppose $\mathfrak{q}_i$ is an embedded primary component. Again, $A_{\mathfrak{p}_i}$ is a local Noetherian ring. However, since $\mathfrak{q}_i$
+is embedded, there is some prime ideal $\mathfrak{p}_j \neq \mathfrak{p}_i$ belonging to $0$ such that $\mathfrak{p}_j \subset \mathfrak{p}_i$. Localizing
+to $A_{\mathfrak{p}_i}$, since $\mathfrak{p}_j \cap A-\mathfrak{p}_i = \emptyset$, we have by Proposition 4.8 that $S^{-1}\mathfrak{p}_j$ and 
+$S^{-1}\mathfrak{p}_i$ are unique prime ideals. So, we have a proper chain of primes $S^{-1}\mathfrak{p}_j \subset S^{-1}\mathfrak{p}_i$. In particular, 
+$\dim A_{\mathfrak{p}_i} \ge 1$, so by Theorem 8.5, $A_{\mathfrak{p}_i}$ is not Artinian.
+
+Since $A_{\mathfrak{p}_i}$ is a local Noetherian ring that is not Artinian and $S^{-1}\mathfrak{p}_i$ is the unique maximal ideal, we have by Proposition 8.6
+that $S^{-1}\mathfrak{p}_i^n \neq S^{-1}\mathfrak{p}_i^{n+1}$ for all $n>0$. Thus, by Proposition 4.8, their contractions are all distinct so that we have 
+proper inclusions $\mathfrak{p}_i^{(n+1)} \subset \mathfrak{p}_i^{(n)}$ for all $n > 0$. However, we have still have $\mathfrak{q}_i \supset \mathfrak{p}_i^{(r_i)}$
+for some $r_i > 0$. Since $\mathfrak{p}_i^{(n)}$ is $\mathfrak{p}_i$-primary by Exercise \ref{4.13}, for any $n \ge r_i$, we can replace $\mathfrak{q}_i$
+with the $\mathfrak{p}_i$-primary ideal $\mathfrak{p}_i^{(n)}$ to obtain another minimal primary decomposition of $0$. Therefore, there are infinitely many
+minimal primary decompositions of $0$ which differ only in the $\mathfrak{p}_i$-primary component.
+\end{proof}
+
 \subsection{Exercise}\label{8.2}
+
+\begin{proof}
+(i) $\implies$ (ii). If $A$ is Artinian, all prime ideals are maximal (Proposition 8.1), so all singletons of $\Spec(A)$ are closed. By Proposition 8.3,
+$A$ has finitely many maximal ideals and thus prime ideals, so $\Spec(A)$ is finite. Let $S$ be a subset of $\Spec(A)$, so it is also a finite set. 
+Then, $S = \bigcup_{x \in S}\{x\}$ is a finite union of closed sets, so $S$ is closed. Thus, $\Spec(A)$ is discrete and finite.
+
+(ii) $\implies$ (iii). Trivial.
+
+(iii) $\implies$ (i). Suppose $\Spec(A)$ is discrete. Thus, every singleton of $\Spec(A)$ is closed, so all prime ideals of $A$ are maximal. Hence, $\dim A = 0$.
+Since $A$ is Noetherian, we have by Theorem 8.5 that $A$ is Artinian.
+\end{proof}
 
 \subsection{Exercise}\label{8.3}
 
+\begin{proof}
+Let $k$ be a field and $A$ a finitely generated $k$-algebra. Since $k$ is Noetherian, $A$ is also Noetherian (Proposition 7.2).
+
+(i) $\implies$ (ii). If $A$ is Artinian, then by Theorem 8.7, $A$ is isomorphic to a finite direct product of Artin local rings, $\prod_{i=1}^n A_i$.
+Then, each $A_i$ is a finitely generated $k$-algebra, so to show that $A$ is a finite $k$-algebra, it is enough to show that each factor $A_i$ is a 
+finite $k$-algebra. Thus, we've reduced to the case where $A$ is an Artin local ring and a finitely generated $k$-algebra. Let $\mathfrak{m}$ be the
+unique maximal ideal of $A$. By Corollary 7.10, $B = A/\mathfrak{m}$ is a finite algebraic extension of $k$. Thus, $B$ is finitely generated as a $k$-module, 
+i.e. $B$ is a finite-dimensional $k$-vector space.
+
+Now, since $A$ is local and Artinian, its only prime ideal is its unique maximal ideal $\mathfrak{m}$. Since $A$ is Noetherian, $0$ has a primary decomposition, 
+so since $\mathfrak{m}$ is the only prime, $\mathfrak{m}$ belongs to $0$. Since $A$ is clearly a finitely generated $A$-module, we have by Exercise \ref{7.18} that
+there exists a chain of submodules
+$$0 = M_0 \subset M_1 \subset \cdots \subset M_r = A$$
+such that $M_i/M_{i-1} \cong A/\mathfrak{m} = B$ for all $i$. Then, $M_1 \cong A/\mathfrak{m}$ so that $\dim_k M_1 = \dim_k B$. For all $i$, we have
+$$0 \to M_{i-1} \to M_i \to B \to 0,$$
+so $\dim_k M_i = \dim_k M_{i-1} + \dim_k B$. Thus, by induction, $\dim_k A = \dim_k M_r = r \dim_k B$, so $A$ is a finite $k$-algebra.
+
+(ii) $\implies$ (i). Suppose $A$ is a finite $k$-algebra. Then, $A$ is a finite-dimensional $k$-vector space. By Proposition 6.10, $A$ satisfies the
+descending chain condition, so $A$ is Artinian.
+\end{proof}
+
 \subsection{Exercise}\label{8.4}
+
+\begin{proof}
+Let $f : A \to B$ be a homomorphism of finite type.
+
+(i) $\implies$ (ii). If $f$ is finite, then $B$ is finitely generated as an $A$-module. Let $\mathfrak{p} \in \Spec(A)$. Then, 
+$f^{*-1}(\mathfrak{p})$ is homeomorphic to $\Spec(B \otimes_A k(\mathfrak{p}))$ by Exercise \ref{3.21}, where $k(\mathfrak{p})$ is the residue
+field of $A_{\mathfrak{p}}$. Since $B$ is a finitely generated $A$-module, $B \otimes_A k(\mathfrak{p})$ is a finitely generated
+$k(\mathfrak{p})$-module. By Proposition 6.10, $B \otimes_A k(\mathfrak{p})$ is both Noetherian and Artinian, so by Exercise \ref{8.2},
+$\Spec(B \otimes_A k(\mathfrak{p}))$ is discrete. Thus, the fibers of $f^*$ are discrete subspaces of $\Spec(B)$.
+
+(ii) $\implies$ (iii). Suppose the fibers of $f^*$ are discrete subspaces of $\Spec(B)$. For each prime $\mathfrak{p} \in \Spec(A)$, 
+$f^{*-1}(\mathfrak{p})$ is homeomorphic to $\Spec(B \otimes_A k(\mathfrak{p}))$ by Exercise \ref{3.21}, so $\Spec(B \otimes_A k(\mathfrak{p}))$
+is discrete. Since $f : A \to B$ is of finite type, $B \otimes_A k(\mathfrak{p})$ is a finitely generated $k(\mathfrak{p})$-algebra. Thus,
+$B \otimes_A k(\mathfrak{p})$ is Noetherian by Proposition 7.3 since $k(\mathfrak{p})$ is Noetherian. Since $\Spec(B \otimes_A k(\mathfrak{p}))$
+is finite and $B \otimes_A k(\mathfrak{p})$ is Noetherian, we have by Exercise \ref{8.2} that $B \otimes_A k(\mathfrak{p})$ is Artinian. Thus,
+by Exercise \ref{8.3}, $B \otimes_A k(\mathfrak{p})$ is a finite $k(\mathfrak{p})$-algebra.
+
+(iii) $\implies$ (ii). Suppose $B \otimes_A k(\mathfrak{p})$ is a finite $k(\mathfrak{p})$-algebra for each prime $\mathfrak{p} \in \Spec(A)$. By
+Exercise \ref{8.3}, $B \otimes_A k(\mathfrak{p})$ is Artinian, so by Exercise \ref{8.2}, $\Spec(B \otimes_A k(\mathfrak{p}))$ is discrete. Since
+$f^{*-1}(\mathfrak{p})$ is homeomorphic to $\Spec(B \otimes_A k(\mathfrak{p}))$ by Exercise \ref{3.21}, the fibers of $f^*$ are discrete subspaces
+of $\Spec(B)$.
+
+(iii) $\implies$ (iv). Suppose $B \otimes_A k(\mathfrak{p})$ is a finite $k(\mathfrak{p})$-algebra for each prime $\mathfrak{p} \in \Spec(A)$. By
+Exercise \ref{8.3}, $B \otimes_A k(\mathfrak{p})$ is Artinian, so by Exercise \ref{8.2}, $\Spec(B \otimes_A k(\mathfrak{p}))$ is discrete and finite. 
+Since $f^{*-1}(\mathfrak{p})$ is homeomorphic to $\Spec(B \otimes_A k(\mathfrak{p}))$ by Exercise \ref{3.21}, the fibers of $f^*$ are finite.
+\end{proof}
+
+If $f$ is integral and the fibers of $f^*$ are finite, then $f$ is not necessarily finite.
+
+\begin{proof}
+Let $k$ be a field of characteristic 2 (e.g., $\F_2$), let $A = k[x_1^2,x_2^2,\ldots]$, and let $B = k[x_1,x_2,\ldots]$, 
+so we have a map $f : A \xhookrightarrow{} B$.
+
+$B$ is integral over $A$. For each $x_i \in B$, $x_i$ solves the monic polynomial $x^2 - x_i^2 \in A[x]$. Since the integral elements of $B$ over
+$A$ form a subring of $B$ and since $B$ is generated as a ring by elements $x_i$ and elements of $k \subset A$, we see that $f$ is integral.
+
+Let $\mathfrak{p}$ be a prime ideal of $A$. Suppose $\mathfrak{q} \in B$ such that $\mathfrak{p} = \mathfrak{q} \cap A$. For $b \in \mathfrak{q}$, we can
+write $b = \sum b_{\alpha} x_{i_1}^{e_i} \cdots x_{i_n}^{e_n}$. Then, since $x \mapsto x^2$ is a ring homomorphism ($k$ has characteristic 2),
+$$b^2 = \left(\sum b_{\alpha} x_{i_1}^{e_i} \cdots x_{i_n}^{e_n}\right)^2 = \sum b_{\alpha}^2 x_{i_1}^{2e_i} \cdots x_{i_n}^{2e_n} \in A.$$
+Thus, for all $b \in \mathfrak{q}$, $b^2 \in A \cap \mathfrak{q} = \mathfrak{p}$. Conversely, if $b \in B$ such that $b^2 \in \mathfrak{p}$, 
+then $b^2 \in \mathfrak{p} \subset \mathfrak{q}$; since $\mathfrak{q}$ is prime, $b \in \mathfrak{q}$. Thus, $\mathfrak{q} = \{b \in B \mid b^2 \in \mathfrak{p}\}$.
+In particular, $\mathfrak{q}$ depends only on $\mathfrak{p}$ so is uniquely determined. Hence, $f^{*-1}(\mathfrak{p})$ is either empty or a singleton,
+so $f^*$ clearly has finite fibers.
+
+$B$ is not a finitely generated $A$-module. Suppose $m_1,\ldots,m_n$ are a finite generating set of $B$ as an $A$-module. Then, each $m_i$ is an expression
+of $B$ containing finitely many $x_i$. Let $S$ be the finite set of $x_i$ occuring in the expressions $m_1,\ldots,m_n$. Thus, there is some $x_r \not\in S$.
+Write $x_r = a_1 m_1 + \cdots + a_n m_n$, where $a_i \in A$. Now, we have a ring homomorphism $\psi : B \mapsto k[x_r]$ achieved by sending $x_i \mapsto 0$
+for all $i \neq r$. Under this map, we have $x_r = \psi(x_r) = \psi(a_1)\psi(m_1) + \cdots + \psi(a_n) \psi(m_n)$. Since $m_i$ does not include $x_r$ for any 
+$i$, $\psi(m_i) \in k$. Further, for all $a_i$, $\psi(a_i) \in k[x^2]$. Thus, the right hand side is an element of $k[x_r^2]$. This is a contradiction since
+$x_r \not\in k[x_r^2]$, so $f$ is not finite.
+\end{proof}
 
 \subsection{Exercise}\label{8.5}
 
+\begin{proof}
+Let's briefly recall the context of Exercise \ref{5.16} and harvest some details from the proof. $X$ is an affine algebraic variety of $k^n$, where
+$k$ is an algebraically closed field. $L$ is an $r$-dimensional linear subspace of $k^n$. We have an integral map $f : P(L) \xhookrightarrow{} P(X)$
+which corresponds to a surjective regular map $\psi : X \to L$. Both $P(L)$ and $P(X)$ are isomorphic as $k$-algebras to quotients of $k[y_1',\ldots,y_n']$,
+and $f$ preserves the images of each $y_i'$. Thus, $P(X)$ is finitely generated over $P(L)$, so $f$ is integral and of finite type. In light of Corollary 5.2, 
+$f$ is finite. By Exercise \ref{8.4}, $f^*$ has finite fibers.
+
+By Exercise \ref{5.17}, maximal ideals of $k[y_1',\ldots,y_n']$ have the form $\mathfrak{m}_a = (y_1' - a_1,\ldots,y_n' - a_n)$ for $a = (a_i)_i \in k^n$. 
+Further, $\ell \in L$ if and only if $\mathfrak{m}_{\ell}$ is a maximal ideal of $P(L)$. Since $f$ is integral, if $\mathfrak{p} \in \Spec(P(X))$ is such that 
+$f^{-1}(\mathfrak{p}) = \mathfrak{m}_{\ell}$, then $\mathfrak{p}$ is maximal by Corollary 5.8. Thus, $\mathfrak{p} = \mathfrak{m}_x$ for some $x \in X$. Thus, 
+to show that the fibers of $\psi$ have bounded size (so that $X$ is a finite cover of $L$), it is enough to show that the fibers of $f^*$ have bounded size.
+
+Since $f$ is finite, $P(X)$ is finitely generated as a $P(L)$-module, so suppose $P(X)$ has $n$ generators as a $P(L)$-module. Then, for $\mathfrak{p} \in \Spec(P(L))$,
+$B = P(X) \otimes_{P(L)} k(\mathfrak{p})$ has $k(\mathfrak{p})$-dimension at most $n$. By Exercise \ref{3.21}, $f^{*-1}(\mathfrak{p}) \cong \Spec(B)$,
+so it is enough to show that $\Spec(B)$ has bounded size. Let $\mathfrak{p}_1,\ldots,\mathfrak{p}_m$ be distinct primes of $\Spec(B)$. Then, $B \to \prod_i B/\mathfrak{p}_i$
+is surjective. Since $B$ is a $k(\mathfrak{p})$-algebra, the $B/\mathfrak{p}_i$ are also $k(\mathfrak{p})$-vector spaces. Then,
+$$n \ge \dim_{k(\mathfrak{p})} B \ge \sum_{i=1}^m \dim_{k(\mathfrak{p})}(B/\mathfrak{p}_i) \ge m,$$
+so $\Spec(B)$ has at most $n$ elements for any choice of $\mathfrak{p} \in \Spec(A)$.
+\end{proof}
+
 \subsection{Exercise}\label{8.6}
+
+\begin{proof}
+Let $A$ be a Noetherian ring, and let $\mathfrak{q}$ be a $\mathfrak{p}$-primary ideal. Suppose we have a strict chain of $\mathfrak{p}$-primary ideals 
+$$\mathfrak{q} = \mathfrak{q}_0 \subset \mathfrak{q}_1 \subset \cdots \subset \mathfrak{q}_r = \mathfrak{p}.$$
+Let $S = A-\mathfrak{p}$. By Proposition 4.8, we have the following strict chain of $S^{-1}\mathfrak{p}$-primary ideals of the Noetherian ring 
+$A_{\mathfrak{p}}$ (Corollary 7.4):
+$$S^{-1}\mathfrak{q} = S^{-1}\mathfrak{q}_0 \subset S^{-1}\mathfrak{q}_1 \subset \cdots \subset S^{-1}\mathfrak{q}_r = S^{-1}\mathfrak{p}.$$
+Since $r(S^{-1}\mathfrak{q}) = S^{-1}\mathfrak{p}$ and $A_{\mathfrak{p}}$ is a Noetherian ring, we have by Proposition 7.14 that there is some $m > 0$
+such that $(S^{-1}\mathfrak{p})^m \subset S^{-1}\mathfrak{q}$.
+
+Passing to the ring $A_{\mathfrak{p}}/S^{-1}\mathfrak{q}$ (Noetherian by Proposition 7.1), we have a strict (Proposition 1.1) chain of ideals
+$$0 \subset S^{-1}\mathfrak{q}_1/S^{-1}\mathfrak{q} \subset \cdots \subset S^{-1}\mathfrak{q}_r/S^{-1}\mathfrak{q} = S^{-1}\mathfrak{p}/S^{-1}\mathfrak{q}.$$
+By the order-preserving correspondence of Proposition 1.1, $S^{-1}\mathfrak{p}/S^{-1}\mathfrak{q}$ is the unique maximal ideal of $A_{\mathfrak{p}}/S^{-1}\mathfrak{q}$,
+so $A_{\mathfrak{p}}/S^{-1}\mathfrak{q}$ is a Noetherian local ring. However, 
+$$(S^{-1}\mathfrak{p}/S^{-1}\mathfrak{q})^m = (S^{-1}\mathfrak{p})^m/S^{-1}\mathfrak{q} \subset S^{-1}\mathfrak{q}/S^{-1}\mathfrak{q} = 0,$$
+so by Theorem 8.6, $A_{\mathfrak{p}}/S^{-1}\mathfrak{q}$ is an Artinian local ring.
+
+Consider $A_{\mathfrak{p}}/S^{-1}\mathfrak{q}$ as a $A_{\mathfrak{p}}/S^{-1}\mathfrak{q}$-module. Then, it is an Artinian and Noetherian module, so it has finite length by Proposition 6.8.
+Thus, $S^{-1}\mathfrak{p}/S^{-1}\mathfrak{q}$ has finite length $n = \ell(S^{-1}\mathfrak{p}/S^{-1}\mathfrak{q})$. Since the chain of submodules (ideals) above is strict, $r \le n$, so the length of $\mathfrak{p}$-primary chains 
+between $\mathfrak{p}$ and $\mathfrak{q}$ is bounded. By Proposition 6.7, every composition series of $S^{-1}\mathfrak{p}/S^{-1}\mathfrak{q}$ has length $n$ and every chain of 
+length less than $n$ can be extended to one of length $n$.
+Therefore, to show that maximal chains of $\mathfrak{p}$-primary ideals between $\mathfrak{p}$ and $\mathfrak{q}$ have length $n$, it is enough to show that arbitrary composition
+series of $S^{-1}\mathfrak{p}/S^{-1}\mathfrak{q}$ can be lifted to chains of $\mathfrak{p}$-primary ideals between $\mathfrak{p}$ and $\mathfrak{q}$.
+
+Suppose we have a composition series of $A_{\mathfrak{p}}/S^{-1}\mathfrak{q}$:
+$$0 = \mathfrak{b}_0 \subset \mathfrak{b}_1 \subset \cdots \subset \mathfrak{b}_n = S^{-1}\mathfrak{p}/S^{-1}\mathfrak{q}.$$
+By Proposition 1.1, each $\mathfrak{b}_i$ lifts to a unique ideal of $A_{\mathfrak{p}}$ containing $S^{-1}\mathfrak{q}$, and this lift preserves ordering. Since by Proposition 3.11
+all ideals of $A_{\mathfrak{p}}$ have the form $S^{-1}\mathfrak{q}$ for some ideal $\mathfrak{q}$ of $A$, we lift to a strict chain
+$$S^{-1}\mathfrak{q} = S^{-1}\mathfrak{q}_0 \subset S^{-1}\mathfrak{q}_1 \subset \cdots \subset S^{-1}\mathfrak{q}_n = S^{-1}\mathfrak{p}.$$
+Since $S^{-1}\mathfrak{q}$ is $S^{-1}\mathfrak{p}$-primary, 
+$$S^{-1}\mathfrak{p} = r(S^{-1}\mathfrak{q}) \subset r(S^{-1}\mathfrak{q}_i) \subset r(S^{-1}\mathfrak{p}) = S^{-1}\mathfrak{p}$$
+for all $i$. $S^{-1}\mathfrak{p}$ is maximal in $A_{\mathfrak{p}}$, so by Proposition 4.2, $S^{-1}\mathfrak{q}_i$ is $S^{-1}\mathfrak{p}$-primary for all $i$.
+By Proposition 4.8 (and Proposition 3.11), this lifts to a strict chain
+$$\mathfrak{q} = \mathfrak{q}_0 \subset \mathfrak{q}_1 \subset \cdots \subset \mathfrak{q}_n = \mathfrak{p}$$
+of $\mathfrak{p}$-primary ideals $\mathfrak{q}_i$, as desired.
+\end{proof}
