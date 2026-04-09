@@ -86,13 +86,89 @@ $y = x \cdot yx^{-1} \not\in \mathfrak{p}$. This is a clear contradiction. Thus,
 of $A$ are maximal, as desired.
 \end{proof}
 
-\subsection{Exercise}\label{9.4}
+\subsection{Exercise - Complete}\label{9.4}
 
-\subsection{Exercise}\label{9.5}
+\begin{proof}
+Let $A$ be a local domain (not a field) in which the maximal ideal $\mathfrak{m}$ is principal and $\bigcap_{i=1}^{\infty}\mathfrak{m}^n = 0$. Suppose for a moment
+that $\mathfrak{m}$ is the only nonzero prime ideal. Then, every prime ideal is finitely generated since $\mathfrak{m}$ is principal, so by Exercise \ref{7.1}, $A$ 
+is Noetherian. Further, it has dimension one since $0 \subset \mathfrak{m}$ is the only strict chain of primes. Then, since $A$ is a Noetherian local domain of 
+dimension one with a maximal ideal that is principal, we have by Proposition 9.2 that $A$ is a discrete valuation ring.
 
-\subsection{Exercise}\label{9.6}
+Therefore, we just have to show that any nonzero prime ideal $\mathfrak{p}$ of $A$ is equal to $\mathfrak{m}$. Since $\mathfrak{m}$ is principal, $\mathfrak{m} = (\pi)$ 
+for some $\pi \in A$. Now, let $y \in \mathfrak{p}$. If $y = 0$, then $y \in \mathfrak{m}$, so suppose $y \neq 0$. By assumption, $\bigcap_{i=1}^{\infty}\mathfrak{m}^n = 0$, 
+so $y \not\in \bigcap_{i=1}^{\infty}\mathfrak{m}^n$. Thus, there is some minimal $n(y) > 1$ (since $y \in \mathfrak{m}$) such that $y \not\in \mathfrak{m}^{n(y)}$. Then, 
+$\{n(y) \mid y \in \mathfrak{p} - 0\}$ is a non-empty subset of integers greater than $1$, so it has a minimum $N > 1$. Thus, there is some $b \in \mathfrak{p}$ such that 
+$b \not\in \mathfrak{m}^N$. Since $b \in \mathfrak{p} \subset \mathfrak{m} = (\pi)$, we can write $b = a \pi$, where $a \in A$. 
+
+If $a \in \mathfrak{m}^{N-1} = (\pi^{N-1})$, then $b = a \pi \in (\pi^N)$, contradicting our choice of $b$, so $a \not\in \mathfrak{m}^{N-1}$.
+Since $b \in \mathfrak{p}$, either $\pi \in \mathfrak{p}$ or $a \in \mathfrak{p}$. But $a \not\in \mathfrak{p}$; otherwise, $a \in \mathfrak{p}$ 
+and $a \not\in \mathfrak{m}^{N-1}$ together violate the minimality of $N$. Thus, $\pi \in \mathfrak{p}$ so that $\mathfrak{m} = (\pi) \subset \mathfrak{p}$, 
+implying that $\mathfrak{p} = \mathfrak{m}$, as desired.
+\end{proof}
+
+\subsection{Exercise - Complete}\label{9.5}
+
+\begin{proof}
+Let $M$ be a finitely generated module over a Dedekind domain. Since $M$ is finitely generated and $A$ is Noetherian, we have by Exercise \ref{7.16} that
+$M$ is flat if and only if $M_{\mathfrak{m}}$ is free for all maximal ideals $\mathfrak{m}$ of $A$. By Exercise \ref{3.13}, $M$ is torsion-free if and only 
+if $M_{\mathfrak{m}}$ is torsion-free for all maximal ideals $\mathfrak{m}$ of $A$. Thus, to show that $M$ is flat if and only if $M$ is torsion-free, it
+suffices to show that for all maximal ideals $\mathfrak{m}$ of $A$, $M_{\mathfrak{m}}$ is torsion-free if and only if $M_{\mathfrak{m}}$ is free.
+
+Note that if $M_{\mathfrak{m}} = 0$, the result is trivial, so suppose $M_{\mathfrak{m}} \neq 0$. Since $M_{\mathfrak{m}}$ is finitely generated,
+if $M_{\mathfrak{m}}$ is free, $M_{\mathfrak{m}} \cong A_{\mathfrak{m}}^n$ as an $A_{\mathfrak{m}}$-module for some $n > 0$. Let 
+$(a_1,\ldots,a_n) \in A_{\mathfrak{m}}^n$, and let $x \in A_{\mathfrak{m}}$ be non-zero. If $x(a_1,\ldots,a_n) = 0$, then $(xa_1,\ldots,xa_n) = (0,\ldots,0)$.
+Since $A_{\mathfrak{m}}$ is an integral domain and $x \neq 0$, $a_i = 0$ for all $i$, so $(a_1,\ldots,a_n) = (0,\ldots,0)$. Thus, $T(M_{\mathfrak{m}}) = 0$.
+
+Conversely, suppose $T(M_{\mathfrak{m}}) = 0$. Since $A$ is a Dedekind domain, we have by Theorem 9.3 that $A_{\mathfrak{m}}$ is a discrete valuation ring. Thus, 
+by Proposition 9.2, $A_{\mathfrak{m}}$ is a principal ideal domain. Hence, by the structure theorem for finitely generated modules over a principal ideal domain,
+$$M_{\mathfrak{m}} \cong A_{\mathfrak{m}}^n \oplus A_{\mathfrak{m}}/\mathfrak{a}_1 \oplus \cdots \oplus A_{\mathfrak{m}}/\mathfrak{a}_r$$
+for nonzero ideals $\mathfrak{a}_i$ of $A_{\mathfrak{m}}$, where $r \ge 0$. If $r \ge 1$, $M_{\mathfrak{m}}$ has an $A_{\mathfrak{m}}$-submodule $M'$ isomorphic to
+$A_{\mathfrak{m}}/\mathfrak{a}_1$. Let $m \in M'$ be the preimage of $1$ in the isomorphism $M' \cong A_{\mathfrak{m}}/\mathfrak{a}_1$, and let $a \in \mathfrak{a}_1$
+be a nonzero element. Then, $a m = 0$, violating the fact that $M_{\mathfrak{m}}$ is torsion-free. Thus, $r = 0$ so that $M_{\mathfrak{m}} \cong A_{\mathfrak{m}}^n$,
+as desired.
+\end{proof}
+
+\subsection{Exercise - Complete}\label{9.6}
+
+\begin{proof}
+Let $\mathfrak{p}$ be a nonzero prime ideal of $A$. Since $A$ is a Dedekind domain, $A_{\mathfrak{p}}$ is a discrete valuation ring by Theorem 9.3. Thus, $A_{\mathfrak{p}}$
+is a principal ideal domain by Proposition 9.2. Suppose $M_{\mathfrak{p}} \neq 0$. By the structure theorem for principal ideal domains,
+$$M_{\mathfrak{p}} \cong A_{\mathfrak{p}}^n \oplus A_{\mathfrak{p}}/\mathfrak{a}_1 \oplus \cdots \oplus A_{\mathfrak{p}}/\mathfrak{a}_r,$$
+where $\mathfrak{a}_i$ are nontrivial ideals of $A_{\mathfrak{p}}$. By Exercise \ref{3.13}, $T(M_{\mathfrak{p}}) = T(M)_{\mathfrak{p}} = M_{\mathfrak{p}}$. If $n \ge 1$, there
+is a submodule $M' \cong A_{\mathfrak{p}}$ of $M_{\mathfrak{p}}$. Since $A_{\mathfrak{p}}$ is an integral domain, $M'$ contains non-torsion elements, contradicting $T(M_{\mathfrak{p}}) = M_{\mathfrak{p}}$.
+Thus, $n = 0$ so that
+$$M_{\mathfrak{p}} \cong A_{\mathfrak{p}}/\mathfrak{a}_1 \oplus \cdots \oplus A_{\mathfrak{p}}/\mathfrak{a}_r.$$
+Since $A_{\mathfrak{p}}$ is a discrete valuation ring with maximal ideal $\mathfrak{p}$, we have $\mathfrak{a}_j = \mathfrak{p}^{n_j}$ for some $n_j > 0$ (Proposition 9.2). Thus,
+$$M_{\mathfrak{p}} \cong A_{\mathfrak{p}}/\mathfrak{p}^{n_1} \oplus \cdots \oplus A_{\mathfrak{p}}/\mathfrak{p}^{n_r}.$$
+Note that this decomposition is unique (modulo reordering, of course) by the structure theorem. Let $n(\mathfrak{p}) = \max\{n_1,\ldots,n_r\}$. Then clearly, 
+$\Ann(M_{\mathfrak{p}}) = \mathfrak{p}^{n(\mathfrak{p})}$. In particular, note that $\Ann(M_{\mathfrak{p}}) \neq 0$ whenever $M_{\mathfrak{p}} \neq 0$.
+
+Since $M$ is finitely generated, by Proposition 3.14, $\Ann(M)_{\mathfrak{p}} = \Ann(M_{\mathfrak{p}}) = \mathfrak{p}^{n(\mathfrak{p})}$. If $\Ann(M) = 0$, then
+$\Ann(M_{\mathfrak{p}}) = 0$ so that $M_{\mathfrak{p}} = 0$ for all prime ideals $\mathfrak{p}$. Thus, by Proposition 3.8, $M = 0$. So, if $M \neq 0$, $\Ann(M)$
+is a nonzero ideal. Since $\Ann(M)$ is a nonzero ideal of a Dedekind domain $A$, $\Ann(M)$ has a unique decomposition as a product of prime powers (Corollary 9.4). If
+$\mathfrak{p}$ is a nonzero prime that is not in the decomposition, then since $A$ is Dedekind, $\mathfrak{p}$ does not contain any of the primes in the decomposition since
+all nonzero primes all maximal. Thus, $0 = \Ann(M)_{\mathfrak{p}} = \Ann(M_{\mathfrak{p}})$, so $M_{\mathfrak{p}} = 0$. Thus, $\Supp(M)$ is finite.
+
+Let $\{\mathfrak{p}_1,\ldots,\mathfrak{p}_k\} = \Supp(M)$. For each $\mathfrak{p}_i$, we have, as above,
+$$M_{\mathfrak{p}_i} \cong A_{\mathfrak{p}_i}/\mathfrak{p}_i^{n_{i,1}} \oplus \cdots \oplus A_{\mathfrak{p}_i}/\mathfrak{p}_i^{n_{i,r_i}}.$$
+Note that we have an $A$-module homomorphism $\phi : M \to \bigoplus_{i=1}^k \bigoplus_{j=1}^{r_i} A/\mathfrak{p}_i^{n_{i,j}}$. If $\mathfrak{p} \not\in \Supp(M)$,
+then we have $\phi_{\mathfrak{p}} : M_{\mathfrak{p}} \to \bigoplus_{i=1}^k \bigoplus_{j=1}^{r_i} A_{\mathfrak{p}}/\mathfrak{p}_i^{n_{i,j}}$. For all $\mathfrak{p}_i \in \Supp(M)$,
+$\mathfrak{p}$ does not contain $\mathfrak{p}_i$, so $A_{\mathfrak{p}}\mathfrak{p}_i^{n_{i,r_i}} = A_{\mathfrak{p}}$ so that all quotients on the right-hand side vanish. Further,
+$M_{\mathfrak{p}} = 0$, so $\phi_{\mathfrak{p}} : 0 \to 0$, which is clearly an isomorphism. On the other hand, let $\mathfrak{p}_s \in \Supp(M)$. Then,
+$\phi_{\mathfrak{p}_s} : M_{\mathfrak{p}_s} \to \bigoplus_{i=1}^k \bigoplus_{j=1}^{r_i} A_{\mathfrak{p}_s}/\mathfrak{p}_i^{n_{i,j}}$. If $i \neq s$, then $\mathfrak{p}_s$ does
+not contain $\mathfrak{p}_i$, so $A_{\mathfrak{p}_s}\mathfrak{p}_i^{n_{i,j}} = A_{\mathfrak{p}_s}$. In particular, $A_{\mathfrak{p}_s}/\mathfrak{p}_i^{n_{i,j}} = 0$ for $i \neq s$.
+Thus, we have $\phi_{\mathfrak{p}_s} : M_{\mathfrak{p}_s} \to \bigoplus_{j=1}^{r_s} A_{\mathfrak{p}_s}/\mathfrak{p}_s^{n_{s,j}}$, which is an isomorphism by construction. By
+Proposition 3.9, $\phi$ is an isomorphism, so 
+$$M \cong \bigoplus_{i=1}^k \bigoplus_{j=1}^{r_i} A/\mathfrak{p}_i^{n_{i,j}}.$$
+
+To see that this decomposition is unique, note that two decompositions of $M$ must disagree for some prime $\mathfrak{p}$, i.e. the two compositions do not have either the same 
+number of factors or the powers of $\mathfrak{p}$ do not match. But then, they would disagree under localization to $M_{\mathfrak{p}}$, which violates the uniqueness guaranteed 
+by the structure theorem.
+\end{proof}
 
 \subsection{Exercise}\label{9.7}
+
+
 
 \subsection{Exercise}\label{9.8}
 
