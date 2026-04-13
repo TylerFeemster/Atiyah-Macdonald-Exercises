@@ -1,12 +1,171 @@
 \section{Completions}
 
-\subsection{Exercise}\label{10.1}
+\subsection{Exercise - Complete}\label{10.1}
 
-\subsection{Exercise}\label{10.2}
+\begin{proof}
+Let $A$ be the $\Z$-module $\bigoplus_{i=1}^{\infty} (\Z/p\Z)$. Then, $pA = 0$ and thus $p^nA = 0$ for all $n \ge 1$. Then, we have
+$\varprojlim A/p^nA = \varprojlim A = A$.
 
-\subsection{Exercise}\label{10.3}
+Let $B$ be the $\Z$-module $\bigoplus_{i=1}^{\infty}(\Z/p^i\Z)$. If $\alpha_i : \Z/p\Z \to \Z/p^i\Z$ is the group homomorphism sending
+$1 \mapsto p^{i-1}$, then let $\alpha : A \to B$ be the direct sum of the $\alpha_i$. This is a $\Z$-module homomorphism simply because
+it is a homomorphism of abelian groups. Note that $B$ also has a natural $p$-filtration. For $n > 0$, 
+$p^n B = \bigoplus_{i=1}^{\infty} p^n \Z / p^i \Z$.
+Thus, $\alpha_i^{-1}(p^n B) = \Z/p\Z$ if $i > n$, but $\alpha_i^{-1}(p^n B) = 0$ if $i \le n$. Thus, the $p$-filtration of $A$ induced by
+the $p$-filtration of $B$ is $A_n = \bigoplus_{i=1}^n 0 \oplus \bigoplus_{i=n+1}^{\infty} \Z/p\Z$. Hence, 
+$A/A_n = \bigoplus_{i=1}^n \Z/p\Z = \prod_{i=1}^n \Z/p\Z$.
 
-\subsection{Exercise}\label{10.4}
+Note that the canonical homomorphism $\theta_{n+1} : A/A_{n+1} \to A/A_n$ is the one that projects the first $n$ factors isomorphically onto
+$A/A_n = \prod_{i=1}^n \Z/p\Z$, while sending the final $\Z/p\Z$ factor to $0$. As in the proof of Proposition 10.2, we can let 
+$M = \prod_{r=1}^{\infty}A/M_r$ and $d : M \to M$ be $(d(a))_n = a_n - \theta_{n+1}(a_{n+1})$. Then, $\varprojlim A/A_n \cong \ker d$. Thus,
+$a = (a_n)_n \in \ker d$ if and only if $\theta_{n+1}(a_{n+1}) = a_n$ for all $n$. By the characterization of $\theta_{n+1}$, this means that
+the $n$ components of $a_n$ match the first $n$ components of $a_{n+1}$. Since this is true for all $n$, it's clear that 
+$\ker d \cong \prod_{i=1}^{\infty}\Z/p\Z$. Hence, $\varprojlim A/A_n \cong \prod_{i=1}^{\infty}\Z/p\Z$.
+
+Letting $C = B/\alpha(A)$, we have an exact sequence
+$$A \xlongrightarrow{\alpha} B \to C \to 0.$$
+For the $p$-adic completion functor to be right exact, we'd need $\im(\varprojlim A/p^n \to \hat B) = \ker (\hat B \to \hat C)$.
+Since we showed $A = \varprojlim A/p^n$, we would need $\im(A \to \hat B) = \ker(\hat B \to \hat C)$.
+
+As defined above, $A_n = \alpha^{-1}(p^nB)$, so we have an exact sequence of $p$-filtrations
+$$0 \to A/A_n \to B/p^n B \to C/p^n C \to 0.$$
+Since $A/A_{n+1} \to A/A_n$ is clearly surjective for all $n$, we have by Proposition 10.2 that
+$$0 \to \varprojlim A/A_n \to \hat B \to \hat C \to 0$$
+is exact. Then, $\im(\varprojlim A/A_n \to \hat B) = \ker(\hat B \to \hat C)$. From above, $\varprojlim A/A_n \cong \prod_{i=1}^{\infty}\Z/p\Z$.
+Since $A = \bigoplus_{i=1}^{\infty}\Z/p\Z$ is a strict subgroup of $\prod_{i=1}^{\infty}\Z/p\Z$ and $\varprojlim A/A_n \to \hat B$ is injective,
+$\im(A \to \hat B)$ is a strict subgroup of $\im(\varprojlim A/A_n \to \hat B) = \ker(\hat B \to \hat C)$, so the sequence
+$$\varprojlim A/p^n A \xlongrightarrow{\hat \alpha} \varprojlim B/p^n B \to \varprojlim C/p^n C \to 0$$
+is not exact. Hence, $p$-adic completion is not a right exact functor on the category of $\Z$-modules.
+\end{proof}
+
+\subsection{Exercise - Complete}\label{10.2}
+
+\begin{proof}
+As in Exercise \ref{10.1}, define $A_n := \alpha^{-1}(p^n B)$. We have the short exact sequence
+$$0 \to A_n \to A \to A/A_n \to 0.$$
+From the proof of Exercise \ref{10.1}, we have $A_n = \bigoplus_{i=n+1}^{\infty} \Z/p\Z$ 
+and $A/A_n = \prod_{i=1}^n \Z/p\Z$. We have the natural embeddings $A_{n+1} \to A_n$ 
+and natural homomorphisms $A/A_{n+1} \to A/A_n$ that map the $n+1$ component to $0$. Thus, we have commutative 
+diagrams with exact rows:
+\begin{center}
+\begin{tikzcd}
+0 \arrow[r] & A_{n+1} \arrow[r]\arrow[d] & A \arrow[r]\arrow[d] & A/A_{n+1} \arrow[r]\arrow[d] & 0 \\
+0 \arrow[r] & A_n \arrow[r] & A \arrow[r] & A/A_n \arrow[r] & 0.
+\end{tikzcd}
+\end{center}
+So, 
+$$0 \to \{A_n\} \to \{A\} \to \{A/A_n\} \to 0$$
+is an exact sequence of inverse systems. By Proposition 10.2, we have an exact sequence
+$$0 \to \varprojlim A_n \to \varprojlim A \to \varprojlim A/A_n.$$
+Then, $\varprojlim A = A = \bigoplus_{i=1}^{\infty}\Z/p\Z$ and, by Exercise \ref{10.1}, $\varprojlim A/A_n \cong \prod_{i=1}^{\infty}\Z/p\Z$.
+Now, clearly $\bigoplus_{i=1}^{\infty}\Z/p\Z \to \prod_{i=1}^{\infty}\Z/p\Z$ is not surjective, so $\varprojlim$ is not right exact.
+
+Let $M = \prod_{k=0}^{\infty} A_k$ ($A_0 = A$) and define $d : M \to M$ via $(d(a))_n = a_n - \theta_{n+1}(a_{n+1})$. Then, we have 
+$\varprojlim^1 A_n = \coker d$, by definition. Let $x \in \im(d)$. Then, $x_n = (d(a))_n = a_n - \theta_{n+1}(a_{n+1})$. Since $\theta_{n+1}$ 
+is just the identification of $A_{n+1}$ as a subgroup of $A_n$, we can write $\theta_{n+1}(a_{n+1})$ as just $a_{n+1}$ so that $x_n = a_n - a_{n+1}$. 
+Thus, $$\sum_{i=0}^n x_i = \sum_{i=0}^n (a_i - a_{i+1}) = a_0 - a_{n+1}$$
+for all $n$, so $a_{n+1} = a_0 - \sum_{i=0}^n x_i \in A_{n+1}$ for all $n$. Hence, for any $j \le n+1$, 
+$$0 = (a_{n+1})_j = (a_0)_j - \left(\sum_{i=0}^n x_i\right)_j.$$
+Since $x_i \in A_i$, $(x_i)_j = 0$ whenever $i \ge j$, so we have $(a_0)_j = \left(\sum_{i=0}^j x_i\right)_j$ for all $j$. 
+Now, since $a_0 \in A_0 = \bigoplus_{i=1}^{\infty} \Z/p\Z$, $(a_0)_j = 0$ for sufficiently large $j$. Thus, for sufficiently large $j$,
+$$\left(\sum_{i=0}^j x_i\right)_j = (a_0)_j = 0$$
+so that $\sum_{i=0}^j (x_i)_j = 0$. Since $x_n \in A_n$ for all $n$, the sum $X = \sum_{i=0}^{\infty} x_i$ is well-defined since it becomes 
+stationary in every coordinate. Then, $X_j = \left(\sum_{i=0}^{\infty} x_i\right)_j = \sum_{i=0}^j (x_i)_j$. Thus, for sufficiently large $j$, 
+$X_j = 0$. Hence, $X \in A$.
+
+Conversely, suppose for $(x_i)_i \in M$, $X = \sum_{i=0}^{\infty} x_i$ (well-defined since each coordinate becomes stationary) lies in $A$. 
+Then, let $a_0 = X \in A = A_0$ and define $a_{n+1} = a_0 - \sum_{i=0}^n x_i$ for $n \ge 0$. Then, for $j \le n+1$,
+$$(a_{n+1})_j = (a_0)_j - \left(\sum_{i=0}^n x_i\right)_j = \left(\sum_{i=0}^{\infty} x_i\right)_j - \left(\sum_{i=0}^n x_i\right)_j 
+= \left(\sum_{i=0}^n x_i\right)_j - \left(\sum_{i=0}^n x_i\right)_j = 0,$$
+so $a_{n+1} \in A_{n+1}$. We used the fact that for all $i \ge n+1 \ge j$, $(x_i)_j = 0$, thus reducing the sum to the first $n+1$ terms.
+Finally, for any $n$, 
+$$a_n - a_{n+1} = a_0 - \sum_{i=0}^{n-1} x_i - \left(a_0 - \sum_{i=0}^n x_i\right) = x_n,$$
+so $(x_n) = d((a_i))$ and thus $(x_n) \in \im(d)$. Hence, $(x_n) \in \im(d)$ if and only if $\sum_{i=0}^{\infty}x_i \in A$.
+
+Now, let $S : M \to \prod_{i=1}^{\infty} \Z/p\Z$ be the summation map defined above. Clearly, it is a $\Z$-module homomorphism. Then, we've shown
+that for $z \in M$, $z \in \im(d)$ if and only if $S(z) \in \bigoplus_{i=1}^{\infty} \Z/p\Z$. Note that $S$ is surjective since for $y \in \prod_{i=1}^{\infty} \Z/p\Z$,
+we can define $z \in M$ to be such that for all $n \ge 0$, $(z_n)_j = 0$ when $j \neq n+1$ and $(z_n)_{n+1} = y_{n+1}$. Then clearly, $S(z) = y$. Thus, the map
+$$\overline{S} : M \to \frac{\prod_{i=1}^{\infty} \Z/p\Z}{\bigoplus_{i=1}^{\infty} \Z/p\Z}$$
+is surjective with kernel equal to $\bigoplus_{i=1}^{\infty} \Z/p\Z$. We showed above that this is equal to $\im(d)$. Thus,
+$\varprojlim^1 A_n = M/\im(d) \cong (\prod_{i=1}^{\infty} \Z/p\Z)(\bigoplus_{i=1}^{\infty} \Z/p\Z)$,
+completing the proof.
+\end{proof}
+
+\begin{remark}
+In retrospect, one could have simply noted that $d_A : \prod_{i=0}^{\infty} A \to \prod_{i=0}^{\infty} A$ is surjective so that we have an exact sequence
+$A \to \varprojlim A/A_n \to \varprojlim^1 A_n \to 0$.
+Then, from Exercise \ref{10.1}, $A = \bigoplus_{i=1}^{\infty}\Z/p\Z$ and $\varprojlim A/A_n \cong \prod_{i=1}^{\infty}\Z/p\Z$ giving us
+$\varprojlim^1 A_n \cong (\prod_{i=1}^{\infty}\Z/p\Z)/(\bigoplus_{i=1}^{\infty}\Z/p\Z)$.
+\end{remark}
+
+\subsection{Exercise - Complete}\label{10.3}
+
+\begin{proof}
+Since $A$ is Noetherian and $M$ is a finitely generated $A$-module, we have by Krull's Theorem (Theorem 10.17) that $m \in \bigcap_{n=1}^{\infty} \mathfrak{a}^n M
+= \ker(M \to \hat M)$ if and only if $m$ is annihilated by an element of $1 + \mathfrak{a}$.
+
+Suppose $m \in \bigcap_{n=1}^{\infty} \mathfrak{a}^n M$ so that there is some $a \in \mathfrak{a}$
+so that $(1 + a)m = 0$. Then, for any maximal ideal $\mathfrak{m}$ containing $\mathfrak{a}$, $1 + a \in 1 + \mathfrak{a} \subset 1 + \mathfrak{m}$. In particular, 
+$1 + a \in A - \mathfrak{m}$ so that $1 + a$ is a unit in $A_{\mathfrak{m}}$. Since $(1+a)m = 0$ in $M$, we have the same relation in the $A_{\mathfrak{m}}$-module 
+$M_{\mathfrak{m}}$. Because $1 + a$ is a unit in $A_{\mathfrak{m}}$, we have $0 = (1+a)^{-1}0 = (1+a)^{-1}(1+a)m = m$ so that $m \in \ker(M \to M_{\mathfrak{m}})$. Thus,
+$m \in \bigcap_{\mathfrak{m} \supset \mathfrak{a}}\ker(M \to M_{\mathfrak{m}})$.
+
+Conversely, let $N = \bigcap_{\mathfrak{m} \supset \mathfrak{a}}\ker(M \to M_{\mathfrak{m}})$. Then, $N_{\mathfrak{m}} = 0$ for all maximal ideals $\mathfrak{m}$
+containing $\mathfrak{a}$. By Exercise \ref{3.14}, $N = \mathfrak{a}N$. Since $A$ is Noetherian, and $M$ is a finitely generated $A$-module, $M$ is Noetherian
+by Proposition 6.5. Since $N$ is an $A$-submodule of $M$, $N$ is then finitely generated by Proposition 6.2. Thus, by Corollary 2.5, since $N = \mathfrak{a}N$ and
+$N$ is finitely generated, there is some $x \in 1 + \mathfrak{a}$ such that $xN = 0$. Thus, every $m \in N$ is annihilated by $x \in 1 + \mathfrak{a}$, so 
+$N \subset \bigcap_{n=1}^{\infty} \mathfrak{a}^n M$. Hence, we have equality:
+$\bigcap_{\mathfrak{m} \supset \mathfrak{a}}\ker(M \to M_{\mathfrak{m}}) = \bigcap_{n=1}^{\infty} \mathfrak{a}^n M$.
+
+If $\hat M = 0$, then $M = \ker(M \to \hat M) = \bigcap_{n=1}^{\infty} \mathfrak{a}^n M = \bigcap_{\mathfrak{m} \supset \mathfrak{a}}\ker(M \to M_{\mathfrak{m}})$. 
+Thus, $M_{\mathfrak{m}} = 0$ for each $\mathfrak{m}$ containing $\mathfrak{a}$, so $\Supp(M)$ does not include
+any $\mathfrak{m}$ over $\mathfrak{a}$. In fact, for any prime ideal $\mathfrak{p}$ such that $\mathfrak{m} \supset \mathfrak{p} \supset \mathfrak{a}$, the map
+$M \to M_{\mathfrak{p}}$ factors as $M \to M_{\mathfrak{m}} \to M_{\mathfrak{p}}$, so $\ker(M \to M_{\mathfrak{p}}) \supset \ker(M \to M_{\mathfrak{m}}) = M$. Thus,
+for any $\mathfrak{p} \in V(\mathfrak{a})$, $\mathfrak{p} \not\in \Supp(M)$, so $\Supp(M) \cap V(\mathfrak{a}) = \emptyset$.
+
+Conversely, if $\Supp(M) \cap V(\mathfrak{a}) = \emptyset$, then $\ker(M \to M_{\mathfrak{m}}) = M$ for all maximal ideals $\mathfrak{m}$ containing $\mathfrak{a}$.
+Thus, $M = \bigcap_{\mathfrak{m} \supset \mathfrak{a}}\ker(M \to M_{\mathfrak{m}}) = \bigcap_{n=1}^{\infty} \mathfrak{a}^n M = \ker(M \to \hat M)$. Thus, $\hat M = 0$.
+Hence, $\hat M = 0$ if and only if $\Supp(M) \cap V(\mathfrak{a}) = \emptyset$.
+\end{proof}
+
+\subsection{Exercise - Complete}\label{10.4}
+
+\begin{proof}
+If $x \in A$ is not a zero divisor, then $A \xrightarrow{\cdot x} A$ is injective, thereby giving a short exact sequence
+$$0 \to A \xrightarrow{\cdot x} A \to A/xA \to 0$$
+of $A$-modules. Since $A$ is Noetherian, $A$ and thus $A/xA$ are Noetherian $A$-modules. Thus, each $A$-module in the sequence
+is finitely generated (Proposition 6.2), so by Proposition 10.12, the sequence $0 \to \hat A \xrightarrow{\cdot \hat x} \hat A$
+is exact. Hence, $\hat A \xrightarrow{\cdot \hat x} \hat A$ is injective, so $\hat x$ is not a zero divisor of $\hat A$.
+\end{proof}
+
+Even if $A$ is a Noetherian domain, $\hat A$ is not necessarily an integral domain.
+
+\begin{proof}
+Let $\mathfrak{a}$, $\mathfrak{b}$ be coprime ideals of a Noetherian domain $A$. Then, $\mathfrak{a}^n$ and $\mathfrak{b}^n$ are coprime for all $n \ge 1$. 
+By Proposition 1.10 (Chinese Remainder Theorem), $A/(\mathfrak{ab})^n \cong A/\mathfrak{a}^n \times A/\mathfrak{b}^n$. Hence, we have a
+commutative diagram
+\begin{center}
+\begin{tikzcd}
+A/(\mathfrak{ab})^{n+1} \arrow[r, "\sim"] \arrow[d] & A/\mathfrak{a}^{n+1} \times A/\mathfrak{b}^{n+1} \arrow[d] \\
+A/(\mathfrak{ab})^n \arrow[r, "\sim"] & A/\mathfrak{a}^n \times A/\mathfrak{b}^n.
+\end{tikzcd}
+\end{center}
+For an ideal $I$, let $A^I$ denote the completion in the $I$-adic topology. Then, the inverse limit $A^{\mathfrak{a}\mathfrak{b}} = \varprojlim A/(\mathfrak{a}\mathfrak{b})^n$
+is equal to $\varprojlim (A/\mathfrak{a}^n \times A/\mathfrak{b}^n)$ by Proposition 10.2. 
+
+We have a map
+$$\varprojlim (A/\mathfrak{a}^n \times A/\mathfrak{b}^n) \to \varprojlim A/\mathfrak{a}^n \times \varprojlim A/\mathfrak{b}^n$$
+defined by the projections $A/\mathfrak{a}^n \times A/\mathfrak{b}^n \to A/\mathfrak{a}^n$ and $A/\mathfrak{a}^n \times A/\mathfrak{b}^n \to A/\mathfrak{b}^n$.
+These are clearly compatible with the transition homomorphisms, so they induce the stated maps on inverse limits. Conversely, if $(x_n) \in \varprojlim A/\mathfrak{a}^n$
+and $(y_n) \in \varprojlim A/\mathfrak{b}^n$, $(x_n,y_n)$ is a compatible sequence in $\prod_{n=1}^{\infty} (A/\mathfrak{a}^n \times A/\mathfrak{b}^n)$, giving 
+the inverse map. Hence,
+$$\varprojlim (A/\mathfrak{a}^n \times A/\mathfrak{b}^n) \xlongrightarrow{\sim} \varprojlim A/\mathfrak{a}^n \times \varprojlim A/\mathfrak{b}^n$$
+so that $A^{\mathfrak{a}} \times A^{\mathfrak{b}} \cong \varprojlim A/\mathfrak{a}^n \times A/\mathfrak{b}^n \cong A^{\mathfrak{a}\mathfrak{b}}$.
+Since $A^{\mathfrak{a}} \times A^{\mathfrak{b}}$ is not an integral domain, $A^{\mathfrak{a}\mathfrak{b}}$ is not an integral domain, thus
+proving the counterexample.
+
+For instance, $\Z$ is a Noetherian domain with coprime ideals $(2)$ and $(3)$, so with respect to the $(6)$-adic topology, we have $\hat \Z \cong \Z_2 \times \Z_3$,
+which is not an integral domain, as $(1,0) \cdot (0,1) = 0$.
+\end{proof}
 
 \subsection{Exercise}\label{10.5}
 
