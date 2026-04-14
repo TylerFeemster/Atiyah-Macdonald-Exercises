@@ -167,9 +167,79 @@ For instance, $\Z$ is a Noetherian domain with coprime ideals $(2)$ and $(3)$, s
 which is not an integral domain, as $(1,0) \cdot (0,1) = 0$.
 \end{proof}
 
-\subsection{Exercise}\label{10.5}
+\subsection{Exercise - Complete}\label{10.5}
 
-\subsection{Exercise}\label{10.6}
+\begin{proof}
+For a Noetherian ring $A$, an ideal $I$, and an $A$-module $M$, let $M^I$ denote the $I$-adic completion. Suppose that $M$ is finitely
+generated and $\mathfrak{a}$, $\mathfrak{b}$ are two ideals of $A$. Since $M$ is finitely generated and $A$ is Noetherian, $M$ is a 
+Noetherian $A$-module (Proposition 6.5). Thus,
+$$0 \to \mathfrak{b}^m M \to M \to M/\mathfrak{b}^m M \to 0$$
+is a short exact sequence of finitely generated $A$-modules. Then, by Proposition 10.12, the sequence of $\mathfrak{a}$-adic completions
+is also exact:
+$$0 \to (\mathfrak{b}^m M)^{\mathfrak{a}} \to M^{\mathfrak{a}} \to (M/\mathfrak{b}^m M)^{\mathfrak{a}} \to 0.$$
+
+By Proposition 10.13, if $N$ is any finitely generated $A$-module, then since $A$ is Noetherian, $N^{\mathfrak{a}} =  A^{\mathfrak{a}} \otimes_A N$.
+Thus, the map $(\mathfrak{b}^m M)^{\mathfrak{a}} \to M^{\mathfrak{a}}$ factors as 
+$$(\mathfrak{b}^m M)^{\mathfrak{a}} \xrightarrow{\sim} A^{\mathfrak{a}} \otimes_A (\mathfrak{b}^m M) \to A^{\mathfrak{a}} \otimes_A M \xrightarrow{\sim} \ M^{\mathfrak{a}}$$
+and is given by $(b_m) \otimes x \mapsto (b_m) \otimes (x) \mapsto (b_m x)$. Therefore, the image of the map is $\mathfrak{b}^m M^{\mathfrak{a}}$. Then,
+applying this to our exact sequence gives $(M/\mathfrak{b}^m M)^{\mathfrak{a}} \cong M^{\mathfrak{a}}/\mathfrak{b}^m M^{\mathfrak{a}}$.
+
+Therefore, we have
+$$(M^{\mathfrak{a}})^{\mathfrak{b}} = \varprojlim_m (M^{\mathfrak{a}}/\mathfrak{b}^m M^{\mathfrak{a}}) \cong \varprojlim_m (M/\mathfrak{b}^m M)^{\mathfrak{a}} 
+\cong \varprojlim_m \varprojlim_n (M/\mathfrak{b}^m M)/\left(\frac{\mathfrak{a}^n M + \mathfrak{b}^m M}{\mathfrak{b}^m M}\right)$$
+since $\mathfrak{a}^n(M/\mathfrak{b}^m M) \cong (\mathfrak{a}^n M + \mathfrak{b}^m M)/\mathfrak{b}^m M$ (Proposition 2.1) is the image of $\mathfrak{a}^n$ under the map 
+$M \to M/\mathfrak{b}^m M$. By Proposition 2.1, 
+$$(M/\mathfrak{b}^m M)/\left(\frac{\mathfrak{a}^n M + \mathfrak{b}^m M}{\mathfrak{b}^m M}\right) \cong M/(\mathfrak{a}^n M + \mathfrak{b}^m M),$$
+which we will denote by $M_{n,m}$.
+
+Now, note that an element $\varprojlim_n M_{n,m}$ gives coherent sequences of the form $x_{n+1,m} \mapsto x_{n,m}$. Then, $\varprojlim_m \varprojlim_n M_{n,m}$
+gives coherent sequences $(x_m)$, where $(x_{n,m+1})_n = x_{m+1} \mapsto x_m = (x_{n,m})_n$ yields compatible, coherent maps $x_{n,m+1} \mapsto x_{n,m}$ for all
+$n$. Then, if $n \le n'$ and $m \le m'$, we have a commutative diagram
+\begin{center}
+\begin{tikzcd}
+M_{n',m'} \arrow[r]\arrow[d] & M_{n,m'} \arrow[d] \\
+M_{n',m} \arrow[r] & M_{n,m}.
+\end{tikzcd}
+\end{center}
+In particular, an element of the double inverse limit of $M_{n,m}$ is a doubly coherent sequence (with commutativity) $(x_{n,m})_{n,m}$. Then, given such a double inverse
+limit, we can look at the diagonal $(x_{r,r})_r$, which is itself a coherent sequence. This defines a map $\varprojlim_m \varprojlim_n M_{n,m} \to \varprojlim_r M_{r,r}$.
+Suppose $(x_{r,r})_r = 0$ so that $x_{r,r} = 0$ for all $r$. For all fixed $(n,m)$, there is some $r$ such that $n,m \le r$, so we have $x_{r,r} \mapsto x_{r,m} \mapsto x_{n,m}$
+and thus $x_{n,m} = 0$. Hence, the map is injective. For surjectivity, suppose we have a coherent sequence $(y_r)_r \in \varprojlim_r M_{r,r}$. Define $x_{n,m}$ by
+choosing some $r \ge n,m$; then, $x_{n,m}$ is the image of $y_r$ under $M_{r,r} \to M_{r,m} \to M_{n,m}$. By commutativity, this does not depend on $r$, so this defines
+a coherent sequence in $\varprojlim_m \varprojlim_n M_{n,m}$, so the map is surjective and hence bijective. The map clearly preserves the $A$-module structure, so it is 
+an isomorphism.
+
+Therefore, we have
+$$(M^{\mathfrak{a}})^{\mathfrak{b}} \cong \varprojlim_m \varprojlim_n M/(\mathfrak{a}^n M + \mathfrak{b}^m M) 
+\cong \varprojlim_n M/(\mathfrak{a}^n M + \mathfrak{b}^n M) = \varprojlim_n M/(\mathfrak{a}^n + \mathfrak{b}^n) M.$$
+Now, note that $(\mathfrak{a} + \mathfrak{b})^{2n} \subset \mathfrak{a}^n + \mathfrak{b}^n \subset (\mathfrak{a} + \mathfrak{b})^n$. Thus, the filtration 
+$(\mathfrak{a}^n + \mathfrak{b}^n) M$ defines the same topology as $(\mathfrak{a} + \mathfrak{b})^n M$, so the completions are isomorphic. Hence,
+$$(M^{\mathfrak{a}})^{\mathfrak{b}} \cong \varprojlim_n M/(\mathfrak{a}^n + \mathfrak{b}^n) M 
+\cong \varprojlim_n M/(\mathfrak{a} + \mathfrak{b})^n M \cong M^{\mathfrak{a} + \mathfrak{b}},$$
+as desired.
+\end{proof}
+
+\subsection{Exercise - Complete}\label{10.6}
+
+\begin{proof}
+Note that $\mathfrak{a}$ lies in the Jacobson radical if and only if $\mathfrak{m} \supset \mathfrak{a}$ for all maximal ideals
+$\mathfrak{m}$ of $A$. Thus, it is sufficient to show that $\mathfrak{m}$ is closed in the $\mathfrak{a}$-topology if and only if
+$\mathfrak{m} \supset \mathfrak{a}$.
+
+If $\mathfrak{m} \supset \mathfrak{a}$, then for every $x \not\in \mathfrak{m}$, $x + \mathfrak{a} \subset x + \mathfrak{m}$ and
+$(x + \mathfrak{m}) \cap \mathfrak{m} = \emptyset$. Since $x + \mathfrak{a}$ is open, their union over $x \not\in \mathfrak{m}$
+is open. Note that
+$$A - \mathfrak{m} \subset \bigcup_{x \not\in \mathfrak{m}} (x + \mathfrak{a}) 
+\subset \bigcup_{x \not\in \mathfrak{m}} (x + \mathfrak{m}) \subset A - \mathfrak{m},$$
+so $A - \mathfrak{m} = \bigcup_{x \not\in \mathfrak{m}} (x + \mathfrak{m})$ is open, and thus, $\mathfrak{m}$ is closed.
+
+Suppose that $\mathfrak{m} \not\supset \mathfrak{a}$, so there is some $x \in \mathfrak{a} - \mathfrak{m}$. Since
+$x \not\in \mathfrak{m}$, $x$ descends to a unit in $A/\mathfrak{m}$, so there is some $y \in A$ such that $\overline{x}\overline{y} = 1$.
+Since $x \in \mathfrak{a}$, $xy \in \mathfrak{a}$ and $xy \in 1 + \mathfrak{m}$. Thus, replace $x$ with $xy$, so we have
+$x \in \mathfrak{a} - \mathfrak{m}$ such that $x \in 1 + \mathfrak{m}$. Then, $x^n \in \mathfrak{a}^n$ and $x^n \in 1 + \mathfrak{m}$.
+Thus, $1 - x^n \in (1 + \mathfrak{a}^n) \cap \mathfrak{m}$ for all $n > 0$. In the $\mathfrak{a}$-topology, $(1 - x^n)_{n>0}$ converges
+to $1$. Since $1 \not\in \mathfrak{m}$, even though $(1 - x^n)_{n>0} \subset \mathfrak{m}$, $\mathfrak{m}$ is not closed.
+\end{proof}
 
 \subsection{Exercise}\label{10.7}
 
