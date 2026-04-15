@@ -251,8 +251,13 @@ A Noetherian ring whose topology is defined by an ideal contained in the Jacobso
 Since $A$ is a Noetherian ring, $\hat A$ is a flat $A$-algebra by Proposition 10.14. By Exercise \ref{3.16},
 $A \to \hat A$ is faithfully flat if and only if for every $A$-module $M$, $M \to \hat A \otimes_A M$ is injective.
 If $M \to \hat A \otimes_A M$ is not injective for some $A$-module $M$, then there is some nonzero $m \in M$ such that 
-$m \mapsto 0$. Hence, $Am \to \hat A \otimes_A Am$ is not injective. Therefore, to show that $M \to \hat A \otimes_A M$ 
-is injective for every $A$-module $M$, it is sufficient to prove that $M \to \hat A \otimes_A M$ is injective for every 
+$m \mapsto 0$. Hence, $Am \to \hat A \otimes_A Am \to \hat A \otimes_A M$ is not injective. Since $\hat A$ is flat, and 
+$Am \xhookrightarrow{} M$ is injective, $\hat A \otimes_A Am \to \hat A \otimes_A M$ is injective, so $Am \to \hat A \otimes_A Am$
+is not injective. Thus, if there is an $A$-module $M$ such that $M \to \hat A \otimes_A M$ is not injective, there is a finitely
+generated module $N$ such that $N \to \hat A \otimes_A N$ is not injective.
+
+Therefore, to show that $M \to \hat A \otimes_A M$ is injective for every $A$-module $M$, it is sufficient to prove that 
+$M \to \hat A \otimes_A M$ is injective for every 
 finitely generated $A$-module $M$. In the case of finitely generated $A$-modules $M$, we have $\hat A \otimes_A M \cong \hat M$ 
 since $A$ is Noetherian (Proposition 10.13). Therefore, we've reduced the proof to showing that $A$ is a Zariski ring if 
 and only if $M \to \hat M$ is injective for all finitely generated $A$-modules $M$.
@@ -267,10 +272,10 @@ $A/\mathfrak{m} \to \widehat{A/\mathfrak{m}}$ is injective. By Theorem 10.17,
 $\bigcap_n \mathfrak{a}^n (A/\mathfrak{m}) = 0$. Suppose to the contrary that $\mathfrak{m} \not\supset \mathfrak{a}$. Then,
 there is some $x \in \mathfrak{a} - \mathfrak{m}$. Then, since $\mathfrak{m}$ is maximal, $A/\mathfrak{m}$ is a field. Since
 $\overline{x} \neq 0$, there is some $y \in A$ such that $\overline{x} \overline{y} = 1$. Since $x \in \mathfrak{a}$, 
-$z = xy \in \mathfrak{a}$ and $z \in 1 + \mathfrak{m}$. Thus, $z^n \in (1 + \mathfrak{m}) \cap \mathfrak{a}^n$ for all $n > 0$. 
-In particular, $1 \in \mathfrak{a}^n(A/\mathfrak{m})$ for all $n > 0$ since $z^n \cdot 1 = 1$, so 
+$z = xy \in \mathfrak{a}$ and $z \in 1 + \mathfrak{m}$. Thus, $z^n \in \mathfrak{a}$ and $z^n \equiv 1^n \equiv 1 \text{ mod }\mathfrak{m}$.
+In particular, for every $n > 0$, $1 \in \mathfrak{a}^n(A/\mathfrak{m})$ since $z^n \cdot 1 = 1$, so 
 $1 \in \bigcap_n \mathfrak{a}^n (A/\mathfrak{m}) = 0$, a contradiction. Thus, for all maximal ideals 
-$\mathfrak{m}$, $\mathfrak{a} \subset \mathfrak{m}$, so $\mathfrak{a}$ is contained in the Jacobson radical. 
+$\mathfrak{m}$ of $A$, $\mathfrak{a} \subset \mathfrak{m}$, so $\mathfrak{a}$ is contained in the Jacobson radical. 
 Hence, $A$ is a Zariski ring.
 \end{proof}
 
