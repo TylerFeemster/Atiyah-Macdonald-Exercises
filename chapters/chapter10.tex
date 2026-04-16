@@ -1,6 +1,6 @@
-\section{Completions}
+\section{Completions (Done)}
 
-\subsection{Exercise - Complete}\label{10.1}
+\subsection{Exercise}\label{10.1}
 
 \begin{proof}
 Let $A$ be the $\Z$-module $\bigoplus_{i=1}^{\infty} (\Z/p\Z)$. Then, $pA = 0$ and thus $p^nA = 0$ for all $n \ge 1$. Then, we have
@@ -37,7 +37,7 @@ $$\varprojlim A/p^n A \xlongrightarrow{\hat \alpha} \varprojlim B/p^n B \to \var
 is not exact. Hence, $p$-adic completion is not a right exact functor on the category of $\Z$-modules.
 \end{proof}
 
-\subsection{Exercise - Complete}\label{10.2}
+\subsection{Exercise}\label{10.2}
 
 \begin{proof}
 As in Exercise \ref{10.1}, define $A_n := \alpha^{-1}(p^n B)$. We have the short exact sequence
@@ -97,7 +97,7 @@ Then, from Exercise \ref{10.1}, $A = \bigoplus_{i=1}^{\infty}\Z/p\Z$ and $\varpr
 $\varprojlim^1 A_n \cong (\prod_{i=1}^{\infty}\Z/p\Z)/(\bigoplus_{i=1}^{\infty}\Z/p\Z)$.
 \end{remark}
 
-\subsection{Exercise - Complete}\label{10.3}
+\subsection{Exercise}\label{10.3}
 
 \begin{proof}
 Since $A$ is Noetherian and $M$ is a finitely generated $A$-module, we have by Krull's Theorem (Theorem 10.17) that $m \in \bigcap_{n=1}^{\infty} \mathfrak{a}^n M
@@ -127,7 +127,7 @@ Thus, $M = \bigcap_{\mathfrak{m} \supset \mathfrak{a}}\ker(M \to M_{\mathfrak{m}
 Hence, $\hat M = 0$ if and only if $\Supp(M) \cap V(\mathfrak{a}) = \emptyset$.
 \end{proof}
 
-\subsection{Exercise - Complete}\label{10.4}
+\subsection{Exercise}\label{10.4}
 
 \begin{proof}
 If $x \in A$ is not a zero divisor, then $A \xrightarrow{\cdot x} A$ is injective, thereby giving a short exact sequence
@@ -167,7 +167,7 @@ For instance, $\Z$ is a Noetherian domain with coprime ideals $(2)$ and $(3)$, s
 which is not an integral domain, as $(1,0) \cdot (0,1) = 0$.
 \end{proof}
 
-\subsection{Exercise - Complete}\label{10.5}
+\subsection{Exercise}\label{10.5}
 
 \begin{proof}
 For a Noetherian ring $A$, an ideal $I$, and an $A$-module $M$, let $M^I$ denote the $I$-adic completion. Suppose that $M$ is finitely
@@ -219,7 +219,7 @@ $$(M^{\mathfrak{a}})^{\mathfrak{b}} \cong \varprojlim_n M/(\mathfrak{a}^n + \mat
 as desired.
 \end{proof}
 
-\subsection{Exercise - Complete}\label{10.6}
+\subsection{Exercise}\label{10.6}
 
 \begin{proof}
 Note that $\mathfrak{a}$ lies in the Jacobson radical if and only if $\mathfrak{m} \supset \mathfrak{a}$ for all maximal ideals
@@ -245,7 +245,7 @@ to $1$. Since $1 \not\in \mathfrak{m}$, even though $(1 - x^n)_{n>0} \subset \ma
 A Noetherian ring whose topology is defined by an ideal contained in the Jacobson radical is called a ``Zariski ring.''
 \end{remark}
 
-\subsection{Exercise - Complete}\label{10.7}
+\subsection{Exercise}\label{10.7}
 
 \begin{proof}
 Since $A$ is a Noetherian ring, $\hat A$ is a flat $A$-algebra by Proposition 10.14. By Exercise \ref{3.16},
@@ -281,10 +281,198 @@ Hence, $A$ is a Zariski ring.
 
 \subsection{Exercise}\label{10.8}
 
+\begin{proof}
+Let $A$ be the local ring of the origin in $\C^n$, i.e. the ring of all rational functions $f/g \in \C(z_1,\ldots,z_n)$
+with $g(0) \neq 0$. Let $B$ be the ring of power series in $z_1,\ldots,z_n$ which converge in some neighborhood of the
+origin, and let $C$ be the ring of formal power series in $z_1,\ldots,z_n$. Then clearly, $A \subset B \subset C$.
+
+First, we show that $B$ is a local ring. Let $\mathfrak{m}$ be the ideal of $B$ defined by $f \in B$ such that $f(0) = 0$.
+If $g \not\in \mathfrak{m}$, then $g(0) \neq 0$. Then, there is some neighborhood of the origin $U$ such that $g$ is nonzero 
+and converges, so $1/g$ is a power series in $z_1,\ldots,z_n$ that converges in some neighborhood, so $1/g \in B$. Thus, $g$ 
+is a unit in $B$. By Proposition 1.6, $B$ is a local ring and $\mathfrak{m}$ is its maximal ideal.
+
+Now, we show that $\hat A \cong \hat B \cong C$, where completion is taken in the $\mathfrak{m}$-topology. First, note that 
+$\mathfrak{m} = (z_1,\ldots,z_n)$ is the maximal ideal for both $A$ and $B$, so $\hat B \cong \varprojlim_k B/(z_1,\ldots,z_n)^k$ and
+$\hat A \cong \varprojlim_k A/(z_1,\ldots,z_n)^k$. Note that for all $k$, we have inclusions 
+$$A/(z_1,\ldots,z_n)^k \xhookrightarrow{} B/(z_1,\ldots,z_n)^k \xhookrightarrow{} C/(z_1,\ldots,z_n)^k.$$
+To show that we have isomorphisms throughout, it is sufficient to show that $A/(z_1,\ldots,z_n)^k \to C/(z_1,\ldots,z_n)^k$ is surjective
+for all $k$. Any element in $C/(z_1,\ldots,z_n)^k$ has a preimage in $C$, so let $f \in C$. 
+We can decompose $f$ into its homogeneous parts: $f = f_0 + f_1 + \cdots$, where $f_i$ is the homogeneous part of 
+degree $i$. Let $F = f_0 + \cdots + f_{k-1}$ so that $f = F + g$, where $g \in (z_1,\ldots,z_n)^k$. Then, $F$ and $f$ 
+have the same image under $C \to C/(z_1,\ldots,z_n)^k$. Further, $F \in \C[z_1,\ldots,z_n] \subset A$, so $\overline{F} \mapsto \overline{f}$
+in $A/(z_1,\ldots,z_n)^k \to C/(z_1,\ldots,z_n)^k$, so we have surjectivity. Hence, 
+$A/(z_1,\ldots,z_n)^k \cong B/(z_1,\ldots,z_n)^k \cong C/(z_1,\ldots,z_n)^k$ for all $k$, so 
+$\hat A \cong \hat B \cong \varprojlim_k C/(z_1,\ldots,z_n)^k$. Note that 
+$C = \C[[z_1,\ldots,z_n]] = \varprojlim_k \C[z_1,\ldots,z_n]/(z_1,\ldots,z_n)^k$, so $C$ is complete with respect to the ideal
+$(z_1,\ldots,z_n)$. Thus, by Proposition 10.5, $\varprojlim_k C/(z_1,\ldots,z_n)^k \cong C$ so that $\hat A \cong \hat B \cong C$.
+
+By Exercise \ref{7.4}, $B$ is Noetherian. Since $B$ is a local ring, its maximal ideal $\mathfrak{m}$ is the Jacobson radical,
+so $B$ is a Zariski ring. Thus, by Exercise \ref{10.7}, $\hat B \cong C$ is faithfully flat over $B$. Further, note that $A$ is the 
+localization of $\C[z_1,\ldots,z_n]$ at $(z_1,\ldots,z_n)$. Since $\C[z_1,\ldots,z_n]$ is Noetherian by Hilbert's basis theorem
+(Theorem 7.5), $A$ is Noetherian by Proposition 7.3. Thus, by Proposition 10.14, $\hat A \cong C$ is flat over $A$. Hence, we have
+the composition $A \xhookrightarrow{f} B \xhookrightarrow{g} C$,
+where $g \circ f$ is flat and $g$ is faithfully flat. By Exercise \ref{3.17}, $f$ is flat, so $B$ is a flat $A$-algebra.
+\end{proof}
+
 \subsection{Exercise}\label{10.9}
+
+\begin{proof}
+Let $A$ be a local ring, $\mathfrak{m}$ its maximal ideal, and suppose $A$ is $\mathfrak{m}$-adically complete.
+For any $f \in A[x]$, let $\overline{f}(x) \in (A/\mathfrak{m})[x]$ be the reduction of $f$ modulo $\mathfrak{m}$.
+We aim to show: if $f(x)$ is monic of degree $n$ and if there exist coprime monic polynomials $\overline{g}(x)$,
+$\overline{h}(x) \in (A/\mathfrak{m})[x]$ of degrees $r$, $n-r$ with $\overline{f}(x) = \overline{g}(x)\overline{h}(x)$,
+then there are lifts to monic polynomials $g(x)$, $h(x) \in A[x]$ such that $f(x) = g(x)h(x)$.
+
+Assume $f(x) \in A[x]$ is monic of degree $n$ and there are coprime monic polynomials $\overline{g}(x)$, 
+$\overline{h}(x) \in (A/\mathfrak{m})[x]$ of degrees $r$, $n-r$ with $\overline{f}(x) = \overline{g}(x)\overline{h}(x)$.
+Let $g_1(x)$, $h_1(x) \in A[x]$ be coefficient-wise lifts of $\overline{g}(x)$ and $\overline{h}(x)$; clearly, we can choose the lifts 
+to be monic. Then, $\overline{g_1(x)h_1(x) - f(x)} = \overline{g}(x)\overline{h}(x) - \overline{f}(x) = 0$, so $g_1(x)h_1(x) - f(x) \in \mathfrak{m}^1 A[x]$,
+and $g_1(x)$ and $h_1(x)$ are monic of degrees $r$ and $n-r$, respectively. We aim to inductively construct coherent sequences
+$(g_k)_k$ and $(h_k)_k$ such that $f - g_k h_k \in \mathfrak{m}^k A[x]$ for all $k > 0$. We've established the $k = 1$ base case.
+
+Now, suppose we've constructed the coherent sequences up to $j$, so we have $g_j(x), h_j(x) \in A[x]$ such that $g_j(x)h_j(x) - f(x) \in \mathfrak{m}^j A[x]$, 
+where $g_j(x)$ and $h_j(x)$ are monic of degrees $r$ and $n-r$ respectively, and $\overline{g_j}(x) = \overline{g}(x)$ and $\overline{h_j}(x) = \overline{h}(x)$.
+Since $\overline{g_j}(x) = \overline{g}(x)$ and $\overline{h_j}(x) = \overline{h}(x)$ are coprime and monic, there are polynomials 
+$\overline{a_p}(x), \overline{b_p}(x) \in (A/\mathfrak{m})[x]$ such that $\overline{a_p}(x)\overline{g}(x) + \overline{b_p}(x)\overline{h}(x) = x^p$ for all 
+$0 \le p < n$. Suppose $\deg\overline{a_p}(x) \ge n-r$, and let $a x^m$ be its leading term. Then, if $k = m - (n-r)$, $a x^k \overline{h}(x)$ has leading term 
+$a x^m$ since $\overline{h_j}(x)$ is monic. Then, we have
+\begin{align*}
+x^p &= \overline{a_p}(x)\overline{g}(x) + \overline{b_p}(x)\overline{h}(x) \\
+&= \overline{a_p}(x)\overline{g}(x) + \overline{b_p}(x)\overline{h}(x) + (a x^k \overline{g}(x)\overline{h}(x) - a x^k \overline{g}(x)\overline{h}(x)) \\
+&= (\overline{a_p}(x) - a x^k \overline{h}(x))\overline{g}(x) + (\overline{b_p}(x) + a x^k \overline{g}(x))\overline{h}(x), \\
+\end{align*}
+so making the replacements $\overline{a_p}(x) \mapsto \overline{a_p}(x) - a x^k \overline{h}(x)$ and 
+$\overline{b_p}(x) \mapsto \overline{b_p}(x) + a x^k \overline{g}(x)$, $\deg \overline{a_p}(x)$ is strictly lessened. Continuing, we can ensure
+$\deg \overline{a_p}(x) < n-r$. So, choose $\overline{a_p}(x)$ and $\overline{b_p}(x)$ so that $\deg \overline{a_p}(x) < n-r$. Now, suppose 
+to the contrary that $\deg \overline{b}_p(x) \ge r$. Then, since $\overline{g}(x)$ and $\overline{h}(x)$ are monic,
+$\deg(\overline{b_p}(x)\overline{h}(x)) = \deg(\overline{b_p}(x)) + n-r \ge r + (n-r) = n$
+and $\deg(\overline{a_p}(x)\overline{g}(x)) = \deg(\overline{a_p}(x)) + r < n-r + r = n$. Thus, the degree of $\overline{b_p}(x)\overline{h}(x)$
+is strictly greater than the degree of $\overline{a_p}(x)\overline{g}(x)$ so that
+\begin{align*}
+\deg(x^p) &= \deg(\overline{a_p}(x)\overline{g}(x) + \overline{b_p}(x)\overline{h}(x)) \\
+p &= \deg(\overline{b_p}(x)\overline{h}(x)) \\
+p &\ge n,
+\end{align*}
+violating the fact that $n > p$. Therefore, $\overline{b_p}(x)$ has degree $< r$ so that $\deg \overline{a_p}(x) < n-r$ and 
+$\deg \overline{b_p}(x) < r$ simultaneously.
+
+By monicity, $\deg(g_j(x)h_j(x)) = \deg(g_j(x)) + \deg(h_j(x)) = r + (n-r) = n$, so the leading term of $f(x)$ and $g_j(x)h_j(x)$ is $x^n$.
+Thus, $f(x) - g_j(x)h_j(x)$ has degree less than $n$, so we can write $f(x) - g_j(x) h_j(x) = \sum_{p=0}^{n-1} m_p x^p$. Since 
+$f(x) - g_j(x) h_j(x) \in \mathfrak{m}^j[x]$, $m_p \in \mathfrak{m}^j$ for all $p$. Since the degree of each $\overline{a_p}(x)$ is $< n-r$ and 
+the degree of each $\overline{b_p}(x)$ is $< r$, we can choose lifts $a_p(x), b_p(x) \in A[x]$ such that $\deg a_p(x) < n-r$ and $\deg b_p(x) < r$ 
+for all $p$. Then, $a(x) := \sum_{p=0}^{n-1} m_p a_p(x)$ has degree $< n-r$ and $b(x) := \sum_{p=0}^{n-1} m_p b_p(x)$ has degree $< r$. 
+Since $m_p \in \mathfrak{m}^j$ for all $p$, $a(x), b(x) \in \mathfrak{m}^j[x]$.
+
+Now, let $g_{j+1}(x) = g_j(x) + b(x)$ and $h_{j+1}(x) = h_j(x) + a(x)$. Since $g_j$ is monic of degree $r$ and $b$ has degree $< r$,
+$g_{j+1}$ is monic of degree $r$. By the same argument, $h_{j+1}$ is monic of degree $n - r$. Then,
+\begin{align*}
+f(x) - g_{j+1}(x)h_{j+1}(x) &= f(x) - g_j(x)h_j(x) - a(x)g_j(x) - b(x)h_j(x) - a(x)b(x) \\
+&= \sum_{p=0}^{n-1} m_p x^p - \sum_{p=0}^{n-1} m_p a_p(x) g_j(x) - \sum_{p=0}^{n-1} m_p b_p(x) h_j(x) - a(x)b(x) \\
+&= \sum_{p=0}^{n-1} m_p [x^p - a_p(x) g_j(x) - b_p(x) h_j(x)] - a(x)b(x). \\
+\end{align*}
+By construction, $x^p \equiv a_p(x) g_j(x) + b_p(x) h_j(x) \text{ mod }\mathfrak{m}[x]$, so since $m_p \in \mathfrak{m}^j$ for all $p$,
+$\sum_{p=0}^{n-1} m_p [x^p - a_p(x) g_j(x) - b_p(x) h_j(x)] \in \mathfrak{m}^{j+1}[x]$. Since $a(x),b(x) \in \mathfrak{m}^j[x]$,
+$-a(x)b(x) \in \mathfrak{m}^{2j}[x] \subset \mathfrak{m}^{j+1}[x]$ ($2j \ge j + 1$ since $j \ge 1$). Finally, $f(x) - g_{j+1}(x)h_{j+1}(x) \in \mathfrak{m}^{j+1}[x]$,
+where $g_{j+1}$ is monic of degree $r$ and $h_{j+1}$ is monic of degree $n - r$. This continues the coherent sequence since
+$g_{j+1} = g_j + b \in g_j + \mathfrak{m}^j[x]$, so $g_{j+1} \equiv g_j \text{ mod }\mathfrak{m}^j[x]$. By the same argument,
+$h_{j+1} \equiv h_j \text{ mod }\mathfrak{m}^j[x]$.
+
+By induction, we have coherent sequences $(g_k)_k$ and $(h_k)_k$ such that $f - g_k h_k \in \mathfrak{m}^k[x]$ for all $k$. Note
+that the sequence $(g_k)_k$ is a sequence of monic polynomials of degree $r$ such that $g_{k+1} \equiv g_k \text{ mod }\mathfrak{m}^k[x]$
+for all $k > 0$. Since $A$ is complete in the $\mathfrak{m}$-topology, $(g_k)_k$ converges coefficient-wise to a degree $r$ monic polynomial
+$g(x) \in A[x]$ such that $g \equiv g_k \text{ mod } \mathfrak{m}^k[x]$ for all $k > 0$. We define $h$ similiarly to be a degree $n-r$
+monic polynomial. Thus, for all $k > 0$, $f - g h \equiv f - g_k h_k \equiv 0 \text{ mod }\mathfrak{m}^k[x]$. Thus, every coefficient of
+$f - gh$ lies in $\mathfrak{m}^n$ for all $n > 0$. By Corollary 10.19, $\bigcap_n \mathfrak{m}^n = 0$, so $f = gh$, as desired.
+\end{proof}
+
+\begin{remark}
+This is a general form of ``Hensel's lemma.''
+\end{remark}
 
 \subsection{Exercise}\label{10.10}
 
+\begin{proof}[(i) Proof.]
+Suppose $\overline{f}(x) \in (A/\mathfrak{m})[x]$ has a simple root $\alpha \in A/\mathfrak{m}$. Then, we can write
+$\overline{f}(x) = (x - \alpha)\overline{g}(x)$ for some $\overline{g}(x) \in (A/\mathfrak{m})[x]$. Since
+$\alpha$ is a simple root, $(x - \alpha)$ does not divide $\overline{g}(x)$, so $(x - \alpha)$ and $\overline{g}(x)$ are
+coprime. By Exercise \ref{10.9}, there are polynomials $x - a \in A[x]$ and $g(x) \in A[x]$ such that $f(x) = (x - a)g(x)$;
+we used the fact that the lifts are monic and preserve degree. Further, $\overline{x - a} = x - \alpha$ and $\overline{g(x)} = \overline{g}(x)$.
+Therefore, $a$ is a root of $f$ and $a \equiv \alpha \text{ mod } \mathfrak{m}$. Finally, suppose to the contrary that
+$a$ is not a simple root of $f$ so that $g(x) = (x - a)h(x)$ for some $h(x) \in A[x]$. Then, 
+$\overline{g}(x) = (x-\alpha)\overline{h}(x)$, a clear contradiction as $(x - \alpha)$ and $\overline{g}(x)$ are coprime.
+Thus, $a$ is a simple root.
+\end{proof}
+
+\begin{proof}[(ii) Proof.]
+Let $\Z_{(7)}$ be the localization of $\Z$ at the prime ideal $(7)$. Since $\Z$ is Noetherian and $(7)$ is a prime ideal of $\Z$,
+$\Z_{(7)}$ is a Noetherian local ring with maximal ideal $(7)$. The $(7)$-adic completion of $\Z_{(7)}$ is $\Z_7$, so by Proposition 10.16,
+$\Z_7$ is a local ring with maximal ideal $(7)$ that is complete $(7)$-adically. Thus, we can apply (i) to the ring $\Z_7$.
+
+Let $f(x) = x^2 - 2 \in \Z_7[x]$, and consider the reduction $x^2 - 2 \in (\Z_7/(7))[x]$. Note that $-2 \equiv -9 \text{ mod } (7)$, so we have 
+$x^2 - 2 \equiv x^2 - 9 \equiv (x - 3)(x + 3) \text{ mod } (7)$. Thus, $\overline{f}(x)$ has simple roots $\pm 3$ since $3 \not\equiv -3 \text{ mod }(7)$. 
+By (i), these simple roots lift to simple roots of $f(x)$. But a root $r$ of $f(x)$ gives $r^2 - 2 = 0$, so $2$ is a square in $\Z_7$.
+\end{proof}
+
+\begin{proof}[(iii) Proof.]
+Let $f(x,y) \in k[x,y]$, where $k$ is a field, and assume that $f(0, y)$ has $y = a_0$ as a simple root. Note that $A = k[[x]]$ is a complete,
+local ring with maximal ideal $(x)$. Further, $A/(x) \cong k$. Then, we can consider $f(x,y)$ to be an element of $A[y]$. Reducing to the residue
+field, we have $\overline{f(x,y)} = f(0,y) \in (A/(x))[y] \cong k[y]$. By assumption, $f(0,y)$ has a simple root $a_0$. By (i), we have some 
+$y(x) \in k[[x]]$ such that $f(x,y(x)) = 0$. Further, $\overline{y(x)} = a_0 \in A/(x) \cong k$, so we can write $y(x) = \sum_{n=0}^{\infty}a_n x^n$
+with constant term $a_0$.
+\end{proof}
+
+\begin{remark}
+This gives the ``analytic branch'' of the curve $f = 0$ through the point $(0, a_0)$.
+\end{remark}
+
 \subsection{Exercise}\label{10.11}
 
+We show that even if $A$ is local and $\hat A$ is a finitely-generated $A$-module, $\hat A$ may be Noetherian
+while $A$ is not Noetherian. This shows that the converse of Theorem 10.26 is false.
+
+\begin{proof}
+Let $A = C_0^{\infty}(\R)$ be the germs $[f]$ at $0 \in \R$ for real-valued and $C^{\infty}$ functions $f$. To see that
+$A$ is a local ring, note that $[f] \mapsto f(0)$ is surjective onto $\R$, so the kernel is a maximal ideal $\mathfrak{m}$.
+Now, suppose $[f] \not\in \mathfrak{m}$. Then, $[f]$ has a representative $f$ such that $f(x) \neq 0$ on a neighborhood of $0$,
+so there is some $[g] \in A$ such that $[f][g] = [1]$, so $[f]$ is a unit. By Proposition 1.6, since every element of $A$ not in 
+$\mathfrak{m}$ is a unit, $A$ is a local ring with maximal ideal $\mathfrak{m}$.
+
+Let $\mathfrak{a}_n$ be the ideal of $[f] \in A$ such that $f^{(j)}(0) = 0$ for $0 \le n < j$. Thus, $\mathfrak{a}_1 = \mathfrak{m}$. 
+We wish to show that $\mathfrak{a}_n = \mathfrak{m}^n$ for all $n > 0$. Suppose we have $\mathfrak{a}_k = \mathfrak{m}^k$ for all $k < n$. 
+If $[f] \in \mathfrak{m}^n$, then $f$ is the sum of elements of the form $gh$, where $[g] \in \mathfrak{m}$ and $[h] \in \mathfrak{m}^{n-1}$.
+By the product rule, $(gh)^{(n)} = \sum_{j=0}^n \binom{n}{j} g^{(j)}h^{(n-j)} = g^{(0)}h^{(n)}$ since $h \in \mathfrak{m}^{n-1} = \mathfrak{a}_{n-1}$,
+so $h^{(i)} = 0$ for all $i < n$. However, $g \in \mathfrak{m}$, so $g^{(0)} = 0$ and thus $(gh)^{(n)} = 0$. Hence, $f^{(n)} = 0$ since
+it is the sum of elements with zero $n$th derivative, so $[f] \in \mathfrak{a}_n$. Conversely, if $[f] \in \mathfrak{a}_n$, then
+we can use Taylor's theorem. Let $f$ be a representative of $[f]$ and let $U$ be an open neighborhood such that $f \in C^{\infty}(U)$. 
+Then, $f(x) = \sum_{i=0}^{n-1}\frac{1}{i!}f^{(i)}(0)x^i + g_n(x)x^n$ on $U$, where $g_n \in C^{\infty}(U)$. Since $f^{(i)} = 0$ for all $i < n$,
+we have $f(x) = x^n g_n(x)$ so that $\mathfrak{a}_n \subset (x^n) \subset \mathfrak{m}^n$. By induction, $\mathfrak{a}_n = \mathfrak{m}^n = (x^n)$.
+
+Again, let $f$ be a representative of $[f] \in A$ and let $U$ be an open neighborhood such that $f \in C^{\infty}(U)$. Then, by Taylor's theorem,
+$f = f_0 + x^n g(x)$, where $f_0 \in \R[x]$ and $[x^n g(x)] \in \mathfrak{m}^n$. Thus, $[f] \to A/\mathfrak{m}^n$ has the same
+image as $[f_0] \to A/\mathfrak{m}^n$. In particular, we have an isomorphism $\R[x]/(x^n) \xrightarrow{\sim} A/\mathfrak{m}^n$
+that clearly commutes with the projections $\R[x]/(x^{n+1}) \to \R[x]/(x^n)$ and $A/\mathfrak{m}^{n+1} \to A/\mathfrak{m}^n$. Thus,
+$\hat A = \varprojlim A/\mathfrak{m}^n \cong \varprojlim \R[x]/(x^n) = \R[[x]]$, which is Noetherian by Theorem 7.5 since $\R$ is a field
+(and thus Noetherian). By Borel's theorem, every power series in $\R[[x]]$ is the Taylor series of some function in $C^{\infty}(U)$,
+where $U$ is some neighborhood of the origin, so $A \to \hat A$ is surjective. In particular, $\hat A$ is a finitely-generated $A$-module.
+
+Collecting everything, $A$ is a local ring, $\hat A$ is a Noetherian ring, and $\hat A$ is a finitely-generated $A$-module. Suppose to the
+contrary that $A$ is Noetherian. Then, $A$ is a Noetherian local ring, so by Theorem 10.17, $\bigcap_n \mathfrak{m}^n = 0$.
+Thus, $\bigcap_n \mathfrak{a}_n = 0$. However, note that $e^{-1/x^2} \in C^{\infty}(\R)$ and $(e^{-1/x^2})^{(n)} = 0$ for all $n \ge 0$. Thus,
+$e^{-1/x^n} \in \mathfrak{a}_n$ for all $n \ge 0$, violating $\bigcap_n \mathfrak{a}_n = 0$, so $A$ is not a Noetherian ring.
+\end{proof}
+
 \subsection{Exercise}\label{10.12}
+
+\begin{proof}
+By Exercise \ref{2.8}, if $B$ is a flat $A$-algebra and $C$ is a flat $B$-algebra, then $C$ is a flat $A$-algebra. In other words,
+a composition of flat maps is flat. Now, by Exercise \ref{2.5}, $A[x]$ is a flat $A$-algebra. Thus, we have a composition of flat maps
+$$A \to A[x_1] \to A[x_1][x_2] \to \cdots \to A[x_1]\cdots[x_n] \cong A[x_1,\ldots,x_n],$$
+so $A[x_1,\ldots,x_n]$ is a flat $A$-algebra. Since $A$ is Noetherian, $A[x_1,\ldots,x_n]$ is Noetherian by Theorem 7.5. In the 
+$(x_1,\ldots,x_n)$-topology of $A[x_1,\ldots,x_n]$, $\hat A = \varprojlim_k A[x_1,\ldots,x_n]/(x_1,\ldots,x_n)^k = A[[x_1,\ldots,x_n]]$.
+Since $A[x_1,\ldots,x_n]$ is Noetherian, $A[[x_1,\ldots,x_n]]$ is a flat $A[x_1,\ldots,x_n]$-algebra by Proposition 10.14. Then, since
+$A[x_1,\ldots,x_n]$ is a flat $A$-algebra, $A[[x_1,\ldots,x_n]]$ is a flat $A$-algebra. 
+Under the map $A \xhookrightarrow{} A[[x_1,\ldots,x_n]]$, an ideal $\mathfrak{a}$ of $A$ extends to 
+$\mathfrak{a}[[x_1,\ldots,x_n]]$. Then, $\mathfrak{a}[[x_1,\ldots,x_n]]^c = A \cap \mathfrak{a}[[x_1,\ldots,x_n]] = \mathfrak{a}$,
+so $\mathfrak{a} = \mathfrak{a}^{ec}$ for all ideals $\mathfrak{a}$ of $A$. Thus, since $A[[x_1,\ldots,x_n]]$ is a flat $A$-algebra,
+we have by Exercise \ref{3.16} that $A[[x_1,\ldots,x_n]]$ is faithfully flat over $A$.
+\end{proof}
