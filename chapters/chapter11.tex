@@ -1,8 +1,95 @@
 \section{Dimension Theory}
 
-\subsection{Exercise}\label{11.1}
+\subsection{Exercise - Complete}\label{11.1}
 
-\subsection{Exercise}\label{11.2}
+\begin{proof}
+Let $f \in k[x_1,\ldots,x_n]$ be an irreducible polynomial, where $k$ is an algebraically closed field, and let 
+$A = k[x_1,\ldots,x_n]/(f)$. Let $V$ be the irreducible affine variety defined by $f(x) = 0$. For each point $P$ on $V$, 
+there is the associated maximal ideal $\mathfrak{m}_P = (x_1 - P_1, \ldots, x_n - P_n)$ by the Nullstellensatz. Since 
+$f(P) = 0$ for any $P$ in $V$, $(f) \subset \mathfrak{m}_P$, so $\mathfrak{m} = \mathfrak{m}_P / (f)$ is a maximal ideal 
+of $A$. We aim to show that a point $P$ in $V$ is non-singular if and only if $A_{\mathfrak{m}}$ is a regular local ring.
+
+We now show that $f \in \mathfrak{m}_P^2$ if and only if $f$ is singular at $P$. If $f \in \mathfrak{m}_P^2 = (x_1 - P_1, \ldots, x_n - P_n)^2$, 
+we can write $f = \sum_{i,j} g_{i,j}(x)(x_i - P_i)(x_j - P_j)$, where $g_{i,j} \in k[x_1,\ldots,x_n]$. Then,
+$$\frac{\partial f}{\partial x_s} = \sum_{i,j}\left(\frac{\partial}{\partial x_s}g_{i,j}(x)\right)(x_i - P_i)(x_j - P_j) + \sum_{i \neq s} (g_{i,s}(x) + g_{s,i}(x))(x_i - P_i) + 2 g_{s,s}(x)(x_s - P_s),$$
+which vanishes for all $s$ at $P$ since $(x_i - P_i) = 0$ at $P$ for all $i$. Thus, $f$ is singular at $P$. Conversely, 
+suppose $f$ is singular at $P$. Note that $f \in (x_1 - P_1, \ldots, x_n - P_n)$, so we can write $f = \sum_i g_i(x) (x_i - P_i)$. 
+Then, we have 
+$$0 = \frac{\partial f}{\partial x_j}(P) = \frac{\partial}{\partial x_j}\bigg\vert_{P}\sum_i g_i(x) (x_i - P_i) = g_j(P) + \sum_i \frac{\partial g_i}{\partial x_j}(P) (P_i - P_i) = g_j(P).$$
+Thus, $g_i \in \mathfrak{m}_P$ and $(x_i - P_i) \in \mathfrak{m}_P$ for all $i$, so $f$ is a sum of terms in $\mathfrak{m}_P^2$, hence $f \in \mathfrak{m}_P^2$.
+
+Therefore, we've reduced the problem to showing that $A_{\mathfrak{m}}$ is a regular local ring if and only if $f \not\in \mathfrak{m}_P^2$. Since
+$A = k[x_1,\ldots,x_n]/(f)$ and the map $k[x_1,\ldots,x_n] \to A$ takes $S_{\mathfrak{m}_P} \to S_{\mathfrak{m}}$ we have by Corollary 3.4 ($\mathfrak{m}_P$
+is finitely generated since $k[x_1,\ldots,x_n]$ is Noetherian) and Exercise \ref{3.4} that 
+$k[x_1,\ldots,x_n]_{\mathfrak{m}_P}/(f)_{\mathfrak{m}_P} \cong (k[x_1,\ldots,x_n]/(f))_{\mathfrak{m}} = A_{\mathfrak{m}}$. 
+Since $f \in \mathfrak{m}_P$ is nonzero and $k[x_1,\ldots,x_n]_{\mathfrak{m}_P}$ is an integral domain (since $k[x_1,\ldots,x_n]$ is), we have by Corollary 11.18 
+that $\dim A_{\mathfrak{m}} = \dim k[x_1,\ldots,x_n]_{\mathfrak{m}_P}/(f)_{\mathfrak{m}_P} = \dim k[x_1,\ldots,x_n]_{\mathfrak{m}_P} - 1 = n - 1$.
+By the third isomorphism theorem (Proposition 2.1), $k \cong k[x_1,\ldots,x_n]/\mathfrak{m}_P \cong (k[x_1,\ldots,x_n]/(f))/(\mathfrak{m}_P/(f)) = A/\mathfrak{m}
+\cong A_{\mathfrak{m}}/\mathfrak{m}A_{\mathfrak{m}}$. By Theorem 11.22, $A_{\mathfrak{m}}$ is a regular ring if and only if
+$\dim A_{\mathfrak{m}} = \dim_k \mathfrak{m}A_{\mathfrak{m}}/\mathfrak{m}^2A_{\mathfrak{m}}$. But $n - 1 = \dim A_{\mathfrak{m}}$ and,
+by Corollary 3.4, $\mathfrak{m}/\mathfrak{m}^2 \cong \mathfrak{m}A_{\mathfrak{m}}/\mathfrak{m}^2A_{\mathfrak{m}}$, so $A_{\mathfrak{m}}$ is a regular ring
+if and only if $\dim_k \mathfrak{m}/\mathfrak{m}^2 = n - 1$.
+
+Hence, the problem has been reduced to showing that $\dim_k \mathfrak{m}/\mathfrak{m}^2 = n - 1$ if and only if $f \not\in \mathfrak{m}_P^2$. Finally,
+$\mathfrak{m} = \mathfrak{m}_P/(f)$, and $\mathfrak{m}^2$ is the image of $\mathfrak{m}_P^2$ under $k[x_1,\ldots,x_n] \to A = k[x_1,\ldots,x_n]/(f)$. The image
+is also $(\mathfrak{m}_P^2 + (f))/(f)$, so $\mathfrak{m}^2 = (\mathfrak{m}_P^2 + (f))/(f)$. Thus, we have
+$$\mathfrak{m}/\mathfrak{m}^2 \cong (\mathfrak{m}_P/(f))/((\mathfrak{m}_P^2 + (f))/(f)) \cong \mathfrak{m}_P/(\mathfrak{m}_P^2 + (f))$$
+by Proposition 2.1. Thus, we must show $n-1 = \dim_k \mathfrak{m}_P/(\mathfrak{m}_P^2 + (f))$ if and only if $f \not\in \mathfrak{m}_P^2$.
+If $f \in \mathfrak{m}_P^2$, $\mathfrak{m}_P/(\mathfrak{m}_P^2 + (f)) \cong \mathfrak{m}_P/\mathfrak{m}_P^2$, which has dimension $n \neq n-1$. On the other hand,
+if $f \not\in \mathfrak{m}_P^2$, then $\mathfrak{m}_P^2 + (f)$ strictly contains $\mathfrak{m}_P^2$, so the surjective $k$-vector space homomorphism
+$$\mathfrak{m}_P/\mathfrak{m}_P^2 \to \mathfrak{m}_P/((f) + \mathfrak{m}_P^2)$$
+is not injective, implying $\dim_k \mathfrak{m}_P/((f) + \mathfrak{m}_P^2) < \dim_k \mathfrak{m}_P/\mathfrak{m}_P^2 = n$. Since $A_{\mathfrak{m}}$ is a Noetherian local ring, 
+we have by Corollary 11.15 that $\dim A_{\mathfrak{m}} \le \dim_k \mathfrak{m}/\mathfrak{m}^2$, so $n - 1 \le \dim_k \mathfrak{m}_P/((f) + \mathfrak{m}_P^2) < n$,
+so $\dim_k \mathfrak{m}_P/((f) + \mathfrak{m}_P^2) = n-1$, as desired.
+\end{proof}
+
+\subsection{Exercise - Complete}\label{11.2}
+
+\begin{proof}
+Suppose $A$ is complete in the $\mathfrak{m}$-topology, that $k \subset A$ is a field satisfying $k \cong A/\mathfrak{m}$, and $x_1,\ldots,x_d$
+is a system of parameters of $A$. Let $\mathfrak{q} = (x_1,\ldots,x_d)$ be the $\mathfrak{m}$-primary ideal generated by the elements.
+By Corollary 11.21, $x_1,\ldots,x_d$ are algebraically independent over $k$. Thus, if we define the homomorphism $\varphi : k[t_1,\ldots,t_d] \to A$
+via $t_i \mapsto x_i$, then $\varphi$ is injective; $f \mapsto f(x_1,\ldots,x_d)$, so if $f(x_1,\ldots,x_d) = 0$, then $f = 0$ by the 
+algebraic independence of $x_1,\ldots,x_d$ over $k$. Now, note that $\varphi((t_1,\ldots,t_d)^n) = (x_1,\ldots,x_d)^n = \mathfrak{q}^n$, so by injectivity,
+$\varphi^{-1}(\mathfrak{q}^n) = (t_1,\ldots,t_d)^n$. Thus, $\varphi$ projects to injective homomorphisms 
+$\varphi_n : k[t_1,\ldots,t_d]/(t_1,\ldots,t_d)^n \to A/\mathfrak{q}^n$ for all $n > 0$. 
+
+Note that $\varphi_n$ is natural in the sense that we have commutative diagrams
+\begin{center}
+\begin{tikzcd}
+k[t_1,\ldots,t_d]/(t_1,\ldots,t_d)^{n+1} \arrow[r, "\varphi_{n+1}"] \arrow[d] & A/\mathfrak{q}^{n+1} \arrow[d] \\
+k[t_1,\ldots,t_d]/(t_1,\ldots,t_d)^n \arrow[r,"\varphi_n"] & A/\mathfrak{q}^n.
+\end{tikzcd}
+\end{center}
+Thus, $(\varphi_n)_n$ is compatible with the respective inverse systems. Since $\varphi_n$ is injective for each $n$, we have an exact sequence
+of inverse systems
+$$0 \to \{k[t_1,\ldots,t_d]/(t_1,\ldots,t_d)^n\}_n \xrightarrow{(\varphi_n)_n} \{A/\mathfrak{q}^n\}_n.$$
+By Proposition 10.2, we have an exact sequence
+$$0 \to k[[t_1,\ldots,t_d]] \xlongrightarrow{\hat \varphi} \varprojlim_n A/\mathfrak{q}^n.$$
+Since $\mathfrak{q}$ is $\mathfrak{m}$-primary and $A$ is $\mathfrak{m}$-complete, $A = \varprojlim_n A/\mathfrak{q}^n$, so $\hat \varphi: k[[t_1,\ldots,t_d]] \to A$
+defined by $t_i \mapsto x_i$ is injective.
+
+Let $B = k[[t_1,\ldots,t_d]]$ with $\mathfrak{b} = (t_1,\ldots,t_d)$, so $B$ is complete in the $\mathfrak{b}$-topology. Note that since we have $\hat \varphi : B \to A$,
+$A$ is a $B$-module. Note that $\mathfrak{b}(\mathfrak{q}^n) = \mathfrak{q}\mathfrak{q}^n = \mathfrak{q}^{n+1}$, so $(\mathfrak{q}^n)_n$ is a $\mathfrak{b}$-filtration
+of $A$. Further, since $A$ is $\mathfrak{m}$-complete and $\mathfrak{q} \subset \mathfrak{m}$, $\bigcap_n \mathfrak{q}^n \subset \bigcap_n \mathfrak{m}^n = 0$,
+so $A$ is Hausdorff in the $\mathfrak{b}$-filtration topology. Therefore, by Proposition 10.24, to show that $A$ is a finitely generated $B$-module, it is sufficient
+to show that $G(A)$ is a finitely generated $G(B)$-module.
+
+We have $G(A) = \bigoplus_{n=0}^{\infty} \mathfrak{q}^n/\mathfrak{q}^{n+1}$ and $G(B) = \bigoplus_{n=0}^{\infty} \mathfrak{b}^n/\mathfrak{b}^{n+1}$. 
+For every $n > 0$, each class in $\mathfrak{q}^n/\mathfrak{q}^{n+1}$ is represented by some $q \in \mathfrak{q}^n = (x_1,\ldots,x_d)^n = \hat\varphi(\mathfrak{b}^n)$. 
+So, choose $f \in \mathfrak{b}^n$ such that $\hat \varphi(f) = q$. Then, $[f] \in \mathfrak{b}^{n}/\mathfrak{b}^{n+1}$ gives $[q] = [f] \cdot [1]$. Thus, $G(A)$
+is generated as a $G(B)$-module by its degree-zero part, $A/\mathfrak{q}$. Thus, if we can show that $A/\mathfrak{q}$ is finitely generated as a $k$-module,
+then $G(A)$ will be finitely generated as a $G(B)$-module since $k \cong k[[t_1,\ldots,t_d]]/(t_1,\ldots,t_d) = G(B)_0$. Note that $k \cong A/\mathfrak{m}$,
+and since $A$ is Noetherian, we have by Proposition 7.14 that there is some $j > 0$ such that $\mathfrak{m}^j \subset \mathfrak{q}$. In particular, we have
+a surjective $A$-module homomorphism $A/\mathfrak{m}^j \to A/\mathfrak{q}$. Because $k$ is a subring of $A$, $A/\mathfrak{m}^j \to A/\mathfrak{q}$ is also a surjective
+$k$-module homomorphism. 
+
+Note that we have a finite $\mathfrak{m}$-filtration $A/\mathfrak{m}^j \supset \mathfrak{m}/\mathfrak{m}^j \supset \cdots \supset \mathfrak{m}^{j-1}/\mathfrak{m}^j \supset 0$,
+where the quotients are the $A$-modules $\mathfrak{m}^i/\mathfrak{m}^{i+1}$. Since $A$ is Noetherian, these quotients are finitely generated. Further, since $\mathfrak{m}$
+annihilates each $\mathfrak{m}^i/\mathfrak{m}^{i+1}$, $\mathfrak{m}^i/\mathfrak{m}^{i+1}$ is a finitely generated $k$-vector space since $k \cong A/\mathfrak{m}$. Thus, 
+$A/\mathfrak{m}^j$ is a finite-dimensional $k$-vector space, so since the $k$-module homomorphism $A/\mathfrak{m}^j \to A/\mathfrak{q}$ is surjective, $A/\mathfrak{q}$ is also 
+a finite-dimensional $k$-vector space, as desired.
+\end{proof}
 
 \subsection{Exercise}\label{11.3}
 
