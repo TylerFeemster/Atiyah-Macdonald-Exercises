@@ -1,6 +1,6 @@
 \section{Dimension Theory}
 
-\subsection{Exercise - Complete}\label{11.1}
+\subsection{Exercise}\label{11.1}
 
 \begin{proof}
 Let $f \in k[x_1,\ldots,x_n]$ be an irreducible polynomial, where $k$ is an algebraically closed field, and let 
@@ -43,7 +43,7 @@ we have by Corollary 11.15 that $\dim A_{\mathfrak{m}} \le \dim_k \mathfrak{m}/\
 so $\dim_k \mathfrak{m}_P/((f) + \mathfrak{m}_P^2) = n-1$, as desired.
 \end{proof}
 
-\subsection{Exercise - Complete}\label{11.2}
+\subsection{Exercise}\label{11.2}
 
 \begin{proof}
 Suppose $A$ is complete in the $\mathfrak{m}$-topology, that $k \subset A$ is a field satisfying $k \cong A/\mathfrak{m}$, and $x_1,\ldots,x_d$
@@ -91,7 +91,7 @@ $A/\mathfrak{m}^j$ is a finite-dimensional $k$-vector space, so since the $k$-mo
 a finite-dimensional $k$-vector space, as desired.
 \end{proof}
 
-\subsection{Exercise - Complete}\label{11.3}
+\subsection{Exercise}\label{11.3}
 
 \begin{proof}
 Let $V$ be an irreducible affine variety over $k$. By Noether's normalization lemma (Exercise \ref{5.16}), if $r = \dim V$, then there
@@ -117,7 +117,7 @@ Theorem 11.25, since $\overline{k}$ is algebraically closed, $\dim C_{\mathfrak{
 Note that $V$ extended to $\overline{k}$ may fail to remain irreducible. Still, the local dimensions everywhere match the dimension of the variety.
 \end{remark}
 
-\subsection{Exercise - Complete}\label{11.4}
+\subsection{Exercise}\label{11.4}
 
 Here, we construct a Noetherian domain of infinite dimension (Nagata). Let $k$ be a field, and let $A = k[x_1,x_2,\ldots]$. Let
 $m_1,m_2,\ldots$ be a strictly increasing sequence of positive integers such that for all $i > 1$, $m_{i+1} - m_i > m_i - m_{i-1}$. 
@@ -152,10 +152,10 @@ in $\{x_{m_j + 1},\ldots,x_{m_{j+1}}\}$. Since each $\mathfrak{p}_j$ is generate
 by only finitely many $\mathfrak{p}_j$. Thus, $x$ is contained by only finitely many maximal ideals of $S^{-1}A$. By Exercise \ref{3.9}, $S^{-1}A$ is Noetherian.
 \end{proof}
 
-Now, consider the prime ideals $S^{-1}\mathfrak{p}_i$ of $S^{-1}A$. We aim to show that $\operatorname{height}(S^{-1}\mathfrak{p}_i) = m_{i+1} - m_i$.
+Now, consider the prime ideals $S^{-1}\mathfrak{p}_i$ of $S^{-1}A$. We aim to show that $\hgt(S^{-1}\mathfrak{p}_i) = m_{i+1} - m_i$.
 
 \begin{proof}
-Note that $\operatorname{height}(S^{-1}\mathfrak{p}_i) = \dim (S^{-1}A)_{S^{-1}\mathfrak{p}_i}$. By Exercise \ref{3.3}, 
+Note that $\hgt(S^{-1}\mathfrak{p}_i) = \dim (S^{-1}A)_{S^{-1}\mathfrak{p}_i}$. By Exercise \ref{3.3}, 
 $(S^{-1}A)_{S^{-1}\mathfrak{p}_i} \cong A_{\mathfrak{p}_i}$ since $S = A - \bigcup_j \mathfrak{p}_j \subset A - \mathfrak{p}_i$.
 Since $S^{-1}A$ is Noetherian, $(S^{-1}A)_{S^{-1}\mathfrak{p}_i} \cong A_{\mathfrak{p}_i}$ is a Noetherian local ring (Proposition 7.3).
 
@@ -172,12 +172,134 @@ By Proposition 3.11, since none of these primes intersect $A - \mathfrak{p}_i$, 
 Thus, $m_{i+1} - m_i \le \dim A_{\mathfrak{p}_i}$ so that $\dim A_{\mathfrak{p}_i} = m_{i+1} - m_i$.
 \end{proof}
 
-Since $\dim S^{-1}A \ge \operatorname{height}(S^{-1}\mathfrak{p}_i) = m_{i+1} - m_i$ for all $i$, and since $\{m_{i+1} - m_i\}_i$ is an infinite, strictly 
+Since $\dim S^{-1}A \ge \hgt(S^{-1}\mathfrak{p}_i) = m_{i+1} - m_i$ for all $i$, and since $\{m_{i+1} - m_i\}_i$ is an infinite, strictly 
 increasing sequence of positive integers, $\dim S^{-1}A = \infty$, despite $S^{-1}A$ being Noetherian.
-
 
 \subsection{Exercise}\label{11.5}
 
+Let $M$ be a finitely generated $A$-module, where $A = \bigoplus_{n=0}^{\infty} A_n$ is a Noetherian graded ring. Then, $A$ is generated
+as an $A_0$-algebra by homogeneous elements $x_1,\ldots,x_s$ of degrees $k_1,\ldots,k_s$, all $> 0$. Further, each $M_n$ is a finitely
+generated $A_0$-module, so each $M_n$ has a class in the Grothendieck group (Exercise \ref{7.26}) of $A_0$, $K(A_0)$. Denote the class by $[M_n]$.
+
+Suppose $\lambda$ is an additive function (with values in $\Z$) on finitely generated $A_0$-modules. By Exercise \ref{7.26},
+each $\lambda$ uniquely lifts to a group homomorphism $\lambda' : K(A_0) \to \Z$. Define $P_{\lambda}(M,t) = \sum_{n=0}^{\infty}\lambda(M_n)t^n$.
+By the theorem of Hilbert-Serre (Theorem 11.1), $P_{\lambda}(M,t) = f_{\lambda}(t)/q(t)$, where $f_{\lambda}(t) \in \Z[t]$ and 
+$q(t) = \prod_{i=1}^s (1 - t^{k_i})$. Note that $q(t)$ does not depend on $\lambda$, as it is defined solely by invariants of $M$.
+
+Suppose we have two additive functions $\lambda, \tau \in \Hom(K(A_0), \Z)$. Now, fix $M$. Then, we have a map $\varphi_M : \Hom(K(A_0),\Z) \to \Q(t)$
+given by $\lambda \mapsto P_{\lambda}(M,t)$. Note that we have
+$$P_{\tau + \lambda}(M,t) = \sum_{n=0}^{\infty}(\tau + \lambda)(M_n)t^n = \sum_{n=0}^{\infty}\tau(M_n)t^n + \sum_{n=0}^{\infty}\lambda(M_n)t^n 
+= \frac{f_{\tau}}{q} + \frac{f_{\lambda}}{q} = P_{\tau}(M,t) + P_{\lambda}(M,t).$$
+Hence, $\varphi_M : \Hom(K(A_0), \Z) \to \Q(t)$ is a group homomorphism.
+
+In particular, we've defined a map $\varphi : K^{gr}(A)^+ \times \Hom(K(A_0), \Z) \to \Q(t)$, where $K^{gr}(A)^+$ is the subset of $K^{gr}(A)$ of classes with 
+a representative module, and shown that it is $\Z$-linear in the second argument. Note that $K^{gr}(A)$ is the Grothendieck group of finitely generated graded
+$A$-modules. Now, suppose we have finitely generated graded $A$-modules $M$ and $N$. Fix 
+$\lambda \in \Hom(K(A_0), \Z)$. Since $\lambda$ is an additive function, we have
+$$\varphi([M] + [N], \lambda) = \sum_{n=0}^{\infty}\lambda([M_n] + [N_n])t^n$$
+$$= \sum_{n=0}^{\infty}(\lambda(M_n)+\lambda(N_n))t^n = \sum_{n=0}^{\infty}\lambda(M_n)t^n + \sum_{n=0}^{\infty}\lambda(N_n)t^n
+= \varphi([M], \lambda) + \varphi([N], \lambda).$$
+Here, we used that $\lambda$ is additive on $K(A_0)$. Thus, $\varphi$ is additive in the first variable. Extending the first argument by $\Z$-linearity, we obtain a 
+unique extension to $K^{gr}(A)$ while preserving
+its restriction to $K^{gr}(A)^+$. Thus, we have a $\Z$-bilinear map $\varphi : K^{gr}(A) \times \Hom(K(A_0), \Z) \to \Q(t)$. Hence, the map factors uniquely
+through $K^{gr}(A) \otimes_{\Z} \Hom(K(A_0), \Z)$, so we obtain a $\Z$-module homomorphism $\varphi : K^{gr}(A) \otimes_{\Z} \Hom(K(A_0), \Z) \to \Q(t)$.
+
+The graded structure is more interesting. Following Exercise \ref{7.27}, let $K_1^{gr}(A)$ be the Grothendieck group of flat, finitely generated, graded 
+$A$-modules. Let $M$ be a flat, finitely generated, graded $A$-module. Then, since $A$ is a flat $A_0$-algebra and $M$ is a flat $A$-module, $M$ is a flat
+$A_0$-module by Exercise \ref{2.8}. Thus, each of the factors $M_n$ is a flat, finitely generated $A_0$-module (Exercise \ref{2.4}), so $[M_n] \in K_1(A_0)$. 
+Let $N$ be another flat, finitely generated, graded $A$-module. We have a grading of $M \otimes_{A_0} N$ as
+$$P = M \otimes_{A_0} N \cong \bigoplus_{n=0}^{\infty} \bigoplus_{r=0}^n M_{n-r} \otimes_{A_0} N_r.$$
+Let $P_n = \bigoplus_{r=0}^n M_{n-r} \otimes_{A_0} N_r$ for ease of notation. If $A_s$ is one of the homogenous components of $A$, then
+$$A_s P_n = \bigoplus_{r=0}^n A_s(M_{n-r} \otimes_{A_0} N_r) = \bigoplus_{r=0}^n (A_s M_{n-r}) \otimes_{A_0} N_r$$
+$$\subset \bigoplus_{r=0}^n (M_{n + s - r}) \otimes_{A_0} N_r \subset \bigoplus_{r=0}^{n+s} M_{n - r} \otimes_{A_0} N_r = P_{n+s},$$
+so $(P_n)$ is a valid grading as an $A$-module. Further, since $M$ and $N$ are flat and finitely generated as $A$-modules, $P$ is as well by Exercise \ref{2.8},
+so $[P] \in K_1^{gr}(A)$. By Exercise \ref{2.8} again, each $M_{n-r} \otimes_{A_0} N_r$ is a flat, finitely generated $A_0$-module, so the finite direct sum
+$P_n$ is as well (Exercise \ref{2.4}) for each $n$. Thus, $P_n \in K_1(A_0)$. 
+
+Since we have a natural homomorphism $K_1^{gr}(A) \to K^{gr}(A)$, we can choose $\lambda \in \Hom(K(A_0), \Z)$ and apply the mapping $\varphi(\cdot,\lambda)$ to $P$. 
+Using the multiplication defined on $K_1(A_0)$ (Exercise \ref{7.27}), we have:
+$$\varphi(P,\lambda) = \sum_{n=0}^{\infty}\lambda(P_n)t^n = \sum_{n=0}^{\infty}\sum_{r=0}^n \lambda(M_{n-r} \otimes_{A_0} N_r)t^n
+= \sum_{n=0}^{\infty}\sum_{r=0}^n \lambda(M_{n-r})\lambda(N_r)t^{n-r} t^r$$
+$$= \sum_{s=0}^{\infty}\sum_{r=0}^{\infty} \lambda(M_s)t^s \cdot \lambda(N_r)t^r = \sum_{s=0}^{\infty}\lambda(M_s)t^s\sum_{r=0}^{\infty}\lambda(N_r)t^r
+= \varphi(M,\lambda)\varphi(N,\lambda).$$
+Thus, the map is multiplicative. $A_0$ with the trivial grading (zero in non-zero dimensions) defines the class of the multiplicative identity in $K_1^{gr}(A)$
+since $M \otimes_{A_0} A_0 \cong M$. Then, $\varphi(A_0,\lambda) = \lambda(A_0) \in \Z$, which may not be $1$ (although $\Z$ is quite restrictive compared to $\Q(t)$).
+If $\psi$ is the composite map of $\varphi$ with $K_1^{gr}(A) \to K^{gr}(A)$, we have a $\Z$-bilinear map
+$$\psi : K_1^{gr}(A) \times \Hom(K(A_0), \Z) \to \Q(t),$$
+where $\psi$ is multiplicative in the first variable.
+
 \subsection{Exercise}\label{11.6}
 
+\begin{proof}
+Let $\mathfrak{p}_1 \subset \mathfrak{p}_2 \subset \cdots \subset \mathfrak{p}_r$ be an arbitrary chain of prime ideals in $A$. In $A[x]$, we have the chain of
+prime ideals $\mathfrak{p}_1 + (x) \subset \mathfrak{p}_2 + (x) \subset \cdots \subset \mathfrak{p}_r + (x)$. To see that these are prime, note that for any
+prime ideal $\mathfrak{p}$ of $A$, $A[x]/((x) + \mathfrak{p}) \cong A/\mathfrak{p}$, which is an integral domain. If $\mathfrak{p}_1 = 0$, then $A$ is an integral 
+domain. Thus, $A[x]$ is an integral domain, so we can append $0$ to the beginning to obtain the chain
+$$0 \subset \mathfrak{p}_1 + (x) \subset \cdots \subset \mathfrak{p}_r + (x).$$
+This is strictly longer than the original. If $\mathfrak{p}_1 \neq 0$, then $(x) \neq \mathfrak{p}_1 + (x)$, so we have the chain
+$$(x) \subset \mathfrak{p}_1 + (x) \subset \cdots \subset \mathfrak{p}_r + (x)$$
+of prime ideals. Again, this is strictly longer than the original. Thus, for every chain of prime ideals of $A$, we can produce a chain in $A[x]$ with increased length.
+Hence, $1 + \dim A \le \dim A[x]$.
+
+Conversely, let
+$$\mathfrak{q}_1 \subset \mathfrak{q}_2 \subset \cdots \subset \mathfrak{q}_r$$
+be an arbitrary chain of prime ideals in $A[x]$. Let $f : A \to A[x]$ be the embedding; we consider the fibers of $f^* : \Spec(A[x]) \to \Spec(A)$. If $\mathfrak{p} \in \Spec(A)$, 
+the fiber of $\mathfrak{p}$ is homeomorphic to $\Spec(k \otimes_A A[x])$, where $k$ is the residue field of $\mathfrak{p}$ (Exercise \ref{3.21}). However, note 
+that $k \otimes_A A[x] \cong k[x]$ and $\dim k[x] = 1$. In particular, every strict chain in the fiber of $\mathfrak{p}$ has length at most 1. Let's contract our chain:
+$$\mathfrak{q}_1^c \subset \mathfrak{q}_2^c \subset \cdots \subset \mathfrak{q}_r^c.$$
+Suppose to the contrary that we have $\mathfrak{q}_{i-1}^c = \mathfrak{q}_i^c = \mathfrak{q}_{i+1}^c$, where $\mathfrak{q}_{i-1} \subset \mathfrak{q}_i \subset \mathfrak{q}_{i+1}$
+is a series of strict inclusions. Then, the fiber $f^{*-1}(\mathfrak{q}_{i-1}^c)$ includes $\mathfrak{q}_{i-1}$, $\mathfrak{q}_i$, $\mathfrak{q}_{i+1}$, yielding a chain of length
+2, contradicting our result that chains in the fibers have length at most 1. Thus, each prime of
+$$\mathfrak{q}_1^c \subset \mathfrak{q}_2^c \subset \cdots \subset \mathfrak{q}_r^c$$
+can occur at most twice. Clearing redundancy, we obtain a strict chain of prime ideals of $A$,
+$$\mathfrak{p}_1 \subset \cdots \subset \mathfrak{p}_s,$$
+where $2s \ge r$ since each prime occurs at most twice in the contracted chain. The length of the chains are $l_{A[x]} = r - 1$ and $l_A = s - 1$ respectively, so we have
+$2 l_A + 1 = (2s - 2) + 1 \ge r - 1 = l_{A[x]}$. Thus, for any chain of prime ideals of $A[x]$ of length $l_{A[x]}$, we can produce a chain of prime ideals of $A$
+of length $l_A$ such that $2 l_A + 1 \ge l_{A[x]}$. Hence, $2 \dim A + 1 \ge \dim A[x]$.
+
+Therefore, we have the bound $\dim A + 1 \le \dim A[x] \le 2 \dim A + 1$ for any ring $A$.
+\end{proof}
+
 \subsection{Exercise}\label{11.7}
+
+\begin{proof}
+Let $\mathfrak{p}$ be a prime ideal in $A$. Since $A$ is Noetherian, $\hgt \mathfrak{p} = m$ for some $m$ (Corollary 11.11). Since $A$ is Noetherian, $A_{\mathfrak{p}}$ 
+is a Noetherian local ring (Proposition 7.3), so by the definition of height, $\dim A_{\mathfrak{p}} = m$. Thus, by Proposition 11.13, there is a 
+$A_{\mathfrak{p}}\mathfrak{p}$-primary ideal $A_{\mathfrak{p}}\mathfrak{q}$ of the form $(x_1,\ldots,x_m)$, where $x_i = y_i/s_i$ with $y_i \in A$, $s_i \in A - \mathfrak{p}$. 
+Since each $s_i$ is a unit in $A_{\mathfrak{p}}$, $(x_1,\ldots,x_m) = (y_1/1,\ldots,y_m/1) = (y_1,\ldots,y_m)^e$, where $(y_1,\ldots,y_m)$ is an ideal of $A$. By 
+Proposition 4.8, since $\mathfrak{p}$ does not intersect $A - \mathfrak{p}$, $(y_1,\ldots,y_m)$ is a $\mathfrak{p}$-primary ideal of $A$. Suppose $\mathfrak{q}$ is a prime 
+of $A$ containing $(y_1,\ldots,y_m)$. Then, $\mathfrak{q} = r(\mathfrak{q}) \supset r((y_1,\ldots,y_m)) = \mathfrak{p}$, so $\mathfrak{p}$ is a minimal prime ideal containing 
+$(y_1,\ldots,y_m)$. Then, by Exercise \ref{4.7}, $\mathfrak{p}[x]$ is a minimal prime containing $(y_1,\ldots,y_m)A[x]$. Since $A$ is Noetherian, $A[x]$ is Noetherian (Theorem 7.5), 
+so by Corollary 11.16, the $\hgt \mathfrak{p}[x] \le m$.
+
+Conversely, since $\mathfrak{p}$ has height $m$, we have a strict chain of prime ideals in $A$:
+$$\mathfrak{p}_0 \subset \cdots \subset \mathfrak{p}_m = \mathfrak{p}.$$
+By Exercise \ref{4.7}, for each $i$, $\mathfrak{p}_i[x]$ is a prime ideal of $A[x]$, so we have a strict chain of prime ideals in $A[x]$:
+$$\mathfrak{p}_0[x] \subset \cdots \subset \mathfrak{p}_m[x] = \mathfrak{p}[x].$$
+Thus, $\hgt \mathfrak{p}[x] \ge m$. Combining the results, $\hgt \mathfrak{p} = \hgt \mathfrak{p}[x]$ for all
+prime ideals $\mathfrak{p}$ of $A$.
+
+We aim to show that for any $\mathfrak{q} \in \Spec(A[x])$, $\hgt(\mathfrak{q}) \le \hgt(\mathfrak{p}) + 1$, where $\mathfrak{p} = \mathfrak{q}^c \subset A$. We will induct on 
+the height of primes in $A[x]$. Since $A[x]$ is Noetherian, each prime has finite height by Corollary 11.11, so this will suffice. 
+Suppose $\mathfrak{q}$ has height $0$. Then clearly, $\hgt \mathfrak{q} \le \hgt \mathfrak{p} + 1$ since $\hgt \mathfrak{p} \ge 0$. Now, suppose $\mathfrak{q}$ has height $m$,
+and suppose for all prime ideals $\mathfrak{q}'$ of height $< m$, we have $\hgt \mathfrak{q}' \le \hgt \mathfrak{q}'^c + 1$. By definition, we have a strict chain of prime ideals
+$$\mathfrak{q}_0 \subset \cdots \subset \mathfrak{q}_{m-1} \subset \mathfrak{q}_m = \mathfrak{q},$$
+where $\hgt \mathfrak{q}_i = i$. Contracting, we have $\mathfrak{q}_{m-1}^c \subset \mathfrak{q}^c = \mathfrak{p}$. We will split the argument into two cases: the inclusion is 
+equality and the inclusion is strict.
+
+If $\mathfrak{q}_{m-1}^c = \mathfrak{p}$, then
+$$\mathfrak{q}_{m-1} \supset \mathfrak{q}_{m-1}^{ce} = \mathfrak{p}^e = \mathfrak{p}[x].$$
+Thus, we have a chain of prime ideals $\mathfrak{q} \supset \mathfrak{q}_{m-1} \supset \mathfrak{p}[x]$ in the fiber $f^{*-1}(\mathfrak{p})$, where $f^* : \Spec(A[x]) \to \Spec(A)$.
+In the proof of Exercise \ref{11.6}, we saw that any chain in a fiber of $f^*$ has length at most 1. Since $\mathfrak{q} \neq \mathfrak{q}_{m-1}$, we must then have
+$\mathfrak{q}_{m-1} = \mathfrak{p}[x]$. Thus, $m-1 = \hgt \mathfrak{q}_{m-1} = \hgt \mathfrak{p}[x] = \hgt \mathfrak{p}$, so 
+$\hgt \mathfrak{p} + 1 = m = \hgt \mathfrak{q}$, as required. If $\mathfrak{q}_{m-1}^c \subset \mathfrak{p}$ is proper, then we have
+$$\hgt \mathfrak{p} > \hgt \mathfrak{q}_{m-1}^c \ge \hgt \mathfrak{q}_{m-1} - 1 = m - 2,$$
+so $\hgt \mathfrak{p} \ge m - 1$. Thus, $\hgt \mathfrak{p} + 1 \ge m = \hgt \mathfrak{q}$, as required. By induction, for any prime ideal $\mathfrak{q}$ of $A[x]$, 
+$\hgt\mathfrak{q} \le \hgt\mathfrak{p} + 1$, where $\mathfrak{p} = \mathfrak{q}^c \subset A$. Hence, $\dim A[x] \le \dim A + 1$. With Exercise \ref{11.6},
+which gives us $\dim A[x] \ge \dim A + 1$, we obtain $\dim A[x] = \dim A + 1$.
+
+Therefore, we've produced the base case for the equality $\dim A[x_1,\ldots,x_n] = \dim A + n$. Assume this holds for $n$. Then, $A[x_1,\ldots,x_{n+1}]$ is Noetherian
+by Corollary 7.6, so by the previous result and that fact that $A[x_1,\ldots,x_n][x] \cong A[x_1,\ldots,x_{n+1}]$, we have
+$$\dim A[x_1,\ldots,x_{n+1}] = \dim A[x_1,\ldots,x_n][x] =  \dim A[x_1,\ldots,x_n] + 1 = \dim A + n + 1.$$
+By induction, the equality holds for all $n$.
+\end{proof}
